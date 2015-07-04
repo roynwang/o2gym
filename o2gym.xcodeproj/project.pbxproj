@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F41B47BECC00729F8F /* AppDelegate.swift */; };
-		724EB4F71B47BECC00729F8F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F61B47BECC00729F8F /* FirstViewController.swift */; };
-		724EB4F91B47BECC00729F8F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F81B47BECC00729F8F /* SecondViewController.swift */; };
+		724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F61B47BECC00729F8F /* RecommendViewController.swift */; };
+		724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F81B47BECC00729F8F /* BusinessViewController.swift */; };
 		724EB4FC1B47BECC00729F8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FA1B47BECC00729F8F /* Main.storyboard */; };
 		724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FD1B47BECC00729F8F /* Images.xcassets */; };
 		724EB5011B47BECC00729F8F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */; };
 		724EB50D1B47BECC00729F8F /* o2gymTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB50C1B47BECC00729F8F /* o2gymTests.swift */; };
+		724EB51B1B47C00C00729F8F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB51A1B47C00C00729F8F /* Article.swift */; };
+		724EB51D1B47C01A00729F8F /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB51C1B47C01A00729F8F /* Gym.swift */; };
+		724EB51F1B47C02C00729F8F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB51E1B47C02C00729F8F /* Course.swift */; };
+		724EB5211B47C04100729F8F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5201B47C04100729F8F /* Person.swift */; };
+		724EB5231B47C05700729F8F /* Weibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5221B47C05700729F8F /* Weibo.swift */; };
+		724EB5261B4833E400729F8F /* AF in Resources */ = {isa = PBXBuildFile; fileRef = 724EB5251B4833E400729F8F /* AF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +36,20 @@
 		724EB4EF1B47BECC00729F8F /* o2gym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = o2gym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724EB4F31B47BECC00729F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724EB4F41B47BECC00729F8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		724EB4F61B47BECC00729F8F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		724EB4F81B47BECC00729F8F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		724EB4F61B47BECC00729F8F /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		724EB4F81B47BECC00729F8F /* BusinessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewController.swift; sourceTree = "<group>"; };
 		724EB4FB1B47BECC00729F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		724EB4FD1B47BECC00729F8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		724EB5001B47BECC00729F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		724EB5061B47BECC00729F8F /* o2gymTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = o2gymTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		724EB50B1B47BECC00729F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724EB50C1B47BECC00729F8F /* o2gymTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = o2gymTests.swift; sourceTree = "<group>"; };
+		724EB51A1B47C00C00729F8F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		724EB51C1B47C01A00729F8F /* Gym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
+		724EB51E1B47C02C00729F8F /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		724EB5201B47C04100729F8F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		724EB5221B47C05700729F8F /* Weibo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weibo.swift; sourceTree = "<group>"; };
+		724EB5251B4833E400729F8F /* AF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +91,12 @@
 		724EB4F11B47BECC00729F8F /* o2gym */ = {
 			isa = PBXGroup;
 			children = (
+				724EB5241B4833CB00729F8F /* Utils */,
+				724EB5191B47BFDC00729F8F /* Data */,
+				724EB5181B47BFAA00729F8F /* Middleware */,
+				724EB5171B47BF3800729F8F /* Business */,
+				724EB5161B47BF2000729F8F /* Recommend */,
 				724EB4F41B47BECC00729F8F /* AppDelegate.swift */,
-				724EB4F61B47BECC00729F8F /* FirstViewController.swift */,
-				724EB4F81B47BECC00729F8F /* SecondViewController.swift */,
 				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
 				724EB4FD1B47BECC00729F8F /* Images.xcassets */,
 				724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */,
@@ -113,6 +128,49 @@
 				724EB50B1B47BECC00729F8F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		724EB5161B47BF2000729F8F /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				724EB4F61B47BECC00729F8F /* RecommendViewController.swift */,
+			);
+			name = Recommend;
+			sourceTree = "<group>";
+		};
+		724EB5171B47BF3800729F8F /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				724EB4F81B47BECC00729F8F /* BusinessViewController.swift */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		724EB5181B47BFAA00729F8F /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Middleware;
+			sourceTree = "<group>";
+		};
+		724EB5191B47BFDC00729F8F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				724EB51A1B47C00C00729F8F /* Article.swift */,
+				724EB51C1B47C01A00729F8F /* Gym.swift */,
+				724EB51E1B47C02C00729F8F /* Course.swift */,
+				724EB5201B47C04100729F8F /* Person.swift */,
+				724EB5221B47C05700729F8F /* Weibo.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		724EB5241B4833CB00729F8F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				724EB5251B4833E400729F8F /* AF */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +256,7 @@
 				724EB4FC1B47BECC00729F8F /* Main.storyboard in Resources */,
 				724EB5011B47BECC00729F8F /* LaunchScreen.xib in Resources */,
 				724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */,
+				724EB5261B4833E400729F8F /* AF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				724EB4F91B47BECC00729F8F /* SecondViewController.swift in Sources */,
+				724EB51F1B47C02C00729F8F /* Course.swift in Sources */,
+				724EB51B1B47C00C00729F8F /* Article.swift in Sources */,
+				724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */,
 				724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */,
-				724EB4F71B47BECC00729F8F /* FirstViewController.swift in Sources */,
+				724EB5231B47C05700729F8F /* Weibo.swift in Sources */,
+				724EB5211B47C04100729F8F /* Person.swift in Sources */,
+				724EB51D1B47C01A00729F8F /* Gym.swift in Sources */,
+				724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
