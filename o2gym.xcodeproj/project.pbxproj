@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		723E82811B492C6500861D6D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82801B492C6500861D6D /* SwiftyJSON.swift */; };
+		723E82881B49753500861D6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82851B49753500861D6D /* User.swift */; };
+		723E82891B49753500861D6D /* Weibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82861B49753500861D6D /* Weibo.swift */; };
+		723E828F1B49756B00861D6D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E828C1B49756B00861D6D /* Article.swift */; };
+		723E82901B49756B00861D6D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E828D1B49756B00861D6D /* Course.swift */; };
+		723E82911B49756B00861D6D /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E828E1B49756B00861D6D /* Gym.swift */; };
+		723E82931B4980AF00861D6D /* ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82921B4980AF00861D6D /* ext.swift */; };
+		723E82951B4A399A00861D6D /* BaseDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82941B4A399A00861D6D /* BaseDataItem.swift */; };
 		724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F41B47BECC00729F8F /* AppDelegate.swift */; };
 		724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F61B47BECC00729F8F /* RecommendViewController.swift */; };
 		724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F81B47BECC00729F8F /* BusinessViewController.swift */; };
@@ -14,12 +22,15 @@
 		724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FD1B47BECC00729F8F /* Images.xcassets */; };
 		724EB5011B47BECC00729F8F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */; };
 		724EB50D1B47BECC00729F8F /* o2gymTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB50C1B47BECC00729F8F /* o2gymTests.swift */; };
-		724EB51B1B47C00C00729F8F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB51A1B47C00C00729F8F /* Article.swift */; };
-		724EB51D1B47C01A00729F8F /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB51C1B47C01A00729F8F /* Gym.swift */; };
-		724EB51F1B47C02C00729F8F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB51E1B47C02C00729F8F /* Course.swift */; };
-		724EB5211B47C04100729F8F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5201B47C04100729F8F /* Person.swift */; };
-		724EB5231B47C05700729F8F /* Weibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5221B47C05700729F8F /* Weibo.swift */; };
-		724EB5261B4833E400729F8F /* AF in Resources */ = {isa = PBXBuildFile; fileRef = 724EB5251B4833E400729F8F /* AF */; };
+		724EB53C1B4836A900729F8F /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB53B1B4836A900729F8F /* Alamofire.swift */; };
+		724EB5441B4836F900729F8F /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB53D1B4836F900729F8F /* Download.swift */; };
+		724EB5451B4836F900729F8F /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB53E1B4836F900729F8F /* Manager.swift */; };
+		724EB5461B4836F900729F8F /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB53F1B4836F900729F8F /* ParameterEncoding.swift */; };
+		724EB5471B4836F900729F8F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5401B4836F900729F8F /* Request.swift */; };
+		724EB5481B4836F900729F8F /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5411B4836F900729F8F /* ResponseSerialization.swift */; };
+		724EB5491B4836F900729F8F /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5421B4836F900729F8F /* Upload.swift */; };
+		724EB54A1B4836F900729F8F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5431B4836F900729F8F /* Validation.swift */; };
+		724EB54E1B483B9C00729F8F /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB54D1B483B9C00729F8F /* Host.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		723E82801B492C6500861D6D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		723E82851B49753500861D6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		723E82861B49753500861D6D /* Weibo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weibo.swift; sourceTree = "<group>"; };
+		723E828C1B49756B00861D6D /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		723E828D1B49756B00861D6D /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		723E828E1B49756B00861D6D /* Gym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
+		723E82921B4980AF00861D6D /* ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ext.swift; sourceTree = "<group>"; };
+		723E82941B4A399A00861D6D /* BaseDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataItem.swift; sourceTree = "<group>"; };
 		724EB4EF1B47BECC00729F8F /* o2gym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = o2gym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724EB4F31B47BECC00729F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724EB4F41B47BECC00729F8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,12 +63,16 @@
 		724EB5061B47BECC00729F8F /* o2gymTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = o2gymTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		724EB50B1B47BECC00729F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724EB50C1B47BECC00729F8F /* o2gymTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = o2gymTests.swift; sourceTree = "<group>"; };
-		724EB51A1B47C00C00729F8F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		724EB51C1B47C01A00729F8F /* Gym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
-		724EB51E1B47C02C00729F8F /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		724EB5201B47C04100729F8F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		724EB5221B47C05700729F8F /* Weibo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weibo.swift; sourceTree = "<group>"; };
-		724EB5251B4833E400729F8F /* AF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AF; sourceTree = "<group>"; };
+		724EB53A1B4836A900729F8F /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
+		724EB53B1B4836A900729F8F /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		724EB53D1B4836F900729F8F /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		724EB53E1B4836F900729F8F /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		724EB53F1B4836F900729F8F /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		724EB5401B4836F900729F8F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		724EB5411B4836F900729F8F /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
+		724EB5421B4836F900729F8F /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		724EB5431B4836F900729F8F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		724EB54D1B483B9C00729F8F /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +93,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723E828B1B49754600861D6D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				723E828C1B49756B00861D6D /* Article.swift */,
+				723E828D1B49756B00861D6D /* Course.swift */,
+				723E828E1B49756B00861D6D /* Gym.swift */,
+				723E82851B49753500861D6D /* User.swift */,
+				723E82861B49753500861D6D /* Weibo.swift */,
+				723E82941B4A399A00861D6D /* BaseDataItem.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		724EB4E61B47BECC00729F8F = {
 			isa = PBXGroup;
 			children = (
@@ -91,8 +127,9 @@
 		724EB4F11B47BECC00729F8F /* o2gym */ = {
 			isa = PBXGroup;
 			children = (
-				724EB5241B4833CB00729F8F /* Utils */,
-				724EB5191B47BFDC00729F8F /* Data */,
+				723E828B1B49754600861D6D /* Data */,
+				724EB54C1B483B5F00729F8F /* Global */,
+				724EB5391B48368700729F8F /* Utils */,
 				724EB5181B47BFAA00729F8F /* Middleware */,
 				724EB5171B47BF3800729F8F /* Business */,
 				724EB5161B47BF2000729F8F /* Recommend */,
@@ -153,24 +190,38 @@
 			name = Middleware;
 			sourceTree = "<group>";
 		};
-		724EB5191B47BFDC00729F8F /* Data */ = {
+		724EB5391B48368700729F8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				724EB51A1B47C00C00729F8F /* Article.swift */,
-				724EB51C1B47C01A00729F8F /* Gym.swift */,
-				724EB51E1B47C02C00729F8F /* Course.swift */,
-				724EB5201B47C04100729F8F /* Person.swift */,
-				724EB5221B47C05700729F8F /* Weibo.swift */,
-			);
-			name = Data;
-			sourceTree = "<group>";
-		};
-		724EB5241B4833CB00729F8F /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				724EB5251B4833E400729F8F /* AF */,
+				724EB54B1B48371F00729F8F /* af */,
+				723E82801B492C6500861D6D /* SwiftyJSON.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		724EB54B1B48371F00729F8F /* af */ = {
+			isa = PBXGroup;
+			children = (
+				724EB53D1B4836F900729F8F /* Download.swift */,
+				724EB53E1B4836F900729F8F /* Manager.swift */,
+				724EB53F1B4836F900729F8F /* ParameterEncoding.swift */,
+				724EB5401B4836F900729F8F /* Request.swift */,
+				724EB5411B4836F900729F8F /* ResponseSerialization.swift */,
+				724EB5421B4836F900729F8F /* Upload.swift */,
+				724EB5431B4836F900729F8F /* Validation.swift */,
+				724EB53A1B4836A900729F8F /* Alamofire.h */,
+				724EB53B1B4836A900729F8F /* Alamofire.swift */,
+			);
+			name = af;
+			sourceTree = "<group>";
+		};
+		724EB54C1B483B5F00729F8F /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				724EB54D1B483B9C00729F8F /* Host.swift */,
+				723E82921B4980AF00861D6D /* ext.swift */,
+			);
+			name = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +307,6 @@
 				724EB4FC1B47BECC00729F8F /* Main.storyboard in Resources */,
 				724EB5011B47BECC00729F8F /* LaunchScreen.xib in Resources */,
 				724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */,
-				724EB5261B4833E400729F8F /* AF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,14 +324,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				724EB51F1B47C02C00729F8F /* Course.swift in Sources */,
-				724EB51B1B47C00C00729F8F /* Article.swift in Sources */,
+				724EB5471B4836F900729F8F /* Request.swift in Sources */,
+				723E82911B49756B00861D6D /* Gym.swift in Sources */,
 				724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */,
 				724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */,
-				724EB5231B47C05700729F8F /* Weibo.swift in Sources */,
-				724EB5211B47C04100729F8F /* Person.swift in Sources */,
-				724EB51D1B47C01A00729F8F /* Gym.swift in Sources */,
+				724EB5481B4836F900729F8F /* ResponseSerialization.swift in Sources */,
+				723E82951B4A399A00861D6D /* BaseDataItem.swift in Sources */,
+				724EB54A1B4836F900729F8F /* Validation.swift in Sources */,
+				723E82931B4980AF00861D6D /* ext.swift in Sources */,
+				723E82901B49756B00861D6D /* Course.swift in Sources */,
+				724EB5491B4836F900729F8F /* Upload.swift in Sources */,
+				723E82881B49753500861D6D /* User.swift in Sources */,
+				724EB5461B4836F900729F8F /* ParameterEncoding.swift in Sources */,
+				724EB53C1B4836A900729F8F /* Alamofire.swift in Sources */,
+				724EB54E1B483B9C00729F8F /* Host.swift in Sources */,
+				724EB5451B4836F900729F8F /* Manager.swift in Sources */,
+				723E82811B492C6500861D6D /* SwiftyJSON.swift in Sources */,
+				723E828F1B49756B00861D6D /* Article.swift in Sources */,
 				724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */,
+				724EB5441B4836F900729F8F /* Download.swift in Sources */,
+				723E82891B49753500861D6D /* Weibo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,8 +470,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -418,8 +482,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -477,6 +543,7 @@
 				724EB5121B47BECC00729F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		724EB5131B47BECC00729F8F /* Build configuration list for PBXNativeTarget "o2gymTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +552,7 @@
 				724EB5151B47BECC00729F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

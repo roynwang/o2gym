@@ -8,22 +8,47 @@
 
 import UIKit
 import XCTest
+import o2gym
 
-class o2gymTests: XCTestCase {
+
+public class o2gymTests: XCTestCase {
     
-    override func setUp() {
+    override public func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    override func tearDown() {
+    override public func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    
+    func testUserCreate(){
+        var usr = User(id:nil, name:"royn",iscoach:true)
+        usr.save(nil, error_handler: nil)
+        sleep(1)
+    }
+    
+    func testUserGet(){
+        var usr = User(name:"royn")
+        usr.loadRemote()
+        sleep(1)
+    }
+    
+    func testWeiboCreate(){
+        let usr = User(id:2,name:"royn")
+        let weibo = Weibo(usr:usr)
+        weibo.setContent("mmmmmmm", brief: "brief", imgs: "imgs")
+        weibo.save(nil,error_handler: nil)
+        sleep(1)
+    }
+    
+    func testWeiboGet(){
+        let usr = User(id:2,name:"royn")
+        let weibo = Weibo(usr:usr, weiboid:4)
+        weibo.loadRemote()
+        sleep(1)
     }
     
     func testPerformanceExample() {
