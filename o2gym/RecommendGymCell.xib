@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommendgymcell" rowHeight="100" id="KGk-i7-Jjw" customClass="RecommendGymCell" customModule="o2gym" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pVn-b0-RZh">
+                        <rect key="frame" x="-8" y="0.0" width="400" height="87.5"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aY5-7p-1Q4">
+                        <rect key="frame" x="44" y="33.5" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pVn-b0-RZh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="6ga-ZO-PUB"/>
+                    <constraint firstAttribute="centerX" secondItem="aY5-7p-1Q4" secondAttribute="centerX" id="Jt3-CF-ame"/>
+                    <constraint firstAttribute="centerY" secondItem="aY5-7p-1Q4" secondAttribute="centerY" id="QMq-q9-WSq"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pVn-b0-RZh" secondAttribute="bottom" constant="-8" id="Stj-dw-1Mq"/>
+                    <constraint firstItem="pVn-b0-RZh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="VhA-84-dFs"/>
+                    <constraint firstItem="aY5-7p-1Q4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="36" id="adY-P3-2lA"/>
+                    <constraint firstAttribute="centerX" secondItem="pVn-b0-RZh" secondAttribute="centerX" id="fOP-hc-eO9"/>
+                    <constraint firstAttribute="centerY" secondItem="pVn-b0-RZh" secondAttribute="centerY" id="nE1-3e-4Xu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pVn-b0-RZh" secondAttribute="trailing" constant="-16" id="wXl-I4-Psi"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Jt3-CF-ame"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="BriefImg" destination="pVn-b0-RZh" id="fQm-g0-jp2"/>
+                <outlet property="Des" destination="aY5-7p-1Q4" id="qxc-cI-NhE"/>
+            </connections>
+            <point key="canvasLocation" x="135" y="144"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -20,7 +20,6 @@ class Host {
     }
     class func UserCreate() -> String{
         let url : String = "\(self.ip)/u/"
-        print("===========\(url)==========")
         return url
     }
     
@@ -29,4 +28,33 @@ class Host {
         return url
     }
     
+    class func RecommendGet()->String{
+        let url : String = "\(self.ip)/r/"
+        return url
+    }
+    
+    class func FeedGet(name:String)->String{
+        let url : String = "\(self.ip)/\(name)/feed/"
+        return url
+    }
+    
+    class func FeedLatest(name:String)->String{
+        let url : String = "\(self.ip)/\(name)/refresh/"
+        return url
+    }
+    
+    class func CommentGet(id:Int)->String{
+        let url : String = "\(self.ip)/w/\(id)/comment/"
+        return url
+    }
+    
+    class func GymGet(id:Int)->String{
+        let url : String = "\(self.ip)/g/\(id)/"
+        return url
+    }
+    class func GymCreate()->String{
+        let url : String = "\(self.ip)/g/"
+        return url
+    }
+
 }

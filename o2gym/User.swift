@@ -13,6 +13,11 @@ public class User : BaseDataItem{
     public var id:Int? = nil
     public var name:String? = nil
     public var iscoach:Bool = false
+    public var avatar:String? = nil
+    
+    override var type:String {
+        return "user"
+    }
     
     override var UrlCreate:String {
         return Host.UserCreate()
@@ -21,23 +26,32 @@ public class User : BaseDataItem{
         return Host.UserGet(self.name!)
     }
     
-    public init(id: Int?, name:String?, iscoach:Bool?){
+    public init(id: Int?, name:String?, iscoach:Bool?, avatar:String?){
         self.id = id
         self.name = name
         if iscoach != nil {
             self.iscoach = iscoach!
         }
+        self.avatar = avatar
     }
     
     public override convenience init(){
-        self.init(id: nil, name: nil, iscoach: false)
+        self.init(id: nil, name: nil, iscoach: false, avatar: nil)
+    }
+    public convenience init(dict:JSON){
+        self.init(id:dict["id"].intValue,
+            name:dict["name"].stringValue,
+            iscoach:dict["iscoach"].boolValue,
+            avatar:dict["avatar"].stringValue
+        )
+        
     }
     
     public convenience init(name:String){
-        self.init(id: nil, name: name, iscoach: false)
+        self.init(id: nil, name: name, iscoach: false, avatar: nil)
     }
     public convenience init(id:Int, name:String){
-        self.init(id: id, name: name, iscoach: false)
+        self.init(id: id, name: name, iscoach: false, avatar: nil)
     }
      public override func buildParam()->[String:String]{
         return [ "name": self.name!, "iscoach": self.iscoach.toString()]
@@ -46,6 +60,8 @@ public class User : BaseDataItem{
     public override func loadFromJSON(dict:JSON){
         self.id = dict["id"].int
         self.name = dict["name"].string
+        self.iscoach = dict["iscoach"].boolValue
+        self.avatar = dict["avator"].string
     }
     
 

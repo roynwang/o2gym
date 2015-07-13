@@ -11,6 +11,14 @@ import Foundation
 
 public class BaseDataItem {
     
+    var type:String {
+        return "base"
+    }
+    
+    public convenience init(dict:JSON){
+        preconditionFailure("This method must be overridden")
+    }
+    
     //创建的url
     var UrlCreate:String {
         preconditionFailure("This method must be overridden")
@@ -28,14 +36,14 @@ public class BaseDataItem {
     func buildParam()->[String:String]{
         preconditionFailure("This method must be overridden")
     }
-    public func save(success_handler:((BaseDataItem)->Void)?, error_handler:((NSError?)->Void)?){
+    public func save<T:BaseDataItem>(success_handler:((T)->Void)?, error_handler:((NSError?)->Void)?){
         request(.POST, self.UrlCreate, parameters:self.buildParam())
-            .responseJSON { (_, body, data, error) in
-                if error == nil{
+            .responseJSON { (_, resp, data, error) in
+                if resp?.statusCode == 201{
                     let dict = JSON(data!)
                     self.loadFromJSON(dict)
                     if success_handler != nil {
-                        success_handler!(self)
+                        success_handler!(self as! T)
                     }
                 } else {
                     if error_handler != nil {
@@ -43,23 +51,40 @@ public class BaseDataItem {
                     }
                 }
         }
-
+        
     }
-    public func loadRemote(callback :((BaseDataItem)->Void)?){
+    public func loadRemote<T:BaseDataItem>(onsuccess :((T)->Void)?,onfail :((String)->Void)?){
         request(.GET, self.UrlGet)
-            .responseJSON { (_, _, data, _) in
-                let dict = JSON(data!)
-                self.loadFromJSON(dict)
-                if callback != nil{
-                    callback!(self)
+            .responseJSON { (_, resp, data, error) in
+                
+                if error == nil{
+                    switch resp!.statusCode{
+                    case 200:
+                        let dict = JSON(data!)
+                        self.loadFromJSON(dict)
+                        if onsuccess != nil{
+                            onsuccess!(self as! T)
+                        }
+                        break
+                    case 404:
+                        if onfail != nil{
+                            onfail!("无法访问" + self.UrlGet)
+                        }
+                        break
+                    default:
+                        if onfail != nil{
+                            onfail!(String(stringInterpolationSegment: resp))
+                        }
+                    }
+                } else{
+                    if onfail != nil{
+                        onfail!(error!.description)
+                    }
                 }
         }
     }
     public func loadRemote(){
-        self.loadRemote(nil)
+        self.loadRemote(nil, onfail: nil)
     }
-    public func loadRemote(callback: (BaseDataItem)->Void){
-        self.loadRemote(callback)
-    }
-
+    
 }

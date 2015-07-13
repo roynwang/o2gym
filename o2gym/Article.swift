@@ -12,6 +12,10 @@ import Foundation
 class Article : Weibo {
     let content:String = ""
     
+    override var type:String {
+        return "article"
+    }
+    
     func getContent(){
         
     }

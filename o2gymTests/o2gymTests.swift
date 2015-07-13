@@ -25,7 +25,7 @@ public class o2gymTests: XCTestCase {
     
     
     func testUserCreate(){
-        var usr = User(id:nil, name:"royn",iscoach:true)
+        var usr = User(id:nil, name:"royn",iscoach:true, avatar: nil)
         usr.save(nil, error_handler: nil)
         sleep(1)
     }
@@ -50,12 +50,19 @@ public class o2gymTests: XCTestCase {
         weibo.loadRemote()
         sleep(1)
     }
-    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
+    }
+    func testHttp(){
+        let url = NSURL(string: "http://www.stackoverflow.com")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+        }
+        task.resume()
     }
     
 }

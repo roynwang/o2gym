@@ -15,7 +15,7 @@ public class Weibo : BaseDataItem {
     
     var id: Int? = 0
     public var title: String = ""
-    var brief: String = ""
+    public var brief: String = ""
     var imgs: String = ""
     var islong: Bool = false
     var created: String = ""
@@ -37,6 +37,21 @@ public class Weibo : BaseDataItem {
     var author: Dictionary<String,JSON>? = nil
     
     var topcomments: Array<JSON>? = []
+    
+    var img_set:[String] = []
+    
+    func load_img_set(){
+        if let dataFromString = self.imgs.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+            let json = JSON(data: dataFromString)
+            for item in json.arrayValue {
+                self.img_set.append(item.stringValue)
+            }
+        }
+    }
+    
+    override var type:String {
+        return "weibo"
+    }
 
     override var UrlCreate:String {
         return Host.WeiboCreate(self.usr.name!)
@@ -50,6 +65,10 @@ public class Weibo : BaseDataItem {
         self.usr = usr
         self.id = weiboid
     }
+    public convenience init(dict:JSON){
+        self.init(usr: User(name: dict["by"].stringValue), weiboid: dict["id"].intValue)
+        self.loadFromJSON(dict)
+    }
     public convenience init(usr: User){
         self.init(usr:usr,weiboid:nil)
     }
@@ -58,6 +77,7 @@ public class Weibo : BaseDataItem {
         self.title = title
         self.brief = brief
         self.imgs = imgs
+        self.load_img_set()
     }
     
     public override func buildParam()->[String:String]{
@@ -105,6 +125,8 @@ public class Weibo : BaseDataItem {
         
         self.author = dict["author"].dictionaryValue
         self.topcomments = dict["topcomments"].arrayValue
+        
+        self.load_img_set()
     }
     
     public func up(){
@@ -121,10 +143,13 @@ public class Weibo : BaseDataItem {
     }
 }
 
-class CommentWeibo: Weibo{
-    
-}
+public class WeiboBrief:Weibo {
+    public init(usr:User, dict:JSON){
+        super.init(usr: usr, weiboid: dict["id"].int)
+        self.loadbrief(dict)
+        
+    }
+    func loadbrief(dict:JSON){
+    }
 
-class FwdWeibo: Weibo{
-    
 }
