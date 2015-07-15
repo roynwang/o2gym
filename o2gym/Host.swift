@@ -56,5 +56,15 @@ class Host {
         let url : String = "\(self.ip)/g/"
         return url
     }
+    
+    class func MyPostGet(name:String)->String{
+        let url : String = "\(self.ip)/\(name)/weibo/"
+        return url
+    }
+    
+    class func AlbumGet(name:String)->String{
+        let url : String = "\(self.ip)/\(name)/album/"
+        return url
+    }
 
 }

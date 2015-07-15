@@ -39,6 +39,10 @@
 		724652B01B52A717004E69C1 /* UIImageView+ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652AC1B52A717004E69C1 /* UIImageView+ImageLoader.swift */; };
 		724652B31B538872004E69C1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B21B538872004E69C1 /* Helper.swift */; };
 		724652B51B53EE9D004E69C1 /* CoachDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B41B53EE9D004E69C1 /* CoachDetailViewController.swift */; };
+		724652B81B54ECF2004E69C1 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B71B54ECF2004E69C1 /* AlbumViewController.swift */; };
+		724652BA1B54EEC6004E69C1 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B91B54EEC6004E69C1 /* MyPostViewController.swift */; };
+		724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652BB1B54EF4E004E69C1 /* MyPost.swift */; };
+		724652BE1B555C65004E69C1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652BD1B555C65004E69C1 /* TestViewController.swift */; };
 		724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F41B47BECC00729F8F /* AppDelegate.swift */; };
 		724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F61B47BECC00729F8F /* RecommendViewController.swift */; };
 		724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F81B47BECC00729F8F /* BusinessViewController.swift */; };
@@ -56,6 +60,9 @@
 		724EB54A1B4836F900729F8F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5431B4836F900729F8F /* Validation.swift */; };
 		724EB54E1B483B9C00729F8F /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB54D1B483B9C00729F8F /* Host.swift */; };
 		725AC7661B4F9C0D0049BB4F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725AC7651B4F9C0D0049BB4F /* TabViewController.swift */; };
+		728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A01B563F5300B3D3B0 /* Album.swift */; };
+		728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A21B563F8400B3D3B0 /* Pic.swift */; };
+		728BD3A51B56458000B3D3B0 /* AlbumPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A41B56458000B3D3B0 /* AlbumPicCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +109,10 @@
 		724652AC1B52A717004E69C1 /* UIImageView+ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageLoader.swift"; sourceTree = "<group>"; };
 		724652B21B538872004E69C1 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		724652B41B53EE9D004E69C1 /* CoachDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachDetailViewController.swift; sourceTree = "<group>"; };
+		724652B71B54ECF2004E69C1 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		724652B91B54EEC6004E69C1 /* MyPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
+		724652BB1B54EF4E004E69C1 /* MyPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
+		724652BD1B555C65004E69C1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		724EB4EF1B47BECC00729F8F /* o2gym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = o2gym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724EB4F31B47BECC00729F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724EB4F41B47BECC00729F8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +135,9 @@
 		724EB5431B4836F900729F8F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		724EB54D1B483B9C00729F8F /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
 		725AC7651B4F9C0D0049BB4F /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		728BD3A01B563F5300B3D3B0 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		728BD3A21B563F8400B3D3B0 /* Pic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pic.swift; sourceTree = "<group>"; };
+		728BD3A41B56458000B3D3B0 /* AlbumPicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumPicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,7 @@
 				723E82851B49753500861D6D /* User.swift */,
 				723E82861B49753500861D6D /* Weibo.swift */,
 				723E82941B4A399A00861D6D /* BaseDataItem.swift */,
+				728BD3A21B563F8400B3D3B0 /* Pic.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -164,27 +179,20 @@
 				723E82991B4A952400861D6D /* RecommendList.swift */,
 				723E829B1B4A9A7300861D6D /* BaseDataList.swift */,
 				723E82DD1B4EC77200861D6D /* Comments.swift */,
+				724652BB1B54EF4E004E69C1 /* MyPost.swift */,
+				728BD3A01B563F5300B3D3B0 /* Album.swift */,
 			);
 			name = DataList;
 			sourceTree = "<group>";
 		};
-		723E82A31B4CF13D00861D6D /* Detail */ = {
+		723E82A31B4CF13D00861D6D /* UIDetail */ = {
 			isa = PBXGroup;
 			children = (
 				723E82A41B4CF1BB00861D6D /* WeiboViewController.swift */,
-				723E82AC1B4D0E6100861D6D /* CommentViewController.swift */,
 				725AC7651B4F9C0D0049BB4F /* TabViewController.swift */,
 				724652B41B53EE9D004E69C1 /* CoachDetailViewController.swift */,
 			);
-			name = Detail;
-			sourceTree = "<group>";
-		};
-		723E82DC1B4EBF4C00861D6D /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				723E82A11B4C1ED100861D6D /* FeedViewController.swift */,
-			);
-			name = Feed;
+			name = UIDetail;
 			sourceTree = "<group>";
 		};
 		724652A71B52A717004E69C1 /* ImageLoader */ = {
@@ -210,8 +218,20 @@
 				7246529F1B525821004E69C1 /* RecommendCoachCell.xib */,
 				724652A21B525841004E69C1 /* RecommendUserCell.swift */,
 				724652A31B525841004E69C1 /* RecommendUserCell.xib */,
+				728BD3A41B56458000B3D3B0 /* AlbumPicCell.swift */,
 			);
 			name = UIUnit;
+			sourceTree = "<group>";
+		};
+		724652B61B54EC95004E69C1 /* UIList */ = {
+			isa = PBXGroup;
+			children = (
+				723E82AC1B4D0E6100861D6D /* CommentViewController.swift */,
+				723E82A11B4C1ED100861D6D /* FeedViewController.swift */,
+				724652B71B54ECF2004E69C1 /* AlbumViewController.swift */,
+				724652B91B54EEC6004E69C1 /* MyPostViewController.swift */,
+			);
+			name = UIList;
 			sourceTree = "<group>";
 		};
 		724EB4E61B47BECC00729F8F = {
@@ -235,9 +255,9 @@
 		724EB4F11B47BECC00729F8F /* o2gym */ = {
 			isa = PBXGroup;
 			children = (
+				724652B61B54EC95004E69C1 /* UIList */,
 				724652B11B536DB3004E69C1 /* UIUnit */,
-				723E82DC1B4EBF4C00861D6D /* Feed */,
-				723E82A31B4CF13D00861D6D /* Detail */,
+				723E82A31B4CF13D00861D6D /* UIDetail */,
 				723E82961B4A950B00861D6D /* DataList */,
 				723E828B1B49754600861D6D /* Data */,
 				724EB54C1B483B5F00729F8F /* Global */,
@@ -251,6 +271,7 @@
 				724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */,
 				724EB4F21B47BECC00729F8F /* Supporting Files */,
 				723E829F1B4ACDEA00861D6D /* FirstViewController.swift */,
+				724652BD1B555C65004E69C1 /* TestViewController.swift */,
 			);
 			path = o2gym;
 			sourceTree = "<group>";
@@ -448,6 +469,8 @@
 			files = (
 				723E82AD1B4D0E6100861D6D /* CommentViewController.swift in Sources */,
 				724EB5471B4836F900729F8F /* Request.swift in Sources */,
+				724652BE1B555C65004E69C1 /* TestViewController.swift in Sources */,
+				724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */,
 				724652B51B53EE9D004E69C1 /* CoachDetailViewController.swift in Sources */,
 				723E82911B49756B00861D6D /* Gym.swift in Sources */,
 				724652B01B52A717004E69C1 /* UIImageView+ImageLoader.swift in Sources */,
@@ -458,12 +481,15 @@
 				724EB54A1B4836F900729F8F /* Validation.swift in Sources */,
 				724652A41B525841004E69C1 /* RecommendUserCell.swift in Sources */,
 				723E82931B4980AF00861D6D /* ext.swift in Sources */,
+				728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */,
 				723E82901B49756B00861D6D /* Course.swift in Sources */,
 				723E829E1B4AC3D600861D6D /* Local.swift in Sources */,
 				723E82A21B4C1ED100861D6D /* FeedViewController.swift in Sources */,
+				724652B81B54ECF2004E69C1 /* AlbumViewController.swift in Sources */,
 				7246529C1B52580A004E69C1 /* RecommendGymCell.swift in Sources */,
 				723E829C1B4A9A7300861D6D /* BaseDataList.swift in Sources */,
 				724EB5491B4836F900729F8F /* Upload.swift in Sources */,
+				728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */,
 				723E82981B4A951900861D6D /* Feed.swift in Sources */,
 				723E82881B49753500861D6D /* User.swift in Sources */,
 				724652AD1B52A717004E69C1 /* Diskcached.swift in Sources */,
@@ -473,6 +499,7 @@
 				724652B31B538872004E69C1 /* Helper.swift in Sources */,
 				725AC7661B4F9C0D0049BB4F /* TabViewController.swift in Sources */,
 				724652991B5232D5004E69C1 /* RecommendListViewController.swift in Sources */,
+				724652BA1B54EEC6004E69C1 /* MyPostViewController.swift in Sources */,
 				724652961B5230EE004E69C1 /* RecommendArticleCell.swift in Sources */,
 				724EB53C1B4836A900729F8F /* Alamofire.swift in Sources */,
 				724652AE1B52A717004E69C1 /* ImageLoader.swift in Sources */,
@@ -486,6 +513,7 @@
 				724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */,
 				724EB5441B4836F900729F8F /* Download.swift in Sources */,
 				723E82891B49753500861D6D /* Weibo.swift in Sources */,
+				728BD3A51B56458000B3D3B0 /* AlbumPicCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

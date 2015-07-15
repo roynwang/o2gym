@@ -82,7 +82,7 @@ class RecommendListViewController: UITableViewController {
             self.performSegueWithIdentifier("coachdetail", sender: nil)
             break
         default:
-            self.performSegueWithIdentifier("weibodetail", sender: nil)
+            self.performSegueWithIdentifier("testsegue", sender: nil)
         }
     }
     

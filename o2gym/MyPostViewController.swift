@@ -1,85 +1,102 @@
 //
-//  RecommendTableViewController.swift
+//  MyPostViewController.swift
 //  o2gym
 //
-//  Created by xudongbo on 7/7/15.
+//  Created by xudongbo on 7/14/15.
 //  Copyright (c) 2015 royn. All rights reserved.
 //
 
 import UIKit
 
-class FeedViewController: UITableViewController {
 
-    override func viewDidLoad() {
+
+public class MyPostViewController: UITableViewController {
+    
+    var usrname:String!
+    var mypost:MyPost!
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
+        self.mypost = MyPost(name: self.usrname)
+       
         
-//        var refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: Selector("loadmore"), forControlEvents: UIControlEvents.ValueChanged)
-//        self.refreshControl = refreshControl
-
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    func loadmore(){
-        func addlatest(){
+    
+    public func loadHistory(callback:(()->Void)?){
+        self.mypost.loadHistory({
+             self.tableView.reloadData()
+            if callback != nil{
+                callback!()
+            }
+            }, itemcallback: nil)
+    }
+    public func load(callback:(()->Void)?){
+        self.mypost.load({
             self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
-        }
-        Local.FEED?.loadlatest(addlatest, onfail: nil)
+            if callback != nil{
+                callback!()
+            }
+            }, itemcallback: nil)
+    }
+    
+    func resizeTable(){
+
+        let height = self.tableView.contentSize.height;
+             
+        // if the height of the content is greater than the maxHeight of
+        // total space on the screen, limit the height to the size of the
+        // superview.
+        
+ 
+        
+        // now set the height constraint accordingly
+        
+        self.tableView.frame = CGRect(
+            x: self.tableView.frame.origin.x,
+            y: self.tableView.frame.origin.y,
+            width: self.tableView.frame.width,
+            height: height)
+
     }
 
-    override func didReceiveMemoryWarning() {
+    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return Local.FEED!.count + 1
+        return self.mypost.count
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == Local.FEED!.count {
-            Local.FEED?.loadHistory(self.tableView.reloadData, itemcallback: nil)
-        }
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("basiccell", forIndexPath: indexPath) as! UITableViewCell
         
-        // Configure the cell...
         let i = indexPath.row
-        if i < Local.FEED!.count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("basiccell", forIndexPath: indexPath) as! UITableViewCell
-            let wb = Local.FEED!.datalist[i] as! Weibo
-            cell.textLabel?.text = wb.title
-            cell.detailTextLabel?.text = wb.brief
-            return cell
-        }
-        else{
-             let cell = tableView.dequeueReusableCellWithIdentifier("loadhistory", forIndexPath: indexPath) as! UITableViewCell
-            cell.textLabel?.text = "加载更多..."
-            if Local.FEED?.nexturl == nil {
-                cell.textLabel?.text = "没有更多了"
-            }
-            return cell
-            
-        }
+    
+        let wb = self.mypost.datalist[i] as! Weibo
+        cell.textLabel?.text = wb.title
+        // Configure the cell...
 
+        return cell
     }
- 
+    
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -116,18 +133,14 @@ class FeedViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let index:Int? = self.tableView.indexPathForSelectedRow()?.row
-        let tarnav:UINavigationController = segue.destinationViewController as! UINavigationController
-        let tarview = tarnav.childViewControllers[0] as! WeiboViewController
-        tarview.weibo = Local.FEED?.datalist[index!] as! Weibo?
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }
