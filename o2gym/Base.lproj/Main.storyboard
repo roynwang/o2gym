@@ -91,22 +91,41 @@
                                             <action selector="tapalbum:" destination="ZAZ-em-uuz" eventType="touchUpInside" id="6mP-2x-HHy"/>
                                         </connections>
                                     </button>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="riq-wC-DrN">
+                                        <rect key="frame" x="0.0" y="192" width="600" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="IOZ-OK-2Wq"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="J9S-kt-Sm0" kind="embed" identifier="album" id="jb9-OM-1Uh"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="SGt-qW-4wh" secondAttribute="centerX" id="0o7-M3-yeY"/>
                                     <constraint firstItem="flX-Ii-ByK" firstAttribute="leading" secondItem="pVB-aV-CZX" secondAttribute="trailing" constant="1" id="2BB-DH-ksm"/>
+                                    <constraint firstItem="riq-wC-DrN" firstAttribute="top" secondItem="c5e-BV-orK" secondAttribute="bottom" constant="122" id="3M9-qr-qgX"/>
+                                    <constraint firstAttribute="centerX" secondItem="riq-wC-DrN" secondAttribute="centerX" id="570-Zi-l1n"/>
                                     <constraint firstItem="c5e-BV-orK" firstAttribute="top" secondItem="CdO-pW-3tH" secondAttribute="top" constant="10" id="5M1-XK-wgy"/>
+                                    <constraint firstItem="SGt-qW-4wh" firstAttribute="top" secondItem="c5e-BV-orK" secondAttribute="bottom" constant="122" id="DTh-ZQ-rfg"/>
                                     <constraint firstItem="pVB-aV-CZX" firstAttribute="leading" secondItem="c7I-Qn-sdz" secondAttribute="trailing" id="DhU-iJ-zAm"/>
+                                    <constraint firstAttribute="trailing" secondItem="riq-wC-DrN" secondAttribute="trailing" id="Iwo-ex-tuD"/>
                                     <constraint firstItem="flX-Ii-ByK" firstAttribute="top" secondItem="c5e-BV-orK" secondAttribute="bottom" constant="22" id="KjU-Co-mWu"/>
                                     <constraint firstAttribute="trailing" secondItem="SGt-qW-4wh" secondAttribute="trailing" id="OC2-Wm-86Y"/>
                                     <constraint firstItem="c7I-Qn-sdz" firstAttribute="leading" secondItem="CdO-pW-3tH" secondAttribute="leading" id="P6J-V0-ZMr"/>
                                     <constraint firstAttribute="centerX" secondItem="c5e-BV-orK" secondAttribute="centerX" id="VvU-hA-2eI"/>
                                     <constraint firstItem="c7I-Qn-sdz" firstAttribute="top" secondItem="c5e-BV-orK" secondAttribute="bottom" constant="22" id="jAF-rP-A69"/>
+                                    <constraint firstItem="riq-wC-DrN" firstAttribute="leading" secondItem="CdO-pW-3tH" secondAttribute="leading" id="jj3-k3-qs7"/>
                                     <constraint firstItem="SGt-qW-4wh" firstAttribute="top" secondItem="c7I-Qn-sdz" secondAttribute="bottom" constant="70" id="kE6-fR-OFS"/>
                                     <constraint firstItem="SGt-qW-4wh" firstAttribute="leading" secondItem="CdO-pW-3tH" secondAttribute="leading" id="pc5-bN-tXN"/>
                                     <constraint firstItem="pVB-aV-CZX" firstAttribute="top" secondItem="c5e-BV-orK" secondAttribute="bottom" constant="22" id="tVP-Kb-jBq"/>
                                     <constraint firstAttribute="centerX" secondItem="pVB-aV-CZX" secondAttribute="centerX" id="zbL-K0-1W3"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kE6-fR-OFS"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,10 +149,12 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="album" destination="flX-Ii-ByK" id="mNL-P6-1LQ"/>
+                        <outlet property="albumcontainer" destination="riq-wC-DrN" id="y4g-Ll-FNr"/>
                         <outlet property="avatar" destination="c5e-BV-orK" id="HdC-1D-cOf"/>
                         <outlet property="container" destination="SGt-qW-4wh" id="iJh-BH-oLn"/>
                         <outlet property="heightconstraint" destination="kCX-9k-6iW" id="CDo-bk-Uft"/>
                         <outlet property="history" destination="c7I-Qn-sdz" id="Dhx-YB-nQx"/>
+                        <outlet property="historycontainer" destination="SGt-qW-4wh" id="Faj-GZ-cBy"/>
                         <outlet property="scrollview" destination="CdO-pW-3tH" id="dnx-VG-cdr"/>
                     </connections>
                 </viewController>
@@ -146,7 +167,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="album" id="J9S-kt-Sm0" customClass="AlbumViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GHZ-Wf-Upz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wri-Aa-7Cb">
@@ -170,7 +191,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="img" destination="aHO-94-FhU" id="Zja-2J-NwN"/>
+                                    <outlet property="img" destination="aHO-94-FhU" id="3eg-aD-461"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -182,7 +203,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7O-Mu-VIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4361" y="-1782"/>
+            <point key="canvasLocation" x="4665" y="-1251"/>
         </scene>
         <!--My Post View Controller-->
         <scene sceneID="pmP-IV-iHY">
@@ -236,7 +257,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="333-T9-7IN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4676" y="-1127"/>
+            <point key="canvasLocation" x="4633" y="-837"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="6T9-s4-drb">

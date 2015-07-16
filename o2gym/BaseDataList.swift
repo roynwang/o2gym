@@ -36,6 +36,9 @@ public class BaseDataList {
         print(url+"\n")
         request(.GET, url)
             .responseJSON { (_, _, data, _) in
+                if data == nil {
+                    return
+                }
                 print(data)
                 let dict = JSON(data!)
                 var results:[JSON]? = nil

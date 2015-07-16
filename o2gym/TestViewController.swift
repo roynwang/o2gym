@@ -16,6 +16,7 @@ class TestViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.scr.contentSize.height=1000
+    
     }
 
     override func didReceiveMemoryWarning() {

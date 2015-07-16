@@ -9,6 +9,7 @@
 import UIKit
 
 public class Helper{
+    
     class func scaleByWidth(src:UIImage, towidth:CGFloat)->UIImage{
         let oldwidth = src.size.width
         let scaleFactor = towidth / oldwidth

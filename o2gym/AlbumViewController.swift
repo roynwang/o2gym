@@ -10,12 +10,12 @@ import UIKit
 
 let reuseIdentifier = "piccell"
 
-class AlbumViewController: UICollectionViewController {
+public class AlbumViewController: UICollectionViewController {
 
-    var usrname:String!
-    var album:Album!
+    public var usrname:String!
+    public var album:Album!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.album = Album(name:self.usrname)
 
@@ -23,13 +23,21 @@ class AlbumViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.registerClass(AlbumPicCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-        
         // Do any additional setup after loading the view.
     }
+    
+    public func load(callback:(()->Void)?){
+        self.album.load({
+            self.collectionView!.reloadData()
+            if callback != nil{
+                callback!()
+            }
+            }, itemcallback: nil)
+    }
 
-    override func didReceiveMemoryWarning() {
+    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -46,18 +54,18 @@ class AlbumViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    public override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         //#warning Incomplete method implementation -- Return the number of sections
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+        return self.album.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AlbumPicCell
     
         let item = self.album.datalist[indexPath.row] as! Pic

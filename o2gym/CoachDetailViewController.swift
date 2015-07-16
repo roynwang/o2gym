@@ -8,62 +8,69 @@
 
 import UIKit
 
-protocol ContainerViewControllerDelegate {
-    func update()
-
-}
 
 class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollview: UIScrollView!
     
 
     var coach:User? = nil
+    
+    var isAlbumLoaded:Bool = false
 
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var avatar: UIImageView!
     
-    var historyview:MyPostViewController!
-    var albumview:UIViewController!
-    
-    var curview:String!
+ 
     
     @IBOutlet weak var heightconstraint: NSLayoutConstraint!
     @IBOutlet weak var history: UIButton!
     
     @IBOutlet weak var album: UIButton!
     
+    
+    
+    @IBOutlet weak var historycontainer: UIView!
+    var historycontroller:MyPostViewController!
+    
+    @IBOutlet weak var albumcontainer: UIView!
+    var albumcontroller:AlbumViewController!
+    
     @IBAction func taphistory(sender: AnyObject) {
-        if self.curview == "history" {
-            return
-        }
-        albumview.switchTo(historyview, parentController: self, direction: ">")
-        self.curview = "history"
+        self.historycontainer.hidden = false
+        self.albumcontainer.hidden = true
+        self.resizeScrollView()
     }
     
     @IBAction func tapalbum(sender: AnyObject) {
-        if self.curview == "album" {
-            return
+        self.historycontainer.hidden = true
+        self.albumcontainer.hidden = false
+        
+        if !self.isAlbumLoaded {
+            self.albumcontroller.load(self.resizeScrollView)
         }
-        historyview.switchTo(albumview, parentController: self, direction: "<")
-        self.curview = "album"
+        else{
+            self.resizeScrollView()
+        }
     }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.curview = "history"
         self.title = self.coach!.name
+        self.albumcontainer.hidden = true
         self.avatar.load(self.coach!.avatar!, placeholder: nil, completionHandler: {
             ( _, uiimag,_) in
             self.avatar.image = Helper.RBSquareImage(uiimag!)
             })
-            
-        historyview = self.childViewControllers[0] as! MyPostViewController
-        albumview = self.storyboard?.instantiateViewControllerWithIdentifier("album") as! AlbumViewController
+        
+        self.historycontroller = self.childViewControllers.first as! MyPostViewController
+        
+        self.albumcontroller = self.childViewControllers.last as! AlbumViewController
         
         self.scrollview.contentSize.height = 1000
         self.scrollview.delegate = self
-        historyview.load(resizeScrollView)
+        
+        self.historycontroller.load(self.resizeScrollView)
 
         // Do any additional setup after loading the view.
     }
@@ -74,17 +81,17 @@ class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
         
         // Change 10.0 to adjust the distance from bottom
         if (maximumOffset - currentOffset <= -40.0) {
-            self.historyview.loadHistory(resizeScrollView)
+           
         }
     }
     
     func resizeScrollView(){
-        if self.curview == "history" {
-            self.heightconstraint.constant = self.historyview.tableView.contentSize.height
+        if self.albumcontainer.hidden {
+            self.heightconstraint.constant = self.historycontroller.tableView.contentSize.height
             self.scrollview.contentSize.height = 200 + self.heightconstraint.constant
         }
-        if self.curview == "album" {
-            self.heightconstraint.constant = self.historyview.tableView.contentSize.height
+        if self.historycontainer.hidden {
+            self.heightconstraint.constant = self.albumcontroller.collectionView!.contentSize.height
             self.scrollview.contentSize.height = 200 + self.heightconstraint.constant
             
         }
@@ -107,11 +114,11 @@ class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
             let vc = segue.destinationViewController as! MyPostViewController
             vc.usrname = self.coach?.name
         }
-//        if segue.identifier! == "album"{
-//            let vc = segue.destinationViewController as! AlbumViewController
-//            vc.usrname = self.coach?.name
-//            
-//        }
+        if segue.identifier! == "album"{
+            let vc = segue.destinationViewController as! AlbumViewController
+            vc.usrname = self.coach?.name
+            
+        }
 
     }
     

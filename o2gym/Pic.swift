@@ -32,5 +32,11 @@ public class Pic : BaseDataItem{
         self.id = dict["id"].int
         self.url = dict["url"].string
     }
+    
+    public func upload(){
+        let qm:QNUploadManager = QNUploadManager()
+//        qm.putFile(<#filePath: String!#>, key: <#String!#>, token: <#String!#>, complete: <#QNUpCompletionHandler!##(QNResponseInfo!, String!, [NSObject : AnyObject]!) -> Void#>, option: <#QNUploadOption!#>)
+
+    }
 
 }
