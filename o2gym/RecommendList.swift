@@ -11,17 +11,18 @@ import Foundation
 public class RecommendList:BaseDataList {
     
     override func loaditem(dict: JSON) -> BaseDataItem? {
-        let type = dict["recommend_type"].stringValue
-        switch(type){
-        case "user":
-            return User(dict: dict["person_display"])
-        case "article":
-            return Weibo(dict: dict["article_display"])
-        case "gym":
-            return Gym(dict: dict["gym_display"])
-        default:
-            return nil
-        }
+        return RecommendItem(dict:dict)
+//        let type = dict["recommend_type"].stringValue
+//        switch(type){
+//        case "user":
+//            return User(dict: dict["person_display"])
+//        case "article":
+//            return Weibo(dict: dict["article_display"])
+//        case "gym":
+//            return Gym(dict: dict["gym_display"])
+//        default:
+//            return nil
+//        }
     }
     override var Url:String{
         return Host.RecommendGet()

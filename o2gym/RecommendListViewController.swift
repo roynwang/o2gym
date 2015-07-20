@@ -15,8 +15,17 @@ class RecommendListViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "RecommendArticleCell", bundle: nil), forCellReuseIdentifier: "recommendarticlecell")
         self.tableView.registerNib(UINib(nibName: "RecommendCoachCell", bundle: nil), forCellReuseIdentifier: "recommendcoachcell")
         self.tableView.registerNib(UINib(nibName: "RecommendGymCell", bundle: nil), forCellReuseIdentifier: "recommendgymcell")
+        self.tableView.registerNib(UINib(nibName: "RecommendCourseCell", bundle: nil), forCellReuseIdentifier: "recommendcoursecell")
         
         self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        
+        
+        // set active image
+        var baritem = self.navigationController?.tabBarItem!
+        baritem!.selectedImage = UIImage(named: "o2active")
+        
+    
+        
         
         //        var bounds = self.navigationController?.navigationBar.bounds as CGRect!
         //        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
@@ -52,26 +61,48 @@ class RecommendListViewController: UITableViewController {
         return Local.RECOMMEND!.count
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let i = indexPath.row
+        var item = Local.RECOMMEND?.datalist[i] as! RecommendItem
+        switch(item.recommendcontent!.type){
+        case "weibo":
+            return 130
+        case "user":
+            return 167
+        case "course":
+            return 167
+        default:
+            return 130
+        }
+    }
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 4
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let i = indexPath.row
-        var item = Local.RECOMMEND?.datalist[i]
-        switch(item!.type){
+        var item = Local.RECOMMEND?.datalist[i] as! RecommendItem
+        println(item.recommendcontent!.type)
+        
+        switch(item.recommendcontent!.type){
         case "weibo":
             let cell = tableView.dequeueReusableCellWithIdentifier("recommendarticlecell", forIndexPath: indexPath) as! RecommendArticleCell
-            cell.setContent(item!)
+            cell.setContent(item)
             return  cell
         case "user":
             let cell = tableView.dequeueReusableCellWithIdentifier("recommendcoachcell", forIndexPath: indexPath) as! RecommendCoachCell
-            cell.setContent(item!)
+            cell.setContent(item)
             return  cell
         case "gym":
             let cell = tableView.dequeueReusableCellWithIdentifier("recommendgymcell", forIndexPath: indexPath) as! RecommendGymCell
-            cell.setContent(item!)
+            cell.setContent(item)
+            return  cell
+        case "course":
+            let cell = tableView.dequeueReusableCellWithIdentifier("recommendcoursecell", forIndexPath: indexPath) as! RecommendCourseCell
+            cell.setContent(item)
             return  cell
         default:
-            let cell = tableView.dequeueReusableCellWithIdentifier("recommendcoachcell", forIndexPath: indexPath) as! RecommendArticleCell
-            return  cell
+            return UITableViewCell()
         }
         
     }
@@ -87,21 +118,21 @@ class RecommendListViewController: UITableViewController {
     }
     
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let i = indexPath.row
-        var item = Local.RECOMMEND?.datalist[i]
-        switch(item!.type){
-        case"weibo":
-            return 173
-        case "user":
-            return 105
-        case "gym":
-            return 100
-        default:
-            return 88
-        }
-        
-    }
+    //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //        let i = indexPath.row
+    //        var item = Local.RECOMMEND?.datalist[i]
+    //        switch(item!.type){
+    //        case"weibo":
+    //            return 173
+    //        case "user":
+    //            return 105
+    //        case "gym":
+    //            return 100
+    //        default:
+    //            return 88
+    //        }
+    //
+    //    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -142,17 +173,17 @@ class RecommendListViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
+        // Get the new view controller using [segue destinationViewController].
         switch segue.identifier! {
-            case "coachdetail":
-                let coachvc = segue.destinationViewController.childViewControllers[0] as! CoachDetailViewController
-                coachvc.coach = Local.RECOMMEND?.datalist[self.tableView.indexPathForSelectedRow()!.row] as! User?
-                break
+        case "coachdetail":
+            let coachvc = segue.destinationViewController.childViewControllers[0] as! CoachDetailViewController
+            coachvc.coach = Local.RECOMMEND?.datalist[self.tableView.indexPathForSelectedRow()!.row] as! User?
+            break
         default:
             break
         }
-    // Pass the selected object to the new view controller.
+        // Pass the selected object to the new view controller.
     }
-
+    
     
 }

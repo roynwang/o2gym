@@ -34,6 +34,14 @@
 		72148EF31B578CC300A063FF /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148EE81B578CC300A063FF /* AFURLRequestSerialization.m */; };
 		72148EF41B578CC300A063FF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148EEA1B578CC300A063FF /* AFURLResponseSerialization.m */; };
 		72148EF51B578CC300A063FF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148EEC1B578CC300A063FF /* AFURLSessionManager.m */; };
+		723E59881B5CB775005EC263 /* BaseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E59871B5CB775005EC263 /* BaseViewCell.swift */; };
+		723E598B1B5CDA10005EC263 /* RecommendCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E59891B5CDA10005EC263 /* RecommendCourseCell.swift */; };
+		723E598C1B5CDA10005EC263 /* RecommendCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723E598A1B5CDA10005EC263 /* RecommendCourseCell.xib */; };
+		723E59921B5D12AC005EC263 /* MGSwipeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E598F1B5D12AC005EC263 /* MGSwipeTabBarController.m */; };
+		723E59931B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E59911B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.m */; };
+		723E59951B5D1381005EC263 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E59941B5D1381005EC263 /* CircleViewController.swift */; };
+		723E59991B5D15A7005EC263 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E59981B5D15A7005EC263 /* HMSegmentedControl.m */; };
+		723E599B1B5D2E99005EC263 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E599A1B5D2E99005EC263 /* Settings.swift */; };
 		723E82811B492C6500861D6D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82801B492C6500861D6D /* SwiftyJSON.swift */; };
 		723E82881B49753500861D6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82851B49753500861D6D /* User.swift */; };
 		723E82891B49753500861D6D /* Weibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82861B49753500861D6D /* Weibo.swift */; };
@@ -71,7 +79,6 @@
 		724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652BB1B54EF4E004E69C1 /* MyPost.swift */; };
 		724652BE1B555C65004E69C1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652BD1B555C65004E69C1 /* TestViewController.swift */; };
 		724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F41B47BECC00729F8F /* AppDelegate.swift */; };
-		724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F61B47BECC00729F8F /* RecommendViewController.swift */; };
 		724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F81B47BECC00729F8F /* BusinessViewController.swift */; };
 		724EB4FC1B47BECC00729F8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FA1B47BECC00729F8F /* Main.storyboard */; };
 		724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FD1B47BECC00729F8F /* Images.xcassets */; };
@@ -86,6 +93,16 @@
 		724EB5491B4836F900729F8F /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5421B4836F900729F8F /* Upload.swift */; };
 		724EB54A1B4836F900729F8F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5431B4836F900729F8F /* Validation.swift */; };
 		724EB54E1B483B9C00729F8F /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB54D1B483B9C00729F8F /* Host.swift */; };
+		724EE8A51B58AF5F001F8670 /* WeiboPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */; };
+		724EE8AB1B58BD3D001F8670 /* LimCameraImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8A71B58BD3D001F8670 /* LimCameraImagePickerViewController.swift */; };
+		724EE8AC1B58BD3D001F8670 /* LimCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */; };
+		724EE8AD1B58BD3D001F8670 /* LimCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */; };
+		724EE8AE1B58BD3D001F8670 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8AA1B58BD3D001F8670 /* PickerView.xib */; };
+		724EE8B01B58D0DF001F8670 /* AlbumAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8AF1B58D0DF001F8670 /* AlbumAddCell.swift */; };
+		724EE8B21B595349001F8670 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8B11B595349001F8670 /* TestCollectionViewCell.swift */; };
+		724EE8B41B595C6C001F8670 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8B31B595C6C001F8670 /* ImagePicker.swift */; };
+		724EE8B61B5BE1E2001F8670 /* RecommendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8B51B5BE1E2001F8670 /* RecommendItem.swift */; };
+		724EE8BE1B5C06D5001F8670 /* yh.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8BD1B5C06D5001F8670 /* yh.OTF */; };
 		725AC7661B4F9C0D0049BB4F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725AC7651B4F9C0D0049BB4F /* TabViewController.swift */; };
 		728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A01B563F5300B3D3B0 /* Album.swift */; };
 		728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A21B563F8400B3D3B0 /* Pic.swift */; };
@@ -162,6 +179,17 @@
 		72148EEA1B578CC300A063FF /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		72148EEB1B578CC300A063FF /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		72148EEC1B578CC300A063FF /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		723E59871B5CB775005EC263 /* BaseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewCell.swift; sourceTree = "<group>"; };
+		723E59891B5CDA10005EC263 /* RecommendCourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCourseCell.swift; sourceTree = "<group>"; };
+		723E598A1B5CDA10005EC263 /* RecommendCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCourseCell.xib; sourceTree = "<group>"; };
+		723E598E1B5D12AC005EC263 /* MGSwipeTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTabBarController.h; sourceTree = "<group>"; };
+		723E598F1B5D12AC005EC263 /* MGSwipeTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTabBarController.m; sourceTree = "<group>"; };
+		723E59901B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MGSwipeTabBarController.h"; sourceTree = "<group>"; };
+		723E59911B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MGSwipeTabBarController.m"; sourceTree = "<group>"; };
+		723E59941B5D1381005EC263 /* CircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
+		723E59971B5D15A7005EC263 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		723E59981B5D15A7005EC263 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		723E599A1B5D2E99005EC263 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		723E82801B492C6500861D6D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		723E82851B49753500861D6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		723E82861B49753500861D6D /* Weibo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weibo.swift; sourceTree = "<group>"; };
@@ -202,7 +230,6 @@
 		724EB4EF1B47BECC00729F8F /* o2gym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = o2gym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724EB4F31B47BECC00729F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724EB4F41B47BECC00729F8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		724EB4F61B47BECC00729F8F /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		724EB4F81B47BECC00729F8F /* BusinessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewController.swift; sourceTree = "<group>"; };
 		724EB4FB1B47BECC00729F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		724EB4FD1B47BECC00729F8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -220,6 +247,16 @@
 		724EB5421B4836F900729F8F /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		724EB5431B4836F900729F8F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		724EB54D1B483B9C00729F8F /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
+		724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboPostViewController.swift; sourceTree = "<group>"; };
+		724EE8A71B58BD3D001F8670 /* LimCameraImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimCameraImagePickerViewController.swift; sourceTree = "<group>"; };
+		724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimCollectionViewCell.swift; sourceTree = "<group>"; };
+		724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LimCollectionViewCell.xib; sourceTree = "<group>"; };
+		724EE8AA1B58BD3D001F8670 /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
+		724EE8AF1B58D0DF001F8670 /* AlbumAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumAddCell.swift; sourceTree = "<group>"; };
+		724EE8B11B595349001F8670 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		724EE8B31B595C6C001F8670 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		724EE8B51B5BE1E2001F8670 /* RecommendItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendItem.swift; sourceTree = "<group>"; };
+		724EE8BD1B5C06D5001F8670 /* yh.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = yh.OTF; sourceTree = "<group>"; };
 		725AC7651B4F9C0D0049BB4F /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		728BD3A01B563F5300B3D3B0 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		728BD3A21B563F8400B3D3B0 /* Pic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pic.swift; sourceTree = "<group>"; };
@@ -350,6 +387,26 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		723E598D1B5D12AC005EC263 /* MGSwipeTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				723E598E1B5D12AC005EC263 /* MGSwipeTabBarController.h */,
+				723E598F1B5D12AC005EC263 /* MGSwipeTabBarController.m */,
+				723E59901B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.h */,
+				723E59911B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.m */,
+			);
+			path = MGSwipeTabBarController;
+			sourceTree = "<group>";
+		};
+		723E59961B5D15A7005EC263 /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				723E59971B5D15A7005EC263 /* HMSegmentedControl.h */,
+				723E59981B5D15A7005EC263 /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
 		723E828B1B49754600861D6D /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +418,7 @@
 				723E82861B49753500861D6D /* Weibo.swift */,
 				723E82941B4A399A00861D6D /* BaseDataItem.swift */,
 				728BD3A21B563F8400B3D3B0 /* Pic.swift */,
+				724EE8B51B5BE1E2001F8670 /* RecommendItem.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -384,6 +442,9 @@
 				723E82A41B4CF1BB00861D6D /* WeiboViewController.swift */,
 				725AC7651B4F9C0D0049BB4F /* TabViewController.swift */,
 				724652B41B53EE9D004E69C1 /* CoachDetailViewController.swift */,
+				724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */,
+				724EE8B31B595C6C001F8670 /* ImagePicker.swift */,
+				723E59941B5D1381005EC263 /* CircleViewController.swift */,
 			);
 			name = UIDetail;
 			sourceTree = "<group>";
@@ -412,6 +473,11 @@
 				724652A21B525841004E69C1 /* RecommendUserCell.swift */,
 				724652A31B525841004E69C1 /* RecommendUserCell.xib */,
 				728BD3A41B56458000B3D3B0 /* AlbumPicCell.swift */,
+				724EE8AF1B58D0DF001F8670 /* AlbumAddCell.swift */,
+				724EE8B11B595349001F8670 /* TestCollectionViewCell.swift */,
+				723E59871B5CB775005EC263 /* BaseViewCell.swift */,
+				723E59891B5CDA10005EC263 /* RecommendCourseCell.swift */,
+				723E598A1B5CDA10005EC263 /* RecommendCourseCell.xib */,
 			);
 			name = UIUnit;
 			sourceTree = "<group>";
@@ -450,6 +516,7 @@
 		724EB4F11B47BECC00729F8F /* o2gym */ = {
 			isa = PBXGroup;
 			children = (
+				724EE8B71B5C014A001F8670 /* Resource */,
 				724652B61B54EC95004E69C1 /* UIList */,
 				724652B11B536DB3004E69C1 /* UIUnit */,
 				723E82A31B4CF13D00861D6D /* UIDetail */,
@@ -462,7 +529,6 @@
 				724EB5161B47BF2000729F8F /* Recommend */,
 				724EB4F41B47BECC00729F8F /* AppDelegate.swift */,
 				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
-				724EB4FD1B47BECC00729F8F /* Images.xcassets */,
 				724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */,
 				724EB4F21B47BECC00729F8F /* Supporting Files */,
 				723E829F1B4ACDEA00861D6D /* FirstViewController.swift */,
@@ -499,7 +565,6 @@
 		724EB5161B47BF2000729F8F /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
-				724EB4F61B47BECC00729F8F /* RecommendViewController.swift */,
 				724652981B5232D5004E69C1 /* RecommendListViewController.swift */,
 			);
 			name = Recommend;
@@ -523,7 +588,10 @@
 		724EB5391B48368700729F8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				723E59961B5D15A7005EC263 /* HMSegmentedControl */,
+				723E598D1B5D12AC005EC263 /* MGSwipeTabBarController */,
 				72148ED91B578CC300A063FF /* AFNetworking */,
+				724EE8A61B58BD3D001F8670 /* LimWhatsAppImagePicker */,
 				72148C3A1B57852A00A063FF /* QiniuSDK */,
 				724652A71B52A717004E69C1 /* ImageLoader */,
 				724EB54B1B48371F00729F8F /* af */,
@@ -553,9 +621,30 @@
 			isa = PBXGroup;
 			children = (
 				724EB54D1B483B9C00729F8F /* Host.swift */,
+				724EB4FD1B47BECC00729F8F /* Images.xcassets */,
 				723E82921B4980AF00861D6D /* ext.swift */,
+				723E599A1B5D2E99005EC263 /* Settings.swift */,
 			);
 			name = Global;
+			sourceTree = "<group>";
+		};
+		724EE8A61B58BD3D001F8670 /* LimWhatsAppImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				724EE8A71B58BD3D001F8670 /* LimCameraImagePickerViewController.swift */,
+				724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */,
+				724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */,
+				724EE8AA1B58BD3D001F8670 /* PickerView.xib */,
+			);
+			path = LimWhatsAppImagePicker;
+			sourceTree = "<group>";
+		};
+		724EE8B71B5C014A001F8670 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				724EE8BD1B5C06D5001F8670 /* yh.OTF */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -638,10 +727,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724EE8AE1B58BD3D001F8670 /* PickerView.xib in Resources */,
 				724652AF1B52A717004E69C1 /* Info.plist in Resources */,
 				724EB4FC1B47BECC00729F8F /* Main.storyboard in Resources */,
+				723E598C1B5CDA10005EC263 /* RecommendCourseCell.xib in Resources */,
+				724EE8AD1B58BD3D001F8670 /* LimCollectionViewCell.xib in Resources */,
 				724652A11B525821004E69C1 /* RecommendCoachCell.xib in Resources */,
 				724EB5011B47BECC00729F8F /* LaunchScreen.xib in Resources */,
+				724EE8BE1B5C06D5001F8670 /* yh.OTF in Resources */,
 				7246529D1B52580A004E69C1 /* RecommendGymCell.xib in Resources */,
 				724652A51B525841004E69C1 /* RecommendUserCell.xib in Resources */,
 				724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */,
@@ -666,14 +759,19 @@
 				723E82AD1B4D0E6100861D6D /* CommentViewController.swift in Sources */,
 				724EB5471B4836F900729F8F /* Request.swift in Sources */,
 				724652BE1B555C65004E69C1 /* TestViewController.swift in Sources */,
+				724EE8AB1B58BD3D001F8670 /* LimCameraImagePickerViewController.swift in Sources */,
+				723E599B1B5D2E99005EC263 /* Settings.swift in Sources */,
 				724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */,
 				724652B51B53EE9D004E69C1 /* CoachDetailViewController.swift in Sources */,
 				72148C731B57852A00A063FF /* QNResumeUpload.m in Sources */,
 				72148C6D1B57852A00A063FF /* QNResponseInfo.m in Sources */,
+				724EE8B41B595C6C001F8670 /* ImagePicker.swift in Sources */,
 				723E82911B49756B00861D6D /* Gym.swift in Sources */,
 				724652B01B52A717004E69C1 /* UIImageView+ImageLoader.swift in Sources */,
 				72148C6B1B57852A00A063FF /* QNDns.m in Sources */,
+				724EE8B61B5BE1E2001F8670 /* RecommendItem.swift in Sources */,
 				724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */,
+				723E59951B5D1381005EC263 /* CircleViewController.swift in Sources */,
 				72148C761B57852A00A063FF /* QNUpToken.m in Sources */,
 				72148C691B57852A00A063FF /* QNEtag.m in Sources */,
 				72148EEF1B578CC300A063FF /* AFHTTPSessionManager.m in Sources */,
@@ -686,6 +784,7 @@
 				724652A41B525841004E69C1 /* RecommendUserCell.swift in Sources */,
 				723E82931B4980AF00861D6D /* ext.swift in Sources */,
 				728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */,
+				724EE8B21B595349001F8670 /* TestCollectionViewCell.swift in Sources */,
 				723E82901B49756B00861D6D /* Course.swift in Sources */,
 				723E829E1B4AC3D600861D6D /* Local.swift in Sources */,
 				723E82A21B4C1ED100861D6D /* FeedViewController.swift in Sources */,
@@ -694,23 +793,30 @@
 				724652B81B54ECF2004E69C1 /* AlbumViewController.swift in Sources */,
 				7246529C1B52580A004E69C1 /* RecommendGymCell.swift in Sources */,
 				723E829C1B4A9A7300861D6D /* BaseDataList.swift in Sources */,
+				723E598B1B5CDA10005EC263 /* RecommendCourseCell.swift in Sources */,
 				72148C721B57852A00A063FF /* QNFormUpload.m in Sources */,
+				724EE8B01B58D0DF001F8670 /* AlbumAddCell.swift in Sources */,
 				724EB5491B4836F900729F8F /* Upload.swift in Sources */,
 				728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */,
+				724EE8AC1B58BD3D001F8670 /* LimCollectionViewCell.swift in Sources */,
 				723E82981B4A951900861D6D /* Feed.swift in Sources */,
 				723E82881B49753500861D6D /* User.swift in Sources */,
 				72148C711B57852A00A063FF /* QNConfiguration.m in Sources */,
 				724652AD1B52A717004E69C1 /* Diskcached.swift in Sources */,
 				724652A01B525821004E69C1 /* RecommendCoachCell.swift in Sources */,
 				723E829A1B4A952400861D6D /* RecommendList.swift in Sources */,
+				723E59931B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.m in Sources */,
 				72148C6F1B57852A00A063FF /* QNUserAgent.m in Sources */,
+				723E59921B5D12AC005EC263 /* MGSwipeTabBarController.m in Sources */,
 				72148EEE1B578CC300A063FF /* AFHTTPRequestOperationManager.m in Sources */,
 				724EB5461B4836F900729F8F /* ParameterEncoding.swift in Sources */,
 				72148EF51B578CC300A063FF /* AFURLSessionManager.m in Sources */,
 				724652B31B538872004E69C1 /* Helper.swift in Sources */,
+				723E59881B5CB775005EC263 /* BaseViewCell.swift in Sources */,
 				725AC7661B4F9C0D0049BB4F /* TabViewController.swift in Sources */,
 				724652991B5232D5004E69C1 /* RecommendListViewController.swift in Sources */,
 				72148EF41B578CC300A063FF /* AFURLResponseSerialization.m in Sources */,
+				723E59991B5D15A7005EC263 /* HMSegmentedControl.m in Sources */,
 				72148C751B57852A00A063FF /* QNUploadOption.m in Sources */,
 				72148C671B57852A00A063FF /* QNAsyncRun.m in Sources */,
 				72148C6A1B57852A00A063FF /* QNUrlSafeBase64.m in Sources */,
@@ -728,11 +834,11 @@
 				72148C701B57852A00A063FF /* QNFileRecorder.m in Sources */,
 				724EB5451B4836F900729F8F /* Manager.swift in Sources */,
 				723E82811B492C6500861D6D /* SwiftyJSON.swift in Sources */,
+				724EE8A51B58AF5F001F8670 /* WeiboPostViewController.swift in Sources */,
 				723E82A01B4ACDEA00861D6D /* FirstViewController.swift in Sources */,
 				723E82DE1B4EC77200861D6D /* Comments.swift in Sources */,
 				72148EF01B578CC300A063FF /* AFNetworkReachabilityManager.m in Sources */,
 				723E828F1B49756B00861D6D /* Article.swift in Sources */,
-				724EB4F71B47BECC00729F8F /* RecommendViewController.swift in Sources */,
 				724EB5441B4836F900729F8F /* Download.swift in Sources */,
 				723E82891B49753500861D6D /* Weibo.swift in Sources */,
 				728BD3A51B56458000B3D3B0 /* AlbumPicCell.swift in Sources */,

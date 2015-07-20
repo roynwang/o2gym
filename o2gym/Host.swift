@@ -10,6 +10,21 @@ import Foundation
 
 class Host {
     static let ip : String = "http://127.0.0.1:8000/api"
+    static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
+    
+    class func ImgUrl(key:String)->String {
+        let url : String = "\(self.ImgHost)/\(key)"
+        return url
+    }
+    class func ImgSqure(url:String, width:Int)->String {
+        let url : String = "\(url)?imageView2/1/w/\(width)/h/\(width)"
+        return url
+    }
+    
+    class func UploadTokenGet()->String{
+        let url : String = "\(self.ip)/p/token/"
+        return url
+    }
     class func WeiboGet(id: String) -> String {
         let url : String = "\(self.ip)/w/\(id)/"
         return url
@@ -66,5 +81,14 @@ class Host {
         let url : String = "\(self.ip)/\(name)/album/"
         return url
     }
+    
+    class func CourseGet(id:Int)->String{
+        let url : String = "\(self.ip)/c/\(id)/"
+        return url
+    }
 
+    class func CourseCreate()->String{
+        let url : String = "\(self.ip)/c/"
+        return url
+    }
 }

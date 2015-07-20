@@ -8,14 +8,14 @@
 
 import UIKit
 
-class RecommendArticleCell: UITableViewCell {
+class RecommendArticleCell: BaseViewCell {
 
-    @IBOutlet weak var Desc: UILabel!
-    @IBOutlet weak var BriefImage: UIImageView!
-    var t:String = "haha"
+
+    @IBOutlet weak var Img: UIImageView!
+    @IBOutlet weak var UpCount: UILabel!
+    @IBOutlet weak var ArticleTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.Desc.text = t
         // Initialization code
     }
 
@@ -25,9 +25,26 @@ class RecommendArticleCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setContent(item:BaseDataItem){
-        let weibo = item as! Weibo
-        self.Desc.text = weibo.title
-        self.BriefImage.load(weibo.img_set[0])
+        let r = item as! RecommendItem
+        let wb = r.recommendcontent as! Weibo
+        
+        if let font =  UIFont(name: "RTWS YueGothic Trial", size: 16) {
+            
+            let textFontAttributes = [
+                NSFontAttributeName : font,
+                // Note: SKColor.whiteColor().CGColor breaks this
+                NSForegroundColorAttributeName: UIColor.whiteColor(),
+                NSStrokeColorAttributeName: UIColor.blackColor(),
+                // Note: Use negative value here if you want foreground color to show
+                NSStrokeWidthAttributeName: -1
+            ]
+            
+            self.ArticleTitle.attributedText = NSMutableAttributedString(string: r.recommendtitle!, attributes: textFontAttributes)
+
+        }
+        //self.ArticleTitle.text = r.recommendtitle
+        self.Img.load(r.recommendpic!)
+        self.UpCount.text = wb.upnum.toString()
     }
     
 }

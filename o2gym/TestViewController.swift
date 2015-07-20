@@ -15,7 +15,7 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.scr.contentSize.height=1000
+        //self.scr.contentSize.height=1000
     
     }
 

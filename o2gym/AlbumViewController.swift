@@ -62,19 +62,26 @@ public class AlbumViewController: UICollectionViewController {
 
     public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return self.album.count
+        return self.album.count + 1
     }
 
     public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("albumadd", forIndexPath: indexPath) as! AlbumAddCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AlbumPicCell
     
-        let item = self.album.datalist[indexPath.row] as! Pic
+        let item = self.album.datalist[indexPath.row - 1] as! Pic
         cell.img.load(item.url)
         
         // Configure the cell
     
         return cell
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
 

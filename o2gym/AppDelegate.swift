@@ -16,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-       
+        if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
+        }
+        
+        UITabBar.appearance().translucent = false
+        UITabBar.appearance().tintColor = O2Color.MainColor
+        
+        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().backgroundColor = O2Color.MainColor
+        UINavigationBar.appearance().tintColor = O2Color.MainColor
+
         return true
     }
 

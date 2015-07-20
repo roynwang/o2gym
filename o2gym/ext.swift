@@ -8,6 +8,22 @@
 
 import UIKit
 
+extension NSURL {
+    func queryDictionary() -> [String:String] {
+        let components = self.query?.componentsSeparatedByString("&")
+        var dictionary = [String:String]()
+        
+        for pairs in components ?? [] {
+            let pair = pairs.componentsSeparatedByString("=")
+            if pair.count == 2 {
+                dictionary[pair[0]] = pair[1]
+            }
+        }
+        
+        return dictionary
+    }
+}
+
 extension Bool {
     func toString()->String{
         if self{

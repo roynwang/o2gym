@@ -8,14 +8,23 @@
 
 import UIKit
 
-class RecommendCoachCell: UITableViewCell {
+class RecommendCoachCell: BaseViewCell {
 
  
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var avator: UIImageView!
+    @IBOutlet weak var Img: UIImageView!
+
+    @IBOutlet weak var Tags: UILabel!
+
+    @IBOutlet weak var Name: UILabel!
+    
+    @IBOutlet weak var Loc: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.Tags.layer.cornerRadius = 7
+        self.Tags.clipsToBounds = true
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -24,18 +33,12 @@ class RecommendCoachCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setContent(item:BaseDataItem){
-        let usr:User = item as! User
-        println(usr.name)
-        self.name.text = usr.name!
-        println(usr.avatar)
-        if usr.avatar != nil{
-            self.avator.load(usr.avatar!, placeholder: nil, completionHandler: {
-                ( _, uiimag,_) in
-                    self.avator.image = Helper.RBSquareImage(uiimag!)
-                
-            })
-        }
-        
+        let r = item as! RecommendItem
+        self.Name.text = r.recommendtitle
+        self.Tags.text = "   " + r.recommendsubtitle! + "    "
+        self.Img.load(r.recommendpic!)
+        self.Loc.text = r.recommendloc
+        self.addCorner(r.corner)
     }
     
 }

@@ -10,5 +10,6 @@
 #define o2gym_MyApp_Bridging_Header_h
 
 #import "QiniuSDK.h"
-
+#import "MGSwipeTabBarController.h"
+#import "HMSegmentedControl.h"
 #endif

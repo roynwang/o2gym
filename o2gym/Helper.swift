@@ -9,6 +9,30 @@
 import UIKit
 
 public class Helper{
+    class func getExt(url:NSURL)->String{
+        let a = url.queryDictionary()
+        println(a["ext"])
+        return a["ext"]!
+        
+    }
+    class func arrayToJsonString(arr:[String]) -> String{
+        let data = NSJSONSerialization.dataWithJSONObject(arr, options: nil, error: nil)
+        return NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
+    }
+    class func upload(picdata:NSData, complete: QNUpCompletionHandler!){
+        request(Method.GET, Host.UploadTokenGet(), parameters: nil)
+        .responseJSON(options: nil) {
+            (req, resp, data, error) -> Void in
+            if error == nil{
+                let dict = JSON(data!)
+                let key = dict["key"].stringValue
+                let token = dict["token"].stringValue
+                let mgr:QNUploadManager = QNUploadManager()
+                mgr.putData(picdata, key: key, token: token, complete:complete, option: nil)
+            }
+        }
+        
+    }
     
     class func scaleByWidth(src:UIImage, towidth:CGFloat)->UIImage{
         let oldwidth = src.size.width

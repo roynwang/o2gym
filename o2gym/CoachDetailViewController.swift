@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import MediaPlayer
+import MobileCoreServices
+import AVFoundation
 
 
-class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
+class CoachDetailViewController: UIViewController, UIScrollViewDelegate{
     @IBOutlet weak var scrollview: UIScrollView!
     
-
+    var limPicker:LimCameraImagePicker?
     var coach:User? = nil
     
     var isAlbumLoaded:Bool = false
@@ -27,6 +30,7 @@ class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var album: UIButton!
     
+    @IBOutlet weak var showpicker: UIButton!
     
     
     @IBOutlet weak var historycontainer: UIView!
@@ -47,6 +51,7 @@ class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
         
         if !self.isAlbumLoaded {
             self.albumcontroller.load(self.resizeScrollView)
+            self.isAlbumLoaded = true
         }
         else{
             self.resizeScrollView()
@@ -91,11 +96,22 @@ class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
             self.scrollview.contentSize.height = 200 + self.heightconstraint.constant
         }
         if self.historycontainer.hidden {
-            self.heightconstraint.constant = self.albumcontroller.collectionView!.contentSize.height
+            let newheight:CGFloat = CGFloat(((self.albumcontroller.album.count)/4+1)*100)
+            println("xxxxx")
+            println(newheight)
+            println("xxxxx")
+            self.albumcontainer.frame = CGRect(
+                x: self.albumcontainer.frame.origin.x,
+                y: self.albumcontainer.frame.origin.y,
+                width: self.albumcontainer.frame.width,
+                height: self.heightconstraint.constant)
             self.scrollview.contentSize.height = 200 + self.heightconstraint.constant
-            
         }
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.resizeScrollView()
     }
 
     
@@ -121,6 +137,7 @@ class CoachDetailViewController: UIViewController, UIScrollViewDelegate {
         }
 
     }
+    
     
 
 }
