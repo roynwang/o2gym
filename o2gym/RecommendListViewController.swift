@@ -19,10 +19,12 @@ class RecommendListViewController: UITableViewController {
         
         self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
         
+        self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
+        
         
         // set active image
         var baritem = self.navigationController?.tabBarItem!
-        baritem!.selectedImage = UIImage(named: "o2active")
+        baritem!.selectedImage = UIImage(named: "o2_active")
         
     
         

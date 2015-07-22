@@ -596,11 +596,11 @@
             </objects>
             <point key="canvasLocation" x="-818" y="8"/>
         </scene>
-        <!--圈子-->
+        <!--练起来-->
         <scene sceneID="Wgx-07-STV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jvN-62-1Eb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="圈子" image="circle" id="OWe-kQ-fJn"/>
+                    <tabBarItem key="tabBarItem" title="练起来" image="muscle" id="OWe-kQ-fJn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rwy-8j-0Gb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -712,10 +712,9 @@
                     <tabBarItem key="tabBarItem" title="氧气" image="o2" id="1JV-pC-Rtt"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="nvU-aZ-bab">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="nvU-aZ-bab">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.34901960784313724" green="0.0" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="0.0"/>
                             <color key="textColor" red="0.40837658380000003" green="0.76293112480000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -748,17 +747,16 @@
             </objects>
             <point key="canvasLocation" x="5354" y="36"/>
         </scene>
-        <!--练起来-->
+        <!--圈子-->
         <scene sceneID="TIK-Qt-fyI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nv7-9o-AlV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="练起来" image="muscle" id="Gu2-eO-dth"/>
+                    <tabBarItem key="tabBarItem" title="圈子" image="circle" id="Gu2-eO-dth"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="pHg-vw-dc3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.34901960780000002" green="0.0" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

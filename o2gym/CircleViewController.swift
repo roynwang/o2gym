@@ -14,6 +14,10 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
+        var baritem = self.navigationController?.tabBarItem!
+        baritem!.selectedImage = UIImage(named: "circle_active")
+        
         segcon = HMSegmentedControl(sectionTitles: ["最热","私教"])
         segcon.tag = 1
         
@@ -40,8 +44,8 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
         }
         self.navigationController?.navigationBar.addSubview(segcon)
         
-        let c1 = TestViewController()
-        c1.view.backgroundColor = UIColor.redColor()
+        let c1 = FeedStreamViewController()
+        c1.view.backgroundColor = UIColor(rgba:"#f6f6f6")
         let c2 = TestViewController()
         c2.view.backgroundColor = UIColor.blueColor()
         self.viewControllers = [c1,c2]
