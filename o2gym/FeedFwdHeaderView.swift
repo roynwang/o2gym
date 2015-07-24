@@ -8,14 +8,13 @@
 
 import UIKit
 
-class FeedHeaderView: UIView, FeedHeaderProtocol {
+class FeedFwdHeaderView: UIView, FeedHeaderProtocol {
     
     @IBOutlet weak var Avatar: UIImageView!
+    
+    @IBOutlet weak var FwdDesc: UILabel!
 
-    @IBOutlet weak var ActionDesc: UILabel!
-    @IBOutlet weak var Name: UILabel!
-    @IBOutlet weak var HrHeight: NSLayoutConstraint!
-    @IBOutlet weak var Hr: UIView!
+    @IBOutlet weak var AuthorName: UILabel!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -61,27 +60,25 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
     
     func loadViewFromNib() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "FeedHeaderView", bundle: bundle)
+        let nib = UINib(nibName: "FeedFwdHeaderView", bundle: bundle)
         
         // Assumes UIView is top level and only object in CustomView.xib file
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-              self.HrHeight.constant = 0.5
+//        self.Avatar.load("http://i.imgur.com/oI1bF48.jpg")
+//        self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
+//        self.Avatar.layer.masksToBounds = true
+//        print("???????????")
+        //println(self.view.frame.width)
         return view
     }
     
     func fillHeader(weibo:Weibo) {
-        let usr = weibo.author!
+        let usr = weibo.fwdcontent!.author!
         self.Avatar.load(usr.avatar!)
         self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
         self.Avatar.layer.masksToBounds = true
-        self.Name.text = usr.name
-        if weibo.islong {
-            self.ActionDesc.text = StringResource.PublishLong
-        } else {
-            self.ActionDesc.text = StringResource.PublishWeibo(weibo.img_set.count)
-        }
-        
+        self.FwdDesc.text = weibo.by
+        self.AuthorName.text = usr.name
     }
-    
     
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedFwdHeaderView" customModule="o2gym" customModuleProvider="target">
+            <connections>
+                <outlet property="AuthorName" destination="kY5-CI-qD0" id="d3R-Ea-5BK"/>
+                <outlet property="Avatar" destination="P7F-wp-UhJ" id="Ymt-fO-CeW"/>
+                <outlet property="FwdDesc" destination="y7D-aM-I9v" id="fn1-DP-oL7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王一然" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7D-aM-I9v">
+                    <rect key="frame" x="10" y="12" width="30" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P7F-wp-UhJ">
+                    <rect key="frame" x="9" y="34" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="CrE-jJ-RtS"/>
+                        <constraint firstAttribute="height" constant="30" id="M5B-tw-IHf"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labanx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY5-CI-qD0">
+                    <rect key="frame" x="47" y="38" width="119" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3小时之前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ9-DM-oAT">
+                    <rect key="frame" x="542" y="12" width="46" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享了" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEF-Hq-m6u">
+                    <rect key="frame" x="44" y="12" width="30" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="P7F-wp-UhJ" secondAttribute="bottom" constant="15" id="6iK-M2-aTf"/>
+                <constraint firstItem="P7F-wp-UhJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="8b8-gO-Xyx"/>
+                <constraint firstItem="y7D-aM-I9v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="Ijn-Ts-qti"/>
+                <constraint firstItem="P7F-wp-UhJ" firstAttribute="top" secondItem="y7D-aM-I9v" secondAttribute="bottom" constant="10" id="JOO-QA-9M5"/>
+                <constraint firstItem="P7F-wp-UhJ" firstAttribute="top" secondItem="y7D-aM-I9v" secondAttribute="bottom" constant="16" id="KnC-2b-rFV"/>
+                <constraint firstItem="nQ9-DM-oAT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="QXR-KD-6CA"/>
+                <constraint firstItem="gEF-Hq-m6u" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="Z5G-G6-YNj"/>
+                <constraint firstItem="y7D-aM-I9v" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="riW-vB-jEi"/>
+                <constraint firstItem="gEF-Hq-m6u" firstAttribute="leading" secondItem="y7D-aM-I9v" secondAttribute="trailing" constant="4" id="vrq-Gs-c1b"/>
+                <constraint firstAttribute="trailing" secondItem="nQ9-DM-oAT" secondAttribute="trailing" constant="12" id="vzA-kO-Kuf"/>
+                <constraint firstAttribute="centerY" secondItem="nQ9-DM-oAT" secondAttribute="centerY" id="xGn-Zu-x1K"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="6iK-M2-aTf"/>
+                    <exclude reference="KnC-2b-rFV"/>
+                    <exclude reference="xGn-Zu-x1K"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="289" y="116"/>
+        </view>
+    </objects>
+</document>

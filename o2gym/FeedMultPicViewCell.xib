@@ -17,21 +17,38 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDv-4O-OWW">
                         <rect key="frame" x="0.0" y="6" width="529" height="278"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="et0-IU-41O" customClass="FeedHeaderView" customModule="o2gym" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="et0-IU-41O">
                                 <rect key="frame" x="0.0" y="0.0" width="529" height="46"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdd-2S-tfF" customClass="FeedHeaderView" customModule="o2gym" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="529" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8Z-XB-y5Y" customClass="FeedFwdHeaderView" customModule="o2gym" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="529" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="BX8-Rg-zKD"/>
+                                    <constraint firstAttribute="trailing" secondItem="j8Z-XB-y5Y" secondAttribute="trailing" id="Kex-rv-83m"/>
+                                    <constraint firstItem="j8Z-XB-y5Y" firstAttribute="leading" secondItem="et0-IU-41O" secondAttribute="leading" id="XJb-6w-I3q"/>
+                                    <constraint firstAttribute="bottom" secondItem="j8Z-XB-y5Y" secondAttribute="bottom" id="ZNY-uG-Br7"/>
+                                    <constraint firstAttribute="bottom" secondItem="qdd-2S-tfF" secondAttribute="bottom" id="if8-1y-9dT"/>
+                                    <constraint firstItem="qdd-2S-tfF" firstAttribute="leading" secondItem="et0-IU-41O" secondAttribute="leading" id="jgW-WC-ktQ"/>
+                                    <constraint firstItem="j8Z-XB-y5Y" firstAttribute="top" secondItem="et0-IU-41O" secondAttribute="top" id="mcp-V0-0m9"/>
+                                    <constraint firstAttribute="trailing" secondItem="qdd-2S-tfF" secondAttribute="trailing" id="uP0-ph-8S0"/>
+                                    <constraint firstItem="qdd-2S-tfF" firstAttribute="top" secondItem="et0-IU-41O" secondAttribute="top" id="zfe-22-uyG"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cX3-75-0wo">
-                                <rect key="frame" x="8" y="46" width="513" height="116"/>
+                                <rect key="frame" x="0.0" y="46" width="529" height="116"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="116" id="LHf-S1-L0h"/>
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PX-R1-IvP">
-                                <rect key="frame" x="10" y="166" width="509" height="68"/>
+                                <rect key="frame" x="10" y="168" width="509" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -50,15 +67,15 @@
                             <constraint firstItem="u0Y-JK-vlF" firstAttribute="top" secondItem="cX3-75-0wo" secondAttribute="bottom" constant="8" id="7zj-Dg-PJT"/>
                             <constraint firstItem="et0-IU-41O" firstAttribute="top" secondItem="NDv-4O-OWW" secondAttribute="top" id="Edp-jq-I1I"/>
                             <constraint firstItem="et0-IU-41O" firstAttribute="leading" secondItem="NDv-4O-OWW" secondAttribute="leading" id="Erw-pb-RWf"/>
-                            <constraint firstItem="cX3-75-0wo" firstAttribute="leading" secondItem="NDv-4O-OWW" secondAttribute="leading" constant="8" id="G8q-x9-6c8"/>
+                            <constraint firstItem="cX3-75-0wo" firstAttribute="leading" secondItem="NDv-4O-OWW" secondAttribute="leading" id="G8q-x9-6c8"/>
                             <constraint firstItem="3PX-R1-IvP" firstAttribute="leading" secondItem="NDv-4O-OWW" secondAttribute="leading" constant="10" id="HTI-Nh-Wiv"/>
                             <constraint firstItem="3PX-R1-IvP" firstAttribute="leading" secondItem="NDv-4O-OWW" secondAttribute="leading" id="Q3C-vf-705"/>
                             <constraint firstAttribute="trailing" secondItem="3PX-R1-IvP" secondAttribute="trailing" constant="10" id="Qsd-H8-fdR"/>
                             <constraint firstItem="u0Y-JK-vlF" firstAttribute="leading" secondItem="NDv-4O-OWW" secondAttribute="leading" id="RtE-0e-HL9"/>
-                            <constraint firstItem="3PX-R1-IvP" firstAttribute="top" secondItem="cX3-75-0wo" secondAttribute="bottom" constant="4" id="YGh-as-HDb"/>
-                            <constraint firstAttribute="trailing" secondItem="cX3-75-0wo" secondAttribute="trailing" constant="8" id="euw-RJ-jX6"/>
+                            <constraint firstItem="3PX-R1-IvP" firstAttribute="top" secondItem="cX3-75-0wo" secondAttribute="bottom" constant="6" id="YGh-as-HDb"/>
+                            <constraint firstAttribute="trailing" secondItem="cX3-75-0wo" secondAttribute="trailing" id="euw-RJ-jX6"/>
                             <constraint firstAttribute="bottom" secondItem="u0Y-JK-vlF" secondAttribute="bottom" id="g6d-ag-CdX"/>
-                            <constraint firstItem="u0Y-JK-vlF" firstAttribute="top" secondItem="3PX-R1-IvP" secondAttribute="bottom" constant="4" id="qbL-iB-LZj"/>
+                            <constraint firstItem="u0Y-JK-vlF" firstAttribute="top" secondItem="3PX-R1-IvP" secondAttribute="bottom" constant="6" id="qbL-iB-LZj"/>
                             <constraint firstItem="3PX-R1-IvP" firstAttribute="top" secondItem="cX3-75-0wo" secondAttribute="bottom" id="rdG-Fr-Vx4"/>
                             <constraint firstAttribute="trailing" secondItem="et0-IU-41O" secondAttribute="trailing" id="wPR-91-UdP"/>
                             <constraint firstAttribute="bottom" secondItem="cX3-75-0wo" secondAttribute="bottom" constant="116" id="yS6-1A-1Gb"/>
@@ -91,8 +108,12 @@
             <connections>
                 <outlet property="Brief" destination="3PX-R1-IvP" id="Oj9-Kj-goX"/>
                 <outlet property="CellContainer" destination="NDv-4O-OWW" id="zXW-mP-6Ut"/>
+                <outlet property="FwdHeader" destination="j8Z-XB-y5Y" id="J1r-mb-GoK"/>
+                <outlet property="Header" destination="et0-IU-41O" id="jrM-EN-gvP"/>
+                <outlet property="HeaderHeight" destination="BX8-Rg-zKD" id="twK-Kg-M8r"/>
                 <outlet property="ImgContainer" destination="cX3-75-0wo" id="WLF-pc-Y1s"/>
                 <outlet property="ImgContainerHeight" destination="LHf-S1-L0h" id="rME-Uy-ewK"/>
+                <outlet property="OriginHeader" destination="qdd-2S-tfF" id="sxH-Jr-qhT"/>
             </connections>
             <point key="canvasLocation" x="526.5" y="218"/>
         </tableViewCell>

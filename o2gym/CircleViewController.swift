@@ -18,13 +18,13 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
         var baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "circle_active")
         
-        segcon = HMSegmentedControl(sectionTitles: ["最热","私教"])
+        segcon = HMSegmentedControl(sectionTitles: ["大气层","热点"])
         segcon.tag = 1
         
-        let startx = self.navigationController!.navigationBar.frame.width/2 - 60
+        let startx = self.navigationController!.navigationBar.frame.width/2 - 75
         
         
-        segcon.frame = CGRectMake(startx, 6, 120, 30);
+        segcon.frame = CGRectMake(startx, 6, 150, 30);
         segcon.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         segcon.selectionIndicatorColor = UIColor.whiteColor()
         segcon.selectionIndicatorHeight = 1

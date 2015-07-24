@@ -20,7 +20,7 @@ public class Weibo : BaseDataItem {
     var islong: Bool = false
     var created: String = ""
     
-    var by: Int = 0
+    var by: String = ""
     var iscomments : Bool = false
     var commentto: Int? = nil
     var isfwd : Bool = false
@@ -34,9 +34,11 @@ public class Weibo : BaseDataItem {
     
     var recommend_p: Int? = nil
     
-    var author: Dictionary<String,JSON>? = nil
+    var author: User? = nil
     
     var topcomments: Array<JSON>? = []
+    
+    var fwdcontent: Weibo? = nil
     
     var img_set:[String] = []
     
@@ -66,7 +68,7 @@ public class Weibo : BaseDataItem {
         self.id = weiboid
     }
     public convenience init(dict:JSON){
-        self.init(usr: User(name: dict["by"].stringValue), weiboid: dict["id"].intValue)
+        self.init(usr: User(dict: dict["author"]), weiboid: dict["id"].intValue)
         self.loadFromJSON(dict)
     }
     public convenience init(usr: User){
@@ -110,7 +112,7 @@ public class Weibo : BaseDataItem {
         self.islong = dict["islong"].boolValue
         self.created = dict["created"].stringValue
         
-        self.by = dict["by"].intValue
+        self.by = dict["by"].stringValue
         self.iscomments = dict["iscomments"].boolValue
         self.commentto = dict["commentto"].intValue
         self.isfwd = dict["isfwd"].boolValue
@@ -123,8 +125,12 @@ public class Weibo : BaseDataItem {
         self.coach = dict["coach"].int
         self.recommend_p = dict["recommend_p"].int
         
-        self.author = dict["author"].dictionaryValue
+        self.author = User(dict:dict["author"])
         self.topcomments = dict["topcomments"].arrayValue
+        
+        if dict["fwdcontent"] != nil {
+            self.fwdcontent = Weibo(dict: dict["fwdcontent"])
+        }
         
         self.load_img_set()
     }

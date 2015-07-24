@@ -10,6 +10,8 @@ import UIKit
 
 class FeedStreamViewController: UITableViewController {
     
+    var feed: Feed!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,9 +19,13 @@ class FeedStreamViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "FeedArticleViewCell", bundle: nil), forCellReuseIdentifier: "feedarticleviewcell")
         self.tableView.registerNib(UINib(nibName: "FeedMultPicViewCell", bundle: nil), forCellReuseIdentifier: "feedmultpicviewcell")
         
+        //self.tableView.frame.size.width = 500
+        
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        self.feed = Local.FEED
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -47,39 +53,64 @@ class FeedStreamViewController: UITableViewController {
         // Return the number of rows in the section.
         return 3
     }
+    func generateWeibo(weibo:Weibo, cell:UITableViewCell){
+        if weibo.islong == false {
+            let card = cell as! FeedMultPicViewCell
+            card.fillCard(weibo)
+            
+        }
+    }
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        println(indexPath.row)
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("feedpicviewcell", forIndexPath: indexPath) as! FeedPicViewCell
-            
-            let nstr = "房地产税立法初稿基本成形 税率或由地方决定沪指涨0.64%收复4000点 两市超300个股涨停"
+        let weibo = self.feed.datalist[indexPath.row] as! Weibo
         
-            cell.TextContent.attributedText = nstr.getCustomLineSpaceString(CGFloat(4))
-            cell.Img.load("http://i.imgur.com/oI1bF48.jpg")
-            // Configure the cell...
-            
-            return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
-            cell.Img.load("http://i.imgur.com/oI1bF48.jpg")
-            cell.Title.text = "越吃越瘦"
-            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(4)
-            // Configure the cell...
-            return cell
-            
-        } else {
+        if !weibo.islong {
             let cell = tableView.dequeueReusableCellWithIdentifier("feedmultpicviewcell", forIndexPath: indexPath) as! FeedMultPicViewCell
-            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(2)
-//            cell.Title.text = "越吃越瘦"
-//            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(4)
-            // Configure the cell...
+            cell.headcontent = nil
+            cell.fillCard(weibo)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
             return cell
         }
+        
+//        if indexPath.row == 2 {
+//            let cell = tableView.dequeueReusableCellWithIdentifier("feedpicviewcell", forIndexPath: indexPath) as! FeedPicViewCell
+//            
+//            let nstr = "房地产税立法初稿基本成形 税率或由地方决定沪指涨0.64%收复4000点 两市超300个股涨停"
+//        
+//            cell.TextContent.attributedText = nstr.getCustomLineSpaceString(CGFloat(4))
+//            cell.Img.load("http://i.imgur.com/oI1bF48.jpg")
+//            // Configure the cell...
+//            
+//            return cell
+//        } else if indexPath.row == 1 {
+//            let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
+//            cell.Img.load("http://i.imgur.com/oI1bF48.jpg")
+//            cell.Title.text = "越吃越瘦"
+//            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(4)
+//            // Configure the cell...
+//            return cell
+//            
+//        } else {
+//            let cell = tableView.dequeueReusableCellWithIdentifier("feedmultpicviewcell", forIndexPath: indexPath) as! FeedMultPicViewCell
+////            cell.emptyPic()
+////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
+////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
+////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
+////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
+////            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(2)
+//           
+//            cell.fillCard(self.feed.datalist[indexPath.row] as! Weibo)
+////            cell.Title.text = "越吃越瘦"
+////            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(4)
+//            // Configure the cell...
+//            return cell
+//        }
     }
     
     

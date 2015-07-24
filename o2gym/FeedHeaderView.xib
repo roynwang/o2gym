@@ -6,7 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedHeaderView" customModule="o2gym" customModuleProvider="target">
             <connections>
+                <outlet property="ActionDesc" destination="wvQ-IQ-u9p" id="wpQ-Rx-jK7"/>
                 <outlet property="Avatar" destination="Pyq-iq-CDv" id="ZVf-3d-LrI"/>
+                <outlet property="Hr" destination="eNg-Le-gKl" id="mDm-io-HWl"/>
+                <outlet property="HrHeight" destination="CGu-ED-H2O" id="aEv-en-PpD"/>
+                <outlet property="Name" destination="8zw-7A-bvd" id="CzN-ei-7mb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -31,24 +35,47 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王一然" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zw-7A-bvd">
-                    <rect key="frame" x="48" y="283" width="42" height="17"/>
+                    <rect key="frame" x="48" y="283" width="542" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="QLC-u5-lel"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="QLC-u5-lel"/>
+                        </mask>
+                    </variation>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNg-Le-gKl">
+                    <rect key="frame" x="9" y="599" width="582" height="1"/>
+                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="CGu-ED-H2O"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="wvQ-IQ-u9p" secondAttribute="centerY" constant="-8" id="9EE-DH-JW8"/>
                 <constraint firstItem="8zw-7A-bvd" firstAttribute="leading" secondItem="Pyq-iq-CDv" secondAttribute="trailing" constant="9" id="9Rn-vY-2iw"/>
                 <constraint firstAttribute="centerY" secondItem="Pyq-iq-CDv" secondAttribute="centerY" id="D23-sF-79t"/>
                 <constraint firstAttribute="centerY" secondItem="8zw-7A-bvd" secondAttribute="centerY" constant="8" id="HBO-Uw-cyv"/>
+                <constraint firstItem="eNg-Le-gKl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="HYu-7c-Yxo"/>
+                <constraint firstAttribute="centerX" secondItem="eNg-Le-gKl" secondAttribute="centerX" id="Idc-L1-aK3"/>
                 <constraint firstItem="Pyq-iq-CDv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="mo1-O7-pmX"/>
                 <constraint firstItem="wvQ-IQ-u9p" firstAttribute="leading" secondItem="Pyq-iq-CDv" secondAttribute="trailing" constant="9" id="pWH-cA-he4"/>
+                <constraint firstAttribute="bottom" secondItem="eNg-Le-gKl" secondAttribute="bottom" id="t5s-Uv-F9L"/>
+                <constraint firstAttribute="trailing" secondItem="8zw-7A-bvd" secondAttribute="trailing" constant="10" id="tqX-Ja-q1j"/>
+                <constraint firstItem="eNg-Le-gKl" firstAttribute="leading" secondItem="wvQ-IQ-u9p" secondAttribute="trailing" id="vhz-Ix-Dh6"/>
+                <constraint firstAttribute="trailing" secondItem="eNg-Le-gKl" secondAttribute="trailing" constant="9" id="yBR-FV-hqz"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Idc-L1-aK3"/>
+                    <exclude reference="vhz-Ix-Dh6"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="196" y="132"/>
         </view>
     </objects>

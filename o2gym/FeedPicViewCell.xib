@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqK-pF-mA7">
-                        <rect key="frame" x="0.0" y="8" width="385" height="697.5"/>
+                        <rect key="frame" x="0.0" y="6" width="385" height="699.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmj-fW-UKt" customClass="FeedHeaderView" customModule="o2gym" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="385" height="46"/>
@@ -32,13 +32,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcO-lj-9mb">
-                                <rect key="frame" x="12" y="439" width="361" height="210"/>
+                                <rect key="frame" x="12" y="439" width="361" height="212"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gq-89-yxn" customClass="FeedToolBarView" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="657" width="385" height="40"/>
+                                <rect key="frame" x="0.0" y="659" width="385" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="77t-1J-tFe"/>
@@ -84,7 +84,7 @@
                     <constraint firstItem="hqK-pF-mA7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Q43-es-nAG"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hqK-pF-mA7" secondAttribute="bottom" constant="-8" id="R9U-7D-S6l"/>
                     <constraint firstAttribute="centerY" secondItem="hqK-pF-mA7" secondAttribute="centerY" id="dME-z4-jo8"/>
-                    <constraint firstItem="hqK-pF-mA7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="y1m-gs-d0d"/>
+                    <constraint firstItem="hqK-pF-mA7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="y1m-gs-d0d"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
