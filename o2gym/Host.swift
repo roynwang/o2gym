@@ -91,4 +91,18 @@ class Host {
         let url : String = "\(self.ip)/c/"
         return url
     }
+    class func TimelineGet(name:String)->String{
+        let url : String = "\(self.ip)/\(name)/timeline"
+        return url
+    }
+    
+    class func WeiboUp(weibo:Weibo, up:Bool = true) ->String{
+        var action = "up"
+        if !up {
+            action = "down"
+        }
+        let url : String = "\(self.ip)/\(Local.USER.name!)/w/\(weibo.id!.toString())/\(action)"
+        println(url)
+        return url
+    }
 }

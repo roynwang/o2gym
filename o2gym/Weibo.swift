@@ -30,7 +30,7 @@ public class Weibo : BaseDataItem {
     var commentnum: Int = 0
     var fwdnum: Int = 0
     
-    var coach: Int? = nil
+    var coach: User? = nil
     
     var recommend_p: Int? = nil
     
@@ -81,6 +81,10 @@ public class Weibo : BaseDataItem {
         self.imgs = imgs
         self.load_img_set()
     }
+    public func setFwd(weibo:Weibo){
+        self.isfwd = true
+        self.fwdfrom = weibo.id
+    }
     
     public override func buildParam()->[String:String]{
         var params = [
@@ -99,7 +103,7 @@ public class Weibo : BaseDataItem {
             params["fwdfrom"] = self.fwdfrom?.toString()
         }
         if self.coach != nil {
-            params["coach"] = self.coach?.toString()
+            params["coach"] = self.coach!.id?.toString()
         }
         return params
     }
@@ -119,10 +123,10 @@ public class Weibo : BaseDataItem {
         self.fwdfrom = dict["fwdfrom"].intValue
         
         self.upnum = dict["upnum"].intValue
-        self.commentnum = dict["upnum"].intValue
-        self.fwdnum = dict["upnum"].intValue
+        self.commentnum = dict["commentnum"].intValue
+        self.fwdnum = dict["fwdnum"].intValue
         
-        self.coach = dict["coach"].int
+       
         self.recommend_p = dict["recommend_p"].int
         
         self.author = User(dict:dict["author"])
@@ -131,21 +135,58 @@ public class Weibo : BaseDataItem {
         if dict["fwdcontent"] != nil {
             self.fwdcontent = Weibo(dict: dict["fwdcontent"])
         }
+        if dict["coachcontent"] != nil {
+            self.coach = User(dict: dict["coachcontent"])
+        }
+
         
         self.load_img_set()
     }
     
-    public func up(){
-        self.upnum=self.upnum + 1
+    func setUpped(up:Bool = true){
+        if up {
+            if nil == find(Local.USER.upped, self.id!) {
+                Local.USER.upped.append(self.id!)
+            }
+            if self.isfwd && nil == find(Local.USER.upped, self.fwdfrom!) {
+                Local.USER.upped.append(self.fwdfrom!)
+            }
+        }
+        else {
+            if let index = find(Local.USER.upped, self.id!) {
+                Local.USER.upped.removeAtIndex(index)
+            }
+            if self.isfwd  {
+                if let index = find(Local.USER.upped, self.fwdfrom!) {
+                    Local.USER.upped.removeAtIndex(index)
+                }
+            }
+            
+        }
     }
-    public func down(){
-        self.upnum=self.upnum - 1
+    
+    public func up(_ direction:Bool = true){
+        if direction {
+            self.upnum=self.upnum + 1
+            self.requestGet(Host.WeiboUp(self), onsuccess: nil, onfail: nil)
+            self.setUpped()
+            
+        } else {
+            self.upnum=self.upnum - 1
+            self.requestGet(Host.WeiboUp(self,up:false), onsuccess: nil, onfail: nil)
+            self.setUpped(up: false)
+        }
     }
+
     public func comment(content: Weibo){
+        
         
     }
     
-    public func fwd(content:Weibo?){
+    public func fwd(usr:User ,onsuccess:((Weibo)->Void)?, onfail:((NSError?)->Void)?){
+        let wb = Weibo(usr: usr)
+        wb.setFwd(self)
+        wb.save(onsuccess, error_handler: onfail)
     }
 }
 

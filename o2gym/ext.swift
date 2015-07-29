@@ -142,6 +142,40 @@ extension UIView {
         // Add the animation to the View's layer
         self.layer.addAnimation(slideInFromLeftTransition, forKey: "slideInFromRightTransition")
     }
+    func slideInFromTop(duration: NSTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
+        // Create a CATransition animation
+        let slideInFromLeftTransition = CATransition()
+        
+        // Set its callback delegate to the completionDelegate that was provided (if any)
+        if let delegate: AnyObject = completionDelegate {
+            slideInFromLeftTransition.delegate = delegate
+        }
+        // Customize the animation's properties
+        slideInFromLeftTransition.type = kCATransitionMoveIn
+        slideInFromLeftTransition.subtype = kCATransitionFromBottom
+        slideInFromLeftTransition.duration = duration
+        slideInFromLeftTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        slideInFromLeftTransition.fillMode = kCAFillModeRemoved
+        // Add the animation to the View's layer
+        self.layer.addAnimation(slideInFromLeftTransition, forKey: "slideInFromTopTransition")
+    }
+    func slideOutToTop(duration: NSTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
+        // Create a CATransition animation
+        let slideInFromLeftTransition = CATransition()
+        
+        // Set its callback delegate to the completionDelegate that was provided (if any)
+        if let delegate: AnyObject = completionDelegate {
+            slideInFromLeftTransition.delegate = delegate
+        }
+        // Customize the animation's properties
+        slideInFromLeftTransition.type = kCATransitionFade
+        slideInFromLeftTransition.subtype = kCATransitionFromBottom
+        slideInFromLeftTransition.duration = duration
+        slideInFromLeftTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        slideInFromLeftTransition.fillMode = kCAFillModeRemoved
+        // Add the animation to the View's layer
+        self.layer.addAnimation(slideInFromLeftTransition, forKey: "slideOutToTopTransition")
+    }
 }
 
 extension UIViewController {

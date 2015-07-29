@@ -9,6 +9,15 @@
 import UIKit
 
 public class Helper{
+    
+    public static var CircleSegmentControl : HMSegmentedControl!
+
+    
+    class func circleShowSegmenControl(nav:UINavigationBar){
+        
+    }
+    
+    
     class func getExt(url:NSURL)->String{
         let a = url.queryDictionary()
         println(a["ext"])

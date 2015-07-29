@@ -12,6 +12,7 @@ public class BaseDataList {
     public var count:Int = 0
     public var nexturl:String? = nil
     public var prevurl:String? = nil
+    public var delta:Int = 0
     
     var executing:Bool = false
     
@@ -26,6 +27,10 @@ public class BaseDataList {
     
     public func loadHistory<T:BaseDataItem>(allcallback:(()->Void)?, itemcallback:((T)->Void)?){
         if self.nexturl == nil {
+            self.delta = 0
+            if allcallback != nil {
+                allcallback!()
+            }
             return
         }
         self.loadMore(self.nexturl!, allcallback: allcallback, itemcallback: itemcallback, listkey: "results", insert: false)
@@ -33,25 +38,30 @@ public class BaseDataList {
     public func loadMore<T:BaseDataItem>(url:String, allcallback:(()->Void)?, itemcallback:((T)->Void)?, listkey:String?, insert:Bool){
         if self.executing {return}
         self.executing = true
+        self.delta = 0
         print(url+"\n")
         request(.GET, url)
             .responseJSON { (_, _, data, _) in
                 if data == nil {
+                    if allcallback != nil{
+                        allcallback!()
+                    }
                     return
                 }
                 print(data)
                 let dict = JSON(data!)
                 var results:[JSON]? = nil
-                self.nexturl = dict["next"].string
-                self.prevurl = dict["previous"].string
                 if listkey == nil{
                     results = dict.arrayValue
                 }else{
                     results = dict[listkey!].arrayValue
+                    self.nexturl = dict["next"].string
+                    self.prevurl = dict["previous"].string
                 }
                 if insert{
                     results?.reverse()
                 }
+                self.delta = results!.count
                 for item in results! {
                     let tmp = self.loaditem(item)!
                     if !insert{

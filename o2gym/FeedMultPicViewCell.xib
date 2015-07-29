@@ -106,6 +106,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="Bottom" destination="u0Y-JK-vlF" id="AJ7-uQ-hJg"/>
                 <outlet property="Brief" destination="3PX-R1-IvP" id="Oj9-Kj-goX"/>
                 <outlet property="CellContainer" destination="NDv-4O-OWW" id="zXW-mP-6Ut"/>
                 <outlet property="FwdHeader" destination="j8Z-XB-y5Y" id="J1r-mb-GoK"/>

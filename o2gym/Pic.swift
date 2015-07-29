@@ -11,7 +11,7 @@ import Foundation
 
 public class Pic : BaseDataItem{
     var id:Int!
-    var url:String!
+    public var url:String!
     
 
     override var type:String {

@@ -51,12 +51,11 @@ public class BaseDataItem {
                     }
                 }
         }
-        
     }
     public func loadRemote<T:BaseDataItem>(onsuccess :((T)->Void)?,onfail :((String)->Void)?){
         request(.GET, self.UrlGet)
             .responseJSON { (_, resp, data, error) in
-                
+                println(self.UrlGet)
                 if error == nil{
                     switch resp!.statusCode{
                     case 200:
@@ -79,6 +78,8 @@ public class BaseDataItem {
                 } else{
                     if onfail != nil{
                         onfail!(error!.description)
+                    } else {
+                        println(error!.description)
                     }
                 }
         }
@@ -87,4 +88,32 @@ public class BaseDataItem {
         self.loadRemote(nil, onfail: nil)
     }
     
+    public func requestGet(url: String,onsuccess :(()->Void)?,onfail :((String)->Void)?){
+        request(.GET, url)
+            .responseJSON { (_, resp, data, error) in
+                if error == nil{
+                    switch resp!.statusCode{
+                    case 200:
+                        if onsuccess != nil{
+                            onsuccess!()
+                        }
+                        break
+                    case 404:
+                        if onfail != nil{
+                            onfail!("无法访问" + url)
+                        }
+                        break
+                    default:
+                        if onfail != nil{
+                            onfail!(String(stringInterpolationSegment: resp))
+                        }
+                    }
+                } else{
+                    if onfail != nil{
+                        onfail!(error!.description)
+                    }
+                }
+        }
+        
+    }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class FeedHeaderView: UIView, FeedHeaderProtocol {
     
+    var usrname:String!
+    
     @IBOutlet weak var Avatar: UIImageView!
 
     @IBOutlet weak var ActionDesc: UILabel!
@@ -24,7 +26,14 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
     }
     */
     var view: UIView!
+
     
+
+    @IBAction func showDetail(sender: AnyObject) {
+        O2Nav.sharedInstance()?.showDetail()
+        UserDetailViewController.sharedInstance().setUser(self.usrname)
+        O2Nav.sharedInstance()?.pushViewController(UserDetailViewController.sharedInstance())
+    }
     override init(frame: CGRect) {
         // 1. setup any properties here
         
@@ -71,6 +80,7 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
     
     func fillHeader(weibo:Weibo) {
         let usr = weibo.author!
+        self.usrname = usr.name
         self.Avatar.load(usr.avatar!)
         self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
         self.Avatar.layer.masksToBounds = true

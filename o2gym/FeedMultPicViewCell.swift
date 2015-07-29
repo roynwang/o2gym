@@ -10,6 +10,7 @@ import UIKit
 
 class FeedMultPicViewCell: UITableViewCell {
 
+    @IBOutlet weak var Bottom: FeedToolBarView!
 
     @IBOutlet weak var Header: UIView!
     
@@ -42,13 +43,14 @@ class FeedMultPicViewCell: UITableViewCell {
         self.CellContainer.layer.borderWidth = 0.5
         self.CellContainer.layer.borderColor = O2Color.BorderGrey.CGColor
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.ImgContainer.scrollsToTop = false
         
         //self.ImgContainerHeight.constant = 150
         
         self.NextX += self.Spacing
-        //println("!!!!!!!!!!!!!")
+
         println(self.ImgContainer.frame.width)
-        //println("!!!!!!!!!!!!!")
+
         self.PicWidth = UIScreen.mainScreen().bounds.width - 20
         println(self.PicWidth)
         self.ImgContainerHeight.constant = self.PicWidth
@@ -111,6 +113,7 @@ class FeedMultPicViewCell: UITableViewCell {
         self.setFwd(ori.isfwd)
         
         self.fillHeader(ori)
+        self.fillBottom(ori)
         
         let weibo = ori.isfwd ? ori.fwdcontent! : ori
        
@@ -123,6 +126,9 @@ class FeedMultPicViewCell: UITableViewCell {
     func fillHeader(weibo:Weibo){
         //self.headcontent = nil
         self.headcontent.fillHeader(weibo)
+    }
+    func fillBottom(weibo:Weibo){
+        self.Bottom.setContent(weibo)
     }
     
 }

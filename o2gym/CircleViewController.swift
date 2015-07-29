@@ -10,39 +10,33 @@ import UIKit
 
 class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegate{
     
-    var segcon:HMSegmentedControl! = nil
+    //var Nav:O2Nav!
+    
+//    func toggleSegcon(){
+//        self.segcon.hidden = !self.segcon.hidden
+//        self.navigationItem.setHidesBackButton(false, animated: true)
+//        
+//    }
+    override func viewWillAppear(animated: Bool) {
+        O2Nav.sharedInstance()!.showSeg()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         var baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "circle_active")
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-        segcon = HMSegmentedControl(sectionTitles: ["大气层","热点"])
-        segcon.tag = 1
-        
-        let startx = self.navigationController!.navigationBar.frame.width/2 - 75
-        
-        
-        segcon.frame = CGRectMake(startx, 6, 150, 30);
-        segcon.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-        segcon.selectionIndicatorColor = UIColor.whiteColor()
-        segcon.selectionIndicatorHeight = 1
-        if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
-            segcon.titleTextAttributes = [
-                NSFontAttributeName: font,
-                NSForegroundColorAttributeName: UIColor.whiteColor()]
-        }
-        
-        segcon.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
-        segcon.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
-        segcon.indexChangeBlock = {
+
+        O2Nav(nav:self.navigationController!)
+        O2Nav.sharedInstance()!.setSeg(["大气层","热点"], width: 150, indexChangeCallBack: {
             index in
             self.setSelectedIndex(index, animated: true)
-
-            
-        }
-        self.navigationController?.navigationBar.addSubview(segcon)
+            }
+        )
+        
+        
         
         let c1 = FeedStreamViewController()
         c1.view.backgroundColor = UIColor(rgba:"#f6f6f6")
@@ -56,12 +50,12 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
+    
     
     func swipeTabBarController(swipeTabBarController: MGSwipeTabBarController!, didScrollToIndex toIndex: Int, fromIndex: Int) {
-        segcon.setSelectedSegmentIndex(UInt(toIndex), animated: true)
+        O2Nav.sharedInstance()!.swipedSeg(toIndex)
     }
-
+    
     
     /*
     // MARK: - Navigation

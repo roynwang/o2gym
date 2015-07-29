@@ -72,10 +72,10 @@ CGFloat const kBPDefaultSelectedIndexAnimationDuration = .35f;
         view.translatesAutoresizingMaskIntoConstraints = NO;
         [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
         
-        NSString *key = [NSString stringWithFormat:@"view%d",idx];
+        NSString *key = [NSString stringWithFormat:@"view%lu",(unsigned long)idx];
         [viewBindings setObject:view forKey:key];
         if (idx == 0) [autoLayoutString appendFormat:@"[%@]",key];
-        else [autoLayoutString appendFormat:@"[%@(==%@)]",key, [NSString stringWithFormat:@"view%d",idx-1]];
+        else [autoLayoutString appendFormat:@"[%@(==%@)]",key, [NSString stringWithFormat:@"view%lu",idx-1]];
     }];
     
     [viewBindings setObject:self.view forKey:@"parent"];

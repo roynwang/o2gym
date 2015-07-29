@@ -17,15 +17,37 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARb-Nn-YhW">
                         <rect key="frame" x="0.0" y="6" width="373" height="189.5"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWg-9d-8jL" customClass="FeedHeaderView" customModule="o2gym" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWg-9d-8jL">
                                 <rect key="frame" x="0.0" y="0.0" width="373" height="46"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzb-zU-1no" customClass="FeedHeaderView" customModule="o2gym" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="Mcz-kj-ccE"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPL-gK-vaw" customClass="FeedFwdHeaderView" customModule="o2gym" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="PiC-80-pYG"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zPL-gK-vaw" secondAttribute="trailing" id="257-L8-flX"/>
+                                    <constraint firstAttribute="trailing" secondItem="tzb-zU-1no" secondAttribute="trailing" id="J2K-X6-0Vt"/>
+                                    <constraint firstItem="tzb-zU-1no" firstAttribute="leading" secondItem="QWg-9d-8jL" secondAttribute="leading" id="ZtM-6t-eOl"/>
+                                    <constraint firstItem="tzb-zU-1no" firstAttribute="top" secondItem="QWg-9d-8jL" secondAttribute="top" id="gPz-i9-pNj"/>
                                     <constraint firstAttribute="height" constant="46" id="iUP-Ay-cwb"/>
+                                    <constraint firstItem="zPL-gK-vaw" firstAttribute="top" secondItem="QWg-9d-8jL" secondAttribute="top" id="mBN-or-KIa"/>
+                                    <constraint firstItem="zPL-gK-vaw" firstAttribute="leading" secondItem="QWg-9d-8jL" secondAttribute="leading" id="rvX-cz-6fZ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUE-ua-fYD" customClass="FeedToolBarView" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="149.5" width="373" height="40"/>
+                                <rect key="frame" x="0.0" y="149" width="373" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ye2-6B-Rcy"/>
@@ -47,13 +69,13 @@
                                             <constraint firstAttribute="height" constant="19.5" id="LQT-38-7A7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSq-Vh-h3W">
                                         <rect key="frame" x="103" y="30" width="259" height="62"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -102,9 +124,14 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="Bottom" destination="EUE-ua-fYD" id="rCv-Of-BJI"/>
                 <outlet property="Brief" destination="GSq-Vh-h3W" id="zbY-Y6-o0V"/>
                 <outlet property="Container" destination="ARb-Nn-YhW" id="oyC-wl-BUz"/>
+                <outlet property="FwdHeader" destination="zPL-gK-vaw" id="YvR-xK-DXZ"/>
+                <outlet property="Header" destination="QWg-9d-8jL" id="LMY-5v-4CA"/>
+                <outlet property="HeaderHeight" destination="iUP-Ay-cwb" id="geg-nv-dKP"/>
                 <outlet property="Img" destination="acq-fI-TVq" id="JEe-JR-PgY"/>
+                <outlet property="OriginHeader" destination="tzb-zU-1no" id="gfs-0p-Kw2"/>
                 <outlet property="Title" destination="H7L-bw-vXH" id="sQb-Af-maL"/>
             </connections>
             <point key="canvasLocation" x="273.5" y="306"/>

@@ -12,4 +12,6 @@
 #import "QiniuSDK.h"
 #import "MGSwipeTabBarController.h"
 #import "HMSegmentedControl.h"
+#import "ARSegmentPageController.h"
+#import "UIImage+ImageEffects.h"
 #endif

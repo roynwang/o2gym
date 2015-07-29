@@ -22,4 +22,6 @@ public class O2Color{
     static let FavActive:UIColor = UIColor(rgba: "#ff6d6d")
     static let CommentActive:UIColor = UIColor(rgba: "#27c0f7")
     static let FwdActive:UIColor = UIColor(rgba: "#13c96f")
+    
+    static let UpdateToast:UIColor = UIColor(rgba: "#ff9900f0")
 }

@@ -698,12 +698,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gyD-Gt-fwb"/>
+                    <navigationItem key="navigationItem" id="gyD-Gt-fwb">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Cub-qW-1dv"/>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzK-ji-xf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3190" y="-1014"/>
+            <point key="canvasLocation" x="3188" y="-1056"/>
         </scene>
         <!--氧气-->
         <scene sceneID="a8w-o5-AcX">

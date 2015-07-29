@@ -18,7 +18,7 @@ public class Feed:BaseDataList {
     override var Url:String{
         return Host.FeedGet(self.usr.name!)
     }
-    public func loadlatest(onsuccess:(()->Void)?, onfail: ((String)->Void)?){
+    public func loadLatest(onsuccess:(()->Void)?, onfail: ((String)->Void)?){
         let url = Host.FeedLatest(self.usr.name!)
         self.loadMore(url, allcallback: onsuccess, itemcallback: nil, listkey: nil, insert:true)
     }

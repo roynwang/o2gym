@@ -18,12 +18,16 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyq-iq-CDv">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyq-iq-CDv">
                     <rect key="frame" x="9" y="285" width="30" height="30"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="7Hc-UM-UcA"/>
                         <constraint firstAttribute="height" constant="30" id="C1e-iu-v9o"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="LMq-5s-Srf" appends="YES" id="uVL-Ak-iX3"/>
+                    </connections>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布了新秘籍" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvQ-IQ-u9p">
                     <rect key="frame" x="48" y="302" width="60" height="12"/>
@@ -78,5 +82,10 @@
             </variation>
             <point key="canvasLocation" x="196" y="132"/>
         </view>
+        <tapGestureRecognizer id="LMq-5s-Srf">
+            <connections>
+                <action selector="showDetail:" destination="-1" id="rD8-Dl-3DN"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

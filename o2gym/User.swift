@@ -14,6 +14,9 @@ public class User : BaseDataItem{
     public var name:String? = nil
     public var iscoach:Bool = false
     public var avatar:String? = nil
+    public var upped:[Int] = []
+    public var fwded:[Int] = []
+    public var commented:[Int] = []
     
     override var type:String {
         return "user"
@@ -62,6 +65,10 @@ public class User : BaseDataItem{
         self.name = dict["name"].string
         self.iscoach = dict["iscoach"].boolValue
         self.avatar = dict["avator"].string
+        dict["upped"].arrayValue.map({self.upped.append($0.intValue)})
+        dict["fwded"].arrayValue.map({self.fwded.append($0.intValue)})
+        dict["commented"].arrayValue.map({self.commented.append($0.intValue)})
+        println(self.upped)
     }
     
 

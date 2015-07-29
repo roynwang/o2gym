@@ -1,4 +1,4 @@
-//
+    //
 //  FeedStreamViewController.swift
 //  o2gym
 //
@@ -8,9 +8,17 @@
 
 import UIKit
 
-class FeedStreamViewController: UITableViewController {
+class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
+    
+    let toastheight:CGFloat = 40
     
     var feed: Feed!
+    var tips: UIView!
+    var executing:Bool = false
+    var updatetoast:UILabel!
+    var nomore:Bool = false
+    //var UserDetail:UserDetailViewController = UserDetailViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +26,7 @@ class FeedStreamViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "FeedPicViewCell", bundle: nil), forCellReuseIdentifier: "feedpicviewcell")
         self.tableView.registerNib(UINib(nibName: "FeedArticleViewCell", bundle: nil), forCellReuseIdentifier: "feedarticleviewcell")
         self.tableView.registerNib(UINib(nibName: "FeedMultPicViewCell", bundle: nil), forCellReuseIdentifier: "feedmultpicviewcell")
+        self.tableView.registerNib(UINib(nibName: "FeedCoachViewCell", bundle: nil), forCellReuseIdentifier: "feedcoachviewcell")
         
         //self.tableView.frame.size.width = 500
         
@@ -25,15 +34,83 @@ class FeedStreamViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
+        
+        var refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("loadNew"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
+        
         self.feed = Local.FEED
         
+        //notification
+        updatetoast = UILabel(frame: CGRect(x: 0, y: -toastheight, width: self.tableView.frame.width, height: toastheight))
+        updatetoast.backgroundColor = O2Color.UpdateToast
+        updatetoast.textColor = UIColor.whiteColor()
+        updatetoast.font = UIFont(name: updatetoast.font.fontName, size: 14)
+        updatetoast.textAlignment = NSTextAlignment.Center;
         
+        //self.tableView.scrollsToTop = false
+        
+        
+        //self.view.addSubview(self.tips)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    func showUpdateToast(num:Int){
+        updatetoast.text = StringResource.UpdateToastText(num)
+        self.view.addSubview(updatetoast)
+        UIView.animateWithDuration(0.5, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.updatetoast.frame.origin.y = 0
+            }, completion: { (_) -> Void in
+                UIView.animateWithDuration(0.5, delay: 3, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                    self.updatetoast.frame.origin.y = -self.toastheight
+                    self.executing = false
+                    }, completion:{ (_) -> Void in
+                        self.updatetoast.removeFromSuperview()
+                })
+        })
+
+    }
+    
+    func loadNew(){
+        if self.executing {
+            self.refreshControl?.endRefreshing()
+            return
+        }
+        self.executing = true
+        
+        func addlatest(){
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+            
+            self.showUpdateToast(self.feed.delta)
+        }
+    
+        Local.FEED?.loadLatest(addlatest, onfail: nil)
+    }
+    
+    func loadOld() {
+        if self.nomore || self.executing {
+            return
+        }
+        self.executing = true
+        
+        func addlatest(){
+            self.executing = false
+            if self.feed.delta == 0 {
+                self.nomore = true
+                return
+            }
+            self.tableView.reloadData()
+            
+            //self.showUpdateToast(self.feed.delta)
+        }
+        Local.FEED?.loadHistory(addlatest, itemcallback: nil)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,67 +128,77 @@ class FeedStreamViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 3
+        return self.feed.count
     }
-    func generateWeibo(weibo:Weibo, cell:UITableViewCell){
-        if weibo.islong == false {
-            let card = cell as! FeedMultPicViewCell
-            card.fillCard(weibo)
-            
+
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        
+        if distanceFromBottom < height {
+            self.loadOld()
         }
     }
-    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        println(indexPath.row)
+    
+    
+//    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+//        println(indexPath.row)
+//    }
+    func getCellIdentifier(weibo:Weibo) ->String{
+        if weibo.coach != nil || (weibo.isfwd && weibo.fwdcontent!.coach != nil) {
+            return "coach"
+        }
+        if weibo.islong || (weibo.isfwd && weibo.fwdcontent!.islong){
+            return "article"
+        }
+
+        return "weibo"
     }
+    
+//    func showdUserDetail(name:String){
+//        self.navigationController?.pushViewController(self.UserDetail, animated: true)
+//    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let weibo = self.feed.datalist[indexPath.row] as! Weibo
         
-        if !weibo.islong {
-            let cell = tableView.dequeueReusableCellWithIdentifier("feedmultpicviewcell", forIndexPath: indexPath) as! FeedMultPicViewCell
-            cell.headcontent = nil
-            cell.fillCard(weibo)
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
-            return cell
+        let celltype = self.getCellIdentifier(weibo)
+        switch celltype {
+            case "article":
+                let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
+                cell.fillCard(weibo)
+                return cell
+            case "weibo":
+                let cell = tableView.dequeueReusableCellWithIdentifier("feedmultpicviewcell", forIndexPath: indexPath) as! FeedMultPicViewCell
+                cell.fillCard(weibo)
+                return cell
+            case "coach":
+                let cell = tableView.dequeueReusableCellWithIdentifier("feedcoachviewcell", forIndexPath: indexPath) as! FeedCoachViewCell
+                cell.fillCard(weibo)
+                return cell
+            default:
+                return UITableViewCell()
         }
         
-//        if indexPath.row == 2 {
-//            let cell = tableView.dequeueReusableCellWithIdentifier("feedpicviewcell", forIndexPath: indexPath) as! FeedPicViewCell
-//            
-//            let nstr = "房地产税立法初稿基本成形 税率或由地方决定沪指涨0.64%收复4000点 两市超300个股涨停"
-//        
-//            cell.TextContent.attributedText = nstr.getCustomLineSpaceString(CGFloat(4))
-//            cell.Img.load("http://i.imgur.com/oI1bF48.jpg")
-//            // Configure the cell...
-//            
-//            return cell
-//        } else if indexPath.row == 1 {
-//            let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
-//            cell.Img.load("http://i.imgur.com/oI1bF48.jpg")
-//            cell.Title.text = "越吃越瘦"
-//            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(4)
-//            // Configure the cell...
-//            return cell
-//            
-//        } else {
-//            let cell = tableView.dequeueReusableCellWithIdentifier("feedmultpicviewcell", forIndexPath: indexPath) as! FeedMultPicViewCell
-////            cell.emptyPic()
-////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-////            cell.addPic("http://i.imgur.com/oI1bF48.jpg")
-////            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(2)
-//           
-//            cell.fillCard(self.feed.datalist[indexPath.row] as! Weibo)
-////            cell.Title.text = "越吃越瘦"
-////            cell.Brief.attributedText = "历史搜索记录显示以往搜索内容、搜索日期以及曾经访问的站点。此外，它还会根据以往单击的结果，帮助改进搜索结果。".getCustomLineSpaceString(4)
-//            // Configure the cell...
-//            return cell
-//        }
+
     }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //self.navigationController?.showDetailViewController(self.UserDetail,sender:nil)
+//        if indexPath.row == 1 {
+//            UserDetailViewController.sharedInstance().setUser("royn")
+//        }
+//        else {
+//            UserDetailViewController.sharedInstance().setUser("alex")
+//        }
+//        O2Nav.sharedInstance()?.showDetail()
+//        O2Nav.sharedInstance()?.pushViewController(UserDetailViewController.sharedInstance())
+        //self.presentViewController(self.UserDetail, animated: true, completion: nil)
+        //self.navigationController?.navigationBarHidden = false
+    }
+    
     
     
     /*

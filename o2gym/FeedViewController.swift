@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UITableViewController {
+class FeedViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class FeedViewController: UITableViewController {
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         }
-        Local.FEED?.loadlatest(addlatest, onfail: nil)
+        Local.FEED?.loadLatest(addlatest, onfail: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +79,8 @@ class FeedViewController: UITableViewController {
         }
 
     }
+    
+
  
 
     /*

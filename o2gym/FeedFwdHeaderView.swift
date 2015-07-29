@@ -10,6 +10,8 @@ import UIKit
 
 class FeedFwdHeaderView: UIView, FeedHeaderProtocol {
     
+    @IBOutlet weak var HrHeight: NSLayoutConstraint!
+    @IBOutlet weak var Hr: UIView!
     @IBOutlet weak var Avatar: UIImageView!
     
     @IBOutlet weak var FwdDesc: UILabel!
@@ -24,6 +26,13 @@ class FeedFwdHeaderView: UIView, FeedHeaderProtocol {
     */
     var view: UIView!
     
+    var usrname: String!
+    
+    @IBAction func showDetail(sender: AnyObject) {
+        O2Nav.sharedInstance()?.showDetail()
+        UserDetailViewController.sharedInstance().setUser(self.usrname)
+        O2Nav.sharedInstance()?.pushViewController(UserDetailViewController.sharedInstance())
+    }
     override init(frame: CGRect) {
         // 1. setup any properties here
         
@@ -64,21 +73,19 @@ class FeedFwdHeaderView: UIView, FeedHeaderProtocol {
         
         // Assumes UIView is top level and only object in CustomView.xib file
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-//        self.Avatar.load("http://i.imgur.com/oI1bF48.jpg")
-//        self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
-//        self.Avatar.layer.masksToBounds = true
-//        print("???????????")
-        //println(self.view.frame.width)
         return view
     }
     
     func fillHeader(weibo:Weibo) {
         let usr = weibo.fwdcontent!.author!
+        self.usrname = usr.name
         self.Avatar.load(usr.avatar!)
         self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
         self.Avatar.layer.masksToBounds = true
         self.FwdDesc.text = weibo.by
         self.AuthorName.text = usr.name
+        self.HrHeight.constant = 0.5
+
     }
     
 }
