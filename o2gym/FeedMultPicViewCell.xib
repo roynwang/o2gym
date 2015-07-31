@@ -15,17 +15,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDv-4O-OWW">
-                        <rect key="frame" x="0.0" y="6" width="529" height="278"/>
+                        <rect key="frame" x="43" y="6" width="486" height="278"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="et0-IU-41O">
-                                <rect key="frame" x="0.0" y="0.0" width="529" height="46"/>
+                                <rect key="frame" x="0.0" y="0.0" width="486" height="46"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdd-2S-tfF" customClass="FeedHeaderView" customModule="o2gym" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="529" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="486" height="46"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8Z-XB-y5Y" customClass="FeedFwdHeaderView" customModule="o2gym" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="529" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="486" height="46"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -42,19 +42,19 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cX3-75-0wo">
-                                <rect key="frame" x="0.0" y="46" width="529" height="116"/>
+                                <rect key="frame" x="0.0" y="46" width="486" height="116"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="116" id="LHf-S1-L0h"/>
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PX-R1-IvP">
-                                <rect key="frame" x="10" y="168" width="509" height="64"/>
+                                <rect key="frame" x="10" y="168" width="466" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0Y-JK-vlF" customClass="FeedToolBarView" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="238" width="529" height="40"/>
+                                <rect key="frame" x="0.0" y="238" width="486" height="40"/>
                                 <color key="backgroundColor" red="0.70980393890000004" green="0.90980398650000005" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="O1V-1x-xZi"/>
@@ -90,31 +90,76 @@
                             </mask>
                         </variation>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvl-bu-qX3">
+                        <rect key="frame" x="0.0" y="6" width="43" height="277.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-rB-afb">
+                                <rect key="frame" x="11" y="8" width="20.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ3-AT-iH8">
+                                <rect key="frame" x="11" y="30" width="20.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="9rn-og-ARB"/>
+                            <constraint firstAttribute="centerX" secondItem="WJ3-AT-iH8" secondAttribute="centerX" id="BzD-ca-7d0"/>
+                            <constraint firstItem="WJ3-AT-iH8" firstAttribute="top" secondItem="aVi-rB-afb" secondAttribute="bottom" constant="2.5" id="Lw1-ZF-Anx"/>
+                            <constraint firstItem="aVi-rB-afb" firstAttribute="leading" secondItem="xvl-bu-qX3" secondAttribute="leading" constant="11" id="Nex-w8-zJ6"/>
+                            <constraint firstAttribute="centerX" secondItem="aVi-rB-afb" secondAttribute="centerX" id="Vav-uw-95T"/>
+                            <constraint firstItem="WJ3-AT-iH8" firstAttribute="leading" secondItem="xvl-bu-qX3" secondAttribute="leading" constant="11" id="bed-QF-1P5"/>
+                            <constraint firstItem="aVi-rB-afb" firstAttribute="top" secondItem="xvl-bu-qX3" secondAttribute="top" constant="8" id="vow-Ud-ZZN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Vav-uw-95T"/>
+                                <exclude reference="BzD-ca-7d0"/>
+                            </mask>
+                        </variation>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="NDv-4O-OWW" secondAttribute="bottom" constant="-8" id="0P1-vN-WC1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="xvl-bu-qX3" secondAttribute="bottom" constant="-8" id="8Jp-wv-fpQ"/>
+                    <constraint firstItem="NDv-4O-OWW" firstAttribute="leading" secondItem="xvl-bu-qX3" secondAttribute="trailing" id="CcR-1r-8aA"/>
+                    <constraint firstItem="NDv-4O-OWW" firstAttribute="leading" secondItem="xvl-bu-qX3" secondAttribute="trailing" id="FHW-26-V2c"/>
+                    <constraint firstItem="xvl-bu-qX3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="H3k-MF-4cA"/>
                     <constraint firstAttribute="trailingMargin" secondItem="NDv-4O-OWW" secondAttribute="trailing" constant="-8" id="kS7-80-Nch"/>
                     <constraint firstItem="NDv-4O-OWW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="l5R-EP-DUn"/>
+                    <constraint firstItem="xvl-bu-qX3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="nfO-oA-BZp"/>
                     <constraint firstAttribute="trailingMargin" secondItem="NDv-4O-OWW" secondAttribute="trailing" constant="-8" id="w9Y-PG-kxA"/>
-                    <constraint firstItem="NDv-4O-OWW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="y7l-4L-LOw"/>
+                    <constraint firstItem="NDv-4O-OWW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="50" id="y7l-4L-LOw"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="CcR-1r-8aA"/>
                         <exclude reference="kS7-80-Nch"/>
+                        <exclude reference="y7l-4L-LOw"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="Bottom" destination="u0Y-JK-vlF" id="AJ7-uQ-hJg"/>
+                <outlet property="BottomHeight" destination="O1V-1x-xZi" id="nqt-MS-IGX"/>
                 <outlet property="Brief" destination="3PX-R1-IvP" id="Oj9-Kj-goX"/>
                 <outlet property="CellContainer" destination="NDv-4O-OWW" id="zXW-mP-6Ut"/>
+                <outlet property="Day" destination="aVi-rB-afb" id="BnD-Pe-ecf"/>
                 <outlet property="FwdHeader" destination="j8Z-XB-y5Y" id="J1r-mb-GoK"/>
                 <outlet property="Header" destination="et0-IU-41O" id="jrM-EN-gvP"/>
                 <outlet property="HeaderHeight" destination="BX8-Rg-zKD" id="twK-Kg-M8r"/>
                 <outlet property="ImgContainer" destination="cX3-75-0wo" id="WLF-pc-Y1s"/>
                 <outlet property="ImgContainerHeight" destination="LHf-S1-L0h" id="rME-Uy-ewK"/>
+                <outlet property="Month" destination="WJ3-AT-iH8" id="j6O-hF-jFP"/>
                 <outlet property="OriginHeader" destination="qdd-2S-tfF" id="sxH-Jr-qhT"/>
+                <outlet property="TimeLine" destination="xvl-bu-qX3" id="R9i-R6-oyf"/>
+                <outlet property="TimeLineWidth" destination="9rn-og-ARB" id="n0R-cS-aOC"/>
             </connections>
             <point key="canvasLocation" x="526.5" y="218"/>
         </tableViewCell>

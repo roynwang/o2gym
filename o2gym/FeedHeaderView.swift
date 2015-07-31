@@ -11,6 +11,7 @@ import UIKit
 class FeedHeaderView: UIView, FeedHeaderProtocol {
     
     var usrname:String!
+    var nav:O2Nav!
     
     @IBOutlet weak var Avatar: UIImageView!
 
@@ -30,9 +31,17 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
     
 
     @IBAction func showDetail(sender: AnyObject) {
-        O2Nav.sharedInstance()?.showDetail()
-        UserDetailViewController.sharedInstance().setUser(self.usrname)
-        O2Nav.sharedInstance()?.pushViewController(UserDetailViewController.sharedInstance())
+        //O2Nav.sharedInstance()?.showDetail()
+        //UserDetailViewController.sharedInstance().setUser(self.usrname)
+        //O2Nav.pushViewController(UserDetailViewController.sharedInstance())
+        //O2Nav.controller.performSegueWithIdentifier("showuserdetail", sender: self.usrname)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("userdetail") as! UserDetailViewController
+        cont.usrname = self.usrname
+        cont.hidesBottomBarWhenPushed = true
+        O2Nav.pushViewController(cont)
+        
     }
     override init(frame: CGRect) {
         // 1. setup any properties here
@@ -75,13 +84,17 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
         // Assumes UIView is top level and only object in CustomView.xib file
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
               self.HrHeight.constant = 0.5
+        self.nav = O2Nav()
         return view
     }
     
     func fillHeader(weibo:Weibo) {
         let usr = weibo.author!
         self.usrname = usr.name
-        self.Avatar.load(usr.avatar!)
+        self.Avatar.load(usr.avatar!, placeholder: UIImage(named:"avatar")) { (_, uiimg, errno_t) -> () in
+            self.Avatar.image = Helper.RBSquareImage(uiimg!)
+        }
+
         self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
         self.Avatar.layer.masksToBounds = true
         self.Name.text = usr.name

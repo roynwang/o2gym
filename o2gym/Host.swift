@@ -43,6 +43,16 @@ class Host {
         return url
     }
     
+    class func UserUp(by:String, name:String, up:Bool = true) -> String {
+        var action = "up"
+        if !up {
+            action = "down"
+        }
+        let url : String = "\(self.ip)/\(by)/u/\(name)/\(action)"
+        println(url)
+        return url
+    }
+    
     class func RecommendGet()->String{
         let url : String = "\(self.ip)/r/"
         return url

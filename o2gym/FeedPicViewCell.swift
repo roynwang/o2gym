@@ -21,6 +21,7 @@ class FeedPicViewCell: UITableViewCell {
         self.CellContainer.layer.borderWidth = 0.5
         self.CellContainer.layer.borderColor = O2Color.BorderGrey.CGColor
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.backgroundColor = O2Color.BgGreyColor
 
     }
 

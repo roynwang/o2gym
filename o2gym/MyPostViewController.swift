@@ -10,10 +10,13 @@ import UIKit
 
 
 
-public class MyPostViewController: UITableViewController, UINavigationBarDelegate {
+public class MyPostViewController: UITableViewController {
     
     var usrname:String!
     var mypost:MyPost!
+    var isSelf:Bool = false
+    var executing:Bool = false
+    var nomore:Bool = false
     
     public func setUser(name:String){
         self.usrname = name
@@ -32,6 +35,7 @@ public class MyPostViewController: UITableViewController, UINavigationBarDelegat
         self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.usrname = usrname
         self.mypost = MyPost(name: self.usrname)
+        
     }
     
     
@@ -49,7 +53,11 @@ public class MyPostViewController: UITableViewController, UINavigationBarDelegat
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.load(nil)
-        
+        self.hidesBottomBarWhenPushed = true
+        if self.usrname == Local.USER.name {
+            self.isSelf = true
+        }
+        self.tableView.backgroundColor = O2Color.BgGreyColor
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -83,8 +91,6 @@ public class MyPostViewController: UITableViewController, UINavigationBarDelegat
         // if the height of the content is greater than the maxHeight of
         // total space on the screen, limit the height to the size of the
         // superview.
-        
-        
         
         // now set the height constraint accordingly
         
@@ -136,15 +142,15 @@ public class MyPostViewController: UITableViewController, UINavigationBarDelegat
         switch celltype {
         case "article":
             let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
-            cell.fillCard(weibo)
+            cell.fillCard(weibo, isSelf:self.isSelf, timeline: [13,7])
             return cell
         case "weibo":
             let cell = tableView.dequeueReusableCellWithIdentifier("feedmultpicviewcell", forIndexPath: indexPath) as! FeedMultPicViewCell
-            cell.fillCard(weibo)
+            cell.fillCard(weibo, isSelf:self.isSelf, timeline: [13,7])
             return cell
         case "coach":
             let cell = tableView.dequeueReusableCellWithIdentifier("feedcoachviewcell", forIndexPath: indexPath) as! FeedCoachViewCell
-            cell.fillCard(weibo)
+            cell.fillCard(weibo, isSelf:self.isSelf, timeline: [13,7])
             return cell
         default:
             return UITableViewCell()
@@ -152,8 +158,34 @@ public class MyPostViewController: UITableViewController, UINavigationBarDelegat
         
     }
     
+    override public func scrollViewDidScroll(scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        
+        if distanceFromBottom < height {
+            self.loadOld()
+        }
+    }
     
-    
+    func loadOld() {
+        if self.nomore || self.executing {
+            return
+        }
+        self.executing = true
+        
+        func addlatest(){
+            self.executing = false
+            if self.mypost.delta == 0 {
+                self.nomore = true
+                return
+            }
+            self.tableView.reloadData()
+            
+            //self.showUpdateToast(self.feed.delta)
+        }
+        self.mypost.loadHistory(addlatest, itemcallback: nil)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

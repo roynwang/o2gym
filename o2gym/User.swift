@@ -17,6 +17,8 @@ public class User : BaseDataItem{
     public var upped:[Int] = []
     public var fwded:[Int] = []
     public var commented:[Int] = []
+    public var upped_person:[String] = []
+    public var upnum:Int = 0
     
     override var type:String {
         return "user"
@@ -64,12 +66,40 @@ public class User : BaseDataItem{
         self.id = dict["id"].int
         self.name = dict["name"].string
         self.iscoach = dict["iscoach"].boolValue
-        self.avatar = dict["avator"].string
+        self.avatar = dict["avatar"].string
+        self.upnum = dict["upnum"].intValue
         dict["upped"].arrayValue.map({self.upped.append($0.intValue)})
         dict["fwded"].arrayValue.map({self.fwded.append($0.intValue)})
         dict["commented"].arrayValue.map({self.commented.append($0.intValue)})
+        dict["upped_person"].arrayValue.map({self.upped_person.append($0.stringValue)})
         println(self.upped)
     }
     
-
+    public func up(name:String, direction:Bool = true){
+        if direction {
+            self.upnum=self.upnum + 1
+            self.requestGet(Host.UserUp(self.name!, name:name), onsuccess: nil, onfail: nil)
+            self.setUpped(name)
+            
+        } else {
+            self.upnum=self.upnum - 1
+            self.requestGet(Host.UserUp(self.name!, name:name,up:false), onsuccess: nil, onfail: nil)
+            self.setUpped(name,up: false)
+        }
+    }
+    
+    func setUpped(name:String, up:Bool = true){
+        if up {
+            if let index = find(self.upped_person, name) {
+                self.upped_person.append(name)
+            }
+        }
+        else {
+            if let index = find(self.upped_person, name) {
+                self.upped_person.removeAtIndex(index)
+            }
+  
+            
+        }
+    }
 }

@@ -10,6 +10,12 @@ import UIKit
 
 class FeedCoachViewCell: UITableViewCell {
 
+    @IBOutlet weak var Month: UILabel!
+    @IBOutlet weak var Day: UILabel!
+ 
+    @IBOutlet weak var TimeLineWidth: NSLayoutConstraint!
+    @IBOutlet weak var TimeLine: UIView!
+    @IBOutlet weak var BottomHeight: NSLayoutConstraint!
     @IBOutlet weak var HeaderHeight: NSLayoutConstraint!
     @IBOutlet weak var OriginHeader: FeedHeaderView!
     @IBOutlet weak var FwdHeader: FeedFwdHeaderView!
@@ -37,6 +43,8 @@ class FeedCoachViewCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.None
         self.FollowBtn.layer.cornerRadius = 3
         self.layer.masksToBounds = true
+        self.backgroundColor = O2Color.BgGreyColor
+        self.TimeLine.backgroundColor = O2Color.BgGreyColor
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -64,14 +72,42 @@ class FeedCoachViewCell: UITableViewCell {
     func setContent(weibo:Weibo){
         self.fillCard(weibo)
     }
-    func fillCard(ori:Weibo){
+    func fillCard(ori:Weibo, isSelf:Bool = false, timeline:[Int]? = nil){
         self.setFwd(ori.isfwd)
         self.fillHeader(ori)
-        self.fillBottom(ori)
+        if isSelf {
+            self.Bottom.hidden = true
+            self.BottomHeight.constant = 0
+            
+        }
+        else {
+            self.fillBottom(ori)
+            self.Bottom.hidden = false
+            self.BottomHeight.constant = 40
+        }
+        if timeline == nil {
+            self.TimeLine.hidden = true
+            self.TimeLineWidth.constant = 0
+        } else {
+            self.TimeLine.hidden = false
+            self.TimeLineWidth.constant = 43
+            if timeline?.count == 0 {
+                self.Day.text = ""
+                self.Month.text = ""
+            } else {
+                self.Day.text = timeline![0].toString()
+                self.Month.text = timeline![1].toString() + "月"
+            }
+
+        }
         
         let weibo = ori.isfwd ? ori.fwdcontent! : ori
         
-        self.Img.load(weibo.coach!.avatar!)
+        
+        //self.Img.load(weibo.coach!.avatar!)
+        self.Img.load(weibo.coach!.avatar!, placeholder: UIImage(named:"avatar")) { (_, uiimg, errno_t) -> () in
+            self.Img.image = Helper.RBSquareImage(uiimg!)
+        }
         self.Name.text = weibo.coach!.name
         println(Local.TIMELINE.follows)
         if let index = find(Local.TIMELINE.follows, weibo.coach!.id!) {
@@ -81,6 +117,8 @@ class FeedCoachViewCell: UITableViewCell {
             self.FollowBtn.hidden = false
             self.Followed.hidden = true
         }
+        
+        
     }
     func fillHeader(weibo:Weibo){
         //self.headcontent = nil

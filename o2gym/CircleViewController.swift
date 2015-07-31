@@ -10,15 +10,33 @@ import UIKit
 
 class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegate{
     
+    var circleSeg:HMSegmentedControl!
+    
     //var Nav:O2Nav!
     
-//    func toggleSegcon(){
-//        self.segcon.hidden = !self.segcon.hidden
-//        self.navigationItem.setHidesBackButton(false, animated: true)
-//        
-//    }
+    //    func toggleSegcon(){
+    //        self.segcon.hidden = !self.segcon.hidden
+    //        self.navigationItem.setHidesBackButton(false, animated: true)
+    //
+    //    }
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
     override func viewWillAppear(animated: Bool) {
-        O2Nav.sharedInstance()!.showSeg()
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+
+
+        //UIView.animateWithDuration(0.5, animations: {
+        self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor
+        self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
+        //})
+//        UIView.transitionWithView( self.navigationController!.navigationBar,duration: 0.5, options: UIViewAnimationOptions.ShowHideTransitionViews, animations: {},completion: nil)
+       
+        //self.tabBarController?.tabBar.hidden = false
+        //self.tabBarController.set
+        O2Nav.setController(self)
     }
     
     override func viewDidLoad() {
@@ -28,13 +46,32 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
         baritem!.selectedImage = UIImage(named: "circle_active")
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-
-        O2Nav(nav:self.navigationController!)
-        O2Nav.sharedInstance()!.setSeg(["大气层","热点"], width: 150, indexChangeCallBack: {
+        
+        let width:CGFloat = 150
+        self.circleSeg = HMSegmentedControl(sectionTitles: ["大气层","热点"])
+        
+        let startx:CGFloat = self.navigationController!.navigationBar.frame.width/2 - width/2
+        
+        
+        circleSeg.frame = CGRectMake(startx, 6, width, 30);
+        circleSeg.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        circleSeg.selectionIndicatorColor = UIColor.whiteColor()
+        circleSeg.selectionIndicatorHeight = 1
+        if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
+            circleSeg.titleTextAttributes = [
+                NSFontAttributeName: font,
+                NSForegroundColorAttributeName: UIColor.whiteColor()]
+        }
+        
+        circleSeg.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        circleSeg.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        circleSeg.indexChangeBlock = {
             index in
             self.setSelectedIndex(index, animated: true)
-            }
-        )
+        }
+        self.navigationItem.titleView = circleSeg
+        
+        
         
         
         
@@ -44,6 +81,9 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
         c2.view.backgroundColor = UIColor.blueColor()
         self.viewControllers = [c1,c2]
         self.delegate = self
+        
+        //self.hidesBottomBarWhenPushed = true
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,18 +93,31 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
     
     
     func swipeTabBarController(swipeTabBarController: MGSwipeTabBarController!, didScrollToIndex toIndex: Int, fromIndex: Int) {
-        O2Nav.sharedInstance()!.swipedSeg(toIndex)
+        self.circleSeg.setSelectedSegmentIndex(UInt(toIndex), animated: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+
+      
+        
+        
+
     }
     
     
-    /*
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+//        if segue.identifier! == "showuserdetail" {
+//            let vc = segue.destinationViewController as! UserDetailViewController
+//            vc.usrname = sender as! String
+//            vc.hidesBottomBarWhenPushed = true
+//        }
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
     }
-    */
+
     
 }

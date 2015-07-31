@@ -24,12 +24,12 @@ class RecommendGymCell: UITableViewCell {
     }
     
     func setContent(item:BaseDataItem){
-        let usr:Gym = item as! Gym
-        self.BriefImg.load(usr.img_set[0], placeholder: nil, completionHandler:
+        let usr:RecommendItem = item as! RecommendItem
+        self.BriefImg.load(usr.recommendpic!, placeholder: nil, completionHandler:
             { (_, uiimg, _) in
                 self.BriefImg.image = Helper.RBResizeImage(uiimg!, targetSize: self.BriefImg.frame.size)
             })
-        self.Des.text = usr.name
+        self.Des.text = usr.recommendtitle
         
     }
     

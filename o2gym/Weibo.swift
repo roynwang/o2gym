@@ -145,7 +145,7 @@ public class Weibo : BaseDataItem {
     
     func setUpped(up:Bool = true){
         if up {
-            if nil == find(Local.USER.upped, self.id!) {
+            if let index = find(Local.USER.upped, self.id!) {
                 Local.USER.upped.append(self.id!)
             }
             if self.isfwd && nil == find(Local.USER.upped, self.fwdfrom!) {
@@ -181,6 +181,10 @@ public class Weibo : BaseDataItem {
     public func comment(content: Weibo){
         
         
+    }
+    public func recommendUser(tarUser:User, onsuccess:((Weibo)->Void)?, onfail:((NSError?)->Void)?){
+        self.coach = tarUser
+        self.save(onsuccess,error_handler: onfail)
     }
     
     public func fwd(usr:User ,onsuccess:((Weibo)->Void)?, onfail:((NSError?)->Void)?){

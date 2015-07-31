@@ -175,7 +175,7 @@
         <!--新消息-->
         <scene sceneID="uN4-Cy-keL">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bZb-72-MvO" customClass="WeiboPostViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newpost" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bZb-72-MvO" customClass="WeiboPostViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xrN-Tt-1fg"/>
                         <viewControllerLayoutGuide type="bottom" id="gNC-PS-5Kq"/>
@@ -554,15 +554,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNk-jW-LNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="-1262"/>
+            <point key="canvasLocation" x="2360" y="-1894"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController storyboardIdentifier="mainview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.34901960780000002" green="0.0" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -685,7 +685,7 @@
             </objects>
             <point key="canvasLocation" x="3126" y="26"/>
         </scene>
-        <!--Circle View Controller-->
+        <!--圈子-->
         <scene sceneID="GCI-he-jPP">
             <objects>
                 <viewController id="ksq-P5-sYn" customClass="CircleViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
@@ -698,14 +698,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gyD-Gt-fwb">
-                        <barButtonItem key="backBarButtonItem" title=" " id="Cub-qW-1dv"/>
+                    <navigationItem key="navigationItem" title="圈子" id="gyD-Gt-fwb">
+                        <barButtonItem key="backBarButtonItem" title="baba" id="EIa-tS-dOf"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzK-ji-xf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3188" y="-1056"/>
+            <point key="canvasLocation" x="2352" y="-950"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="8WX-KN-6fo">
+            <objects>
+                <viewController storyboardIdentifier="userdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eLJ-Ze-pND" customClass="UserDetailViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jeI-AX-brb"/>
+                        <viewControllerLayoutGuide type="bottom" id="A14-Ci-PEr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aXh-ZU-haC">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djK-nw-ljV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72" y="2166"/>
         </scene>
         <!--氧气-->
         <scene sceneID="a8w-o5-AcX">
@@ -717,9 +735,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="nvU-aZ-bab">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.34901960780000002" green="0.0" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="0.0"/>
-                            <color key="textColor" red="0.40837658380000003" green="0.76293112480000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -755,10 +773,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nv7-9o-AlV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="圈子" image="circle" id="Gu2-eO-dth"/>
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="pHg-vw-dc3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.77943539500000003" green="0.24162775380000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.34901960780000002" green="0.0" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.27058823529999998" green="0.0" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -771,7 +791,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dmn-2v-n32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2378" y="-1014"/>
+            <point key="canvasLocation" x="1581" y="-943"/>
         </scene>
         <!--我-->
         <scene sceneID="IR7-TR-lQs">
@@ -790,7 +810,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jf4-At-VVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="-814"/>
+            <point key="canvasLocation" x="1652" y="-1926"/>
         </scene>
     </scenes>
     <resources>

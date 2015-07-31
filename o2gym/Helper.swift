@@ -10,11 +10,19 @@ import UIKit
 
 public class Helper{
     
-    public static var CircleSegmentControl : HMSegmentedControl!
-
     
-    class func circleShowSegmenControl(nav:UINavigationBar){
-        
+    
+    class func createBarButtonItemFromImg(image:String, selector:Selector, tar:AnyObject?)->UIBarButtonItem{
+        let tmpbtn = createButtonFromImg(image, selector: selector, tar: tar)
+        return UIBarButtonItem(customView: tmpbtn)
+    }
+
+    class func createButtonFromImg(image:String, selector:Selector, tar:AnyObject?)->UIButton{
+        var img = UIImage(named: image)
+        let tmpbtn = UIButton(frame: CGRect(x:0, y:0, width:img!.size.width, height:img!.size.height))
+        tmpbtn.setImage(img, forState: UIControlState.Normal)
+        tmpbtn.addTarget(tar, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
+        return tmpbtn
     }
     
     
@@ -30,15 +38,15 @@ public class Helper{
     }
     class func upload(picdata:NSData, complete: QNUpCompletionHandler!){
         request(Method.GET, Host.UploadTokenGet(), parameters: nil)
-        .responseJSON(options: nil) {
-            (req, resp, data, error) -> Void in
-            if error == nil{
-                let dict = JSON(data!)
-                let key = dict["key"].stringValue
-                let token = dict["token"].stringValue
-                let mgr:QNUploadManager = QNUploadManager()
-                mgr.putData(picdata, key: key, token: token, complete:complete, option: nil)
-            }
+            .responseJSON(options: nil) {
+                (req, resp, data, error) -> Void in
+                if error == nil{
+                    let dict = JSON(data!)
+                    let key = dict["key"].stringValue
+                    let token = dict["token"].stringValue
+                    let mgr:QNUploadManager = QNUploadManager()
+                    mgr.putData(picdata, key: key, token: token, complete:complete, option: nil)
+                }
         }
         
     }

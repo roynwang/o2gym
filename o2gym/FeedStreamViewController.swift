@@ -60,6 +60,7 @@ class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
     }
     
     func showUpdateToast(num:Int){
+        //if num <= 0 { return }
         updatetoast.text = StringResource.UpdateToastText(num)
         self.view.addSubview(updatetoast)
         UIView.animateWithDuration(0.5, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
@@ -83,8 +84,10 @@ class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
         self.executing = true
         
         func addlatest(){
-            self.tableView.reloadData()
+           
             self.refreshControl?.endRefreshing()
+           
+             self.tableView.reloadData()
             
             self.showUpdateToast(self.feed.delta)
         }
@@ -185,19 +188,7 @@ class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
         
 
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //self.navigationController?.showDetailViewController(self.UserDetail,sender:nil)
-//        if indexPath.row == 1 {
-//            UserDetailViewController.sharedInstance().setUser("royn")
-//        }
-//        else {
-//            UserDetailViewController.sharedInstance().setUser("alex")
-//        }
-//        O2Nav.sharedInstance()?.showDetail()
-//        O2Nav.sharedInstance()?.pushViewController(UserDetailViewController.sharedInstance())
-        //self.presentViewController(self.UserDetail, animated: true, completion: nil)
-        //self.navigationController?.navigationBarHidden = false
-    }
+
     
     
     

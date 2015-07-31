@@ -12,74 +12,33 @@ import Foundation
 public class O2Nav{
     
     static var instance:O2Nav? = nil
-    var nav:UINavigationBar?
+    static var nav:UINavigationBar?
     var circleSeg:HMSegmentedControl!
-    var controller:UINavigationController!
+    static var controller:UIViewController!
     
-    init(nav:UINavigationController){
-        self.controller = nav
-        self.nav = self.controller!.navigationBar
-        O2Nav.instance = self
-    }
-
     class func sharedInstance()->O2Nav? {
+        O2Nav.instance = O2Nav.instance ?? O2Nav()
         return O2Nav.instance
     }
-    
-    public func setSeg(titles:[String],width:CGFloat,indexChangeCallBack:IndexChangeBlock){
-        circleSeg = HMSegmentedControl(sectionTitles: titles)
-        
-        let startx = self.nav!.frame.width/2 - width/2
-        
-        
-        circleSeg.frame = CGRectMake(startx, 6, width, 30);
-        circleSeg.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-        circleSeg.selectionIndicatorColor = UIColor.whiteColor()
-        circleSeg.selectionIndicatorHeight = 1
-        if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
-            circleSeg.titleTextAttributes = [
-                NSFontAttributeName: font,
-                NSForegroundColorAttributeName: UIColor.whiteColor()]
-        }
-        
-        circleSeg.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
-        circleSeg.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
-//        segcon.indexChangeBlock = {
-//            index in
-//            self.setSelectedIndex(index, animated: true)
-//            
-//            
-//        }
-        circleSeg.indexChangeBlock = indexChangeCallBack
-        
-        self.nav!.addSubview(self.circleSeg)
-    }
-    public func setDetail(){
-        self.circleSeg.hidden = true
-        
-    }
-    public func swipedSeg(toIndex:Int){
-        self.circleSeg.setSelectedSegmentIndex(UInt(toIndex), animated: true)
+    class func setController(nav:UIViewController){
+        O2Nav.controller = nav
+        O2Nav.nav = nav.navigationController?.navigationBar
     }
     
-    public func showSeg(){
-        
-        let animation = CATransaction()
-        UIView.transitionWithView(self.circleSeg, duration: 0.2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {}, completion: nil)
-        
 
-        self.circleSeg.hidden = false
-        
+    
+    class func pushViewController(viewController:UIViewController){
+        O2Nav.controller.navigationController!.pushViewController(viewController, animated: true)
     }
-    public func showDetail(){
-        let animation = CATransaction()
-        UIView.transitionWithView(self.circleSeg, duration: 0.4, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {}, completion: nil)
-        
-        self.circleSeg.hidden = true
-        
-    }
-    public func pushViewController(viewController:UIViewController){
-        self.controller.pushViewController(viewController, animated: true)
+    
+    class func setNavigationBarTransformProgress(progress:CGFloat){
+        if progress >= 0 {
+            O2Nav.nav!.lt_setBackgroundColor(O2Color.MainColor.colorWithAlphaComponent(1-progress))
+            O2Nav.nav!.titleTextAttributes = [
+                NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(1-progress)
+            ]
+
+        }
     }
     
 }
