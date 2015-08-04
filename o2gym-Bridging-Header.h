@@ -19,4 +19,7 @@
 #import "JTSImageViewController.h"
 #import "JTSImageInfo.h"
 
+#import "NYTPhoto.h"
+#import "NYTPhotosViewController.h"
+
 #endif

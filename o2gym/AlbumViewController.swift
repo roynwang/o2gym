@@ -134,10 +134,17 @@ public class AlbumViewController: UICollectionViewController {
            self.navigationController?.pushViewController(v, animated: true)
         } else {
             let i = self.isSelf ? (indexPath.row-1):indexPath.row
-            let photo = self.album.datalist[i] as! Pic
-            let cell = self.collectionView?.cellForItemAtIndexPath(indexPath)
             
-            PicViewer.showPic(photo.url, source: cell!, parent: self.view, controller: self)
+            var photos:[PicForNYT] = []
+            
+            for t in 0...self.album.count-1 {
+                photos.append(PicForNYT(image: (self.collectionView?.cellForItemAtIndexPath(NSIndexPath(forRow: t, inSection: 0)) as! AlbumPicCell).Img.image, attributedCaptionTitle: NSAttributedString(string: "",attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])))
+            }
+            
+            let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[i] as NYTPhoto)
+            
+            photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+            self.presentViewController(photosViewController, animated: true, completion: nil)
             
         }
     }
