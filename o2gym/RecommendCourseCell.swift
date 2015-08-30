@@ -22,6 +22,8 @@ class RecommendCourseCell: BaseViewCell {
         self.SubTitle.layer.cornerRadius = 7
         self.SubTitle.clipsToBounds = true
         
+        self.selectionStyle = UITableViewCellSelectionStyle.None
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

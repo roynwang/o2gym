@@ -118,6 +118,9 @@ public class MyPostViewController: UITableViewController {
     func segmentTitle()->String{
         return "氧气罐"
     }
+    func streachScrollView()->UIScrollView{
+        return self.tableView
+    }
     
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.

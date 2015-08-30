@@ -80,6 +80,12 @@ NSString * const NYTPhotoViewControllerPhotoImageUpdatedNotification = @"NYTPhot
         if (!photo.image) {
             [self setupLoadingView:loadingView];
         }
+        if (photo.url){
+            [_scalingImageView loadWithUrl:photo.url complete:^{
+                [self.loadingView removeFromSuperview];
+                self.loadingView = nil;
+            }];
+        }
         
         _notificationCenter = notificationCenter;
         

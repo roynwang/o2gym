@@ -37,7 +37,6 @@
 
 -(HMSegmentedControl *)customSegmentView;
 
--(void) customToInsetChange:(CGFloat)topinset;
 
 
 @end

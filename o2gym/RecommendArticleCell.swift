@@ -16,6 +16,7 @@ class RecommendArticleCell: BaseViewCell {
     @IBOutlet weak var ArticleTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         // Initialization code
     }
 

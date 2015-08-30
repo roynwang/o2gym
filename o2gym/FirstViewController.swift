@@ -10,6 +10,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var Pwd: UITextField!
     @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
     @IBOutlet weak var UserName: UITextField!
     @IBOutlet weak var GoNext: UIButton!
@@ -31,8 +32,14 @@ class FirstViewController: UIViewController {
         self.loginIndicator.hidden = false
         self.loginIndicator.startAnimating()
         let name = self.UserName.text
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(name, forKey: "o2gym_name")
+        if !name.isEmpty {
+            let pwd = self.Pwd.text
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(name, forKey: "o2gym_name")
+            if !pwd.isEmpty {
+                defaults.setObject(pwd, forKey: "o2gym_pwd")
+            }
+        }
         func onsuccess(usr:User){
             dispatch_async(dispatch_get_main_queue()) {
                 print("===loading user========\n")

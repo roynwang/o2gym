@@ -15,6 +15,7 @@ public class Course : BaseDataItem{
     public var brief:String? = nil
     public var price:String? = nil
     public var gym:String? = nil
+    public var pic:String? = nil
     
     
     override var type:String {
@@ -42,5 +43,6 @@ public class Course : BaseDataItem{
         self.brief = dict["brief"].string
         self.price = dict["price"].string
         self.gym = dict["gym"].string
+        self.pic = dict["pic"].stringValue
     }
 }

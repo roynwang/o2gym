@@ -8,6 +8,8 @@
 
 import UIKit
 
+private var CusomHeaderInsetObserver = 123
+
 public class UserDetailViewController: ARSegmentPageController {
     
     
@@ -20,13 +22,14 @@ public class UserDetailViewController: ARSegmentPageController {
     var usr : User!
     var mypost:MyPostViewController!
     var album:AlbumViewController!
-    
+    var mycourse:MyCourseViewController!
     var favbtn:UIButton!
     
     static let imgfav = UIImage(named:"fav_bar")
     static let imgfav_active = UIImage(named: "fav_bar_active")
     var faved:Bool = false
     
+    @IBOutlet weak var BottomBar: UIView!
     
     var barvisible:Bool = false
     
@@ -36,12 +39,12 @@ public class UserDetailViewController: ARSegmentPageController {
         return header.loadViewFromNib()
     }
     public override func customSegmentView()->HMSegmentedControl? {
-        let titles = ["相册","氧气罐"]
+        let titles = ["相册","氧气罐","课程"]
         let unit:CGFloat = 75
         let seg = HMSegmentedControl(sectionTitles: titles)
         let width : CGFloat = unit * CGFloat(titles.count)
         let startx = CGRectGetWidth(self.view.frame)/2 - width/2
-        seg.frame = CGRectMake(startx, 0, width, 43.5);
+        seg.frame = CGRectMake(startx, 0, width, 39.5);
         seg.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         seg.selectionIndicatorColor = O2Color.MainColor
         seg.selectionIndicatorHeight = 1
@@ -58,24 +61,23 @@ public class UserDetailViewController: ARSegmentPageController {
         seg.backgroundColor = UIColor.whiteColor()
         seg.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
         
-        
         return seg
         
-        
     }
-    
-    
-    
     public override func viewDidLoad() {
         self.headerHeight = 205
+        self.segmentHeight = 40
         self.title = self.usrname
+        self.BottomBar.backgroundColor = O2Color.UpdateToast.colorWithAlphaComponent(0.9)
         self.backgroundColor = O2Color.BgGreyColor
         self.navigationController?.navigationBar.translucent = true
         mypost = MyPostViewController(nibName: "MyPostViewController", bundle: nil, usrname:self.usrname)
         album = AlbumViewController(nibName: "AlbumViewController", bundle: nil, usrname:self.usrname)
+        
+        mycourse = MyCourseViewController(nibName: "MyPostViewController", bundle: nil, usrname:self.usrname)
         //mypost.setUser("royn")
         
-        self.setViewControllers([album, mypost])
+        self.setViewControllers([album, mypost,mycourse])
         super.viewDidLoad()
         
         self.segmentMiniTopInset = 20 + CGFloat(self.navigationController!.navigationBar.frame.height)
@@ -90,7 +92,15 @@ public class UserDetailViewController: ARSegmentPageController {
         
         self.navigationItem.leftBarButtonItems = [Helper.createBarButtonItemFromImg("back", selector: "back", tar: self)]
         
-        usr.loadRemote(header.setContent, onfail: nil)
+        //usr.loadRemote(header.setContent, onfail: nil)
+        usr.loadRemote({ (tar) -> Void in
+            let tarusr = tar as! User
+            header.setContent(tarusr)
+            if !tarusr.iscoach{
+                self.BottomBar.hidden = true
+            }
+            self.title = tarusr.displayname
+        }, onfail: nil)
         
         var favimgname = "fav_bar"
         
@@ -104,7 +114,16 @@ public class UserDetailViewController: ARSegmentPageController {
             Helper.createBarButtonItemFromImg("fwd_bar", selector: "recommendperson", tar: self),
             UIBarButtonItem(customView: self.favbtn)
         ]
-
+        
+        
+        //        self.addObserver(self,forKeyPath:"segmentToInset",options:NSKeyValueChangeNewKey,context:CusomHeaderInsetObserver)
+        
+        //        self.addObserver(self, forKeyPath: "segmentToInset", options: [NSKeyValueChangeNewKey], context: CusomHeaderInsetObserver)
+        
+        self.addObserver(self,
+            forKeyPath: "segmentToInset",
+            options: .New,
+            context: &CusomHeaderInsetObserver)
     }
     
     func recommendperson(){
@@ -119,8 +138,8 @@ public class UserDetailViewController: ARSegmentPageController {
         
         mypost.setUser(usrname)
         album.setUser(usrname)
+        mycourse.setUser(usrname)
         O2Nav.setController(self)
-        //self.tabBarController?.tabBar.hidden = true
         
         
         var image = UIImage(named: "back")
@@ -130,18 +149,20 @@ public class UserDetailViewController: ARSegmentPageController {
         self.navigationController?.setToolbarItems([b1], animated: true)
         
         UIView.animateWithDuration(0.5, animations: {
-            
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-            
             }, completion: {(_) in
                 
         })
+        self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor.colorWithAlphaComponent(0)
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor.colorWithAlphaComponent(0)
+        O2Nav.setNavigationBarTransformProgress(1)
+        
     }
     
     func back()
     {
+        O2Nav.setNavigationBarTransformProgress(0)
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -166,21 +187,33 @@ public class UserDetailViewController: ARSegmentPageController {
         //           self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     }
     
+    public override func viewDidDisappear(animated: Bool) {
+       O2Nav.resetNav()
+    }
+    
     
     public override func preferredStatusBarStyle()->UIStatusBarStyle{
         return UIStatusBarStyle.LightContent;
     }
     
-    public override func customToInsetChange(topinset: CGFloat) {
-        //let transstart = 0
-        let transend:CGFloat = self.headerHeight - self.segmentMiniTopInset
-        if topinset < transend {
-            let percentage = CGFloat(topinset)/transend
-            O2Nav.setNavigationBarTransformProgress(1-percentage)
-        }else{
-            O2Nav.setNavigationBarTransformProgress(0)
+    public override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        
+        if context == &CusomHeaderInsetObserver {
+            let transstart = 0
+            let transend:CGFloat = self.headerHeight - self.segmentMiniTopInset
+            let topinset = change[NSKeyValueChangeNewKey] as! Float
+            println(topinset)
+            if CGFloat(topinset) > self.segmentMiniTopInset {
+                let percentage =  (self.headerHeight - CGFloat(topinset))/transend
+                O2Nav.setNavigationBarTransformProgress(1-percentage)
+            }else{
+                O2Nav.setNavigationBarTransformProgress(0)
+            }
         }
+        
     }
+    
     
     
     //    public override  func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
@@ -205,5 +238,17 @@ public class UserDetailViewController: ARSegmentPageController {
     // Pass the selected object to the new view controller.
     }
     */
+    deinit {
+        self.removeObserver(self, forKeyPath: "segmentToInset")
+    }
     
+    @IBAction func book(sender: AnyObject) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("book") as! BookViewController
+        cont.coach = self.usr
+        //cont.usrname = usrname
+        cont.hidesBottomBarWhenPushed = true
+        O2Nav.pushViewController(cont)
+        
+    }
 }

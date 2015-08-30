@@ -53,7 +53,8 @@ public class BaseDataItem {
         }
     }
     public func loadRemote<T:BaseDataItem>(onsuccess :((T)->Void)?,onfail :((String)->Void)?){
-        request(.GET, self.UrlGet)
+        println(Local.AuthHeaders)
+        request(.GET, self.UrlGet, headers:Local.AuthHeaders)
             .responseJSON { (_, resp, data, error) in
                 println(self.UrlGet)
                 if error == nil{
@@ -89,11 +90,11 @@ public class BaseDataItem {
     }
     
     public func requestGet(url: String,onsuccess :(()->Void)?,onfail :((String)->Void)?){
-        request(.GET, url)
+        request(.GET, url,headers:Local.AuthHeaders)
             .responseJSON { (_, resp, data, error) in
                 if error == nil{
                     switch resp!.statusCode{
-                    case 200:
+                    case 200,201,202,203:
                         if onsuccess != nil{
                             onsuccess!()
                         }

@@ -11,7 +11,7 @@ import Foundation
 
 public class Weibo : BaseDataItem {
 
-    let usr:User
+    var usr:User
     
     var id: Int? = 0
     public var title: String = ""
@@ -67,6 +67,11 @@ public class Weibo : BaseDataItem {
         self.usr = usr
         self.id = weiboid
     }
+    public init(weiboid: Int?) {
+        self.usr = Local.USER
+        self.id = weiboid
+    }
+    
     public convenience init(dict:JSON){
         self.init(usr: User(dict: dict["author"]), weiboid: dict["id"].intValue)
         self.loadFromJSON(dict)
@@ -109,6 +114,9 @@ public class Weibo : BaseDataItem {
     }
     
     public override func loadFromJSON(dict:JSON){
+        
+        
+        self.usr = User(dict: dict["author"])
         self.id = dict["id"].intValue
         self.title = dict["title"].stringValue
         self.brief = dict["brief"].stringValue

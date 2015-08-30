@@ -14,6 +14,7 @@ class RecommendGymCell: UITableViewCell {
     @IBOutlet weak var BriefImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         // Initialization code
     }
 

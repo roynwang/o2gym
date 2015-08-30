@@ -19,6 +19,8 @@ public class User : BaseDataItem{
     public var commented:[Int] = []
     public var upped_person:[String] = []
     public var upnum:Int = 0
+    public var gym:String!
+    public var displayname:String!
     
     override var type:String {
         return "user"
@@ -44,11 +46,8 @@ public class User : BaseDataItem{
         self.init(id: nil, name: nil, iscoach: false, avatar: nil)
     }
     public convenience init(dict:JSON){
-        self.init(id:dict["id"].intValue,
-            name:dict["name"].stringValue,
-            iscoach:dict["iscoach"].boolValue,
-            avatar:dict["avatar"].stringValue
-        )
+        self.init()
+        self.loadFromJSON(dict)
         
     }
     
@@ -68,10 +67,14 @@ public class User : BaseDataItem{
         self.iscoach = dict["iscoach"].boolValue
         self.avatar = dict["avatar"].string
         self.upnum = dict["upnum"].intValue
+        self.displayname = dict["displayname"].stringValue
         dict["upped"].arrayValue.map({self.upped.append($0.intValue)})
         dict["fwded"].arrayValue.map({self.fwded.append($0.intValue)})
         dict["commented"].arrayValue.map({self.commented.append($0.intValue)})
         dict["upped_person"].arrayValue.map({self.upped_person.append($0.stringValue)})
+        if dict["gym"].array != nil {
+            self.gym = dict["gym"].arrayValue[0].stringValue
+        }
         println(self.upped)
     }
     
@@ -98,8 +101,9 @@ public class User : BaseDataItem{
             if let index = find(self.upped_person, name) {
                 self.upped_person.removeAtIndex(index)
             }
-  
-            
         }
+    }
+    func follow(name:String, onsuccess:()->Void){
+        self.requestGet(Host.Follow(self.name!, follows: name), onsuccess: onsuccess, onfail: nil)
     }
 }

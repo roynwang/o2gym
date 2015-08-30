@@ -9,13 +9,13 @@
 import UIKit
 
 class FeedMultPicViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var TimeLine: UIView!
     @IBOutlet weak var Bottom: FeedToolBarView!
-
+    
     @IBOutlet weak var Header: UIView!
     
-
+    
     @IBOutlet weak var HeaderHeight: NSLayoutConstraint!
     @IBOutlet weak var TimeLineWidth: NSLayoutConstraint!
     @IBOutlet weak var BottomHeight: NSLayoutConstraint!
@@ -37,10 +37,11 @@ class FeedMultPicViewCell: UITableViewCell {
     var NextX : CGFloat = 0
     var Spacing : CGFloat = 2
     var headcontent:FeedHeaderProtocol!
-
+    
     
     var imgs:[UIImageView] = []
-        
+    var photos:[PicForNYT] = []
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,25 +56,23 @@ class FeedMultPicViewCell: UITableViewCell {
         //self.ImgContainerHeight.constant = 150
         
         self.NextX += self.Spacing
-
+        
         println(self.ImgContainer.frame.width)
-
-        self.PicWidth = UIScreen.mainScreen().bounds.width - 20
-        println(self.PicWidth)
-        self.ImgContainerHeight.constant = self.PicWidth
+        
+        
         
         self.backgroundColor = O2Color.BgGreyColor
         self.TimeLine.backgroundColor = O2Color.BgGreyColor
-
+        
     }
     
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
     func setFwd(isFwd: Bool){
         if !isFwd {
             self.HeaderHeight.constant = 46
@@ -89,21 +88,34 @@ class FeedMultPicViewCell: UITableViewCell {
         }
     }
     
-
+    
     func addPic(img:String){
         let tmp:UIImageView = UIImageView()
         tmp.frame = CGRect(x: self.NextX, y: 0, width: self.PicWidth, height: self.PicWidth)
         self.imgs.append(tmp)
         self.ImgContainer.addSubview(tmp)
         
+        let tapped = UITapGestureRecognizer()
+        tapped.addTarget(self, action: Selector("showBrowser:"))
+        tapped.delegate = self
+        tmp.addGestureRecognizer(tapped)
+        
+        
         tmp.load(img, placeholder: nil, completionHandler:
             { (_, uiimg, _) in
+                
                 tmp.image = Helper.RBSquareImage(uiimg!)
+                //tmp.addGestureRecognizer(tapped)
         })
         
         self.NextX += self.PicWidth
         self.NextX += self.Spacing
         self.ImgContainer.contentSize.width = self.NextX
+        self.ImgContainer.addGestureRecognizer(tapped)
+        
+        
+        let pnyt = PicForNYT(url:NSURL(string: img),attributedCaptionTitle: NSAttributedString(string: "",attributes: [NSForegroundColorAttributeName: UIColor.grayColor()]))
+        self.photos.append(pnyt)
         
     }
     func emptyPic(){
@@ -112,7 +124,30 @@ class FeedMultPicViewCell: UITableViewCell {
             tmp.removeFromSuperview()
         }
         self.imgs = []
+  
+        self.photos = []
         self.NextX = self.Spacing
+    }
+    func showBrowser(sender:UITapGestureRecognizer){
+        
+        let xoffset = self.ImgContainer.contentOffset.x
+        let cursor = sender.locationInView(self.ImgContainer)
+        var index = 0
+        for i in 0..<self.imgs.count {
+            if self.PicWidth > (cursor.x - self.imgs[i].frame.origin.x)  && (cursor.x - self.imgs[i].frame.origin.x) > 0 {
+                index = i
+                break
+            }
+        }
+        
+        
+        //let index:Int = find(self.imgs, sender.view as! UIImageView)!
+        
+        let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[index] as NYTPhoto)
+        
+        photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        O2Nav.controller.navigationController?.presentViewController(photosViewController, animated: true, completion: nil)
+        
     }
     
     func fillCard(ori:Weibo, isSelf:Bool = false, timeline:[Int]? = nil){
@@ -132,9 +167,11 @@ class FeedMultPicViewCell: UITableViewCell {
         if timeline == nil {
             self.TimeLine.hidden = true
             self.TimeLineWidth.constant = 0
+            self.PicWidth = UIScreen.mainScreen().bounds.width - 20
         } else {
             self.TimeLine.hidden = false
             self.TimeLineWidth.constant = 43
+            self.PicWidth = UIScreen.mainScreen().bounds.width - 20 - 43
             if timeline?.count == 0 {
                 self.Day.text = ""
                 self.Month.text = ""
@@ -145,13 +182,22 @@ class FeedMultPicViewCell: UITableViewCell {
         }
         
         let weibo = ori.isfwd ? ori.fwdcontent! : ori
-       
+        
+        
+        
+        
+        self.ImgContainerHeight.constant = self.PicWidth
+        
         self.emptyPic()
         for pic in weibo.img_set {
             self.addPic(pic)
         }
         self.Brief.attributedText = weibo.title.getCustomLineSpaceString(2)
+        
     }
+    
+    
+    
     func fillHeader(weibo:Weibo){
         //self.headcontent = nil
         self.headcontent.fillHeader(weibo)

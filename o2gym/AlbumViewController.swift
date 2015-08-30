@@ -16,11 +16,17 @@ public class AlbumViewController: UICollectionViewController {
     public var album:Album!
     var picWidth:CGFloat!
     var isSelf:Bool = false
+    var executing:Bool = false
+    var nomore:Bool = false
+    var started:Bool = false
+    var allpics:[UIImageView] = []
     
     public func setUser(name:String){
         self.usrname = name
         self.album = Album(name: name)
-        self.load(nil)
+        self.load { () -> Void in
+            self.allpics
+        }
     }
     public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -63,14 +69,24 @@ public class AlbumViewController: UICollectionViewController {
     func segmentTitle()->String{
         return "相册"
     }
+    func streachScrollView()->UIScrollView{
+        return self.collectionView!
+    }
     
     public func load(callback:(()->Void)?){
+        
         self.album.load({
+            self.started = true
             self.collectionView!.reloadData()
             if callback != nil{
                 callback!()
             }
-            }, itemcallback: nil)
+            }, itemcallback: { (item) -> Void in
+                let img = UIImageView()
+                img.load((item as! Pic).url)
+                self.allpics.append(img)
+        })
+    
     }
     
     public override func didReceiveMemoryWarning() {
@@ -118,7 +134,9 @@ public class AlbumViewController: UICollectionViewController {
             }
             let pic = self.album.datalist[i] as! Pic
             cell.Img.load(pic.url, placeholder: nil) { (_, uiimg, err) -> () in
+                //self.allpics[i] = uiimg!
                 cell.Img.image = Helper.RBSquareImage(uiimg!)
+                
             }
             println(pic.url)
             return cell
@@ -133,14 +151,22 @@ public class AlbumViewController: UICollectionViewController {
             let p = v.view
            self.navigationController?.pushViewController(v, animated: true)
         } else {
-            let i = self.isSelf ? (indexPath.row-1):indexPath.row
             
             var photos:[PicForNYT] = []
+            var start = self.isSelf ? 1 : 0
             
-            for t in 0...self.album.count-1 {
-                photos.append(PicForNYT(image: (self.collectionView?.cellForItemAtIndexPath(NSIndexPath(forRow: t, inSection: 0)) as! AlbumPicCell).Img.image, attributedCaptionTitle: NSAttributedString(string: "",attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])))
+            var t = 0
+            while t < self.album.count {
+                let v = UIImageView()
+                v.load((self.album.datalist[t] as! Pic).url)
+                photos.append(
+                    PicForNYT(
+                        url: NSURL(string:(self.album.datalist[t] as! Pic).url),
+                        attributedCaptionTitle: NSAttributedString(string: "",attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])))
+                t += 1
             }
             
+            let i = self.isSelf ? (indexPath.row-1) : indexPath.row
             let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[i] as NYTPhoto)
             
             photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
@@ -149,6 +175,42 @@ public class AlbumViewController: UICollectionViewController {
         }
     }
     
+    
+    override public func scrollViewDidScroll(scrollView: UIScrollView) {
+        if self.started == false {
+            return
+        }
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        
+        if distanceFromBottom < height {
+            self.loadOld()
+        }
+    }
+    
+    func loadOld() {
+        if self.nomore || self.executing {
+            return
+        }
+        self.executing = true
+        
+        func addlatest(){
+            self.executing = false
+            if self.album.delta == 0 {
+                self.nomore = true
+                return
+            }
+            self.collectionView!.reloadData()
+            
+            //self.showUpdateToast(self.feed.delta)
+        }
+        self.album.loadHistory(addlatest, itemcallback: {(item) -> Void in
+            let img = UIImageView()
+            img.load((item as! Pic).url)
+            self.allpics.append(img)
+        })
+    }
     
     
     // MARK: UICollectionViewDelegate

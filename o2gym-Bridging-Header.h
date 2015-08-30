@@ -13,13 +13,13 @@
 #import "MGSwipeTabBarController.h"
 #import "HMSegmentedControl.h"
 #import "ARSegmentPageController.h"
-#import "UIImage+ImageEffects.h"
+//#import "UIImage+ImageEffects.h"
 #import "UINavigationBar+Awesome.h"
 
 #import "JTSImageViewController.h"
 #import "JTSImageInfo.h"
 
-#import "NYTPhoto.h"
 #import "NYTPhotosViewController.h"
+#import "NYTPhoto.h"
 
 #endif

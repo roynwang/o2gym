@@ -30,14 +30,7 @@ class FeedFwdHeaderView: UIView, FeedHeaderProtocol {
     var usrname: String!
     
     @IBAction func showDetail(sender: AnyObject) {
-//        UserDetailViewController.sharedInstance().setUser(self.usrname)
-//        O2Nav.pushViewController(UserDetailViewController.sharedInstance())
-        
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cont =  sb.instantiateViewControllerWithIdentifier("userdetail") as! UserDetailViewController
-        cont.usrname = self.usrname
-        cont.hidesBottomBarWhenPushed = true
-        O2Nav.pushViewController(cont)
+        O2Nav.showUser(self.usrname)
     }
     override init(frame: CGRect) {
         // 1. setup any properties here
@@ -90,10 +83,12 @@ class FeedFwdHeaderView: UIView, FeedHeaderProtocol {
         self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
         self.Avatar.layer.masksToBounds = true
         self.Avatar.load(usr.avatar!, placeholder: UIImage(named:"avatar")) { (_, uiimg, errno_t) -> () in
+            if uiimg != nil {
             self.Avatar.image = Helper.RBSquareImage(uiimg!)
+            }
         }
         self.FwdDesc.text = weibo.by
-        self.AuthorName.text = usr.name
+        self.AuthorName.text = usr.displayname
         self.HrHeight.constant = 0.5
 
     }

@@ -36,11 +36,13 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
         //O2Nav.pushViewController(UserDetailViewController.sharedInstance())
         //O2Nav.controller.performSegueWithIdentifier("showuserdetail", sender: self.usrname)
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cont =  sb.instantiateViewControllerWithIdentifier("userdetail") as! UserDetailViewController
-        cont.usrname = self.usrname
-        cont.hidesBottomBarWhenPushed = true
-        O2Nav.pushViewController(cont)
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let cont =  sb.instantiateViewControllerWithIdentifier("userdetail") as! UserDetailViewController
+//        cont.usrname = self.usrname
+//        cont.hidesBottomBarWhenPushed = true
+//        O2Nav.pushViewController(cont)
+        
+        O2Nav.showUser(self.usrname)
         
     }
     override init(frame: CGRect) {
@@ -97,7 +99,7 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
 
         self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
         self.Avatar.layer.masksToBounds = true
-        self.Name.text = usr.name
+        self.Name.text = usr.displayname
         if weibo.islong {
             self.ActionDesc.text = StringResource.PublishLong
         } else {

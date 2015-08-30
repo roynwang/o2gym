@@ -212,3 +212,13 @@ extension UIViewController {
     }
 
 }
+
+extension UIImageView {
+    func fitLoad(URL: URLLiteralConvertible, placeholder: UIImage?) {
+        self.load(URL, placeholder: placeholder) { (_, uiimg, err) -> () in
+            if uiimg != nil {
+                self.image = Helper.RBSquareImageTo(uiimg!, size: CGSize(width: self.frame.size.width*2, height: self.frame.size.height*2))
+            }
+        }
+    }
+}

@@ -72,9 +72,6 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
         self.navigationItem.titleView = circleSeg
         
         
-        
-        
-        
         let c1 = FeedStreamViewController()
         c1.view.backgroundColor = UIColor(rgba:"#f6f6f6")
         let c2 = TestViewController()
@@ -96,28 +93,7 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
         self.circleSeg.setSelectedSegmentIndex(UInt(toIndex), animated: true)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-
-      
-        
-        
-
-    }
-    
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-//        if segue.identifier! == "showuserdetail" {
-//            let vc = segue.destinationViewController as! UserDetailViewController
-//            vc.usrname = sender as! String
-//            vc.hidesBottomBarWhenPushed = true
-//        }
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-
-    
 }

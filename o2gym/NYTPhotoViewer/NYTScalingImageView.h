@@ -25,6 +25,9 @@
  */
 - (instancetype)initWithImage:(UIImage *)image frame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
 
+
+- (void)loadWithUrl:(NSURL *)imageUrl  complete:(void (^)(void))callback;
+
 /**
  *  Updates the image in the image view and centers and zooms the new image.
  *

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
+class FeedStreamViewController: UITableViewController {
     
     let toastheight:CGFloat = 40
     
@@ -40,7 +40,7 @@ class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
         self.refreshControl = refreshControl
         
         self.feed = Local.FEED
-        
+
         //notification
         updatetoast = UILabel(frame: CGRect(x: 0, y: -toastheight, width: self.tableView.frame.width, height: toastheight))
         updatetoast.backgroundColor = O2Color.UpdateToast
@@ -164,6 +164,15 @@ class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
 //        self.navigationController?.pushViewController(self.UserDetail, animated: true)
 //    }
     
+    func tapped(gr:UITapGestureRecognizer){
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("articledetail") as! ArticleDetailViewController
+        cont.weiboid = gr.view!.tag
+        cont.hidesBottomBarWhenPushed = true
+        O2Nav.pushViewController(cont)
+
+    }
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let weibo = self.feed.datalist[indexPath.row] as! Weibo
@@ -172,7 +181,12 @@ class FeedStreamViewController: UITableViewController, ScrollUpdateProtocol {
         switch celltype {
             case "article":
                 let cell = tableView.dequeueReusableCellWithIdentifier("feedarticleviewcell", forIndexPath: indexPath) as! FeedArticleViewCell
+                
                 cell.fillCard(weibo)
+                cell.tag = weibo.isfwd ? weibo.fwdfrom! : weibo.id!
+                var tapped:UITapGestureRecognizer = UITapGestureRecognizer()
+                tapped.addTarget(self, action: "tapped:")
+                cell.addGestureRecognizer(tapped)
                 return cell
             case "weibo":
                 let cell = tableView.dequeueReusableCellWithIdentifier("feedmultpicviewcell", forIndexPath: indexPath) as! FeedMultPicViewCell

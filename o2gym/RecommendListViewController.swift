@@ -19,14 +19,12 @@ class RecommendListViewController: UITableViewController {
         
         self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
         
-        self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
-        
-        
         // set active image
         var baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "o2_active")
-        
-    
+        self.tableView.backgroundColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         
         //        var bounds = self.navigationController?.navigationBar.bounds as CGRect!
@@ -41,6 +39,16 @@ class RecommendListViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        O2Nav.setController(self)
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+        
+        self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        O2Nav.resetNav()
     }
     
     override func didReceiveMemoryWarning() {
@@ -102,6 +110,7 @@ class RecommendListViewController: UITableViewController {
         case "course":
             let cell = tableView.dequeueReusableCellWithIdentifier("recommendcoursecell", forIndexPath: indexPath) as! RecommendCourseCell
             cell.setContent(item)
+            
             return  cell
         default:
             return UITableViewCell()
@@ -109,10 +118,20 @@ class RecommendListViewController: UITableViewController {
         
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var item = Local.RECOMMEND?.datalist[indexPath.row]
-        switch(item!.type){
+        var item = Local.RECOMMEND?.datalist[indexPath.row] as! RecommendItem
+  
+        switch(item.recommendcontent!.type){
+        case "weibo":
+            let wb = item.recommendcontent as! Weibo
+            O2Nav.showArticle(wb.id!)
+            break
         case "user":
-            self.performSegueWithIdentifier("coachdetail", sender: nil)
+//            let sb = UIStoryboard(name: "Main", bundle: nil)
+//            let cont =  sb.instantiateViewControllerWithIdentifier("userdetail") as! UserDetailViewController
+//            cont.usrname = (item.recommendcontent as! User).name!
+//            cont.hidesBottomBarWhenPushed = true
+//            O2Nav.pushViewController(cont)
+            O2Nav.showUser((item.recommendcontent as! User).name!)
             break
         default:
             self.performSegueWithIdentifier("testsegue", sender: nil)

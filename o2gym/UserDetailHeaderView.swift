@@ -10,6 +10,7 @@ import Foundation
 
 public class UserDetailHeaderView:UIView{
 
+    @IBOutlet weak var LocIcon: UIImageView!
     @IBOutlet weak var Location: UILabel!
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var Avator: UIImageView!
@@ -18,6 +19,7 @@ public class UserDetailHeaderView:UIView{
         let nib = UINib(nibName: "UserDetailHeaderView", bundle: bundle)
         
         // Assumes UIView is top level and only object in CustomView.xib file
+
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         view.backgroundColor = O2Color.MainColor
         //view.backgroundColor = O2Color.BgGreyColor
@@ -25,13 +27,19 @@ public class UserDetailHeaderView:UIView{
         return view
     }
     public func setContent(usr:User){
-        self.Avator.load(usr.avatar!, placeholder: UIImage(named: "avatar")) { (_, uiimg, _) -> () in
-            self.Avator.image = Helper.RBSquareImage(uiimg!)
-            self.Avator.layer.cornerRadius = self.Avator.frame.width/2
-            self.Avator.layer.masksToBounds = true
+//        self.Avator.load(usr.avatar!, placeholder: UIImage(named: "avatar")) { (_, uiimg, _) -> () in
+//            self.Avator.image = Helper.RBSquareImage(uiimg!)
+//
+//        }
+        self.Avator.layer.cornerRadius = self.Avator.frame.width/2
+        self.Avator.layer.masksToBounds = true
+        self.Avator.fitLoad(usr.avatar!, placeholder: UIImage(named:"avatar"))
+        self.Name.text = usr.displayname
+        if usr.gym != nil {
+            self.Location.text = usr.gym
+            self.LocIcon.hidden = false
         }
-        self.Name.text = usr.name
-        self.Location.text = "xxxxxxxxx"
+        
     }
 
 }

@@ -12,6 +12,11 @@ class Host {
     static let ip : String = "http://127.0.0.1:8000/api"
     static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
     
+    class func JwtAuth()->String{
+        let url : String = "\(self.ip)/v/"
+        return url
+    }
+    
     class func ImgUrl(key:String)->String {
         let url : String = "\(self.ImgHost)/\(key)"
         return url
@@ -87,6 +92,11 @@ class Host {
         return url
     }
     
+    class func MyCourseGet(name:String)->String{
+        let url : String = "\(self.ip)/\(name)/courses/"
+        return url
+    }
+    
     class func AlbumGet(name:String)->String{
         let url : String = "\(self.ip)/\(name)/album/"
         return url
@@ -113,6 +123,30 @@ class Host {
         }
         let url : String = "\(self.ip)/\(Local.USER.name!)/w/\(weibo.id!.toString())/\(action)"
         println(url)
+        return url
+    }
+    
+    class func ArticleGet(id:Int) -> String{
+        let url : String = "\(self.ip)/l/\(id)/"
+        return url
+    }
+    
+    class func Follow(user:String, follows:String) -> String{
+        let url : String = "\(self.ip)/\(user)/follow/?target=\(follows)"
+        return url
+    }
+    class func DayBookedGet(user:String, date:String) -> String{
+        let url : String = "\(self.ip)/\(user)/b/\(date)/"
+        return url
+    }
+    class func DayBookedCreate(user:String, date:String) -> String{
+        let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
+        let url : String = "\(self.ip)/\(user)/b/\(fdate)/"
+        return url
+    }
+    class func WeekBookedGet(user:String, date:String) -> String{
+        let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
+        let url : String = "\(self.ip)/\(user)/s/\(fdate)/"
         return url
     }
 }

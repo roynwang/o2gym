@@ -10,6 +10,7 @@ import Foundation
 
 class PicForNYT: NSObject, NYTPhoto{
     var image: UIImage?
+    var url: NSURL?
     var placeholderImage: UIImage?
     let attributedCaptionTitle: NSAttributedString
     let attributedCaptionSummary = NSAttributedString(string: "summary string", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
@@ -20,8 +21,12 @@ class PicForNYT: NSObject, NYTPhoto{
         self.attributedCaptionTitle = attributedCaptionTitle
         super.init()
     }
-    
+
     convenience init(attributedCaptionTitle: NSAttributedString) {
         self.init(image: nil, attributedCaptionTitle: attributedCaptionTitle)
+    }
+    convenience init(url:NSURL?, attributedCaptionTitle: NSAttributedString){
+        self.init(image: nil, attributedCaptionTitle: attributedCaptionTitle)
+        self.url = url
     }
 }

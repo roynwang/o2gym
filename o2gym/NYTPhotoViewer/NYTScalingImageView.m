@@ -9,6 +9,7 @@
 #import "NYTScalingImageView.h"
 
 #import "tgmath.h"
+#import "../SDWebImage/UIImageView+WebCache.h"
 
 @interface NYTScalingImageView ()
 
@@ -36,6 +37,8 @@
 }
 
 #pragma mark - NYTScalingImageView
+
+
 
 - (id)initWithImage:(UIImage *)image frame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -77,6 +80,13 @@
     self.showsHorizontalScrollIndicator = NO;
     self.bouncesZoom = YES;
     self.decelerationRate = UIScrollViewDecelerationRateFast;
+}
+
+- (void)loadWithUrl:(NSURL *)imageUrl complete:(void (^)(void))callback {
+    [self.imageView sd_setImageWithURL:imageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self updateImage:image];
+        callback();
+    }];
 }
 
 - (void)updateZoomScale {

@@ -13,6 +13,7 @@ public class BaseDataList {
     public var nexturl:String? = nil
     public var prevurl:String? = nil
     public var delta:Int = 0
+
     
     var executing:Bool = false
     
@@ -23,6 +24,9 @@ public class BaseDataList {
     }
     func loaditem(dict:JSON)->BaseDataItem?{
          preconditionFailure("This method must be overridden")
+    }
+    var listkey:String? {
+        return "results"
     }
     
     public func loadHistory<T:BaseDataItem>(allcallback:(()->Void)?, itemcallback:((T)->Void)?){
@@ -40,7 +44,7 @@ public class BaseDataList {
         self.executing = true
         self.delta = 0
         print(url+"\n")
-        request(.GET, url)
+        request(.GET, url, headers:Local.AuthHeaders)
             .responseJSON { (_, _, data, _) in
                 if data == nil {
                     if allcallback != nil{
@@ -83,6 +87,6 @@ public class BaseDataList {
     }
     
     public func load<T:BaseDataItem>(allcallback:(()->Void)?, itemcallback:((T)->Void)?){
-        self.loadMore(self.Url, allcallback: allcallback, itemcallback: itemcallback, listkey: "results", insert: false)
+        self.loadMore(self.Url, allcallback: allcallback, itemcallback: itemcallback, listkey: self.listkey, insert: false)
     }
 }
