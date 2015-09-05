@@ -11,6 +11,7 @@ import UIKit
 class TimeTableCell: UICollectionViewCell {
 
     var tappedcb : ((Int)->Void)?
+    var isActive : Bool = false
     
     @IBOutlet weak var Time: UILabel!
     override func awakeFromNib() {
@@ -59,12 +60,14 @@ class TimeTableCell: UICollectionViewCell {
         Time.layer.borderColor = O2Color.LightMainColor.CGColor
         Time.backgroundColor = O2Color.LightMainColor
         Time.textColor = UIColor.whiteColor()
+        self.isActive = true
     }
     
     func deactiveLabel(){
         Time.layer.borderColor = O2Color.LightMainColor.CGColor
         Time.backgroundColor = UIColor.clearColor()
         Time.textColor = O2Color.LightMainColor
+        self.isActive = false
     }
     
     func toggle()->Bool{

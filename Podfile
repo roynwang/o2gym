@@ -2,7 +2,10 @@
 # platform :ios, '6.0'
 
 target 'o2gym' do
-pod 'DZNPhotoPickerController'
+#use_frameworks!
+	pod 'THCalendarDatePicker', '~> 1.2.1'
+	pod 'DZNPhotoPickerController'
+	pod 'CZPicker'
 end
 
 target 'o2gymTests' do

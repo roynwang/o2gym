@@ -10,6 +10,7 @@ import UIKit
 
 class BookedCourseCell: UITableViewCell {
 
+    @IBOutlet weak var DelBtn: UIButton!
     @IBOutlet weak var Indicator: UIActivityIndicatorView!
     @IBOutlet weak var StatusImg: UIImageView!
     @IBOutlet weak var Hour: UILabel!
@@ -17,6 +18,8 @@ class BookedCourseCell: UITableViewCell {
     @IBOutlet weak var Avatar: UIImageView!
    
     var book:Book!
+    
+    var delcallback:(()->Void)!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +33,14 @@ class BookedCourseCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    
+    
+    @IBAction func tappedDel(sender: AnyObject) {
+        if self.delcallback != nil {
+            self.delcallback!()
+        }
+    }
     func done(){
         self.Indicator.stopAnimating()
         self.Indicator.hidden = true

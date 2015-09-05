@@ -16,7 +16,7 @@ public class Helper{
         let tmpbtn = createButtonFromImg(image, selector: selector, tar: tar)
         return UIBarButtonItem(customView: tmpbtn)
     }
-
+    
     class func createButtonFromImg(image:String, selector:Selector, tar:AnyObject?)->UIButton{
         var img = UIImage(named: image)
         let tmpbtn = UIButton(frame: CGRect(x:0, y:0, width:img!.size.width, height:img!.size.height))
@@ -113,5 +113,28 @@ public class Helper{
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+    
+    class func intToWeekDay(index:Int)->String{
+        var ret:String = ""
+        switch index {
+        case 0:
+            ret = "周日"
+        case 1:
+            ret = "周一"
+        case 2:
+            ret = "周二"
+        case 3:
+            ret = "周三"
+        case 4:
+            ret = "周四"
+        case 5:
+            ret = "周五"
+        case 6:
+            ret = "周六"
+        default :
+            ret =  "error"
+        }
+        return ret
     }
 }

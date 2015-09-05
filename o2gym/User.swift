@@ -19,7 +19,7 @@ public class User : BaseDataItem{
     public var commented:[Int] = []
     public var upped_person:[String] = []
     public var upnum:Int = 0
-    public var gym:String!
+    public var gym:String! = ""
     public var displayname:String!
     
     override var type:String {
@@ -58,7 +58,10 @@ public class User : BaseDataItem{
         self.init(id: id, name: name, iscoach: false, avatar: nil)
     }
      public override func buildParam()->[String:String]{
-        return [ "name": self.name!, "iscoach": self.iscoach.toString()]
+        return [
+            "displayname": self.displayname,
+            "avatar" : self.avatar!
+        ]
     }
     
     public override func loadFromJSON(dict:JSON){
@@ -72,10 +75,9 @@ public class User : BaseDataItem{
         dict["fwded"].arrayValue.map({self.fwded.append($0.intValue)})
         dict["commented"].arrayValue.map({self.commented.append($0.intValue)})
         dict["upped_person"].arrayValue.map({self.upped_person.append($0.stringValue)})
-        if dict["gym"].array != nil {
+        if dict["gym"].array != nil && dict["gym"].array?.count>0{
             self.gym = dict["gym"].arrayValue[0].stringValue
         }
-        println(self.upped)
     }
     
     public func up(name:String, direction:Bool = true){

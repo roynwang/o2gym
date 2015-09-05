@@ -13,6 +13,7 @@ public class BaseDataList {
     public var nexturl:String? = nil
     public var prevurl:String? = nil
     public var delta:Int = 0
+    public var isLoaded:Bool = false
 
     
     var executing:Bool = false
@@ -43,7 +44,6 @@ public class BaseDataList {
         if self.executing {return}
         self.executing = true
         self.delta = 0
-        print(url+"\n")
         request(.GET, url, headers:Local.AuthHeaders)
             .responseJSON { (_, _, data, _) in
                 if data == nil {
@@ -87,6 +87,7 @@ public class BaseDataList {
     }
     
     public func load<T:BaseDataItem>(allcallback:(()->Void)?, itemcallback:((T)->Void)?){
+        self.isLoaded = true
         self.loadMore(self.Url, allcallback: allcallback, itemcallback: itemcallback, listkey: self.listkey, insert: false)
     }
 }

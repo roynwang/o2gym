@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-o2gym-CZPicker-CZPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-o2gym-CZPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-o2gym-DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,12 +34,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-o2gym-KNSemiModalViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-o2gym-MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-o2gym-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-o2gym-THCalendarDatePicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>48CCBAC8387E5F3980992DCF</key>
+		<key>0F4955A4ED57CE65748761B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55F1E1C49602B511F8F25C28</key>
+		<key>2AB9C51D453F208EE2FCAAA6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>646AB04325B8579A6C734751</key>
+		<key>48B50BC04F37E31660011171</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B430495A8A21EFCBC5C8CC8</key>
+		<key>4DD8DF1F6DAA0BE2F1A5D6CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7C0C5735AC6663F7F04C453</key>
+		<key>72C336BA1EEBB068B5EC6E7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA793769E3C944DCBDD10FF9</key>
+		<key>931AF2B7F292C4C5BDE3EA70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE0BC69CF91B046D24070EE7</key>
+		<key>954F0639484D6ECDDE8A3DAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D46E406558CF6B5AAE2EEC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9E543B6BF5B2E177BE31645</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E09EE1FA26531E11C6C350CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7E859E6FC7336752C28600B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

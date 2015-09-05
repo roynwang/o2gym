@@ -15,6 +15,8 @@ public class BaseDataItem {
         return "base"
     }
     
+    var isLoaded:Bool = false
+    
     public convenience init(dict:JSON){
         preconditionFailure("This method must be overridden")
     }
@@ -52,12 +54,46 @@ public class BaseDataItem {
                 }
         }
     }
+    public func update<T:BaseDataItem>(onsuccess:((T)->Void)?, onfail:((String?)->Void)?){
+        request(.PATCH, self.UrlGet, parameters:self.buildParam(), encoding:ParameterEncoding.JSON)
+            .response{ (_, resp, data, error) in
+                if error == nil{
+                    switch resp!.statusCode{
+                    case 200,201,202,203:
+                        if onsuccess != nil{
+                            onsuccess!(self as! T)
+                        }
+                        break
+                    case 404:
+                        if onfail != nil{
+                            onfail!("无法访问" + self.UrlGet)
+                        }
+                        break
+                    default:
+                        println(resp?.description)
+                        if onfail != nil{
+                            onfail!(String(stringInterpolationSegment: resp))
+                        }
+                    }
+                } else{
+                    if onfail != nil{
+                        onfail!(error!.description)
+                    } else {
+                        println(error!.description)
+                    }
+                }
+        }
+    }
+
+    
+    
     public func loadRemote<T:BaseDataItem>(onsuccess :((T)->Void)?,onfail :((String)->Void)?){
         println(Local.AuthHeaders)
         request(.GET, self.UrlGet, headers:Local.AuthHeaders)
             .responseJSON { (_, resp, data, error) in
                 println(self.UrlGet)
                 if error == nil{
+                    self.isLoaded = true
                     switch resp!.statusCode{
                     case 200:
                         let dict = JSON(data!)

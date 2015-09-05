@@ -149,4 +149,26 @@ class Host {
         let url : String = "\(self.ip)/\(user)/s/\(fdate)/"
         return url
     }
+    class func DayTimeGet(user:String, date:String) -> String{
+        let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
+        let url : String = "\(self.ip)/\(user)/d/\(fdate)/"
+        return url
+    }
+    class func RestTime(user:String)->String{
+        let url : String = "\(self.ip)/\(user)/rest/"
+        return url
+    }
+    class func OrderItemGet(user:String,billid:Int)->String{
+        let url : String = "\(self.ip)/\(user)/o/\(billid)/"
+        return url
+    }
+    class func OrderListGet(user:String)->String{
+        let url : String = "\(self.ip)/\(user)/o/"
+        return url
+    }
+    class func ProductGet(id:Int)->String {
+        let url : String = "\(self.ip)/p/\(id)/"
+        return url
+    }
+
 }

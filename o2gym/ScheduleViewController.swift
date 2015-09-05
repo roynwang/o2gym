@@ -19,32 +19,14 @@ class ScheduleViewController: UITableViewController {
         self.navigationController?.navigationController?.navigationBar.translucent = false
         self.curDate = CVDate(date: NSDate())
         self.tableView.registerNib(UINib(nibName: "BookedCourseComplexCell", bundle: nil), forCellReuseIdentifier: "bookedcoursecell")
-
-        self.weekSchedule = WeekBookList(name: Local.USER.name!, date: self.curDate.numDescription)
-        
-        self.weekSchedule.load({ () -> Void in
-            println("load week done")
-            self.daylist = [String:[Book]]()
-            for item in self.weekSchedule.datalist {
-                let book = item as! Book
-                if nil == find(self.daylist.keys.array, book.date) {
-                    self.daylist[book.date] = [book]
-                    self.days.append(book.date)
-                } else {
-                    self.daylist![book.date]?.append(book)
-                }
-                
-                
-            }
-            self.tableView.reloadData()
-        }, itemcallback: nil)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
         
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.rowHeight = 80
         self.tableView.separatorColor = O2Color.BorderGrey
         self.tableView.sectionIndexColor = O2Color.TextGrey
-        self.tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        //self.tableView.backgroundColor = O2Color.BgGreyColor
 
         
         //self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -55,6 +37,9 @@ class ScheduleViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     override func viewWillAppear(animated: Bool) {
+     
+        var t = Local.USER
+        self.weekSchedule = WeekBookList(name: Local.USER.name!, date: self.curDate.numDescription)
         self.weekSchedule.load({ () -> Void in
             println("load week done")
             self.daylist = [String:[Book]]()
@@ -124,7 +109,7 @@ class ScheduleViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor =  UIColor.groupTableViewBackgroundColor()
+        header.contentView.backgroundColor =  O2Color.BgGreyColor
         header.textLabel.textColor = O2Color.MainColor
         header.textLabel.font = UIFont(name: "RTWS YueGothic Trial", size: 14)
         //header.textLabel.text = self.daylist.keys.array[section]
@@ -176,5 +161,6 @@ class ScheduleViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }

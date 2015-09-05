@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="KGk-i7-Jjw" customClass="ProfileAvatarCell" customModule="o2gym" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DCV-Qb-fEI">
+                        <rect key="frame" x="14" y="40" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="eE7-0S-hZ0"/>
+                            <constraint firstAttribute="height" constant="48" id="pBE-he-ZEG"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="leftBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="topBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rightBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaB-V4-Aqq">
+                        <rect key="frame" x="14" y="40" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="6pA-wm-Add"/>
+                            <constraint firstAttribute="width" constant="48" id="AWo-8b-gCw"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="showAvatarPicker:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Zrl-m3-hEe"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adW-Fj-XAU">
+                        <rect key="frame" x="77" y="55" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DCV-Qb-fEI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="B2p-aB-Set"/>
+                    <constraint firstAttribute="centerY" secondItem="JaB-V4-Aqq" secondAttribute="centerY" id="gK2-Fg-iSW"/>
+                    <constraint firstItem="adW-Fj-XAU" firstAttribute="leading" secondItem="JaB-V4-Aqq" secondAttribute="trailing" constant="15" id="hZ9-EM-MJ0"/>
+                    <constraint firstAttribute="centerY" secondItem="adW-Fj-XAU" secondAttribute="centerY" id="l6L-4P-uLp"/>
+                    <constraint firstAttribute="centerY" secondItem="adW-Fj-XAU" secondAttribute="centerY" id="n5V-64-KTE"/>
+                    <constraint firstAttribute="centerY" secondItem="DCV-Qb-fEI" secondAttribute="centerY" id="nWD-wT-rT5"/>
+                    <constraint firstAttribute="centerX" secondItem="DCV-Qb-fEI" secondAttribute="centerX" constant="-15" id="wbu-UR-sNU"/>
+                    <constraint firstItem="JaB-V4-Aqq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="zN8-MQ-poO"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="wbu-UR-sNU"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="Avatar" destination="DCV-Qb-fEI" id="95z-6t-dDE"/>
+                <outlet property="Name" destination="adW-Fj-XAU" id="E9i-ba-p5x"/>
+            </connections>
+            <point key="canvasLocation" x="283.5" y="302"/>
+        </tableViewCell>
+    </objects>
+</document>

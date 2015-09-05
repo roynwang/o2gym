@@ -93,10 +93,8 @@ class FeedHeaderView: UIView, FeedHeaderProtocol {
     func fillHeader(weibo:Weibo) {
         let usr = weibo.author!
         self.usrname = usr.name
-        self.Avatar.load(usr.avatar!, placeholder: UIImage(named:"avatar")) { (_, uiimg, errno_t) -> () in
-            self.Avatar.image = Helper.RBSquareImage(uiimg!)
-        }
-
+        self.Avatar.fitLoad(usr.avatar!, placeholder: UIImage(named:"avatar"));
+        //self.Avatar.fitLoad(<#URL: URLLiteralConvertible#>, placeholder: <#UIImage?#>)
         self.Avatar.layer.cornerRadius = self.Avatar.frame.width/2
         self.Avatar.layer.masksToBounds = true
         self.Name.text = usr.displayname

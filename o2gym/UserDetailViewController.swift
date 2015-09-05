@@ -96,8 +96,8 @@ public class UserDetailViewController: ARSegmentPageController {
         usr.loadRemote({ (tar) -> Void in
             let tarusr = tar as! User
             header.setContent(tarusr)
-            if !tarusr.iscoach{
-                self.BottomBar.hidden = true
+            if tarusr.iscoach && tarusr.name != Local.USER.name{
+                self.BottomBar.hidden = false
             }
             self.title = tarusr.displayname
         }, onfail: nil)

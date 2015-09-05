@@ -72,10 +72,11 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         self.navigationItem.titleView = circleSeg
         
         
-        let c1 = FeedStreamViewController()
-        c1.view.backgroundColor = UIColor(rgba:"#f6f6f6")
+        let c1 = ProfileViewController()
+        //c1.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        c1.view.backgroundColor = O2Color.BgGreyColor
         let c2 = ScheduleViewController()
-        c2.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        c2.view.backgroundColor = O2Color.BgGreyColor
         self.viewControllers = [c1,c2]
         self.delegate = self
         

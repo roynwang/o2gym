@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 4
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// CZPicker
+#define COCOAPODS_POD_AVAILABLE_CZPicker
+#define COCOAPODS_VERSION_MAJOR_CZPicker 0
+#define COCOAPODS_VERSION_MINOR_CZPicker 3
+#define COCOAPODS_VERSION_PATCH_CZPicker 5
+
 // DZNEmptyDataSet
 #define COCOAPODS_POD_AVAILABLE_DZNEmptyDataSet
 #define COCOAPODS_VERSION_MAJOR_DZNEmptyDataSet 1
@@ -84,6 +90,12 @@
 #define COCOAPODS_VERSION_MINOR_GROAuth2SessionManager 2
 #define COCOAPODS_VERSION_PATCH_GROAuth2SessionManager 3
 
+// KNSemiModalViewController
+#define COCOAPODS_POD_AVAILABLE_KNSemiModalViewController
+#define COCOAPODS_VERSION_MAJOR_KNSemiModalViewController 0
+#define COCOAPODS_VERSION_MINOR_KNSemiModalViewController 3
+#define COCOAPODS_VERSION_PATCH_KNSemiModalViewController 0
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
@@ -101,4 +113,10 @@
 #define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 0
+
+// THCalendarDatePicker
+#define COCOAPODS_POD_AVAILABLE_THCalendarDatePicker
+#define COCOAPODS_VERSION_MAJOR_THCalendarDatePicker 1
+#define COCOAPODS_VERSION_MINOR_THCalendarDatePicker 2
+#define COCOAPODS_VERSION_PATCH_THCalendarDatePicker 1
 

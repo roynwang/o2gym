@@ -10,6 +10,7 @@ import UIKit
 
 class BookedCourseTitleCell: UITableViewCell {
 
+    @IBOutlet weak var BudgetLabel: UILabel!
     @IBOutlet weak var Arrow: UIImageView!
 
     @IBOutlet weak var SubmitBtn: UIButton!

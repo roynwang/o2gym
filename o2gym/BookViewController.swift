@@ -11,15 +11,18 @@ import UIKit
 class BookViewController: UIViewController {
     
     var coach:User!
-    var budget:Int!
+    var product:Product!
+    var order:OrderItem!
+    var budget:Int = 3
     let CALENDARHEIGHT:CGFloat = 35
     let CALENDARMENUHEIGHT:CGFloat = 30
-    let TIMECOLLECTIONHEIGHT:CGFloat = 250
+    var TIMECOLLECTIONHEIGHT:CGFloat = 280
     var BOOKTABLEHEIGHT:CGFloat = 0
     
     var isCollapsed:Bool = false
-    
     var dayBookedList:DayBookList!
+    var startDay:NSDate!
+    var BookedTableHeader:BookedCourseTitleCell!
     
     
     @IBOutlet weak var ConstraintCalendarMenuTop: NSLayoutConstraint!
@@ -34,43 +37,28 @@ class BookViewController: UIViewController {
     
     @IBOutlet weak var BookedTable: UITableView!
     @IBOutlet weak var TimeCollectionView: UICollectionView!
-    let TimeMap = ["09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30"]
+//    let TimeMap = ["09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30"]
     
     var bookedTime:[String:[Int]]! = [String:[Int]]()
     var naTime:[String:[Int]]! = [String:[Int]]()
     var restTime:[String:[Int]]! = [String:[Int]]()
     
     var dayBookedTime:[Int] = []
-    var dayNaTime:[Int] = []
-    var dayRestTime:[Int] = [0,1,2,3]
+    var dayTime:DayTime!
     
-    var dayAvaTime:[Int] {
-        get {
-            return Array(0..<self.TimeMap.count).filter {
-                (number)
-                in
-                if let index = find(self.dayRestTime, number) {
-                    return false
-                } else {
-                    return true
-                }
-            }
-            
-        }
-    }
     
     var curDate:CVDate!
-    
-    let MAXTIME:Int = 26
     
     
     @IBOutlet weak var Calendar: CVCalendarView!
     @IBOutlet weak var CalendarMenu: CVCalendarMenuView!
     
+    
     var animationFinished = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         self.BOOKTABLEHEIGHT = self.BookedTable.frame.size.height
         
@@ -111,24 +99,47 @@ class BookViewController: UIViewController {
         self.view.bringSubviewToFront(self.tt)
         self.tt.bringSubviewToFront(self.BookedTable)
         
-        self.reloadTimeCollectionView()
+        //loading the booked item of the order
+        self.order.name = Local.USER.name
+        self.order.loadRemote({ (_) -> Void in
+            self.orderToBookedTime()
+            self.BookedTable.reloadData()
+        }, onfail: nil)
         
+        //self.reloadTimeCollectionView()
+    }
+    //
+    func orderToBookedTime(){
+        for book in self.order.booked {
+            let key = book.date.stringByReplacingOccurrencesOfString("-", withString: "/")
+            let value:[Int] = [book.hour,book.hour + 1]
+            self.bookedTime[key] = value
+
+        }
         
     }
     
+    
+    
     func reloadTimeCollectionView(){
-        self.dayBookedList = DayBookList(name: self.coach.name!, date: self.curDate.numDescription)
-        self.dayBookedList.load({ () -> Void in
-            
-            self.dayNaTime = []
-            for b in self.dayBookedList.datalist {
-                let hour = b as! Book
-                self.dayNaTime.append(hour.hour)
-                //每节课2小时，所以要增加1
-                self.dayNaTime.append(hour.hour+1)
+        self.dayTime = DayTime(name: self.coach.name!, date: self.curDate.numDescription)
+        self.dayTime.loadRemote({ (_) -> Void in
+            //update height
+            var allshowntime:[Int] = []
+            for h in 0..<Local.TimeMap.count-1 {
+                if  nil == find(self.dayTime.out, h) {
+                    allshowntime.append(h)
+                }
             }
+            // remove booked time form na
+            if let v = self.bookedTime[self.dayTime.date] {
+                self.dayTime.na = self.dayTime.na.filter({ nil == find(v,$0)})
+                self.dayBookedTime = v
+            }
+            println(self.dayTime.na)
             self.TimeCollectionView.reloadData()
-            }, itemcallback: nil)
+        }, onfail: nil)
+    
     }
     
     override func viewDidLayoutSubviews(){
@@ -196,8 +207,23 @@ class BookViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         O2Nav.setController(self)
         O2Nav.resetNav()
+        self.product = Product(productid: self.order.product!)
+        self.product.loadRemote({ (_) -> Void in
+            self.budget = self.product.amount
+            self.coach = self.product.coach!
+            self.reloadTimeCollectionView()
+        }, onfail: { (_) -> Void in
+            self.back()
+        })
+        
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if self.startDay != nil {
+            self.Calendar.toggleViewWithDate(self.startDay)
+        }
+        self.setBugetLabelText()
+    }
     
     /*
     // MARK: - Navigation
@@ -220,15 +246,16 @@ class BookViewController: UIViewController {
     }
     
     func submitBook(date:String,hour:Int, rowIndex:Int, sender:UIButton){
-        let book = Book(date: date, hour: hour, coach: self.coach, customer: Local.USER)
+        let book = Book(date: date, hour: hour, coach: self.coach, customer: Local.USER, orderid: self.order.id)
         let cell = self.BookedTable.cellForRowAtIndexPath(NSIndexPath(forRow: rowIndex, inSection: 0)) as! BookedCourseCell
         
         cell.Indicator.startAnimating()
         cell.Indicator.hidden = false
+        cell.DelBtn.hidden = true
+        
         
         book.save({ (book) -> Void in
             println("save successful")
-
             cell.done()
             
             if rowIndex == (self.bookedTime.keys.array.count - 1) {
@@ -247,6 +274,7 @@ class BookViewController: UIViewController {
         }, error_handler: { (error) -> Void in
             println("save failed")
             println(error)
+            
         })
         
         
@@ -307,8 +335,14 @@ extension BookViewController: CVCalendarViewDelegate {
         }
         
         self.reloadTimeCollectionView()
-        //self.TimeCollectionView.reloadData()
-        //self.refreshTime()
+
+        
+        if self.bookedTime.count >= self.budget
+            &&  self.dayBookedTime.count == 0 {
+                self.TimeCollectionView.userInteractionEnabled = false
+        } else {
+            self.TimeCollectionView.userInteractionEnabled = true
+        }
         
     }
     
@@ -427,44 +461,64 @@ extension BookViewController: CVCalendarMenuViewDelegate {
 
 extension BookViewController : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.TimeMap.count - self.dayRestTime.count
+        if self.dayTime == nil {
+            return 0
+        }
+        return Local.TimeMap.count - 1 - self.dayTime.out.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        
+        var allshowntime:[Int] = []
+        for h in 0..<Local.TimeMap.count - 1 {
+            if  nil == find(self.dayTime.out, h) {
+                allshowntime.append(h)
+            }
+        }
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("timetablecell", forIndexPath: indexPath) as! TimeTableCell
-        cell.Time.tag = self.dayAvaTime[indexPath.row]
-        cell.Time.text = self.TimeMap[dayAvaTime[indexPath.row]]
+        
+        cell.Time.tag = allshowntime[indexPath.row]
+        cell.Time.text = Local.TimeMap[allshowntime[indexPath.row]]
         cell.tappedcb = { (index) in
             //self.toggleCell(cell)
             if self.dayBookedTime.count != 0 && index == self.dayBookedTime[0] {
                 self.dayBookedTime = []
                 self.bookedTime.removeValueForKey(self.curDate.numDescription)
             } else {
-                if nil == find(self.dayNaTime, index + 1) {
+                if nil == find(self.dayTime.na, index + 1) {
                     self.dayBookedTime = [index, index+1]
                     self.bookedTime[self.curDate.numDescription] = self.dayBookedTime
+                } else {
+                    return
                 }
             }
             self.BookedTable.reloadData()
             self.refreshTime()
+            self.setBugetLabelText()
+        }
+        cell.userInteractionEnabled = true
+        
+        if let i = find(self.dayTime.noon, cell.Time.tag){
+            cell.Time.text = "午休"
         }
         
-        
-        if let i = find(self.dayAvaTime, cell.Time.tag) {
+        if let i = find(allshowntime, cell.Time.tag) {
             cell.enableLabel()
         }
         
-        if let i = find(self.dayNaTime, cell.Time.tag) {
+        if let i = find(self.dayTime.na, cell.Time.tag) {
             cell.disableLabel()
-        }
-        
-        if indexPath.row == self.dayAvaTime.count-1 {
-            cell.userInteractionEnabled = false 
         }
         
         if let i = find(self.dayBookedTime, cell.Time.tag) {
             cell.activeLabel()
         }
+        
+        if indexPath.row == collectionView.numberOfItemsInSection(0) - 1  {
+            cell.userInteractionEnabled = false
+        }
+        
         
         return cell
     }
@@ -473,22 +527,30 @@ extension BookViewController : UICollectionViewDataSource {
     }
     
     func refreshTime(){
-        for i in 0..<self.dayAvaTime.count {
+        var allshowntime:[Int] = []
+        for h in 0..<Local.TimeMap.count - 1 {
+            if  nil == find(self.dayTime.out, h) {
+                allshowntime.append(h)
+            }
+        }
+        for i in 0..<self.TimeCollectionView.numberOfItemsInSection(0){
+        //for i in 0..<self.dayAvaTime.count {
             let cell = self.getCellByIndex(i)
             cell.enableLabel()
         }
-        for i in self.dayNaTime {
-            if let index = find(self.dayAvaTime,i) {
+        for i in self.dayTime.na {
+        //for i in self.dayNaTime {
+            if let index = find(allshowntime,i) {
                 let cell = self.getCellByIndex(index)
                 cell.disableLabel()
             }
         }
         //disable the last one
-        self.getCellByIndex(self.dayAvaTime.count-1).userInteractionEnabled = false
+        self.getCellByIndex(self.TimeCollectionView.numberOfItemsInSection(0)-1).userInteractionEnabled = false
         
         
         for i in self.dayBookedTime {
-            if let index = find(self.dayAvaTime,i) {
+            if let index = find(allshowntime,i) {
                 let cell = self.getCellByIndex(index)
                 cell.activeLabel()
             }
@@ -497,6 +559,7 @@ extension BookViewController : UICollectionViewDataSource {
 }
 
 extension BookViewController : UICollectionViewDelegate {
+
     
 }
 
@@ -516,21 +579,52 @@ extension BookViewController : UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookedcoursecell", forIndexPath: indexPath) as! BookedCourseCell
         let day = self.bookedTime.keys.array.sorted { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending } [indexPath.row]
-        let time = self.TimeMap[self.bookedTime[day]![0]]
+        let time = Local.TimeMap[self.bookedTime[day]![0]]
         cell.Day.text = day
         cell.Hour.text = time
-        cell.Avatar.load(self.coach.avatar!, placeholder: UIImage(named: "avatar")){ (_, uiimg, errno_t) -> () in
-            if uiimg != nil {
-                cell.Avatar.image = Helper.RBSquareImage(uiimg!)
+        cell.Avatar.fitLoad(self.coach.avatar!, placeholder: UIImage(named: "avatar"))
+        
+        cell.StatusImg.hidden = true
+        cell.DelBtn.hidden = false
+        
+        for book in self.order.booked {
+            println(book.done)
+            println(book.date.stringByReplacingOccurrencesOfString("-", withString: "/") == day)
+            println(book.hour == self.bookedTime[day]![0])
+            if book.done &&
+                book.date.stringByReplacingOccurrencesOfString("-", withString: "/") == day &&
+                book.hour == self.bookedTime[day]![0] {
+                cell.DelBtn.hidden = true
             }
         }
-        cell.StatusImg.hidden = true
+    
+        
         //cell.CourseTitle.text = "xxxx"
+        cell.delcallback = {
+            () in
+            self.bookedTime.removeValueForKey(day)
+            self.dayBookedTime = self.bookedTime[self.curDate.numDescription] ?? [Int]()
+            self.BookedTable.reloadData()
+            self.TimeCollectionView.reloadData()
+        }
+        
+        
         return cell
+    }
+    
+    //TODY: why this doesn't work????
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
     }
 }
 
 extension BookViewController : UITableViewDelegate {
+    func setBugetLabelText(){
+       //self.BookedTableHeader.BudgetLabel.text = "已选择 \(self.bookedTime.count.toString())/\(self.budget)"
+    }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookedcoursetitle") as! BookedCourseTitleCell
         let gr = UITapGestureRecognizer()
@@ -548,12 +642,14 @@ extension BookViewController : UITableViewDelegate {
             //cell.SubmitBtn.tintColor = O2Color.TextGrey
             cell.SubmitBtn.setTitleColor(O2Color.BorderGrey.colorWithAlphaComponent(0.8), forState: UIControlState.Normal)
         }
-        
+        self.BookedTableHeader = cell
+        cell.BudgetLabel.text = "已选择 \(self.bookedTime.count.toString())/\(self.budget)"
         return cell
         
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+
     
 }

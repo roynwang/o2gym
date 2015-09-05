@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().translucent = false
         UITabBar.appearance().tintColor = O2Color.MainColor
         
-        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().translucent = true
         UINavigationBar.appearance().backgroundColor = O2Color.MainColor
         UINavigationBar.appearance().tintColor = O2Color.MainColor
         
