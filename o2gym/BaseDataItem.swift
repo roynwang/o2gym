@@ -84,7 +84,42 @@ public class BaseDataItem {
                 }
         }
     }
+    
+    
+    public func delete<T:BaseDataItem>(onsuccess:((T)->Void)?, onfail:((String?)->Void)?){
+        request(.DELETE, self.UrlGet, headers:Local.AuthHeaders)
+            .response{ (_, resp, data, error) in
+                if error == nil{
+                    switch resp!.statusCode{
+                    case 200,201,202,203:
+                        if onsuccess != nil{
+                            onsuccess!(self as! T)
+                        }
+                        break
+                    case 404:
+                        if onfail != nil{
+                            onfail!("无法访问" + self.UrlGet)
+                        }
+                        break
+                    default:
+                        println(resp?.description)
+                        if onfail != nil{
+                            onfail!(String(stringInterpolationSegment: resp))
+                        }
+                    }
+                } else{
+                    if onfail != nil{
+                        onfail!(error!.description)
+                    } else {
+                        println(error!.description)
+                    }
+                }
+        }
+    }
+    
+    
 
+    
     
     
     public func loadRemote<T:BaseDataItem>(onsuccess :((T)->Void)?,onfail :((String)->Void)?){

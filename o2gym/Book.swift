@@ -18,12 +18,21 @@ public class Book : BaseDataItem{
     public var feedback:String! 
     public var orderId:Int!
     public var done:Bool = false
+    public var rate:Int!
 
     
     public var coach:User!
     public var customer:User!
 
     
+    //help variable
+    public var clientdeleted:Bool = false
+    public var clientadd = false
+    
+    
+    override var UrlGet:String {
+        return Host.DayBookedGet(self.coach.name!, date: self.date, hour:self.hour)
+    }
 
     
     override var UrlCreate:String {
@@ -61,7 +70,7 @@ public class Book : BaseDataItem{
     
     public override func loadFromJSON(dict: JSON) {
         self.id = dict["id"].int
-        self.date = dict["date"].string
+        self.date = dict["date"].stringValue.stringByReplacingOccurrencesOfString("-", withString: "/")
         self.hour = dict["hour"].int
         self.feedback = dict["feedback"].string
         self.comment = dict["comment"].string
@@ -69,6 +78,10 @@ public class Book : BaseDataItem{
         self.coach = User(dict: dict["coachprofile"])
         self.customer = User(dict: dict["customerprofile"])
         self.done = dict["done"].boolValue
+    }
+    
+    public func review(){
+        request(.PATCH, self.UrlGet, parameters:["rate":self.rate, "comment":self.comment,"done":true], encoding:ParameterEncoding.JSON)
     }
     
 //    public func upload(){

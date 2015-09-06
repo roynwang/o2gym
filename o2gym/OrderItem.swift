@@ -21,6 +21,8 @@ public class OrderItem : BaseDataItem{
     public var product:Int!
     public var booked:[Book] = []
     
+  
+    
     override var UrlGet:String {
         return Host.OrderItemGet(self.name!,billid:self.billid)
     }
@@ -44,6 +46,7 @@ public class OrderItem : BaseDataItem{
         self.customer = User(dict: dict["customerdetail"])
         self.coach = User(dict: dict["coachdetail"])
         self.product = dict["product"].int
+        self.booked = []
         if nil != dict["booked"] {
             for book in dict["booked"].arrayValue {
                 self.booked.append(Book(dict: book))

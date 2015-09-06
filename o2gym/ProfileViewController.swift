@@ -42,9 +42,9 @@ class ProfileViewController: UITableViewController {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         if Local.USER.iscoach {
-            return 3
+            return 4
         }
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,7 +85,7 @@ class ProfileViewController: UITableViewController {
         let cell:PlainTextCell = tableView.dequeueReusableCellWithIdentifier("plaintextcell", forIndexPath: indexPath) as! PlainTextCell
         switch celltype {
         case "gym":
-            cell.PlainText.text = Local.USER.gym
+            cell.PlainText.text = "我的订单"
             return cell
         case "restday":
             cell.PlainText.text = "工作日设置"

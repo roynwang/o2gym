@@ -28,7 +28,7 @@ public class WeekBookList:BaseDataList {
         //return Host.AlbumGet(self.usrname).
         return Host.WeekBookedGet(self.coachname, date:self.date)
     }
-    override var listkey:String?{
-        return nil
-    }
+//    override var listkey:String?{
+//        return nil
+//    }
 }

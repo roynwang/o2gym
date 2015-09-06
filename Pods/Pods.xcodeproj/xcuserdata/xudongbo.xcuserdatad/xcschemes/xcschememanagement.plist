@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-o2gym-HCSStarRatingView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-o2gym-KNSemiModalViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,57 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F4955A4ED57CE65748761B9</key>
+		<key>0E5548A5A1B0D1962F0DB7A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AB9C51D453F208EE2FCAAA6</key>
+		<key>2DD019429AC3E43AE3F3BDFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48B50BC04F37E31660011171</key>
+		<key>360781262DF03667373F3882</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DD8DF1F6DAA0BE2F1A5D6CB</key>
+		<key>5FC7DE569E63CF82899C45A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72C336BA1EEBB068B5EC6E7C</key>
+		<key>8D0B241AAD8CF182D7985639</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>931AF2B7F292C4C5BDE3EA70</key>
+		<key>95BD98C5421FD5D9B4C34347</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>954F0639484D6ECDDE8A3DAE</key>
+		<key>9829E5862DA39810F44FFC47</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D46E406558CF6B5AAE2EEC3</key>
+		<key>A8AC988F2D4854FAEA580C14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9E543B6BF5B2E177BE31645</key>
+		<key>AD42F9050B64583EE754B067</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E09EE1FA26531E11C6C350CD</key>
+		<key>B965FDC379F5B3B200A67879</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7E859E6FC7336752C28600B</key>
+		<key>BC2ED9B8A8D60F3C6EB50714</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EDCDDDEA10512A89C765D556</key>
 		<dict>
 			<key>primary</key>
 			<true/>

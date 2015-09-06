@@ -100,16 +100,13 @@ class BookViewController: UIViewController {
         self.tt.bringSubviewToFront(self.BookedTable)
         
         //loading the booked item of the order
-        self.order.name = Local.USER.name
-        self.order.loadRemote({ (_) -> Void in
-            self.orderToBookedTime()
-            self.BookedTable.reloadData()
-        }, onfail: nil)
+
         
         //self.reloadTimeCollectionView()
     }
     //
     func orderToBookedTime(){
+        self.bookedTime = [String:[Int]]()
         for book in self.order.booked {
             let key = book.date.stringByReplacingOccurrencesOfString("-", withString: "/")
             let value:[Int] = [book.hour,book.hour + 1]
@@ -136,6 +133,19 @@ class BookViewController: UIViewController {
                 self.dayTime.na = self.dayTime.na.filter({ nil == find(v,$0)})
                 self.dayBookedTime = v
             }
+            
+            for book in self.order.booked{
+                if book.date == self.dayTime.date {
+                    if let i = find(self.dayTime.na, book.hour){
+                        self.dayTime.na.removeAtIndex(i)
+                    }
+                    if let i = find(self.dayTime.na, book.hour+1){
+                        self.dayTime.na.removeAtIndex(i)
+                    }
+                }
+            }
+            
+            
             println(self.dayTime.na)
             self.TimeCollectionView.reloadData()
         }, onfail: nil)
@@ -207,14 +217,21 @@ class BookViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         O2Nav.setController(self)
         O2Nav.resetNav()
-        self.product = Product(productid: self.order.product!)
-        self.product.loadRemote({ (_) -> Void in
-            self.budget = self.product.amount
-            self.coach = self.product.coach!
-            self.reloadTimeCollectionView()
-        }, onfail: { (_) -> Void in
-            self.back()
-        })
+        self.bookedTime = [String:[Int]]()
+        self.order.name = Local.USER.name
+        self.order.loadRemote({ (_) -> Void in
+            self.orderToBookedTime()
+            self.product = Product(productid: self.order.product!)
+            self.product.loadRemote({ (_) -> Void in
+                self.budget = self.product.amount
+                self.coach = self.product.coach!
+                self.reloadTimeCollectionView()
+                self.BookedTable.reloadData()
+                }, onfail: { (_) -> Void in
+                    self.back()
+            })
+
+        }, onfail: nil)
         
     }
     
@@ -239,14 +256,46 @@ class BookViewController: UIViewController {
     
     func submitBooks(sender:UIButton){
         var i = 0
-        for (day,hours) in self.bookedTime {
-            self.submitBook(day, hour: hours[0], rowIndex: i, sender:sender)
+        //delete old
+        for book in self.order.booked {
+            var existed = false
+            for (day,hours) in self.bookedTime {
+                if book.date == day &&
+                    book.hour == hours[0] {
+                    existed = true
+                    break
+                }
+            }
+            if !existed {
+                book.delete(nil, onfail: nil)
+            }
+        }
+        
+        var sortedday = self.bookedTime.keys.array.sorted{ $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+        
+        for day in sortedday  {
+            var hours:[Int] = self.bookedTime[day]!
+            var existed = false
+            //if not in self.order.booked then add
+            for book in self.order.booked {
+                if book.date == day && book.hour == hours[0] {
+                    existed = true
+                    break
+                }
+            }
+            if !existed {
+                self.submitBook(day, hour: hours[0], rowIndex: i, sender:sender)
+            }
             i++
+            
         }
     }
     
     func submitBook(date:String,hour:Int, rowIndex:Int, sender:UIButton){
         let book = Book(date: date, hour: hour, coach: self.coach, customer: Local.USER, orderid: self.order.id)
+
+
+    
         let cell = self.BookedTable.cellForRowAtIndexPath(NSIndexPath(forRow: rowIndex, inSection: 0)) as! BookedCourseCell
         
         cell.Indicator.startAnimating()
@@ -265,8 +314,8 @@ class BookViewController: UIViewController {
                 sender.layer.addAnimation(animation, forKey: nil)
                 sender.hidden = true
                 self.dayBookedTime = []
-                self.bookedTime = [String:[Int]]()
-                self.reloadTimeCollectionView()
+                //self.bookedTime = [String:[Int]]()
+                //self.reloadTimeCollectionView()
                 //self.BookedTable.reloadData()
             }
             //self.dayBookedTime = []
@@ -514,7 +563,16 @@ extension BookViewController : UICollectionViewDataSource {
         if let i = find(self.dayBookedTime, cell.Time.tag) {
             cell.activeLabel()
         }
-        
+        for book in self.order.booked {
+            if self.curDate.numDescription == book.date &&
+                (book.hour == cell.Time.tag || book.hour+1 == cell.Time.tag ){
+                    cell.enableLabel()
+                    if let i = find(self.dayBookedTime, cell.Time.tag) {
+                        cell.activeLabel()
+                    }
+                    cell.userInteractionEnabled = !book.done
+            }
+        }
         if indexPath.row == collectionView.numberOfItemsInSection(0) - 1  {
             cell.userInteractionEnabled = false
         }
@@ -569,6 +627,9 @@ extension BookViewController : UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.coach == nil {
+            return 0
+        }
         return self.bookedTime.keys.array.count
         //return 10
     }

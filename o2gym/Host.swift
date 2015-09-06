@@ -144,9 +144,14 @@ class Host {
         let url : String = "\(self.ip)/\(user)/b/\(fdate)/"
         return url
     }
+    class func DayBookedGet(user:String, date:String, hour:Int) -> String{
+        let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
+        let url : String = "\(self.ip)/\(user)/b/\(fdate)/\(hour)/"
+        return url
+    }
     class func WeekBookedGet(user:String, date:String) -> String{
         let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
-        let url : String = "\(self.ip)/\(user)/s/\(fdate)/"
+        let url : String = "\(self.ip)/\(user)/w/\(fdate)/"
         return url
     }
     class func DayTimeGet(user:String, date:String) -> String{
@@ -168,6 +173,11 @@ class Host {
     }
     class func ProductGet(id:Int)->String {
         let url : String = "\(self.ip)/p/\(id)/"
+        return url
+    }
+    class func BookCreate(user:String, date:String) -> String{
+        let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
+        let url : String = "\(self.ip)/\(user)/b/"
         return url
     }
 

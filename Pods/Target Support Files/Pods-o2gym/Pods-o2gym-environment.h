@@ -90,6 +90,12 @@
 #define COCOAPODS_VERSION_MINOR_GROAuth2SessionManager 2
 #define COCOAPODS_VERSION_PATCH_GROAuth2SessionManager 3
 
+// HCSStarRatingView
+#define COCOAPODS_POD_AVAILABLE_HCSStarRatingView
+#define COCOAPODS_VERSION_MAJOR_HCSStarRatingView 1
+#define COCOAPODS_VERSION_MINOR_HCSStarRatingView 4
+#define COCOAPODS_VERSION_PATCH_HCSStarRatingView 2
+
 // KNSemiModalViewController
 #define COCOAPODS_POD_AVAILABLE_KNSemiModalViewController
 #define COCOAPODS_VERSION_MAJOR_KNSemiModalViewController 0

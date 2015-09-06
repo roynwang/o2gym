@@ -127,6 +127,9 @@
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="reviewTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rAu-aA-fb6"/>
+                        </connections>
                     </button>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ir7-CS-Jph">
                         <rect key="frame" x="0.0" y="0.0" width="475" height="15"/>

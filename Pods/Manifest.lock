@@ -36,6 +36,7 @@ PODS:
     - GROAuth2SessionManager (= 0.2.3)
   - GROAuth2SessionManager (0.2.3):
     - AFNetworking (~> 2.4.1)
+  - HCSStarRatingView (1.4.2)
   - KNSemiModalViewController (0.3)
   - MBProgressHUD (0.9)
   - SDWebImage (3.7.0):
@@ -47,6 +48,7 @@ PODS:
 DEPENDENCIES:
   - CZPicker
   - DZNPhotoPickerController
+  - HCSStarRatingView (~> 1.4.2)
   - THCalendarDatePicker (~> 1.2.1)
 
 SPEC CHECKSUMS:
@@ -55,6 +57,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: b86df9ac7565733e9fe147b5c4f654a0b799cdee
   DZNPhotoPickerController: 1fcd18f2767b9c713865f0c09b32e1ba24f1516c
   GROAuth2SessionManager: c265ea7e6d33512e7b079ccc9bb509dba2d43131
+  HCSStarRatingView: 6157471eff9fe3ec7240e131a5b0aba39f097e57
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
   SDWebImage: b42db92951f9d565c55f1d7f1d5efe47e33a7515

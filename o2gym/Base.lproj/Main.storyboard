@@ -10,6 +10,7 @@
             <string>RTWSYueGoTrial-Regular</string>
             <string>RTWSYueGoTrial-Regular</string>
             <string>RTWSYueGoTrial-Regular</string>
+            <string>RTWSYueGoTrial-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -88,8 +89,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium a" translatesAutoresizingMaskIntoConstraints="NO" id="TpN-Tp-UDO">
-                                <rect key="frame" x="16" y="73" width="568" height="100"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium a" translatesAutoresizingMaskIntoConstraints="NO" id="TpN-Tp-UDO">
+                                <rect key="frame" x="16" y="93" width="568" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="q2w-uA-0bE"/>
@@ -755,6 +756,125 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mG8-M5-WeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-94" y="3091"/>
+        </scene>
+        <!--Course Review Controller-->
+        <scene sceneID="Y0S-jf-TWH">
+            <objects>
+                <viewController storyboardIdentifier="coursereview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a3W-gw-PdJ" customClass="CourseReviewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WKM-pr-Fw7"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Pf-Y1-bqf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ovW-Zv-H8k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laq-ir-CTa" customClass="HCSStarRatingView">
+                                <rect key="frame" x="80" y="40" width="200" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="0.32549019607843138" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="SFE-j5-ioX"/>
+                                    <constraint firstAttribute="width" constant="200" id="Z7M-zR-ITm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accurateHalfStars" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评星" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDp-1A-I4x">
+                                <rect key="frame" x="20" y="42" width="24" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfQ-u1-e4p">
+                                <rect key="frame" x="16" y="80" width="568" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="aNM-eC-cdW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOP-rw-F6e">
+                                <rect key="frame" x="262" y="259" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.61417106850000003" green="0.33771302149999999" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YPU-Kg-JZS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.61417106850000003" green="0.33771302149999999" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitReview:" destination="a3W-gw-PdJ" eventType="touchUpInside" id="koE-iu-gHg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tDp-1A-I4x" firstAttribute="top" secondItem="WKM-pr-Fw7" secondAttribute="bottom" constant="22" id="AeC-0u-U2Z"/>
+                            <constraint firstItem="laq-ir-CTa" firstAttribute="top" secondItem="WKM-pr-Fw7" secondAttribute="bottom" constant="20" id="EEs-Yo-QFU"/>
+                            <constraint firstItem="laq-ir-CTa" firstAttribute="leading" secondItem="ovW-Zv-H8k" secondAttribute="leading" constant="80" id="HgR-QJ-5nM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PfQ-u1-e4p" secondAttribute="trailing" id="TUs-yr-nwG"/>
+                            <constraint firstItem="vOP-rw-F6e" firstAttribute="leading" secondItem="ovW-Zv-H8k" secondAttribute="leading" constant="20" id="cAE-Zl-NBi"/>
+                            <constraint firstItem="PfQ-u1-e4p" firstAttribute="top" secondItem="laq-ir-CTa" secondAttribute="bottom" constant="20" id="cXj-CG-j7Q"/>
+                            <constraint firstItem="tDp-1A-I4x" firstAttribute="leading" secondItem="ovW-Zv-H8k" secondAttribute="leading" constant="20" id="iK1-MP-y7p"/>
+                            <constraint firstAttribute="trailing" secondItem="vOP-rw-F6e" secondAttribute="trailing" constant="20" id="ld6-VY-COr"/>
+                            <constraint firstItem="vOP-rw-F6e" firstAttribute="top" secondItem="PfQ-u1-e4p" secondAttribute="bottom" constant="10" id="v15-Qb-ssZ"/>
+                            <constraint firstItem="PfQ-u1-e4p" firstAttribute="leading" secondItem="ovW-Zv-H8k" secondAttribute="leadingMargin" id="yDE-0T-VcQ"/>
+                            <constraint firstAttribute="trailing" secondItem="laq-ir-CTa" secondAttribute="trailing" id="yyy-sg-2of"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yyy-sg-2of"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="Comments" destination="PfQ-u1-e4p" id="T8B-Ur-Ln5"/>
+                        <outlet property="RateView" destination="laq-ir-CTa" id="QX0-58-k6b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZb-Yq-Hzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589" y="3088"/>
         </scene>
         <!--预约-->
         <scene sceneID="cHz-RD-ubX">

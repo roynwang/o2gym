@@ -28,5 +28,5 @@
 #import "DZNPhotoPickerControllerConstants.h"
 #import "THDatePickerViewController.h"
 #import "CZPicker.h"
-
+#import "HCSStarRatingView.h"
 #endif

@@ -15,7 +15,6 @@ public class DayBookList:BaseDataList {
     var date:String!
     
     
-    
     public init(name:String, date:String){
         self.coachname = name
         self.date = date.stringByReplacingOccurrencesOfString("/", withString: "")

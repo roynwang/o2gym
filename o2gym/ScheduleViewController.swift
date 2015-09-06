@@ -40,6 +40,7 @@ class ScheduleViewController: UITableViewController {
      
         var t = Local.USER
         self.weekSchedule = WeekBookList(name: Local.USER.name!, date: self.curDate.numDescription)
+        self.days = []
         self.weekSchedule.load({ () -> Void in
             println("load week done")
             self.daylist = [String:[Book]]()
@@ -90,9 +91,6 @@ class ScheduleViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookedcoursecell", forIndexPath: indexPath) as! BookedCourseComplexCell
-        
-        
-
         let book = self.daylist[self.days[indexPath.section]]![indexPath.row]
         
         cell.setByBook(book)
@@ -110,10 +108,13 @@ class ScheduleViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
         header.contentView.backgroundColor =  O2Color.BgGreyColor
-        header.textLabel.textColor = O2Color.MainColor
+        header.textLabel.textColor = O2Color.TextGrey
         header.textLabel.font = UIFont(name: "RTWS YueGothic Trial", size: 14)
         //header.textLabel.text = self.daylist.keys.array[section]
         header.alpha = 1 //make the header transparent
+        header.contentView.borderColor = O2Color.BorderGrey
+        header.contentView.bottomBorderWidth = 0.5
+        header.contentView.topBorderWidth = 0.5
     }
     
 

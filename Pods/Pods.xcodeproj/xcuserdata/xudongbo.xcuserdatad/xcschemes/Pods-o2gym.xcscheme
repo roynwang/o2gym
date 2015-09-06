@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D46E406558CF6B5AAE2EEC3"
+               BlueprintIdentifier = "BC2ED9B8A8D60F3C6EB50714"
                BuildableName = "libPods-o2gym.a"
                BlueprintName = "Pods-o2gym"
                ReferencedContainer = "container:Pods.xcodeproj">

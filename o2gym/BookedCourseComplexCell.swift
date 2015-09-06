@@ -31,6 +31,14 @@ class BookedCourseComplexCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func reviewTapped(sender: AnyObject) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("coursereview") as! CourseReviewController
+        cont.book = self.book
+        cont.hidesBottomBarWhenPushed = true
+        O2Nav.pushViewController(cont)
+
+    }
     func showCoach(){
         O2Nav.showUser(self.book.coach.name!)
     }
@@ -56,7 +64,23 @@ class BookedCourseComplexCell: UITableViewCell {
         self.AvatarCoach.addGestureRecognizer(coachgr)
         self.AvatarCustomer.addGestureRecognizer(customergr)
         
-
+        self.determineBtn(book!)
+    }
+    
+    func determineBtn(book:Book){
+        let currentDateTime = NSDate()
+        let timestr = book.date + " " + Local.TimeMap[book.hour]
+        let dateobj = NSDate.dateFromString(timestr, formatStr: "yyyy/MM/dd HH:mm")
+        if dateobj.isLessThanDate(currentDateTime){
+            self.ModifyTime.hidden = true
+        } else {
+            self.ModifyTime.hidden = false
+        }
+        if Local.USER.iscoach {
+            self.Review.hidden = true
+        } else {
+            self.Review.hidden = false
+        }
     }
     
     
