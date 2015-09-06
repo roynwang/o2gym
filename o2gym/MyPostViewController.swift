@@ -21,7 +21,7 @@ public class MyPostViewController: UITableViewController {
     public func setUser(name:String){
         self.usrname = name
         self.mypost = MyPost(name: name)
-        self.load(nil)
+        
     }
     public required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -37,6 +37,8 @@ public class MyPostViewController: UITableViewController {
         self.mypost = MyPost(name: self.usrname)
         
     }
+    public override func viewWillAppear(animated: Bool) {
+           }
     
     
     public override func viewDidLoad() {
@@ -58,6 +60,10 @@ public class MyPostViewController: UITableViewController {
             self.isSelf = true
         }
         self.tableView.backgroundColor = O2Color.BgGreyColor
+        self.load { () -> Void in
+            self.tableView.reloadData()
+        }
+
         
         
         // Uncomment the following line to preserve selection between presentations

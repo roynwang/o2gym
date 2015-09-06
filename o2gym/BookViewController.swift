@@ -14,6 +14,9 @@ class BookViewController: UIViewController {
     var product:Product!
     var order:OrderItem!
     var budget:Int = 3
+    
+    var isSingleBook = false
+    
     let CALENDARHEIGHT:CGFloat = 35
     let CALENDARMENUHEIGHT:CGFloat = 30
     var TIMECOLLECTIONHEIGHT:CGFloat = 280
@@ -218,6 +221,19 @@ class BookViewController: UIViewController {
         O2Nav.setController(self)
         O2Nav.resetNav()
         self.bookedTime = [String:[Int]]()
+        if self.isSingleBook {
+            self.budget = 1
+            self.orderToBookedTime()
+            self.product = Product(productid: self.order.product!)
+            self.product.loadRemote({ (_) -> Void in
+                //self.budget = self.product.amount
+                self.coach = self.product.coach!
+                self.reloadTimeCollectionView()
+                self.BookedTable.reloadData()
+                }, onfail: { (_) -> Void in
+                    self.back()
+            })
+        } else {
         self.order.name = Local.USER.name
         self.order.loadRemote({ (_) -> Void in
             self.orderToBookedTime()
@@ -232,6 +248,7 @@ class BookViewController: UIViewController {
             })
 
         }, onfail: nil)
+        }
         
     }
     
@@ -547,6 +564,7 @@ extension BookViewController : UICollectionViewDataSource {
             self.setBugetLabelText()
         }
         cell.userInteractionEnabled = true
+        cell.Time.userInteractionEnabled = true
         
         if let i = find(self.dayTime.noon, cell.Time.tag){
             cell.Time.text = "午休"

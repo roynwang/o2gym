@@ -61,7 +61,7 @@
                         </variation>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reb-f6-eS7">
-                        <rect key="frame" x="395" y="68" width="30" height="20"/>
+                        <rect key="frame" x="435" y="68" width="30" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="YN3-Qo-J9s"/>
                         </constraints>
@@ -93,42 +93,8 @@
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PND-xB-e3P">
-                        <rect key="frame" x="435" y="68" width="30" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="Ngi-hG-LRM"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="8"/>
-                        <state key="normal" title="评价">
-                            <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="3"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="leftBorderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="topBorderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="rightBorderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="reviewTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rAu-aA-fb6"/>
+                            <action selector="postponeTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wYI-vx-SdI"/>
                         </connections>
                     </button>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ir7-CS-Jph">
@@ -180,6 +146,43 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PND-xB-e3P">
+                        <rect key="frame" x="395" y="68" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="Ngi-hG-LRM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="8"/>
+                        <state key="normal" title="完成">
+                            <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="leftBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="topBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rightBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="reviewTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rAu-aA-fb6"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Ir7-CS-Jph" secondAttribute="trailing" id="8YY-R6-yGq"/>
@@ -194,6 +197,7 @@
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aw5-mG-wwh"/>
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="leading" secondItem="fYe-q0-Gmb" secondAttribute="trailing" id="bWC-xn-cFx"/>
                     <constraint firstAttribute="bottomMargin" secondItem="juE-9T-q8C" secondAttribute="bottom" constant="10" id="cgw-fU-n8w"/>
+                    <constraint firstItem="reb-f6-eS7" firstAttribute="leading" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="10" id="hCN-DK-IW3"/>
                     <constraint firstAttribute="centerY" secondItem="PND-xB-e3P" secondAttribute="centerY" constant="-20" id="hg7-Ui-IC0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="2" id="jcs-QN-bYm"/>
                     <constraint firstAttribute="centerY" secondItem="reb-f6-eS7" secondAttribute="centerY" constant="-20" id="mIL-kD-NnE"/>
@@ -202,6 +206,7 @@
                     <constraint firstItem="PVX-ZV-9gS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qYb-sr-bDn"/>
                     <constraint firstItem="PND-xB-e3P" firstAttribute="leading" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="10" id="smw-RC-7jY"/>
                     <constraint firstAttribute="centerY" secondItem="fYe-q0-Gmb" secondAttribute="centerY" constant="10" id="vAs-fE-nJv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="2" id="zCH-ED-cA1"/>
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zU5-eX-WXa"/>
                 </constraints>
                 <variation key="default">
@@ -209,6 +214,8 @@
                         <exclude reference="bWC-xn-cFx"/>
                         <exclude reference="Tka-ho-ue2"/>
                         <exclude reference="cgw-fU-n8w"/>
+                        <exclude reference="jcs-QN-bYm"/>
+                        <exclude reference="smw-RC-7jY"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

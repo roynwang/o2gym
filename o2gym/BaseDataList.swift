@@ -9,7 +9,11 @@
 import Foundation
 
 public class BaseDataList {
-    public var count:Int = 0
+    public var count:Int {
+        get {
+            return self.datalist.count
+        }
+    }
     public var nexturl:String? = nil
     public var prevurl:String? = nil
     public var delta:Int = 0
@@ -108,7 +112,7 @@ public class BaseDataList {
                     } else{
                         self.datalist.insert(tmp, atIndex: 0)
                     }
-                    self.count += 1
+                    //self.count += 1
                     if itemcallback != nil{
                         itemcallback!(tmp as! T)
                     }

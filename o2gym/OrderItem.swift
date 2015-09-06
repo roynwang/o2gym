@@ -24,12 +24,20 @@ public class OrderItem : BaseDataItem{
   
     
     override var UrlGet:String {
-        return Host.OrderItemGet(self.name!,billid:self.billid)
+        if self.id == nil {
+            return Host.OrderItemGet(self.name!,billid:self.billid)
+        }
+        return Host.OrderItemGet(self.name!, id: self.id)
     }
     public convenience init(name:String,billid:Int){
         self.init()
         self.name = name
         self.billid = billid
+    }
+    public convenience init(name:String,orderid:Int){
+        self.init()
+        self.name = name
+        self.id = orderid
     }
     public convenience init(dict:JSON){
         self.init()

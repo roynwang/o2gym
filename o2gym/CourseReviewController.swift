@@ -11,6 +11,8 @@ import UIKit
 class CourseReviewController: UIViewController {
 
     var book:Book!
+    @IBOutlet weak var SubmitBtn: UIButton!
+    @IBOutlet weak var Comments: UITextView!
     @IBOutlet weak var RateView: HCSStarRatingView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +24,13 @@ class CourseReviewController: UIViewController {
         super.didReceiveMemoryWarning()
         self.RateView.accurateHalfStars = true
         self.RateView.tintColor = O2Color.FavRed
+        //self.RateView.addTarget(self, action: "rated:", forControlEvents: UIControlEvents.TouchUpInside)//        self.SubmitBtn.backgroundColor = O2Color.BorderGrey
+        self.SubmitBtn.userInteractionEnabled = false
+        
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var Comments: UITextView!
+    
 
     
     @IBAction func submitReview(sender: AnyObject) {
@@ -36,6 +41,10 @@ class CourseReviewController: UIViewController {
         self.book.review()
         self.navigationController?.popViewControllerAnimated(true)
         
+    }
+    @IBAction func rated(sender:HCSStarRatingView){
+        self.SubmitBtn.backgroundColor = O2Color.LightMainColor
+        self.SubmitBtn.userInteractionEnabled = true
     }
     /*
     // MARK: - Navigation

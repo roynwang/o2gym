@@ -7,6 +7,8 @@ target 'o2gym' do
 	pod 'DZNPhotoPickerController'
 	pod 'CZPicker'
 	pod 'HCSStarRatingView', '~> 1.4.2'
+#pod 'BMInputBox'
+	pod 'MKInputBoxView'
 end
 
 target 'o2gymTests' do

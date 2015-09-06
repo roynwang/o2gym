@@ -50,6 +50,10 @@ class OrderItemCell: UITableViewCell {
             self.ActionBtn.setTitle("预约", forState: UIControlState.Normal)
             self.Status.text = "待预约"
         }
+        if order.status == "done" {
+            self.Status.text = "已完成"
+            
+        }
         if self.actiontype == nil {
             self.ActionBtn.hidden = true
         }

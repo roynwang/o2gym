@@ -31,6 +31,21 @@ class BookedCourseComplexCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func postponeTapped(sender: AnyObject) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("book") as! BookViewController
+        //create order from book
+        let order = OrderItem(name: Local.USER.name!, orderid: book.orderId)
+        order.loadRemote({ (_) -> Void in
+            order.booked = [self.book]
+            cont.order = order
+            cont.isSingleBook = true
+            cont.hidesBottomBarWhenPushed = true
+            O2Nav.pushViewController(cont)
+        }, onfail: nil)
+
+       
+    }
     @IBAction func reviewTapped(sender: AnyObject) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let cont =  sb.instantiateViewControllerWithIdentifier("coursereview") as! CourseReviewController
@@ -72,14 +87,14 @@ class BookedCourseComplexCell: UITableViewCell {
         let timestr = book.date + " " + Local.TimeMap[book.hour]
         let dateobj = NSDate.dateFromString(timestr, formatStr: "yyyy/MM/dd HH:mm")
         if dateobj.isLessThanDate(currentDateTime){
-            self.ModifyTime.hidden = true
+            //self.ModifyTime.hidden = true
+            self.Review.hidden = false
         } else {
-            self.ModifyTime.hidden = false
+            //self.ModifyTime.hidden = false
+            self.Review.hidden = true
         }
         if Local.USER.iscoach {
             self.Review.hidden = true
-        } else {
-            self.Review.hidden = false
         }
     }
     

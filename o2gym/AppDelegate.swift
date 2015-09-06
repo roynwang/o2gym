@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().translucent = false
         UITabBar.appearance().tintColor = O2Color.MainColor
         
-        UINavigationBar.appearance().translucent = true
-        UINavigationBar.appearance().backgroundColor = O2Color.MainColor
+        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
         UINavigationBar.appearance().tintColor = O2Color.MainColor
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent

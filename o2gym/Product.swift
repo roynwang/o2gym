@@ -23,15 +23,21 @@ public class Product : BaseDataItem{
     override var UrlGet:String {
         return Host.ProductGet(self.id!)
     }
+    override var UrlCreate:String {
+        return Host.ProductCreate(self.coach.name!)
+    }
+    
     public convenience init(productid:Int){
         self.init()
         self.id = productid
-
     }
     public convenience init(dict:JSON){
         self.init()
         self.loadFromJSON(dict)
-        
+    }
+    public convenience init(coach:User){
+        self.init()
+        self.coach = coach
     }
     
     public override func loadFromJSON(dict: JSON) {
@@ -43,6 +49,14 @@ public class Product : BaseDataItem{
         self.promotion = dict["promotion"].int
         self.coach = User(dict: dict["coachdetail"])
         
+    }
+    public override func buildParam() -> [String : String] {
+        return [
+            "coach":self.coach.id!.toString(),
+            "amount":self.amount.toString(),
+            "price":self.price.toString(),
+            "promotion":self.promotion.toString()
+        ]
     }
     
 }

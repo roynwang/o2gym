@@ -164,7 +164,11 @@ class Host {
         return url
     }
     class func OrderItemGet(user:String,billid:Int)->String{
-        let url : String = "\(self.ip)/\(user)/o/\(billid)/"
+        let url : String = "\(self.ip)/\(user)/b/\(billid)/"
+        return url
+    }
+    class func OrderItemGet(user:String,id:Int)->String{
+        let url : String = "\(self.ip)/\(user)/o/\(id)/"
         return url
     }
     class func OrderListGet(user:String)->String{
@@ -175,9 +179,20 @@ class Host {
         let url : String = "\(self.ip)/p/\(id)/"
         return url
     }
+    
+    class func ProductCreate(user:String)->String {
+        let url : String = "\(self.ip)/\(user)/p/"
+        return url
+    }
+    
     class func BookCreate(user:String, date:String) -> String{
         let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
         let url : String = "\(self.ip)/\(user)/b/"
+        return url
+    }
+    
+    class func ProductListGet(user:String) -> String {
+        let url : String = "\(self.ip)/\(user)/p/"
         return url
     }
 

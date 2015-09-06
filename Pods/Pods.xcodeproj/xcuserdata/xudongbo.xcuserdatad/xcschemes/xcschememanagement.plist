@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-o2gym-MKInputBoxView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-o2gym-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E5548A5A1B0D1962F0DB7A4</key>
+		<key>0F566649C1849BBB2B1DB0B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2DD019429AC3E43AE3F3BDFE</key>
+		<key>2EE5C023B6C22790F8BA3F20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>360781262DF03667373F3882</key>
+		<key>3C88E2984EA5A8143116C576</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5FC7DE569E63CF82899C45A9</key>
+		<key>43853FE4AAE52DFB18BE0428</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D0B241AAD8CF182D7985639</key>
+		<key>439928A0C1F734771F0A0BF1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95BD98C5421FD5D9B4C34347</key>
+		<key>700E7C43E618C5DF68092DA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9829E5862DA39810F44FFC47</key>
+		<key>73018B9E78FCDB029FCBCA85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8AC988F2D4854FAEA580C14</key>
+		<key>A7B9F699D91386924B4BEEBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD42F9050B64583EE754B067</key>
+		<key>B00C2249F3F74BB7252E1840</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B965FDC379F5B3B200A67879</key>
+		<key>BAD87F77B778799C425631EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC2ED9B8A8D60F3C6EB50714</key>
+		<key>C17D9ED65603F37F9E7D8742</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDCDDDEA10512A89C765D556</key>
+		<key>E26A96AF4971FB617A2B7EB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F79694A7D8C09D8FEA4F3B0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

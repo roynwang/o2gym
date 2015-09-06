@@ -137,6 +137,10 @@
 		725AC7661B4F9C0D0049BB4F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725AC7651B4F9C0D0049BB4F /* TabViewController.swift */; };
 		726C88301B74C85600F8FAA5 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C882F1B74C85600F8FAA5 /* ServerTrustPolicy.swift */; };
 		726C88321B74C88400F8FAA5 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C88311B74C88400F8FAA5 /* MultipartFormData.swift */; };
+		7271FA081B9C203900C2A934 /* MyProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271FA071B9C203900C2A934 /* MyProductViewController.swift */; };
+		7271FA0A1B9C207700C2A934 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271FA091B9C207700C2A934 /* ProductList.swift */; };
+		7271FA0C1B9C339700C2A934 /* AddProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271FA0B1B9C339700C2A934 /* AddProductCell.swift */; };
+		7271FA0E1B9C33AE00C2A934 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271FA0D1B9C33AE00C2A934 /* AddProductViewController.swift */; };
 		728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A01B563F5300B3D3B0 /* Album.swift */; };
 		728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A21B563F8400B3D3B0 /* Pic.swift */; };
 		7291D64E1B900CC700DE40C8 /* TimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291D64C1B900CC700DE40C8 /* TimeTableCell.swift */; };
@@ -174,6 +178,7 @@
 		72C0CE911B96A7CD006A4035 /* DayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CE901B96A7CD006A4035 /* DayTime.swift */; };
 		72C438431B9ABF0F00663D4B /* BookCreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438421B9ABF0F00663D4B /* BookCreateList.swift */; };
 		72C438461B9B5D8200663D4B /* CourseReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438451B9B5D8200663D4B /* CourseReviewController.swift */; };
+		72C4384A1B9C1A2800663D4B /* MyProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438491B9C1A2800663D4B /* MyProductCell.swift */; };
 		72CA00021B60FEDC0093DC30 /* FeedArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA00001B60FEDC0093DC30 /* FeedArticleViewCell.swift */; };
 		72CA00031B60FEDC0093DC30 /* FeedArticleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA00011B60FEDC0093DC30 /* FeedArticleViewCell.xib */; };
 		72CA00051B613D440093DC30 /* FeedHeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA00041B613D440093DC30 /* FeedHeaderProtocol.swift */; };
@@ -411,6 +416,10 @@
 		725AC7651B4F9C0D0049BB4F /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		726C882F1B74C85600F8FAA5 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		726C88311B74C88400F8FAA5 /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		7271FA071B9C203900C2A934 /* MyProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductViewController.swift; sourceTree = "<group>"; };
+		7271FA091B9C207700C2A934 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		7271FA0B1B9C339700C2A934 /* AddProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductCell.swift; sourceTree = "<group>"; };
+		7271FA0D1B9C33AE00C2A934 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		728BD3A01B563F5300B3D3B0 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		728BD3A21B563F8400B3D3B0 /* Pic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pic.swift; sourceTree = "<group>"; };
 		7291D64C1B900CC700DE40C8 /* TimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableCell.swift; sourceTree = "<group>"; };
@@ -454,6 +463,7 @@
 		72C0CE901B96A7CD006A4035 /* DayTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTime.swift; sourceTree = "<group>"; };
 		72C438421B9ABF0F00663D4B /* BookCreateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCreateList.swift; sourceTree = "<group>"; };
 		72C438451B9B5D8200663D4B /* CourseReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseReviewController.swift; sourceTree = "<group>"; };
+		72C438491B9C1A2800663D4B /* MyProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductCell.swift; sourceTree = "<group>"; };
 		72CA00001B60FEDC0093DC30 /* FeedArticleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedArticleViewCell.swift; sourceTree = "<group>"; };
 		72CA00011B60FEDC0093DC30 /* FeedArticleViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedArticleViewCell.xib; sourceTree = "<group>"; };
 		72CA00041B613D440093DC30 /* FeedHeaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHeaderProtocol.swift; sourceTree = "<group>"; };
@@ -706,6 +716,7 @@
 				722C23B61B922F7F00164E34 /* WeekBookList.swift */,
 				72B6EBFD1B99539D00634B21 /* OrderList.swift */,
 				72C438421B9ABF0F00663D4B /* BookCreateList.swift */,
+				7271FA091B9C207700C2A934 /* ProductList.swift */,
 			);
 			name = DataList;
 			sourceTree = "<group>";
@@ -1000,6 +1011,8 @@
 		72BC78801B94A2F700ED7B3E /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
+				7271FA071B9C203900C2A934 /* MyProductViewController.swift */,
+				72C438491B9C1A2800663D4B /* MyProductCell.swift */,
 				722C24801B9363C100164E34 /* ProfileViewController.swift */,
 				722C247C1B9363AA00164E34 /* ProfileAvatarCell.swift */,
 				722C247D1B9363AA00164E34 /* ProfileAvatarCell.xib */,
@@ -1013,6 +1026,8 @@
 				723C132A1B988B4D007123A1 /* OrderedListViewController.swift */,
 				723C132C1B988C7A007123A1 /* OrderedItemCell.swift */,
 				723C132D1B988C7A007123A1 /* OrderItemCell.xib */,
+				7271FA0B1B9C339700C2A934 /* AddProductCell.swift */,
+				7271FA0D1B9C33AE00C2A934 /* AddProductViewController.swift */,
 			);
 			name = MyProfile;
 			sourceTree = "<group>";
@@ -1270,6 +1285,7 @@
 				723E82AD1B4D0E6100861D6D /* CommentViewController.swift in Sources */,
 				724EB5471B4836F900729F8F /* Request.swift in Sources */,
 				72E1AB681B8DE66600B60AF9 /* CVShape.swift in Sources */,
+				7271FA0A1B9C207700C2A934 /* ProductList.swift in Sources */,
 				72B4A2771B994D4B0017C2D9 /* OrderItem.swift in Sources */,
 				724652BE1B555C65004E69C1 /* TestViewController.swift in Sources */,
 				729E18361B5DF828000B14EE /* FeedPicViewCell.swift in Sources */,
@@ -1282,6 +1298,7 @@
 				72AD3DD61B8AFE140000A217 /* ArticleDetailViewController.swift in Sources */,
 				72420BA21B66533F00462032 /* Timeline.swift in Sources */,
 				72B6EC021B99BBA400634B21 /* HRToast+UIView.swift in Sources */,
+				7271FA0C1B9C339700C2A934 /* AddProductCell.swift in Sources */,
 				72148C731B57852A00A063FF /* QNResumeUpload.m in Sources */,
 				72BC78851B955ACA00ED7B3E /* WorkingTimeConfigViewController.swift in Sources */,
 				72E1AB501B8DE66600B60AF9 /* CVCalendarContentViewController.swift in Sources */,
@@ -1328,8 +1345,10 @@
 				724652A41B525841004E69C1 /* RecommendUserCell.swift in Sources */,
 				72CA00051B613D440093DC30 /* FeedHeaderProtocol.swift in Sources */,
 				720B7A5F1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.m in Sources */,
+				72C4384A1B9C1A2800663D4B /* MyProductCell.swift in Sources */,
 				72E1AB521B8DE66600B60AF9 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
 				723E82931B4980AF00861D6D /* ext.swift in Sources */,
+				7271FA0E1B9C33AE00C2A934 /* AddProductViewController.swift in Sources */,
 				729703DA1B6BCB8100DB9DB6 /* JTSSimpleImageDownloader.m in Sources */,
 				723C132E1B988C7A007123A1 /* OrderedItemCell.swift in Sources */,
 				728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */,
@@ -1352,6 +1371,7 @@
 				72148C721B57852A00A063FF /* QNFormUpload.m in Sources */,
 				724EB5491B4836F900729F8F /* Upload.swift in Sources */,
 				720B7A5B1B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.m in Sources */,
+				7271FA081B9C203900C2A934 /* MyProductViewController.swift in Sources */,
 				720B7A5C1B6BE724004C5F8F /* NYTPhotosDataSource.m in Sources */,
 				728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */,
 				729E18421B5E3853000B14EE /* FeedHeaderView.swift in Sources */,

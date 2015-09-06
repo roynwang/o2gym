@@ -42,7 +42,7 @@ class ProfileViewController: UITableViewController {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         if Local.USER.iscoach {
-            return 4
+            return 3
         }
         return 3
     }
@@ -65,7 +65,7 @@ class ProfileViewController: UITableViewController {
         case "profileavatarcell":
             return 100
         default:
-            return 50
+            return 40
         }
     }
     
@@ -93,8 +93,8 @@ class ProfileViewController: UITableViewController {
         case "workinghour":
             cell.PlainText.text = "工作时间设置"
             return cell
-        case "manualbook":
-            cell.PlainText.text = "为未注册用户预定"
+        case "myproduct":
+            cell.PlainText.text = "课程设置"
             return cell
         default:
             return cell
@@ -114,7 +114,7 @@ class ProfileViewController: UITableViewController {
             case 2:
                 return "workinghour"
             case 3:
-                return "manualbook"
+                return "myproduct"
             default:
                 return "error"
             }
@@ -168,6 +168,13 @@ class ProfileViewController: UITableViewController {
             let cont =  sb.instantiateViewControllerWithIdentifier("workinghourconfig") as! WorkingHourConfigViewController
             self.navigationController?.pushViewController(cont, animated: true)
         }
+        
+        if indexPath.section == 1 && indexPath.row == 3 && Local.USER.iscoach {
+            
+            let cont =  sb.instantiateViewControllerWithIdentifier("myproduct") as! MyProductViewController
+            self.navigationController?.pushViewController(cont, animated: true)
+        }
+        
     }
     /*
     // Override to support conditional editing of the table view.

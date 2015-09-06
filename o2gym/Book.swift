@@ -81,7 +81,7 @@ public class Book : BaseDataItem{
     }
     
     public func review(){
-        request(.PATCH, self.UrlGet, parameters:["rate":self.rate, "comment":self.comment,"done":true], encoding:ParameterEncoding.JSON)
+        request(.PATCH, self.UrlGet, parameters:["order":self.orderId,"rate":self.rate, "comment":self.comment,"done":true], encoding:ParameterEncoding.JSON)
     }
     
 //    public func upload(){
