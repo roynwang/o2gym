@@ -20,6 +20,7 @@ public class User : BaseDataItem{
     public var upped_person:[String] = []
     public var upnum:Int = 0
     public var gym:String! = ""
+    public var gym_id:Int!
     public var displayname:String!
     
     override var type:String {
@@ -77,6 +78,9 @@ public class User : BaseDataItem{
         dict["upped_person"].arrayValue.map({self.upped_person.append($0.stringValue)})
         if dict["gym"].array != nil && dict["gym"].array?.count>0{
             self.gym = dict["gym"].arrayValue[0].stringValue
+        }
+        if dict["gym_id"].array != nil && dict["gym_id"].array?.count>0{
+            self.gym_id = dict["gym_id"].arrayValue[0].intValue
         }
     }
     

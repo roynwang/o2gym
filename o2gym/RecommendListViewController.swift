@@ -193,18 +193,11 @@ class RecommendListViewController: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
-        switch segue.identifier! {
-        case "coachdetail":
-            let coachvc = segue.destinationViewController.childViewControllers[0] as! CoachDetailViewController
-            coachvc.coach = Local.RECOMMEND?.datalist[self.tableView.indexPathForSelectedRow()!.row] as! User?
-            break
-        default:
-            break
-        }
         // Pass the selected object to the new view controller.
     }
-    
+    */
     
 }

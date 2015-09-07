@@ -18,8 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
             UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
+           
         }
-        
+        if let font = UIFont(name: "RTWS YueGothic Trial", size: 15) {
+         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
         UITabBar.appearance().translucent = false
         UITabBar.appearance().tintColor = O2Color.MainColor
         
@@ -28,6 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = O2Color.MainColor
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+        
+        //hide the back title
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), forBarMetrics: UIBarMetrics.Default)
+        
+        //set default back image
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back")
+ 
         
         
         //UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)

@@ -9,11 +9,13 @@
 import Foundation
 
 public class Gym : BaseDataItem{
-    public var id:Int
-    public var name:String
+    public var id:Int!
+    public var name:String!
+    public var address:String!
     public var introduction:String? = nil
     public var imgs:String? = nil
     public var img_set:[String] = []
+    public var coaches:[User] = []
     
     
     override var type:String {
@@ -28,22 +30,15 @@ public class Gym : BaseDataItem{
         return Host.GymGet(self.id)
     }
     
-    init(id:Int, name:String, introduction:String?, imgs:String?){
+    public convenience init(id:Int){
+        self.init()
         self.id = id
-        self.name = name
-        self.introduction = introduction
-        self.imgs = imgs
- 
     }
-    
-    public convenience init(dict:JSON){
-        self.init(id:dict["id"].intValue,
-            name:dict["name"].stringValue,
-            introduction:dict["introduction"].string,
-            imgs:dict["imgs"].string
-        )
-        self.load_img_set()
         
+    public convenience init(dict:JSON){
+        self.init(id:dict["id"].intValue)
+        self.loadFromJSON(dict)
+  
     }
     
     func load_img_set(){
@@ -61,6 +56,10 @@ public class Gym : BaseDataItem{
         self.name = dict["name"].stringValue
         self.introduction = dict["introduction"].string
         self.imgs = dict["imgs"].string
+        self.address = dict["address"].string
+        for item in dict["coaches_set"].arrayValue {
+            self.coaches.append(User(dict: item))
+        }
         self.load_img_set()
     }
     

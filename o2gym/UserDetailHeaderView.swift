@@ -27,19 +27,23 @@ public class UserDetailHeaderView:UIView{
         return view
     }
     public func setContent(usr:User){
-//        self.Avator.load(usr.avatar!, placeholder: UIImage(named: "avatar")) { (_, uiimg, _) -> () in
-//            self.Avator.image = Helper.RBSquareImage(uiimg!)
-//
-//        }
         self.Avator.layer.cornerRadius = self.Avator.frame.width/2
         self.Avator.layer.masksToBounds = true
         self.Avator.fitLoad(usr.avatar!, placeholder: UIImage(named:"avatar"))
         self.Name.text = usr.displayname
         if usr.gym != nil {
             self.Location.text = usr.gym
+            self.Location.tag = usr.gym_id
             self.LocIcon.hidden = false
+            
+//        
+//            let gr = UITapGestureRecognizer()
+//            gr.addTarget(self, action: "showGym:")
+//            self.Location.addGestureRecognizer(gr)
         }
-        
+            
     }
+    
+
 
 }

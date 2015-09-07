@@ -30,4 +30,5 @@
 #import "CZPicker.h"
 #import "HCSStarRatingView.h"
 #import "MKInputBoxView.h"
+#import "ParallaxHeaderView.h"
 #endif

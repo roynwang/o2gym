@@ -100,6 +100,11 @@ public class UserDetailViewController: ARSegmentPageController {
                 self.BottomBar.hidden = false
             }
             self.title = tarusr.displayname
+            
+            let gr = UITapGestureRecognizer()
+            gr.addTarget(self, action: "showGym:")
+            header.Location.addGestureRecognizer(gr)
+            
         }, onfail: nil)
         
         var favimgname = "fav_bar"
@@ -250,5 +255,15 @@ public class UserDetailViewController: ARSegmentPageController {
         cont.hidesBottomBarWhenPushed = true
         O2Nav.pushViewController(cont)
         
+    }
+    
+    
+    func showGym(gr:UITapGestureRecognizer){
+        println("show gym")
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("gymdetail") as! GymDetailController
+        //cont.product = self.productlist.datalist[indexPath.section] as! Product
+        cont.gymid = gr.view!.tag
+        O2Nav.pushViewController(cont)
     }
 }

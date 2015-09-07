@@ -73,8 +73,6 @@
 		723E829E1B4AC3D600861D6D /* Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E829D1B4AC3D600861D6D /* Local.swift */; };
 		723E82A01B4ACDEA00861D6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E829F1B4ACDEA00861D6D /* FirstViewController.swift */; };
 		723E82A21B4C1ED100861D6D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82A11B4C1ED100861D6D /* FeedViewController.swift */; };
-		723E82A51B4CF1BB00861D6D /* WeiboViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82A41B4CF1BB00861D6D /* WeiboViewController.swift */; };
-		723E82AD1B4D0E6100861D6D /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82AC1B4D0E6100861D6D /* CommentViewController.swift */; };
 		723E82DE1B4EC77200861D6D /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82DD1B4EC77200861D6D /* Comments.swift */; };
 		72420B9F1B66100200462032 /* FeedCoachViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420B9D1B66100200462032 /* FeedCoachViewCell.swift */; };
 		72420BA01B66100200462032 /* FeedCoachViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72420B9E1B66100200462032 /* FeedCoachViewCell.xib */; };
@@ -102,7 +100,6 @@
 		724652AF1B52A717004E69C1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 724652AB1B52A717004E69C1 /* Info.plist */; };
 		724652B01B52A717004E69C1 /* UIImageView+ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652AC1B52A717004E69C1 /* UIImageView+ImageLoader.swift */; };
 		724652B31B538872004E69C1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B21B538872004E69C1 /* Helper.swift */; };
-		724652B51B53EE9D004E69C1 /* CoachDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B41B53EE9D004E69C1 /* CoachDetailViewController.swift */; };
 		724652B81B54ECF2004E69C1 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B71B54ECF2004E69C1 /* AlbumViewController.swift */; };
 		724652BA1B54EEC6004E69C1 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652B91B54EEC6004E69C1 /* MyPostViewController.swift */; };
 		724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724652BB1B54EF4E004E69C1 /* MyPost.swift */; };
@@ -112,7 +109,6 @@
 		7247EBA61B68DED900A22F0C /* UserDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7247EBA41B68DED900A22F0C /* UserDetailHeaderView.xib */; };
 		7247EBAA1B6942CF00A22F0C /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 7247EBA91B6942CF00A22F0C /* UINavigationBar+Awesome.m */; };
 		724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F41B47BECC00729F8F /* AppDelegate.swift */; };
-		724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB4F81B47BECC00729F8F /* BusinessViewController.swift */; };
 		724EB4FC1B47BECC00729F8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FA1B47BECC00729F8F /* Main.storyboard */; };
 		724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FD1B47BECC00729F8F /* Images.xcassets */; };
 		724EB5011B47BECC00729F8F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */; };
@@ -131,10 +127,8 @@
 		724EE8AC1B58BD3D001F8670 /* LimCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */; };
 		724EE8AD1B58BD3D001F8670 /* LimCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */; };
 		724EE8AE1B58BD3D001F8670 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8AA1B58BD3D001F8670 /* PickerView.xib */; };
-		724EE8B21B595349001F8670 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8B11B595349001F8670 /* TestCollectionViewCell.swift */; };
 		724EE8B61B5BE1E2001F8670 /* RecommendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8B51B5BE1E2001F8670 /* RecommendItem.swift */; };
 		724EE8BE1B5C06D5001F8670 /* yh.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8BD1B5C06D5001F8670 /* yh.OTF */; };
-		725AC7661B4F9C0D0049BB4F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725AC7651B4F9C0D0049BB4F /* TabViewController.swift */; };
 		726C88301B74C85600F8FAA5 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C882F1B74C85600F8FAA5 /* ServerTrustPolicy.swift */; };
 		726C88321B74C88400F8FAA5 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C88311B74C88400F8FAA5 /* MultipartFormData.swift */; };
 		7271FA081B9C203900C2A934 /* MyProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271FA071B9C203900C2A934 /* MyProductViewController.swift */; };
@@ -166,6 +160,9 @@
 		72B6EBFE1B99539D00634B21 /* OrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B6EBFD1B99539D00634B21 /* OrderList.swift */; };
 		72B6EC001B99AF8F00634B21 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B6EBFF1B99AF8F00634B21 /* Product.swift */; };
 		72B6EC021B99BBA400634B21 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B6EC011B99BBA400634B21 /* HRToast+UIView.swift */; };
+		72B752271B9C80A20083411F /* GymDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B752261B9C80A20083411F /* GymDetailController.swift */; };
+		72B752291B9C80BA0083411F /* SimpleOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B752281B9C80BA0083411F /* SimpleOptionCell.swift */; };
+		72B7522B1B9C80E60083411F /* CoachItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B7522A1B9C80E60083411F /* CoachItemCell.swift */; };
 		72B8FF051B7CA4CB000C96AE /* MyCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8FF031B7CA4CB000C96AE /* MyCourseViewController.swift */; };
 		72B8FF081B7CA566000C96AE /* MyCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8FF071B7CA566000C96AE /* MyCourse.swift */; };
 		72BC78851B955ACA00ED7B3E /* WorkingTimeConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC78841B955AC900ED7B3E /* WorkingTimeConfigViewController.swift */; };
@@ -189,6 +186,10 @@
 		72CAFFED1B5F82090093DC30 /* FeedFwdHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAFFEC1B5F82090093DC30 /* FeedFwdHeaderView.swift */; };
 		72D039C71B91A969005E73EA /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D039C61B91A969005E73EA /* Book.swift */; };
 		72D039C91B91AA66005E73EA /* DayBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D039C81B91AA66005E73EA /* DayBookList.swift */; };
+		72DB3A631B9C88000011C68D /* ParallaxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A621B9C88000011C68D /* ParallaxHeaderView.m */; };
+		72DB3A661B9C89140011C68D /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A651B9C89140011C68D /* UIImage+ImageEffects.m */; };
+		72DB3A9D1B9D96F00011C68D /* RyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */; };
+		72DB3A9F1B9D970F0011C68D /* NewUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */; };
 		72E1AB4F1B8DE66600B60AF9 /* CVAuxiliaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB351B8DE66600B60AF9 /* CVAuxiliaryView.swift */; };
 		72E1AB501B8DE66600B60AF9 /* CVCalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB361B8DE66600B60AF9 /* CVCalendarContentViewController.swift */; };
 		72E1AB511B8DE66600B60AF9 /* CVCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB371B8DE66600B60AF9 /* CVCalendarDayView.swift */; };
@@ -340,8 +341,6 @@
 		723E829D1B4AC3D600861D6D /* Local.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Local.swift; sourceTree = "<group>"; };
 		723E829F1B4ACDEA00861D6D /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		723E82A11B4C1ED100861D6D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		723E82A41B4CF1BB00861D6D /* WeiboViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboViewController.swift; sourceTree = "<group>"; };
-		723E82AC1B4D0E6100861D6D /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		723E82DD1B4EC77200861D6D /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		72420B9D1B66100200462032 /* FeedCoachViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCoachViewCell.swift; sourceTree = "<group>"; };
 		72420B9E1B66100200462032 /* FeedCoachViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCoachViewCell.xib; sourceTree = "<group>"; };
@@ -375,7 +374,6 @@
 		724652AB1B52A717004E69C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724652AC1B52A717004E69C1 /* UIImageView+ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageLoader.swift"; sourceTree = "<group>"; };
 		724652B21B538872004E69C1 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		724652B41B53EE9D004E69C1 /* CoachDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachDetailViewController.swift; sourceTree = "<group>"; };
 		724652B71B54ECF2004E69C1 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		724652B91B54EEC6004E69C1 /* MyPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		724652BB1B54EF4E004E69C1 /* MyPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 		724EB4EF1B47BECC00729F8F /* o2gym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = o2gym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724EB4F31B47BECC00729F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724EB4F41B47BECC00729F8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		724EB4F81B47BECC00729F8F /* BusinessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewController.swift; sourceTree = "<group>"; };
 		724EB4FB1B47BECC00729F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		724EB4FD1B47BECC00729F8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		724EB5001B47BECC00729F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -410,10 +407,8 @@
 		724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimCollectionViewCell.swift; sourceTree = "<group>"; };
 		724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LimCollectionViewCell.xib; sourceTree = "<group>"; };
 		724EE8AA1B58BD3D001F8670 /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
-		724EE8B11B595349001F8670 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		724EE8B51B5BE1E2001F8670 /* RecommendItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendItem.swift; sourceTree = "<group>"; };
 		724EE8BD1B5C06D5001F8670 /* yh.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = yh.OTF; sourceTree = "<group>"; };
-		725AC7651B4F9C0D0049BB4F /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		726C882F1B74C85600F8FAA5 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		726C88311B74C88400F8FAA5 /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 		7271FA071B9C203900C2A934 /* MyProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductViewController.swift; sourceTree = "<group>"; };
@@ -451,6 +446,9 @@
 		72B6EBFD1B99539D00634B21 /* OrderList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderList.swift; sourceTree = "<group>"; };
 		72B6EBFF1B99AF8F00634B21 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		72B6EC011B99BBA400634B21 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
+		72B752261B9C80A20083411F /* GymDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymDetailController.swift; sourceTree = "<group>"; };
+		72B752281B9C80BA0083411F /* SimpleOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleOptionCell.swift; sourceTree = "<group>"; };
+		72B7522A1B9C80E60083411F /* CoachItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachItemCell.swift; sourceTree = "<group>"; };
 		72B8FF031B7CA4CB000C96AE /* MyCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseViewController.swift; sourceTree = "<group>"; };
 		72B8FF071B7CA566000C96AE /* MyCourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourse.swift; sourceTree = "<group>"; };
 		72BC78841B955AC900ED7B3E /* WorkingTimeConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingTimeConfigViewController.swift; sourceTree = "<group>"; };
@@ -474,6 +472,12 @@
 		72CAFFEC1B5F82090093DC30 /* FeedFwdHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedFwdHeaderView.swift; sourceTree = "<group>"; };
 		72D039C61B91A969005E73EA /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		72D039C81B91AA66005E73EA /* DayBookList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBookList.swift; sourceTree = "<group>"; };
+		72DB3A611B9C88000011C68D /* ParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxHeaderView.h; sourceTree = "<group>"; };
+		72DB3A621B9C88000011C68D /* ParallaxHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxHeaderView.m; sourceTree = "<group>"; };
+		72DB3A641B9C89140011C68D /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		72DB3A651B9C89140011C68D /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RyProfileViewController.swift; sourceTree = "<group>"; };
+		72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserDetailViewController.swift; sourceTree = "<group>"; };
 		72E1AB351B8DE66600B60AF9 /* CVAuxiliaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVAuxiliaryView.swift; sourceTree = "<group>"; };
 		72E1AB361B8DE66600B60AF9 /* CVCalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentViewController.swift; sourceTree = "<group>"; };
 		72E1AB371B8DE66600B60AF9 /* CVCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarDayView.swift; sourceTree = "<group>"; };
@@ -653,8 +657,11 @@
 		722C247B1B93638D00164E34 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */,
 				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
+				72B752251B9C80830083411F /* GymDetail */,
+				72B752241B9C72F40083411F /* Recommend */,
+				72B752231B9C72310083411F /* UserDetail */,
+				72B752221B9C71F70083411F /* Circle */,
 				72BC78831B94A57E00ED7B3E /* Book */,
 				72BC78821B94A51A00ED7B3E /* Me */,
 			);
@@ -721,22 +728,6 @@
 			name = DataList;
 			sourceTree = "<group>";
 		};
-		723E82A31B4CF13D00861D6D /* UIDetail */ = {
-			isa = PBXGroup;
-			children = (
-				723E59941B5D1381005EC263 /* CircleViewController.swift */,
-				723E82A41B4CF1BB00861D6D /* WeiboViewController.swift */,
-				725AC7651B4F9C0D0049BB4F /* TabViewController.swift */,
-				724652B41B53EE9D004E69C1 /* CoachDetailViewController.swift */,
-				724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */,
-				72420BAF1B67539B00462032 /* UserDetailViewController.swift */,
-				729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */,
-				720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */,
-				72AD3DD51B8AFE140000A217 /* ArticleDetailViewController.swift */,
-			);
-			name = UIDetail;
-			sourceTree = "<group>";
-		};
 		72420BA31B6750A600462032 /* ARSegmentPageController */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,53 +753,6 @@
 				724652AC1B52A717004E69C1 /* UIImageView+ImageLoader.swift */,
 			);
 			path = ImageLoader;
-			sourceTree = "<group>";
-		};
-		724652B11B536DB3004E69C1 /* UIUnit */ = {
-			isa = PBXGroup;
-			children = (
-				72FB48691B6A4044004067AF /* AlbumPicAddCell.swift */,
-				72FB486A1B6A4044004067AF /* AlbumPicAddCell.xib */,
-				72420BBE1B67E89F00462032 /* AlbumPicCell.swift */,
-				72420BBF1B67E89F00462032 /* AlbumPicCell.xib */,
-				724652941B5230EE004E69C1 /* RecommendArticleCell.swift */,
-				724652951B5230EE004E69C1 /* RecommendArticleCell.xib */,
-				7246529A1B52580A004E69C1 /* RecommendGymCell.swift */,
-				7246529B1B52580A004E69C1 /* RecommendGymCell.xib */,
-				7246529E1B525821004E69C1 /* RecommendCoachCell.swift */,
-				7246529F1B525821004E69C1 /* RecommendCoachCell.xib */,
-				724652A21B525841004E69C1 /* RecommendUserCell.swift */,
-				724652A31B525841004E69C1 /* RecommendUserCell.xib */,
-				724EE8B11B595349001F8670 /* TestCollectionViewCell.swift */,
-				723E59871B5CB775005EC263 /* BaseViewCell.swift */,
-				723E59891B5CDA10005EC263 /* RecommendCourseCell.swift */,
-				723E598A1B5CDA10005EC263 /* RecommendCourseCell.xib */,
-				729E18341B5DF828000B14EE /* FeedPicViewCell.swift */,
-				729E18351B5DF828000B14EE /* FeedPicViewCell.xib */,
-				72CAFFE61B5F49160093DC30 /* FeedMultPicViewCell.swift */,
-				72CAFFE71B5F49160093DC30 /* FeedMultPicViewCell.xib */,
-				72CA00001B60FEDC0093DC30 /* FeedArticleViewCell.swift */,
-				72CA00011B60FEDC0093DC30 /* FeedArticleViewCell.xib */,
-				72420B9D1B66100200462032 /* FeedCoachViewCell.swift */,
-				72420B9E1B66100200462032 /* FeedCoachViewCell.xib */,
-			);
-			name = UIUnit;
-			sourceTree = "<group>";
-		};
-		724652B61B54EC95004E69C1 /* UIList */ = {
-			isa = PBXGroup;
-			children = (
-				723E82AC1B4D0E6100861D6D /* CommentViewController.swift */,
-				723E82A11B4C1ED100861D6D /* FeedViewController.swift */,
-				724652B71B54ECF2004E69C1 /* AlbumViewController.swift */,
-				72420BBB1B67E63400462032 /* AlbumViewController.xib */,
-				724652B91B54EEC6004E69C1 /* MyPostViewController.swift */,
-				72420BB71B67DD3C00462032 /* MyPostViewController.xib */,
-				729E182A1B5DF730000B14EE /* FeedStreamViewController.swift */,
-				724652981B5232D5004E69C1 /* RecommendListViewController.swift */,
-				72B8FF031B7CA4CB000C96AE /* MyCourseViewController.swift */,
-			);
-			name = UIList;
 			sourceTree = "<group>";
 		};
 		724EB4E61B47BECC00729F8F = {
@@ -837,23 +781,22 @@
 			isa = PBXGroup;
 			children = (
 				724EB4FD1B47BECC00729F8F /* Images.xcassets */,
+				724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */,
 				722C247B1B93638D00164E34 /* UI */,
 				72420BB41B676FE000462032 /* listdownload.jpg */,
+				7247EB991B6881A700A22F0C /* O2Nav.swift */,
+				723E59871B5CB775005EC263 /* BaseViewCell.swift */,
+				729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */,
+				720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */,
 				724EE8B71B5C014A001F8670 /* Resource */,
-				724652B61B54EC95004E69C1 /* UIList */,
-				729E18381B5E0AA4000B14EE /* UIComponent */,
-				724652B11B536DB3004E69C1 /* UIUnit */,
-				723E82A31B4CF13D00861D6D /* UIDetail */,
 				723E82961B4A950B00861D6D /* DataList */,
 				723E828B1B49754600861D6D /* Data */,
 				724EB54C1B483B5F00729F8F /* Global */,
 				724EB5391B48368700729F8F /* Utils */,
-				724EB5181B47BFAA00729F8F /* Middleware */,
-				724EB5171B47BF3800729F8F /* Business */,
 				724EB4F41B47BECC00729F8F /* AppDelegate.swift */,
 				724EB4F21B47BECC00729F8F /* Supporting Files */,
-				723E829F1B4ACDEA00861D6D /* FirstViewController.swift */,
 				724652BD1B555C65004E69C1 /* TestViewController.swift */,
+				723E829F1B4ACDEA00861D6D /* FirstViewController.swift */,
 				722C24B31B93758700164E34 /* Bridge.h */,
 			);
 			path = o2gym;
@@ -884,24 +827,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		724EB5171B47BF3800729F8F /* Business */ = {
-			isa = PBXGroup;
-			children = (
-				724EB4F81B47BECC00729F8F /* BusinessViewController.swift */,
-			);
-			name = Business;
-			sourceTree = "<group>";
-		};
-		724EB5181B47BFAA00729F8F /* Middleware */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Middleware;
-			sourceTree = "<group>";
-		};
 		724EB5391B48368700729F8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */,
+				72DB3A641B9C89140011C68D /* UIImage+ImageEffects.h */,
+				72DB3A651B9C89140011C68D /* UIImage+ImageEffects.m */,
+				72DB3A611B9C88000011C68D /* ParallaxHeaderView.h */,
+				72DB3A621B9C88000011C68D /* ParallaxHeaderView.m */,
 				72E1AB341B8DE66600B60AF9 /* CVCalendar */,
 				720B7A401B6BE724004C5F8F /* NYTPhotoViewer */,
 				729703CA1B6BCB8100DB9DB6 /* JTSImage */,
@@ -991,11 +924,11 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		729E18381B5E0AA4000B14EE /* UIComponent */ = {
+		72B752221B9C71F70083411F /* Circle */ = {
 			isa = PBXGroup;
 			children = (
-				7247EBA31B68DED900A22F0C /* UserDetailHeaderView.swift */,
-				7247EBA41B68DED900A22F0C /* UserDetailHeaderView.xib */,
+				723E82A11B4C1ED100861D6D /* FeedViewController.swift */,
+				729E182A1B5DF730000B14EE /* FeedStreamViewController.swift */,
 				729E183A1B5E0ADF000B14EE /* FeedToolBarView.xib */,
 				729E183D1B5E1B77000B14EE /* FeedToolBarView.swift */,
 				729E183F1B5E3562000B14EE /* FeedHeaderView.xib */,
@@ -1003,9 +936,67 @@
 				72CAFFEA1B5F7D950093DC30 /* FeedFwdHeaderView.xib */,
 				72CAFFEC1B5F82090093DC30 /* FeedFwdHeaderView.swift */,
 				72CA00041B613D440093DC30 /* FeedHeaderProtocol.swift */,
-				7247EB991B6881A700A22F0C /* O2Nav.swift */,
+				724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */,
+				72AD3DD51B8AFE140000A217 /* ArticleDetailViewController.swift */,
+				723E59941B5D1381005EC263 /* CircleViewController.swift */,
+				729E18341B5DF828000B14EE /* FeedPicViewCell.swift */,
+				729E18351B5DF828000B14EE /* FeedPicViewCell.xib */,
+				72CAFFE61B5F49160093DC30 /* FeedMultPicViewCell.swift */,
+				72CAFFE71B5F49160093DC30 /* FeedMultPicViewCell.xib */,
+				72CA00001B60FEDC0093DC30 /* FeedArticleViewCell.swift */,
+				72CA00011B60FEDC0093DC30 /* FeedArticleViewCell.xib */,
+				72420B9D1B66100200462032 /* FeedCoachViewCell.swift */,
+				72420B9E1B66100200462032 /* FeedCoachViewCell.xib */,
 			);
-			name = UIComponent;
+			name = Circle;
+			sourceTree = "<group>";
+		};
+		72B752231B9C72310083411F /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				72B8FF031B7CA4CB000C96AE /* MyCourseViewController.swift */,
+				724652B91B54EEC6004E69C1 /* MyPostViewController.swift */,
+				72420BB71B67DD3C00462032 /* MyPostViewController.xib */,
+				724652B71B54ECF2004E69C1 /* AlbumViewController.swift */,
+				72420BBB1B67E63400462032 /* AlbumViewController.xib */,
+				72420BAF1B67539B00462032 /* UserDetailViewController.swift */,
+				7247EBA31B68DED900A22F0C /* UserDetailHeaderView.swift */,
+				7247EBA41B68DED900A22F0C /* UserDetailHeaderView.xib */,
+				72FB48691B6A4044004067AF /* AlbumPicAddCell.swift */,
+				72FB486A1B6A4044004067AF /* AlbumPicAddCell.xib */,
+				72420BBE1B67E89F00462032 /* AlbumPicCell.swift */,
+				72420BBF1B67E89F00462032 /* AlbumPicCell.xib */,
+				72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */,
+			);
+			name = UserDetail;
+			sourceTree = "<group>";
+		};
+		72B752241B9C72F40083411F /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				724652981B5232D5004E69C1 /* RecommendListViewController.swift */,
+				724652941B5230EE004E69C1 /* RecommendArticleCell.swift */,
+				724652951B5230EE004E69C1 /* RecommendArticleCell.xib */,
+				7246529A1B52580A004E69C1 /* RecommendGymCell.swift */,
+				7246529B1B52580A004E69C1 /* RecommendGymCell.xib */,
+				7246529E1B525821004E69C1 /* RecommendCoachCell.swift */,
+				7246529F1B525821004E69C1 /* RecommendCoachCell.xib */,
+				724652A21B525841004E69C1 /* RecommendUserCell.swift */,
+				724652A31B525841004E69C1 /* RecommendUserCell.xib */,
+				723E59891B5CDA10005EC263 /* RecommendCourseCell.swift */,
+				723E598A1B5CDA10005EC263 /* RecommendCourseCell.xib */,
+			);
+			name = Recommend;
+			sourceTree = "<group>";
+		};
+		72B752251B9C80830083411F /* GymDetail */ = {
+			isa = PBXGroup;
+			children = (
+				72B752261B9C80A20083411F /* GymDetailController.swift */,
+				72B752281B9C80BA0083411F /* SimpleOptionCell.swift */,
+				72B7522A1B9C80E60083411F /* CoachItemCell.swift */,
+			);
+			name = GymDetail;
 			sourceTree = "<group>";
 		};
 		72BC78801B94A2F700ED7B3E /* MyProfile */ = {
@@ -1282,7 +1273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				723E82AD1B4D0E6100861D6D /* CommentViewController.swift in Sources */,
 				724EB5471B4836F900729F8F /* Request.swift in Sources */,
 				72E1AB681B8DE66600B60AF9 /* CVShape.swift in Sources */,
 				7271FA0A1B9C207700C2A934 /* ProductList.swift in Sources */,
@@ -1293,7 +1283,6 @@
 				723E599B1B5D2E99005EC263 /* Settings.swift in Sources */,
 				72C0CE8E1B95F06A006A4035 /* WorkingTimeSectionHeader.swift in Sources */,
 				724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */,
-				724652B51B53EE9D004E69C1 /* CoachDetailViewController.swift in Sources */,
 				720B7A5A1B6BE724004C5F8F /* NYTPhotoCaptionView.m in Sources */,
 				72AD3DD61B8AFE140000A217 /* ArticleDetailViewController.swift in Sources */,
 				72420BA21B66533F00462032 /* Timeline.swift in Sources */,
@@ -1307,13 +1296,14 @@
 				72148C6D1B57852A00A063FF /* QNResponseInfo.m in Sources */,
 				723E82911B49756B00861D6D /* Gym.swift in Sources */,
 				722C23BA1B92DA9B00164E34 /* BookedCourseComplexCell.swift in Sources */,
+				72B752271B9C80A20083411F /* GymDetailController.swift in Sources */,
 				724652B01B52A717004E69C1 /* UIImageView+ImageLoader.swift in Sources */,
 				72148C6B1B57852A00A063FF /* QNDns.m in Sources */,
 				720B7A5D1B6BE724004C5F8F /* NYTPhotosOverlayView.m in Sources */,
 				72E1AB6A1B8E078900B60AF9 /* BookViewController.swift in Sources */,
+				72B7522B1B9C80E60083411F /* CoachItemCell.swift in Sources */,
 				72CAFFED1B5F82090093DC30 /* FeedFwdHeaderView.swift in Sources */,
 				724EE8B61B5BE1E2001F8670 /* RecommendItem.swift in Sources */,
-				724EB4F91B47BECC00729F8F /* BusinessViewController.swift in Sources */,
 				72E1AB5D1B8DE66600B60AF9 /* CVCalendarViewAppearanceDelegate.swift in Sources */,
 				723E59951B5D1381005EC263 /* CircleViewController.swift in Sources */,
 				72148C761B57852A00A063FF /* QNUpToken.m in Sources */,
@@ -1331,6 +1321,7 @@
 				724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */,
 				72420BC01B67E89F00462032 /* AlbumPicCell.swift in Sources */,
 				724EB5481B4836F900729F8F /* ResponseSerialization.swift in Sources */,
+				72DB3A631B9C88000011C68D /* ParallaxHeaderView.m in Sources */,
 				723E82951B4A399A00861D6D /* BaseDataItem.swift in Sources */,
 				724EB54A1B4836F900729F8F /* Validation.swift in Sources */,
 				72E1AB671B8DE66600B60AF9 /* CVSet.swift in Sources */,
@@ -1349,12 +1340,12 @@
 				72E1AB521B8DE66600B60AF9 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
 				723E82931B4980AF00861D6D /* ext.swift in Sources */,
 				7271FA0E1B9C33AE00C2A934 /* AddProductViewController.swift in Sources */,
+				72DB3A9D1B9D96F00011C68D /* RyProfileViewController.swift in Sources */,
 				729703DA1B6BCB8100DB9DB6 /* JTSSimpleImageDownloader.m in Sources */,
 				723C132E1B988C7A007123A1 /* OrderedItemCell.swift in Sources */,
 				728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */,
 				729703D91B6BCB8100DB9DB6 /* JTSImageViewController.m in Sources */,
 				729703D81B6BCB8100DB9DB6 /* JTSImageInfo.m in Sources */,
-				724EE8B21B595349001F8670 /* TestCollectionViewCell.swift in Sources */,
 				723E82901B49756B00861D6D /* Course.swift in Sources */,
 				720B7A591B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m in Sources */,
 				723E829E1B4AC3D600861D6D /* Local.swift in Sources */,
@@ -1371,6 +1362,7 @@
 				72148C721B57852A00A063FF /* QNFormUpload.m in Sources */,
 				724EB5491B4836F900729F8F /* Upload.swift in Sources */,
 				720B7A5B1B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.m in Sources */,
+				72DB3A9F1B9D970F0011C68D /* NewUserDetailViewController.swift in Sources */,
 				7271FA081B9C203900C2A934 /* MyProductViewController.swift in Sources */,
 				720B7A5C1B6BE724004C5F8F /* NYTPhotosDataSource.m in Sources */,
 				728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */,
@@ -1410,7 +1402,6 @@
 				72E1AB561B8DE66600B60AF9 /* CVCalendarMonthContentViewController.swift in Sources */,
 				7247EB9A1B6881A700A22F0C /* O2Nav.swift in Sources */,
 				723E59881B5CB775005EC263 /* BaseViewCell.swift in Sources */,
-				725AC7661B4F9C0D0049BB4F /* TabViewController.swift in Sources */,
 				724652991B5232D5004E69C1 /* RecommendListViewController.swift in Sources */,
 				723E59991B5D15A7005EC263 /* HMSegmentedControl.m in Sources */,
 				72148C751B57852A00A063FF /* QNUploadOption.m in Sources */,
@@ -1418,6 +1409,7 @@
 				722C24811B9363C100164E34 /* ProfileViewController.swift in Sources */,
 				720B7A5E1B6BE724004C5F8F /* NYTPhotosViewController.m in Sources */,
 				72E1AB511B8DE66600B60AF9 /* CVCalendarDayView.swift in Sources */,
+				72B752291B9C80BA0083411F /* SimpleOptionCell.swift in Sources */,
 				72148C671B57852A00A063FF /* QNAsyncRun.m in Sources */,
 				72BDA1091B907E2300CCB29A /* BookedCourseTitleCell.swift in Sources */,
 				723C13291B96F3AB007123A1 /* WorkingHourConfigCell.swift in Sources */,
@@ -1439,10 +1431,10 @@
 				72148C681B57852A00A063FF /* QNCrc32.m in Sources */,
 				72148C661B57852A00A063FF /* GTM_Base64.m in Sources */,
 				724652AE1B52A717004E69C1 /* ImageLoader.swift in Sources */,
+				72DB3A661B9C89140011C68D /* UIImage+ImageEffects.m in Sources */,
 				72420BAC1B6750A600462032 /* ARSegmentPageController.m in Sources */,
 				7247EBA51B68DED900A22F0C /* UserDetailHeaderView.swift in Sources */,
 				724EB54E1B483B9C00729F8F /* Host.swift in Sources */,
-				723E82A51B4CF1BB00861D6D /* WeiboViewController.swift in Sources */,
 				72148C701B57852A00A063FF /* QNFileRecorder.m in Sources */,
 				724EB5451B4836F900729F8F /* Manager.swift in Sources */,
 				726C88301B74C85600F8FAA5 /* ServerTrustPolicy.swift in Sources */,

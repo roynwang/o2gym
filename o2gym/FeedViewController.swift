@@ -125,8 +125,8 @@ class FeedViewController: UITableViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let index:Int? = self.tableView.indexPathForSelectedRow()?.row
         let tarnav:UINavigationController = segue.destinationViewController as! UINavigationController
-        let tarview = tarnav.childViewControllers[0] as! WeiboViewController
-        tarview.weibo = Local.FEED?.datalist[index!] as! Weibo?
+//        let tarview = tarnav.childViewControllers[0] as! WeiboViewController
+//        tarview.weibo = Local.FEED?.datalist[index!] as! Weibo?
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
