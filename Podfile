@@ -7,6 +7,8 @@ target 'o2gym' do
 	pod 'DZNPhotoPickerController'
 	pod 'CZPicker'
 	pod 'HCSStarRatingView', '~> 1.4.2'
+#	pod 'Pingpp/Alipay', '~> 2.1.0'
+	pod 'Pingpp/Wx', '~> 2.1.0'
 #pod 'BMInputBox'
 	pod 'MKInputBoxView'
 end

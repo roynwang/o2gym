@@ -8,13 +8,21 @@
 
 import UIKit
 
-class RecommendGymCell: UITableViewCell {
+class RecommendGymCell: BaseViewCell {
 
-    @IBOutlet weak var Des: UILabel!
-    @IBOutlet weak var BriefImg: UIImageView!
+    @IBOutlet weak var Title: UILabel!
+    @IBOutlet weak var Img: UIImageView!
+    @IBOutlet weak var Price: UILabel!
+
+    @IBOutlet weak var Location: UILabel!
+    @IBOutlet weak var Tags: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.Tags.layer.cornerRadius = 7
+        self.Tags.clipsToBounds = true
+       
         // Initialization code
     }
 
@@ -26,12 +34,12 @@ class RecommendGymCell: UITableViewCell {
     
     func setContent(item:BaseDataItem){
         let usr:RecommendItem = item as! RecommendItem
-        self.BriefImg.load(usr.recommendpic!, placeholder: nil, completionHandler:
-            { (_, uiimg, _) in
-                self.BriefImg.image = Helper.RBResizeImage(uiimg!, targetSize: self.BriefImg.frame.size)
-            })
-        self.Des.text = usr.recommendtitle
-        
+        self.Img.load(usr.recommendpic!)
+        self.Title.text = usr.recommendtitle
+        self.Tags.text = "   " + usr.recommendsubtitle! + "    "
+        self.Location.text = usr.recommendloc
+        self.Price.text = usr.recommendprice
+        self.addCorner(usr.corner)
     }
     
     

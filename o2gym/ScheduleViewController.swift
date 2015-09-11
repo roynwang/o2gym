@@ -40,8 +40,9 @@ class ScheduleViewController: UITableViewController {
      
         var t = Local.USER
         self.weekSchedule = WeekBookList(name: Local.USER.name!, date: self.curDate.numDescription)
-        self.days = []
+        
         self.weekSchedule.load({ () -> Void in
+            self.days = []
             println("load week done")
             self.daylist = [String:[Book]]()
             for item in self.weekSchedule.datalist {

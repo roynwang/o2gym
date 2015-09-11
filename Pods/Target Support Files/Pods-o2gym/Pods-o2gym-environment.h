@@ -114,6 +114,18 @@
 #define COCOAPODS_VERSION_MINOR_MKInputBoxView 9
 #define COCOAPODS_VERSION_PATCH_MKInputBoxView 3
 
+// Pingpp/Core
+#define COCOAPODS_POD_AVAILABLE_Pingpp_Core
+#define COCOAPODS_VERSION_MAJOR_Pingpp_Core 2
+#define COCOAPODS_VERSION_MINOR_Pingpp_Core 1
+#define COCOAPODS_VERSION_PATCH_Pingpp_Core 1
+
+// Pingpp/Wx
+#define COCOAPODS_POD_AVAILABLE_Pingpp_Wx
+#define COCOAPODS_VERSION_MAJOR_Pingpp_Wx 2
+#define COCOAPODS_VERSION_MINOR_Pingpp_Wx 1
+#define COCOAPODS_VERSION_PATCH_Pingpp_Wx 1
+
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3

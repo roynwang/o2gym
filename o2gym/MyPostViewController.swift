@@ -12,6 +12,8 @@ import UIKit
 
 public class MyPostViewController: UITableViewController {
     
+    var rydelegate:RYProfileViewDelegate!
+    
     var usrname:String!
     var mypost:MyPost!
     var isSelf:Bool = false
@@ -174,6 +176,10 @@ public class MyPostViewController: UITableViewController {
         
         if distanceFromBottom < height {
             self.loadOld()
+        }
+        
+        if self.rydelegate != nil {
+            self.rydelegate.RYscrollViewDidScroll(scrollView)
         }
     }
     

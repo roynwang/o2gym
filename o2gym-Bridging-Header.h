@@ -12,7 +12,6 @@
 #import "QiniuSDK.h"
 #import "MGSwipeTabBarController.h"
 #import "HMSegmentedControl.h"
-#import "ARSegmentPageController.h"
 //#import "UIImage+ImageEffects.h"
 #import "UINavigationBar+Awesome.h"
 
@@ -31,4 +30,5 @@
 #import "HCSStarRatingView.h"
 #import "MKInputBoxView.h"
 #import "ParallaxHeaderView.h"
+#import "Pingpp.h"
 #endif

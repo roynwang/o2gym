@@ -121,7 +121,7 @@ class WorkingHourConfigViewController: UITableViewController {
         self.picker = CZPickerView(headerTitle: "时间", cancelButtonTitle: "取消", confirmButtonTitle: "确认")
         self.picker.dataSource = self
         self.picker.delegate = self
-        self.picker.needFooterView = true
+        //self.picker.needFooterView = true
         self.picker.headerBackgroundColor = O2Color.LightMainColor
         //self.picker.confirmButtonNormalColor = O2Color.LightMainColor
         self.picker.confirmButtonBackgroundColor = O2Color.LightMainColor

@@ -28,6 +28,8 @@ class GymDetailController: UITableViewController {
                 }
             })
             self.title = self.gym.name!
+            O2Nav.setNavigationBarTransformProgress(1)
+            O2Nav.setNavTitle(self.gym.name!)
             self.tableView.reloadData()
             }, onfail: nil)
         self.navigationController?.navigationBar.translucent = true
@@ -57,8 +59,7 @@ class GymDetailController: UITableViewController {
         self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor.colorWithAlphaComponent(0)
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor.colorWithAlphaComponent(0)
-        O2Nav.setNavigationBarTransformProgress(1)
-        O2Nav.setNavTitle(self.gym.name!)
+        
     }
     
     override func didReceiveMemoryWarning() {

@@ -41,7 +41,7 @@ class OrderItemCell: UITableViewCell {
         self.Status.text = "进行中"
         if order.status == "unpaid" {
             self.actiontype = "pay"
-            self.ActionBtn.setTitle("支付", forState: UIControlState.Normal)
+            self.ActionBtn.setTitle("支付: ￥" + self.order.amount.toString() , forState: UIControlState.Normal)
             self.Status.text = "未支付"
         }
         if order.status == "paid" {
@@ -68,7 +68,10 @@ class OrderItemCell: UITableViewCell {
         }
     }
     func pay(){
-        
+        self.order.pay { () -> Void in
+            self.order.status = "paid"
+            self.loadOrder(self.order)
+        }
     }
     func book(){
         let sb = UIStoryboard(name: "Main", bundle: nil)

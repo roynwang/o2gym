@@ -12,14 +12,21 @@ let reuseIdentifier = "piccell"
 
 public class AlbumViewController: UICollectionViewController {
     
+    var rydelegate:RYProfileViewDelegate!
+    
+    
+    
     public var usrname:String!
     public var album:Album!
+    
+    var minHeight:CGFloat!
     var picWidth:CGFloat!
     var isSelf:Bool = false
     var executing:Bool = false
     var nomore:Bool = false
     var started:Bool = false
     var allpics:[UIImageView] = []
+    
     
     public func setUser(name:String){
         self.usrname = name
@@ -47,9 +54,9 @@ public class AlbumViewController: UICollectionViewController {
         
         self.isSelf = (self.usrname == Local.USER.name)
         
-        let framewidth = CGRectGetWidth(self.collectionView!.frame)
         
-        self.picWidth = (framewidth - 20)/3
+        //let framewidth = CGRectGetWidth(self.collectionView!.frame)
+
         
         //self.album = Album(name:self.usrname)
         self.collectionView?.backgroundColor = UIColor.whiteColor()
@@ -64,6 +71,7 @@ public class AlbumViewController: UICollectionViewController {
         self.hidesBottomBarWhenPushed = true
         //self.load(nil)
         // Do any additional setup after loading the view.
+        
     }
     
     func segmentTitle()->String{
@@ -96,8 +104,12 @@ public class AlbumViewController: UICollectionViewController {
     
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let framewidth = self.view.frame.width
+        self.picWidth = (framewidth - 20)/3
         return CGSizeMake(self.picWidth, self.picWidth)
     }
+    
+  
     /*
     // MARK: - Navigation
     
@@ -109,6 +121,8 @@ public class AlbumViewController: UICollectionViewController {
     */
     
     // MARK: UICollectionViewDataSource
+    
+    
     
     public override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         //#warning Incomplete method implementation -- Return the number of sections
@@ -122,6 +136,10 @@ public class AlbumViewController: UICollectionViewController {
     }
     
     public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        if indexPath.row == self.collectionView(collectionView, numberOfItemsInSection: 0) - 1  && self.minHeight != nil{
+            self.collectionView?.contentSize = CGSize(width: self.view.frame.width, height: self.minHeight)
+        }
         
         if indexPath.row == 0 && self.isSelf{
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("picaddcell", forIndexPath: indexPath) as! AlbumPicAddCell
@@ -170,7 +188,8 @@ public class AlbumViewController: UICollectionViewController {
             let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[i] as NYTPhoto)
             
             photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-            self.presentViewController(photosViewController, animated: true, completion: nil)
+            //self.presentViewController(photosViewController, animated: true, completion: nil)
+            O2Nav.controller.presentViewController(photosViewController, animated: true, completion: nil)
             
         }
     }
@@ -187,6 +206,10 @@ public class AlbumViewController: UICollectionViewController {
         if distanceFromBottom < height {
             self.loadOld()
         }
+        if self.rydelegate != nil {
+            self.rydelegate.RYscrollViewDidScroll(scrollView)
+        }
+        
     }
     
     func loadOld() {
@@ -211,6 +234,9 @@ public class AlbumViewController: UICollectionViewController {
             self.allpics.append(img)
         })
     }
+    
+
+
     
     
     // MARK: UICollectionViewDelegate

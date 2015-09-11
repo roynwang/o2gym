@@ -12,11 +12,11 @@ import Foundation
 public class RestTime : BaseDataItem{
 
     public var name:String!
-    public var weekrest:[String]!
-    public var excep_rest:[String]!
-    public var excep_work:[String]!
-    public var out_hours:[String]!
-    public var noon_hours:[String]!
+    public var weekrest:[String]! = []
+    public var excep_rest:[String]! = []
+    public var excep_work:[String]! = []
+    public var out_hours:[String]! = []
+    public var noon_hours:[String]! = []
     
     
     override var UrlGet:String {

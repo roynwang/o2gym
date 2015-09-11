@@ -279,7 +279,7 @@
                                 <rect key="frame" x="230" y="339" width="20" height="20"/>
                             </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHy-1e-Vaj">
-                                <rect key="frame" x="198" y="375" width="97" height="30"/>
+                                <rect key="frame" x="198" y="198" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -546,10 +546,10 @@
             </objects>
             <point key="canvasLocation" x="2315" y="-411"/>
         </scene>
-        <!--User Detail View Controller-->
+        <!--New User Detail View Controller-->
         <scene sceneID="8WX-KN-6fo">
             <objects>
-                <viewController storyboardIdentifier="userdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eLJ-Ze-pND" customClass="UserDetailViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eLJ-Ze-pND" customClass="NewUserDetailViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jeI-AX-brb"/>
                         <viewControllerLayoutGuide type="bottom" id="A14-Ci-PEr"/>
@@ -573,9 +573,6 @@
                                                 <real key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="book:" destination="eLJ-Ze-pND" eventType="touchUpInside" id="9It-HW-9Nw"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -606,9 +603,6 @@
                         </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <connections>
-                        <outlet property="BottomBar" destination="MUG-oV-Nrf" id="okS-IL-X5o"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djK-nw-ljV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -40,6 +40,9 @@ PODS:
   - KNSemiModalViewController (0.3)
   - MBProgressHUD (0.9)
   - MKInputBoxView (0.9.3)
+  - Pingpp/Core (2.1.1)
+  - Pingpp/Wx (2.1.1):
+    - Pingpp/Core
   - SDWebImage (3.7.0):
     - SDWebImage/Core (= 3.7.0)
   - SDWebImage/Core (3.7.0)
@@ -51,6 +54,7 @@ DEPENDENCIES:
   - DZNPhotoPickerController
   - HCSStarRatingView (~> 1.4.2)
   - MKInputBoxView
+  - Pingpp/Wx (~> 2.1.0)
   - THCalendarDatePicker (~> 1.2.1)
 
 SPEC CHECKSUMS:
@@ -63,6 +67,7 @@ SPEC CHECKSUMS:
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
   MKInputBoxView: 022c89a4815fbcf2fcdea95f967fdba2c4f5fb73
+  Pingpp: edc54cfba764fed14c60bc8e2e0e649b4e125df5
   SDWebImage: b42db92951f9d565c55f1d7f1d5efe47e33a7515
   THCalendarDatePicker: 5d2b396b690796c45c30925dd0c23943141dbac6
 

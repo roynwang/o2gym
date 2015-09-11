@@ -41,6 +41,8 @@ public class BaseDataItem {
     public func save<T:BaseDataItem>(success_handler:((T)->Void)?, error_handler:((NSError?)->Void)?){
         request(.POST, self.UrlCreate, parameters:self.buildParam())
             .responseJSON { (_, resp, data, error) in
+                println(resp?.statusCode)
+            
                 if resp?.statusCode == 201{
                     let dict = JSON(data!)
                     self.loadFromJSON(dict)

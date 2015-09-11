@@ -27,6 +27,11 @@ class RecommendListViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         
+        Local.RECOMMEND?.load({ () -> Void in
+            self.tableView.reloadData()
+        }, itemcallback: nil)
+        
+        
         //        var bounds = self.navigationController?.navigationBar.bounds as CGRect!
         //        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         //        visualEffectView.frame = bounds
@@ -126,12 +131,10 @@ class RecommendListViewController: UITableViewController {
             O2Nav.showArticle(wb.id!)
             break
         case "user":
-//            let sb = UIStoryboard(name: "Main", bundle: nil)
-//            let cont =  sb.instantiateViewControllerWithIdentifier("userdetail") as! UserDetailViewController
-//            cont.usrname = (item.recommendcontent as! User).name!
-//            cont.hidesBottomBarWhenPushed = true
-//            O2Nav.pushViewController(cont)
             O2Nav.showUser((item.recommendcontent as! User).name!)
+            break
+        case "gym":
+            O2Nav.showGym((item.recommendcontent as! Gym).id!)
             break
         default:
             self.performSegueWithIdentifier("testsegue", sender: nil)

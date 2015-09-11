@@ -16,6 +16,7 @@ public class Product : BaseDataItem{
     public var price:Int!
     public var promotion:Int!
     public var coach:User!
+    public var soldcount:Int!
 
 
     
@@ -48,6 +49,7 @@ public class Product : BaseDataItem{
         self.price = dict["price"].int
         self.promotion = dict["promotion"].int
         self.coach = User(dict: dict["coachdetail"])
+        self.soldcount = dict["soldcount"].intValue
         
     }
     public override func buildParam() -> [String : String] {

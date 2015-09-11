@@ -10,6 +10,7 @@ import UIKit
 
 public class MyCourseViewController: UITableViewController {
     
+    var rydelegate:RYProfileViewDelegate!
     
     var usrname:String!
     var mycourse:MyCourse!
@@ -132,7 +133,11 @@ public class MyCourseViewController: UITableViewController {
         
         return cell
     }
-    
+    public override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if self.rydelegate != nil {
+            self.rydelegate.RYscrollViewDidScroll(scrollView)
+        }
+    }
     
     /*
     // Override to support conditional editing of the table view.

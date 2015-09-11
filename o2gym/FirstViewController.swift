@@ -56,7 +56,7 @@ class FirstViewController: UIViewController {
                 }
                 Local.FEED?.load(showmain, itemcallback: nil)
                 Local.RECOMMEND = RecommendList()
-                Local.RECOMMEND?.load(nil, itemcallback: nil)
+              
                 
                 print("============")
             }

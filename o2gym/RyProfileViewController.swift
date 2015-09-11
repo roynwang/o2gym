@@ -14,13 +14,16 @@ class RYProfileViewController: UIViewController{
     var segmentControlView:UIView!
     var viewControllerSet:[UIScrollViewDelegate]!
     
-    private var containerScroll:UIScrollView!
-    private var headerHeight:CGFloat = 200
-    private var segmentHeight:CGFloat = 50
+    var containerScroll:UIScrollView!
+    var headerHeight:CGFloat = 200
+    var segmentHeight:CGFloat = 50
+    var navHeaderHeight:CGFloat!
+    
     private var currentIndex:Int = 0
     
     private var curentChildView: UIScrollView!
     private var headerContainer: UIView!
+    
     
     
     
@@ -29,6 +32,7 @@ class RYProfileViewController: UIViewController{
         
         self.headerHeight = self.headerView.frame.height
         self.segmentHeight = self.segmentControlView.frame.height
+        self.navHeaderHeight = self.navigationController!.navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height
         
         
         containerScroll = UIScrollView(frame: self.view.frame)
@@ -44,13 +48,17 @@ class RYProfileViewController: UIViewController{
         
         self.segmentControlView.frame = CGRectMake(0, self.headerHeight, self.view.frame.width, self.segmentHeight)
         
+//        self.segmentControlView.bottomBorderWidth = 3
+//        self.segmentControlView.borderColor = O2Color.MainColor
+//        self.segmentControlView.backgroundColor = UIColor.whiteColor()
+        
         headerContainer.addSubview(headerView)
         headerContainer.addSubview(segmentControlView)
         
         containerScroll.addSubview(headerContainer)
         
-        let tmp = self.viewControllerSet[1]
-        let tableRect = CGRectMake(0, self.headerHeight + self.segmentHeight, self.view.frame.width, self.view.frame.height - self.segmentHeight)
+        let tmp = self.viewControllerSet[0]
+        let tableRect = CGRectMake(0, self.headerHeight + self.segmentHeight, self.view.frame.width, self.view.frame.height - self.segmentHeight - self.navHeaderHeight)
         if let table = tmp as? UITableViewController {
             self.curentChildView = table.tableView
         } else if let collection = tmp as? UICollectionViewController {
@@ -60,12 +68,10 @@ class RYProfileViewController: UIViewController{
         }
         self.curentChildView.frame = tableRect
         
-        self.curentChildView.delegate = self
         self.curentChildView.scrollsToTop = false
-        self.curentChildView.bounces = false
+
         
         self.containerScroll.addSubview(curentChildView)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,36 +81,46 @@ class RYProfileViewController: UIViewController{
     func switchView(toIndex:Int){
         let to:UIScrollViewDelegate = self.viewControllerSet[toIndex]
         var nextView:UIScrollView!
-        if to.isMemberOfClass(UITableViewController) {
+        if let control = to as? UITableViewController {
             nextView = (to as! UITableViewController).tableView
-            nextView.frame = self.curentChildView.frame
+            
+        } else if let control = to as? UICollectionViewController {
+            nextView = (to as! UICollectionViewController).collectionView
+            
+        } else {
+            nextView = (to as! UIViewController).view as! UIScrollView
         }
+        //set content offset
+        if nextView.contentSize.height < nextView.frame.height + self.headerHeight {
+            
+            nextView.contentSize = CGSize(width: self.view.frame.width, height: nextView.frame.height + self.headerHeight)
+            //nextView.setContentOffset(CGPointMake(0, nextView.frame.height), animated: <#Bool#>)
+            
+        }
+        nextView.frame = self.curentChildView.frame
         UIView.transitionWithView(self.curentChildView, duration: 0.3, options: UIViewAnimationOptions.TransitionCurlUp, animations: { () -> Void in
             self.curentChildView.removeFromSuperview()
             self.containerScroll.addSubview(nextView)
             }, completion: {
                 (_) in
-                self.curentChildView = nextView
-                self.curentChildView.scrollEnabled = false
-                nextView.delegate = self
                 self.currentIndex = toIndex
+                self.curentChildView = nextView
         })
     }
     
 }
 
-extension RYProfileViewController:UIScrollViewDelegate  {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if self.curentChildView.contentOffset.y < self.headerHeight {
+extension RYProfileViewController:RYProfileViewDelegate  {
+    func RYscrollViewDidScroll(scrollView: UIScrollView) {
+        if self.curentChildView.contentOffset.y <= (self.headerHeight - self.navHeaderHeight) {
             self.containerScroll.setContentOffset(self.curentChildView.contentOffset, animated: false)
-        }
-        
-        if self.viewControllerSet[self.currentIndex].scrollViewDidScroll != nil {
-            self.viewControllerSet[self.currentIndex].scrollViewDidScroll!(self.curentChildView)
+        } else {
+              self.containerScroll.setContentOffset(CGPointMake(0, self.headerHeight-self.navHeaderHeight),  animated: false)
         }
         
     }
 }
+
 
 
 

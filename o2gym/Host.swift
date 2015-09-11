@@ -9,7 +9,8 @@
 import Foundation
 
 class Host {
-    static let ip : String = "http://127.0.0.1:8000/api"
+    static let ip : String = "http://45.33.58.236:8000/api"
+    //static let ip : String = "http://127.0.0.1:8000/api"
     static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
     
     class func JwtAuth()->String{
@@ -171,6 +172,12 @@ class Host {
         let url : String = "\(self.ip)/\(user)/o/\(id)/"
         return url
     }
+    
+    class func OrderItemCreate(user:String)->String{
+        let url : String = "\(self.ip)/\(user)/o/"
+        return url
+    }
+    
     class func OrderListGet(user:String)->String{
         let url : String = "\(self.ip)/\(user)/o/"
         return url
@@ -195,5 +202,9 @@ class Host {
         let url : String = "\(self.ip)/\(user)/p/"
         return url
     }
-
+    
+    class func PayOrderGet(orderid:Int,channel:String) -> String {
+        let url : String = "\(self.ip)/pay/\(orderid)/\(channel)/"
+        return url
+    }
 }

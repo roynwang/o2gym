@@ -77,10 +77,6 @@
 		72420B9F1B66100200462032 /* FeedCoachViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420B9D1B66100200462032 /* FeedCoachViewCell.swift */; };
 		72420BA01B66100200462032 /* FeedCoachViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72420B9E1B66100200462032 /* FeedCoachViewCell.xib */; };
 		72420BA21B66533F00462032 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420BA11B66533F00462032 /* Timeline.swift */; };
-		72420BAC1B6750A600462032 /* ARSegmentPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72420BA61B6750A600462032 /* ARSegmentPageController.m */; };
-		72420BAD1B6750A600462032 /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 72420BA91B6750A600462032 /* ARSegmentPageHeader.m */; };
-		72420BAE1B6750A600462032 /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72420BAB1B6750A600462032 /* ARSegmentView.m */; };
-		72420BB01B67539B00462032 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420BAF1B67539B00462032 /* UserDetailViewController.swift */; };
 		72420BB51B676FE000462032 /* listdownload.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72420BB41B676FE000462032 /* listdownload.jpg */; };
 		72420BB91B67DD3C00462032 /* MyPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72420BB71B67DD3C00462032 /* MyPostViewController.xib */; };
 		72420BBD1B67E63400462032 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72420BBB1B67E63400462032 /* AlbumViewController.xib */; };
@@ -190,6 +186,10 @@
 		72DB3A661B9C89140011C68D /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A651B9C89140011C68D /* UIImage+ImageEffects.m */; };
 		72DB3A9D1B9D96F00011C68D /* RyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */; };
 		72DB3A9F1B9D970F0011C68D /* NewUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */; };
+		72DB3AA11B9DB64E0011C68D /* RYProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3AA01B9DB64E0011C68D /* RYProfileViewDelegate.swift */; };
+		72DB3AA31B9DE2820011C68D /* MyGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3AA21B9DE2820011C68D /* MyGoodsViewController.swift */; };
+		72DB3AA81B9DE57F0011C68D /* MyGoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3AA61B9DE57F0011C68D /* MyGoodCell.swift */; };
+		72DB3AA91B9DE57F0011C68D /* MyGoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DB3AA71B9DE57F0011C68D /* MyGoodCell.xib */; };
 		72E1AB4F1B8DE66600B60AF9 /* CVAuxiliaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB351B8DE66600B60AF9 /* CVAuxiliaryView.swift */; };
 		72E1AB501B8DE66600B60AF9 /* CVCalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB361B8DE66600B60AF9 /* CVCalendarContentViewController.swift */; };
 		72E1AB511B8DE66600B60AF9 /* CVCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB371B8DE66600B60AF9 /* CVCalendarDayView.swift */; };
@@ -345,15 +345,6 @@
 		72420B9D1B66100200462032 /* FeedCoachViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCoachViewCell.swift; sourceTree = "<group>"; };
 		72420B9E1B66100200462032 /* FeedCoachViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCoachViewCell.xib; sourceTree = "<group>"; };
 		72420BA11B66533F00462032 /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
-		72420BA41B6750A600462032 /* ARSegmentControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentControllerDelegate.h; sourceTree = "<group>"; };
-		72420BA51B6750A600462032 /* ARSegmentPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageController.h; sourceTree = "<group>"; };
-		72420BA61B6750A600462032 /* ARSegmentPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageController.m; sourceTree = "<group>"; };
-		72420BA71B6750A600462032 /* ARSegmentPageControllerHeaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageControllerHeaderProtocol.h; sourceTree = "<group>"; };
-		72420BA81B6750A600462032 /* ARSegmentPageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageHeader.h; sourceTree = "<group>"; };
-		72420BA91B6750A600462032 /* ARSegmentPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageHeader.m; sourceTree = "<group>"; };
-		72420BAA1B6750A600462032 /* ARSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentView.h; sourceTree = "<group>"; };
-		72420BAB1B6750A600462032 /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
-		72420BAF1B67539B00462032 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		72420BB41B676FE000462032 /* listdownload.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = listdownload.jpg; sourceTree = "<group>"; };
 		72420BB71B67DD3C00462032 /* MyPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostViewController.xib; sourceTree = "<group>"; };
 		72420BBB1B67E63400462032 /* AlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
@@ -478,6 +469,10 @@
 		72DB3A651B9C89140011C68D /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RyProfileViewController.swift; sourceTree = "<group>"; };
 		72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserDetailViewController.swift; sourceTree = "<group>"; };
+		72DB3AA01B9DB64E0011C68D /* RYProfileViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RYProfileViewDelegate.swift; sourceTree = "<group>"; };
+		72DB3AA21B9DE2820011C68D /* MyGoodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGoodsViewController.swift; sourceTree = "<group>"; };
+		72DB3AA61B9DE57F0011C68D /* MyGoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGoodCell.swift; sourceTree = "<group>"; };
+		72DB3AA71B9DE57F0011C68D /* MyGoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGoodCell.xib; sourceTree = "<group>"; };
 		72E1AB351B8DE66600B60AF9 /* CVAuxiliaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVAuxiliaryView.swift; sourceTree = "<group>"; };
 		72E1AB361B8DE66600B60AF9 /* CVCalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentViewController.swift; sourceTree = "<group>"; };
 		72E1AB371B8DE66600B60AF9 /* CVCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarDayView.swift; sourceTree = "<group>"; };
@@ -728,21 +723,6 @@
 			name = DataList;
 			sourceTree = "<group>";
 		};
-		72420BA31B6750A600462032 /* ARSegmentPageController */ = {
-			isa = PBXGroup;
-			children = (
-				72420BA41B6750A600462032 /* ARSegmentControllerDelegate.h */,
-				72420BA51B6750A600462032 /* ARSegmentPageController.h */,
-				72420BA61B6750A600462032 /* ARSegmentPageController.m */,
-				72420BA71B6750A600462032 /* ARSegmentPageControllerHeaderProtocol.h */,
-				72420BA81B6750A600462032 /* ARSegmentPageHeader.h */,
-				72420BA91B6750A600462032 /* ARSegmentPageHeader.m */,
-				72420BAA1B6750A600462032 /* ARSegmentView.h */,
-				72420BAB1B6750A600462032 /* ARSegmentView.m */,
-			);
-			path = ARSegmentPageController;
-			sourceTree = "<group>";
-		};
 		724652A71B52A717004E69C1 /* ImageLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,6 +811,7 @@
 			isa = PBXGroup;
 			children = (
 				72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */,
+				72DB3AA01B9DB64E0011C68D /* RYProfileViewDelegate.swift */,
 				72DB3A641B9C89140011C68D /* UIImage+ImageEffects.h */,
 				72DB3A651B9C89140011C68D /* UIImage+ImageEffects.m */,
 				72DB3A611B9C88000011C68D /* ParallaxHeaderView.h */,
@@ -840,7 +821,6 @@
 				729703CA1B6BCB8100DB9DB6 /* JTSImage */,
 				7247EBA81B6942CF00A22F0C /* UINavigationBar+Awesome.h */,
 				7247EBA91B6942CF00A22F0C /* UINavigationBar+Awesome.m */,
-				72420BA31B6750A600462032 /* ARSegmentPageController */,
 				723E82921B4980AF00861D6D /* ext.swift */,
 				723E59961B5D15A7005EC263 /* HMSegmentedControl */,
 				723E598D1B5D12AC005EC263 /* MGSwipeTabBarController */,
@@ -954,12 +934,12 @@
 		72B752231B9C72310083411F /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				72DB3AA21B9DE2820011C68D /* MyGoodsViewController.swift */,
 				72B8FF031B7CA4CB000C96AE /* MyCourseViewController.swift */,
 				724652B91B54EEC6004E69C1 /* MyPostViewController.swift */,
 				72420BB71B67DD3C00462032 /* MyPostViewController.xib */,
 				724652B71B54ECF2004E69C1 /* AlbumViewController.swift */,
 				72420BBB1B67E63400462032 /* AlbumViewController.xib */,
-				72420BAF1B67539B00462032 /* UserDetailViewController.swift */,
 				7247EBA31B68DED900A22F0C /* UserDetailHeaderView.swift */,
 				7247EBA41B68DED900A22F0C /* UserDetailHeaderView.xib */,
 				72FB48691B6A4044004067AF /* AlbumPicAddCell.swift */,
@@ -967,6 +947,8 @@
 				72420BBE1B67E89F00462032 /* AlbumPicCell.swift */,
 				72420BBF1B67E89F00462032 /* AlbumPicCell.xib */,
 				72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */,
+				72DB3AA61B9DE57F0011C68D /* MyGoodCell.swift */,
+				72DB3AA71B9DE57F0011C68D /* MyGoodCell.xib */,
 			);
 			name = UserDetail;
 			sourceTree = "<group>";
@@ -1159,6 +1141,7 @@
 				TargetAttributes = {
 					724EB4EE1B47BECC00729F8F = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = F8EN53W53P;
 					};
 					724EB5051B47BECC00729F8F = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -1212,6 +1195,7 @@
 				7247EBA61B68DED900A22F0C /* UserDetailHeaderView.xib in Resources */,
 				72BDA10A1B907E2300CCB29A /* BookedCourseTitleCell.xib in Resources */,
 				72FB486C1B6A4044004067AF /* AlbumPicAddCell.xib in Resources */,
+				72DB3AA91B9DE57F0011C68D /* MyGoodCell.xib in Resources */,
 				72420BBD1B67E63400462032 /* AlbumViewController.xib in Resources */,
 				724EE8BE1B5C06D5001F8670 /* yh.OTF in Resources */,
 				7246529D1B52580A004E69C1 /* RecommendGymCell.xib in Resources */,
@@ -1296,8 +1280,10 @@
 				72148C6D1B57852A00A063FF /* QNResponseInfo.m in Sources */,
 				723E82911B49756B00861D6D /* Gym.swift in Sources */,
 				722C23BA1B92DA9B00164E34 /* BookedCourseComplexCell.swift in Sources */,
+				72DB3AA11B9DB64E0011C68D /* RYProfileViewDelegate.swift in Sources */,
 				72B752271B9C80A20083411F /* GymDetailController.swift in Sources */,
 				724652B01B52A717004E69C1 /* UIImageView+ImageLoader.swift in Sources */,
+				72DB3AA81B9DE57F0011C68D /* MyGoodCell.swift in Sources */,
 				72148C6B1B57852A00A063FF /* QNDns.m in Sources */,
 				720B7A5D1B6BE724004C5F8F /* NYTPhotosOverlayView.m in Sources */,
 				72E1AB6A1B8E078900B60AF9 /* BookViewController.swift in Sources */,
@@ -1306,6 +1292,7 @@
 				724EE8B61B5BE1E2001F8670 /* RecommendItem.swift in Sources */,
 				72E1AB5D1B8DE66600B60AF9 /* CVCalendarViewAppearanceDelegate.swift in Sources */,
 				723E59951B5D1381005EC263 /* CircleViewController.swift in Sources */,
+				72DB3AA31B9DE2820011C68D /* MyGoodsViewController.swift in Sources */,
 				72148C761B57852A00A063FF /* QNUpToken.m in Sources */,
 				72E1AB551B8DE66600B60AF9 /* CVCalendarMenuViewDelegate.swift in Sources */,
 				72148C691B57852A00A063FF /* QNEtag.m in Sources */,
@@ -1315,7 +1302,6 @@
 				722C23B31B922D8A00164E34 /* MeViewController.swift in Sources */,
 				7291D6521B9031BD00DE40C8 /* BookedCourseCell.swift in Sources */,
 				723C13271B96F35B007123A1 /* WorkingHourConfigViewController.swift in Sources */,
-				72420BAD1B6750A600462032 /* ARSegmentPageHeader.m in Sources */,
 				72B6EC001B99AF8F00634B21 /* Product.swift in Sources */,
 				72148C6E1B57852A00A063FF /* QNSessionManager.m in Sources */,
 				724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */,
@@ -1395,7 +1381,6 @@
 				724EB5461B4836F900729F8F /* ParameterEncoding.swift in Sources */,
 				72E1AB621B8DE66600B60AF9 /* CVCalendarWeekView.swift in Sources */,
 				72CA00021B60FEDC0093DC30 /* FeedArticleViewCell.swift in Sources */,
-				72420BB01B67539B00462032 /* UserDetailViewController.swift in Sources */,
 				724652B31B538872004E69C1 /* Helper.swift in Sources */,
 				72E1AB5C1B8DE66600B60AF9 /* CVCalendarViewAppearance.swift in Sources */,
 				72C438431B9ABF0F00663D4B /* BookCreateList.swift in Sources */,
@@ -1432,13 +1417,11 @@
 				72148C661B57852A00A063FF /* GTM_Base64.m in Sources */,
 				724652AE1B52A717004E69C1 /* ImageLoader.swift in Sources */,
 				72DB3A661B9C89140011C68D /* UIImage+ImageEffects.m in Sources */,
-				72420BAC1B6750A600462032 /* ARSegmentPageController.m in Sources */,
 				7247EBA51B68DED900A22F0C /* UserDetailHeaderView.swift in Sources */,
 				724EB54E1B483B9C00729F8F /* Host.swift in Sources */,
 				72148C701B57852A00A063FF /* QNFileRecorder.m in Sources */,
 				724EB5451B4836F900729F8F /* Manager.swift in Sources */,
 				726C88301B74C85600F8FAA5 /* ServerTrustPolicy.swift in Sources */,
-				72420BAE1B6750A600462032 /* ARSegmentView.m in Sources */,
 				723E82811B492C6500861D6D /* SwiftyJSON.swift in Sources */,
 				720B7A621B6BE724004C5F8F /* NYTScalingImageView.m in Sources */,
 				724EE8A51B58AF5F001F8670 /* WeiboPostViewController.swift in Sources */,
@@ -1582,11 +1565,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "o2gym-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
@@ -1598,11 +1584,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "o2gym-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};

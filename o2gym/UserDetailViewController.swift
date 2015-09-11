@@ -23,8 +23,8 @@ public class UserDetailViewController: ARSegmentPageController {
     var mypost:MyPostViewController!
     var album:AlbumViewController!
     var mycourse:MyCourseViewController!
-    var favbtn:UIButton!
     
+    var favbtn:UIButton!
     static let imgfav = UIImage(named:"fav_bar")
     static let imgfav_active = UIImage(named: "fav_bar_active")
     var faved:Bool = false
