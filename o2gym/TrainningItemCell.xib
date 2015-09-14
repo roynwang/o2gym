@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="KGk-i7-Jjw" customClass="TrainningItemCell" customModule="o2gym" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="重量（kg)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZO-Ub-EbM" customClass="BodyEvalTextField" customModule="o2gym" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="191" height="68.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                <color key="value" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                <color key="value" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDw-ai-GEc">
+                        <rect key="frame" x="198.5" y="8" width="20" height="68.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="MKz-o1-QcG"/>
+                        </constraints>
+                    </view>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="次数/时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bdv-fZ-Rso" customClass="BodyEvalTextField" customModule="o2gym" customModuleProvider="target">
+                        <rect key="frame" x="218.5" y="8" width="191" height="68.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                <color key="value" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                <color key="value" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Bdv-fZ-Rso" firstAttribute="leading" secondItem="wDw-ai-GEc" secondAttribute="trailing" id="1iA-Fe-Oxz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="wDw-ai-GEc" secondAttribute="bottom" id="2JP-5s-5CL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Bdv-fZ-Rso" secondAttribute="bottom" id="3yD-qk-8l1"/>
+                    <constraint firstItem="wDw-ai-GEc" firstAttribute="leading" secondItem="ZZO-Ub-EbM" secondAttribute="trailing" id="PNu-GK-LsQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZZO-Ub-EbM" secondAttribute="bottom" id="cGz-M9-P7d"/>
+                    <constraint firstItem="ZZO-Ub-EbM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cXp-Xm-uHQ"/>
+                    <constraint firstItem="wDw-ai-GEc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="cto-in-cnu"/>
+                    <constraint firstAttribute="centerX" secondItem="wDw-ai-GEc" secondAttribute="centerX" id="f4u-7b-r1A"/>
+                    <constraint firstItem="Bdv-fZ-Rso" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iD6-93-IfF"/>
+                    <constraint firstItem="ZZO-Ub-EbM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="qbZ-z5-G9F"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Bdv-fZ-Rso" secondAttribute="trailing" id="yBu-wF-oPr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="Repeatttimes" destination="Bdv-fZ-Rso" id="0bH-wm-POb"/>
+                <outlet property="Weight" destination="ZZO-Ub-EbM" id="mcn-98-F38"/>
+            </connections>
+            <point key="canvasLocation" x="449" y="201.5"/>
+        </tableViewCell>
+    </objects>
+</document>

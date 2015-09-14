@@ -9,6 +9,7 @@
             <string>RTWSYueGoTrial-Regular</string>
             <string>RTWSYueGoTrial-Regular</string>
             <string>RTWSYueGoTrial-Regular</string>
+            <string>RTWSYueGoTrial-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -60,12 +61,13 @@
                             </mask>
                         </variation>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reb-f6-eS7">
-                        <rect key="frame" x="435" y="68" width="30" height="20"/>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reb-f6-eS7">
+                        <rect key="frame" x="421" y="47" width="44" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="YN3-Qo-J9s"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="8"/>
+                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                         <state key="normal" title="改期">
                             <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,6 +95,11 @@
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YN3-Qo-J9s"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <action selector="postponeTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wYI-vx-SdI"/>
                         </connections>
@@ -146,13 +153,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PND-xB-e3P">
-                        <rect key="frame" x="395" y="68" width="30" height="20"/>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PND-xB-e3P">
+                        <rect key="frame" x="421" y="47" width="44" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Ngi-hG-LRM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="8"/>
-                        <state key="normal" title="完成">
+                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                        <state key="normal" title="评价">
                             <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -179,8 +187,56 @@
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ngi-hG-LRM"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <action selector="reviewTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rAu-aA-fb6"/>
+                        </connections>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnz-J0-4xz">
+                        <rect key="frame" x="425" y="47" width="44" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="k6u-1g-gmR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                        <state key="normal" title="上课">
+                            <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="leftBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="topBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rightBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="k6u-1g-gmR"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <action selector="workTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="krS-ur-aqQ"/>
                         </connections>
                     </button>
                 </subviews>
@@ -188,6 +244,8 @@
                     <constraint firstAttribute="trailing" secondItem="Ir7-CS-Jph" secondAttribute="trailing" id="8YY-R6-yGq"/>
                     <constraint firstItem="e3R-SS-oJI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DGC-4f-W6a"/>
                     <constraint firstItem="fYe-q0-Gmb" firstAttribute="leading" secondItem="UdK-TT-9bB" secondAttribute="trailing" constant="10" id="Etc-bD-e62"/>
+                    <constraint firstItem="mnz-J0-4xz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="2" id="Ggo-3V-gZf"/>
+                    <constraint firstAttribute="centerY" secondItem="mnz-J0-4xz" secondAttribute="centerY" id="K8v-fR-VKw"/>
                     <constraint firstItem="UdK-TT-9bB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="26" id="MKr-ci-SbU"/>
                     <constraint firstAttribute="centerY" secondItem="juE-9T-q8C" secondAttribute="centerY" constant="-12" id="Nbi-Qv-NmE"/>
                     <constraint firstItem="juE-9T-q8C" firstAttribute="leading" secondItem="UdK-TT-9bB" secondAttribute="trailing" constant="10" id="OqT-mN-58K"/>
@@ -196,15 +254,17 @@
                     <constraint firstAttribute="trailing" secondItem="e3R-SS-oJI" secondAttribute="trailing" id="Ypz-jv-FLW"/>
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aw5-mG-wwh"/>
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="leading" secondItem="fYe-q0-Gmb" secondAttribute="trailing" id="bWC-xn-cFx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="2" id="cOT-DF-Mdv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="juE-9T-q8C" secondAttribute="bottom" constant="10" id="cgw-fU-n8w"/>
                     <constraint firstItem="reb-f6-eS7" firstAttribute="leading" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="10" id="hCN-DK-IW3"/>
-                    <constraint firstAttribute="centerY" secondItem="PND-xB-e3P" secondAttribute="centerY" constant="-20" id="hg7-Ui-IC0"/>
+                    <constraint firstAttribute="centerY" secondItem="PND-xB-e3P" secondAttribute="centerY" id="hg7-Ui-IC0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="2" id="jcs-QN-bYm"/>
                     <constraint firstAttribute="centerY" secondItem="reb-f6-eS7" secondAttribute="centerY" constant="-20" id="mIL-kD-NnE"/>
                     <constraint firstAttribute="centerY" secondItem="UdK-TT-9bB" secondAttribute="centerY" id="nKv-6O-ba4"/>
                     <constraint firstAttribute="bottom" secondItem="e3R-SS-oJI" secondAttribute="bottom" id="qGC-XH-dbE"/>
                     <constraint firstItem="PVX-ZV-9gS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qYb-sr-bDn"/>
                     <constraint firstItem="PND-xB-e3P" firstAttribute="leading" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="10" id="smw-RC-7jY"/>
+                    <constraint firstAttribute="centerY" secondItem="reb-f6-eS7" secondAttribute="centerY" id="v4A-Sv-PLK"/>
                     <constraint firstAttribute="centerY" secondItem="fYe-q0-Gmb" secondAttribute="centerY" constant="10" id="vAs-fE-nJv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="2" id="zCH-ED-cA1"/>
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zU5-eX-WXa"/>
@@ -214,6 +274,8 @@
                         <exclude reference="bWC-xn-cFx"/>
                         <exclude reference="Tka-ho-ue2"/>
                         <exclude reference="cgw-fU-n8w"/>
+                        <exclude reference="hCN-DK-IW3"/>
+                        <exclude reference="mIL-kD-NnE"/>
                         <exclude reference="jcs-QN-bYm"/>
                         <exclude reference="smw-RC-7jY"/>
                     </mask>
@@ -226,6 +288,7 @@
                 <outlet property="Hour" destination="juE-9T-q8C" id="cfD-KN-7Fa"/>
                 <outlet property="ModifyTime" destination="reb-f6-eS7" id="UoU-3p-MFp"/>
                 <outlet property="Review" destination="PND-xB-e3P" id="VuX-6X-pS9"/>
+                <outlet property="Work" destination="mnz-J0-4xz" id="CJy-0K-i0Q"/>
             </connections>
             <point key="canvasLocation" x="172.5" y="249.5"/>
         </tableViewCell>

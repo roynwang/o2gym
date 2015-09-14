@@ -9,6 +9,7 @@ target 'o2gym' do
 	pod 'HCSStarRatingView', '~> 1.4.2'
 #	pod 'Pingpp/Alipay', '~> 2.1.0'
 	pod 'Pingpp/Wx', '~> 2.1.0'
+#	pod "TextFieldEffects"
 #pod 'BMInputBox'
 	pod 'MKInputBoxView'
 end

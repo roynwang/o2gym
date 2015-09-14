@@ -9,12 +9,13 @@
 import UIKit
 
 class BookedCourseComplexCell: UITableViewCell {
-
+    
     @IBOutlet weak var AvatarCoach: UIImageView!
     @IBOutlet weak var Hour: UILabel!
     @IBOutlet weak var Day: UILabel!
     @IBOutlet weak var AvatarCustomer: UIImageView!
     
+    @IBOutlet weak var Work: UIButton!
     @IBOutlet weak var Review: UIButton!
     @IBOutlet weak var ModifyTime: UIButton!
     var book:Book!
@@ -30,6 +31,16 @@ class BookedCourseComplexCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    @IBAction func workTapped(sender: AnyObject) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("train") as! TrainViewController
+        //            cont.usr = self.book.customer.name
+        //            cont.isNew = true
+        cont.book = self.book
+        cont.hidesBottomBarWhenPushed = true
+        O2Nav.pushViewController(cont)
+        
+    }
     
     @IBAction func postponeTapped(sender: AnyObject) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -42,9 +53,7 @@ class BookedCourseComplexCell: UITableViewCell {
             cont.isSingleBook = true
             cont.hidesBottomBarWhenPushed = true
             O2Nav.pushViewController(cont)
-        }, onfail: nil)
-
-       
+            }, onfail: nil)
     }
     @IBAction func reviewTapped(sender: AnyObject) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -52,7 +61,7 @@ class BookedCourseComplexCell: UITableViewCell {
         cont.book = self.book
         cont.hidesBottomBarWhenPushed = true
         O2Nav.pushViewController(cont)
-
+        
     }
     func showCoach(){
         O2Nav.showUser(self.book.coach.name!)
@@ -60,7 +69,7 @@ class BookedCourseComplexCell: UITableViewCell {
     func showCustomer(){
         O2Nav.showUser(self.book.customer.name!)
     }
-
+    
     func setByBook(book:Book?){
         self.book = book
         self.AvatarCoach.fitLoad(self.book.coach.avatar!, placeholder: UIImage(named: "avatar"))
@@ -84,18 +93,31 @@ class BookedCourseComplexCell: UITableViewCell {
     
     func determineBtn(book:Book){
         let currentDateTime = NSDate()
-        let timestr = book.date + " " + Local.TimeMap[book.hour]
+        let timestr = book.date + " 00:00"
         let dateobj = NSDate.dateFromString(timestr, formatStr: "yyyy/MM/dd HH:mm")
-        if dateobj.isLessThanDate(currentDateTime){
-            //self.ModifyTime.hidden = true
-            self.Review.hidden = false
-        } else {
-            //self.ModifyTime.hidden = false
-            self.Review.hidden = true
+        
+        self.Review.hidden = true
+        self.ModifyTime.hidden = true
+        self.Work.hidden = true
+        if book.done && book.rate != nil {
+            return
         }
+        //if is coach
         if Local.USER.iscoach {
-            self.Review.hidden = true
+            if dateobj.isLessThanDate(currentDateTime) && !book.done {
+                self.Work.hidden = false
+            }
+        } else {
+            if book.rate == nil && book.done{
+                self.Review.hidden = false
+                
+            } else {
+            //if dateobj.isGreaterThanDate(currentDateTime) {
+                self.ModifyTime.hidden = false
+            //}
+            }
         }
+        
     }
     
     

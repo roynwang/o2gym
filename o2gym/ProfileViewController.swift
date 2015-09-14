@@ -65,7 +65,7 @@ class ProfileViewController: UITableViewController {
         case "profileavatarcell":
             return 100
         default:
-            return 40
+            return 60
         }
     }
     

@@ -52,6 +52,8 @@ public class BaseDataList {
         request(trequest as URLRequestConvertible)
             .responseJSON {
                 (_, resp, data, error) in
+                println(resp)
+                println(data)
                 if resp?.statusCode == 201{
                     if success_handler != nil {
                         success_handler!()

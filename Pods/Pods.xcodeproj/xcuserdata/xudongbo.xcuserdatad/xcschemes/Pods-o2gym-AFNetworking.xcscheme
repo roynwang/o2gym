@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7EAED786B7649D68AF7F6532"
+               BlueprintIdentifier = "707B1E351D2577536D9048E6"
                BuildableName = "libPods-o2gym-AFNetworking.a"
                BlueprintName = "Pods-o2gym-AFNetworking"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -36,6 +36,10 @@
 		72148C751B57852A00A063FF /* QNUploadOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148C631B57852A00A063FF /* QNUploadOption.m */; };
 		72148C761B57852A00A063FF /* QNUpToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148C651B57852A00A063FF /* QNUpToken.m */; };
 		72148C951B5786D400A063FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72148C941B5786D400A063FF /* libz.dylib */; };
+		7217767B1BA7059B00304292 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217767A1BA7059B00304292 /* Train.swift */; };
+		7217767D1BA7071D00304292 /* TrainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217767C1BA7071D00304292 /* TrainList.swift */; };
+		7217767F1BA70B4C00304292 /* TrainListByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217767E1BA70B4C00304292 /* TrainListByDate.swift */; };
+		721776811BA72BE500304292 /* TrainHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721776801BA72BE500304292 /* TrainHistoryController.swift */; };
 		722C23B31B922D8A00164E34 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C23B21B922D8A00164E34 /* MeViewController.swift */; };
 		722C23B51B922DBC00164E34 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C23B41B922DBC00164E34 /* ScheduleViewController.swift */; };
 		722C23B71B922F7F00164E34 /* WeekBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C23B61B922F7F00164E34 /* WeekBookList.swift */; };
@@ -151,6 +155,14 @@
 		729E183E1B5E1B77000B14EE /* FeedToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E183D1B5E1B77000B14EE /* FeedToolBarView.swift */; };
 		729E18401B5E3562000B14EE /* FeedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729E183F1B5E3562000B14EE /* FeedHeaderView.xib */; };
 		729E18421B5E3853000B14EE /* FeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E18411B5E3853000B14EE /* FeedHeaderView.swift */; };
+		72A7A91A1BA6B4C9009266D3 /* EvalHistoryTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7A9191BA6B4C9009266D3 /* EvalHistoryTableController.swift */; };
+		72A7A91D1BA6B4E5009266D3 /* EvalHistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7A91B1BA6B4E5009266D3 /* EvalHistoryTableCell.swift */; };
+		72A7A91E1BA6B4E5009266D3 /* EvalHistoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A7A91C1BA6B4E5009266D3 /* EvalHistoryTableCell.xib */; };
+		72A7A9201BA6E160009266D3 /* TrainningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7A91F1BA6E160009266D3 /* TrainningController.swift */; };
+		72A7A9231BA6E17B009266D3 /* TrainningItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7A9211BA6E17B009266D3 /* TrainningItemCell.swift */; };
+		72A7A9241BA6E17B009266D3 /* TrainningItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A7A9221BA6E17B009266D3 /* TrainningItemCell.xib */; };
+		72A7A9291BA6E47C009266D3 /* TrainningHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7A9271BA6E47C009266D3 /* TrainningHeaderCell.swift */; };
+		72A7A92A1BA6E47C009266D3 /* TrainningHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A7A9281BA6E47C009266D3 /* TrainningHeaderCell.xib */; };
 		72AD3DD61B8AFE140000A217 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AD3DD51B8AFE140000A217 /* ArticleDetailViewController.swift */; };
 		72B4A2771B994D4B0017C2D9 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4A2761B994D4B0017C2D9 /* OrderItem.swift */; };
 		72B6EBFE1B99539D00634B21 /* OrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B6EBFD1B99539D00634B21 /* OrderList.swift */; };
@@ -172,6 +184,7 @@
 		72C438431B9ABF0F00663D4B /* BookCreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438421B9ABF0F00663D4B /* BookCreateList.swift */; };
 		72C438461B9B5D8200663D4B /* CourseReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438451B9B5D8200663D4B /* CourseReviewController.swift */; };
 		72C4384A1B9C1A2800663D4B /* MyProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438491B9C1A2800663D4B /* MyProductCell.swift */; };
+		72C71EC41BA6834100A80344 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C71EC31BA6834100A80344 /* TrainViewController.swift */; };
 		72CA00021B60FEDC0093DC30 /* FeedArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA00001B60FEDC0093DC30 /* FeedArticleViewCell.swift */; };
 		72CA00031B60FEDC0093DC30 /* FeedArticleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CA00011B60FEDC0093DC30 /* FeedArticleViewCell.xib */; };
 		72CA00051B613D440093DC30 /* FeedHeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA00041B613D440093DC30 /* FeedHeaderProtocol.swift */; };
@@ -180,6 +193,16 @@
 		72CAFFE91B5F49160093DC30 /* FeedMultPicViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CAFFE71B5F49160093DC30 /* FeedMultPicViewCell.xib */; };
 		72CAFFEB1B5F7D950093DC30 /* FeedFwdHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CAFFEA1B5F7D950093DC30 /* FeedFwdHeaderView.xib */; };
 		72CAFFED1B5F82090093DC30 /* FeedFwdHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAFFEC1B5F82090093DC30 /* FeedFwdHeaderView.swift */; };
+		72CF4A091BA5B68E00211BFA /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF49FE1BA5B68E00211BFA /* AkiraTextField.swift */; };
+		72CF4A0A1BA5B68E00211BFA /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF49FF1BA5B68E00211BFA /* HoshiTextField.swift */; };
+		72CF4A0B1BA5B68E00211BFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72CF4A001BA5B68E00211BFA /* Info.plist */; };
+		72CF4A0C1BA5B68E00211BFA /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4A011BA5B68E00211BFA /* IsaoTextField.swift */; };
+		72CF4A0D1BA5B68E00211BFA /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4A021BA5B68E00211BFA /* JiroTextField.swift */; };
+		72CF4A0E1BA5B68E00211BFA /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4A031BA5B68E00211BFA /* KaedeTextField.swift */; };
+		72CF4A0F1BA5B68E00211BFA /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4A041BA5B68E00211BFA /* MadokaTextField.swift */; };
+		72CF4A101BA5B68E00211BFA /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4A051BA5B68E00211BFA /* MinoruTextField.swift */; };
+		72CF4A111BA5B68E00211BFA /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4A071BA5B68E00211BFA /* TextFieldsEffects.swift */; };
+		72CF4A121BA5B68E00211BFA /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4A081BA5B68E00211BFA /* YokoTextField.swift */; };
 		72D039C71B91A969005E73EA /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D039C61B91A969005E73EA /* Book.swift */; };
 		72D039C91B91AA66005E73EA /* DayBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D039C81B91AA66005E73EA /* DayBookList.swift */; };
 		72DB3A631B9C88000011C68D /* ParallaxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB3A621B9C88000011C68D /* ParallaxHeaderView.m */; };
@@ -217,6 +240,11 @@
 		72E1AB671B8DE66600B60AF9 /* CVSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB4D1B8DE66600B60AF9 /* CVSet.swift */; };
 		72E1AB681B8DE66600B60AF9 /* CVShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB4E1B8DE66600B60AF9 /* CVShape.swift */; };
 		72E1AB6A1B8E078900B60AF9 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E1AB691B8E078900B60AF9 /* BookViewController.swift */; };
+		72E566071BA5BBB700949DF4 /* BodyEvalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E566061BA5BBB700949DF4 /* BodyEvalController.swift */; };
+		72E566091BA5BBE500949DF4 /* BodyEvalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E566081BA5BBE500949DF4 /* BodyEvalCell.swift */; };
+		72E5660B1BA5D97D00949DF4 /* BodyEvalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E5660A1BA5D97D00949DF4 /* BodyEvalItem.swift */; };
+		72E5660D1BA5DADC00949DF4 /* BodyEvalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E5660C1BA5DADC00949DF4 /* BodyEvalList.swift */; };
+		72E5660F1BA5DC0000949DF4 /* BodyEvalListByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E5660E1BA5DC0000949DF4 /* BodyEvalListByDate.swift */; };
 		72FB486B1B6A4044004067AF /* AlbumPicAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB48691B6A4044004067AF /* AlbumPicAddCell.swift */; };
 		72FB486C1B6A4044004067AF /* AlbumPicAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FB486A1B6A4044004067AF /* AlbumPicAddCell.xib */; };
 		DE3453E42DA7B725301CCB0A /* libPods-o2gym.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A6B3EE0A4C8DB1793B3B56 /* libPods-o2gym.a */; };
@@ -296,6 +324,10 @@
 		72148C641B57852A00A063FF /* QNUpToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNUpToken.h; sourceTree = "<group>"; };
 		72148C651B57852A00A063FF /* QNUpToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNUpToken.m; sourceTree = "<group>"; };
 		72148C941B5786D400A063FF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7217767A1BA7059B00304292 /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
+		7217767C1BA7071D00304292 /* TrainList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainList.swift; sourceTree = "<group>"; };
+		7217767E1BA70B4C00304292 /* TrainListByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainListByDate.swift; sourceTree = "<group>"; };
+		721776801BA72BE500304292 /* TrainHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainHistoryController.swift; sourceTree = "<group>"; };
 		722C23B21B922D8A00164E34 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		722C23B41B922DBC00164E34 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		722C23B61B922F7F00164E34 /* WeekBookList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekBookList.swift; sourceTree = "<group>"; };
@@ -432,6 +464,14 @@
 		729E183D1B5E1B77000B14EE /* FeedToolBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedToolBarView.swift; sourceTree = "<group>"; };
 		729E183F1B5E3562000B14EE /* FeedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedHeaderView.xib; sourceTree = "<group>"; };
 		729E18411B5E3853000B14EE /* FeedHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHeaderView.swift; sourceTree = "<group>"; };
+		72A7A9191BA6B4C9009266D3 /* EvalHistoryTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvalHistoryTableController.swift; sourceTree = "<group>"; };
+		72A7A91B1BA6B4E5009266D3 /* EvalHistoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvalHistoryTableCell.swift; sourceTree = "<group>"; };
+		72A7A91C1BA6B4E5009266D3 /* EvalHistoryTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvalHistoryTableCell.xib; sourceTree = "<group>"; };
+		72A7A91F1BA6E160009266D3 /* TrainningController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainningController.swift; sourceTree = "<group>"; };
+		72A7A9211BA6E17B009266D3 /* TrainningItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainningItemCell.swift; sourceTree = "<group>"; };
+		72A7A9221BA6E17B009266D3 /* TrainningItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainningItemCell.xib; sourceTree = "<group>"; };
+		72A7A9271BA6E47C009266D3 /* TrainningHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainningHeaderCell.swift; sourceTree = "<group>"; };
+		72A7A9281BA6E47C009266D3 /* TrainningHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainningHeaderCell.xib; sourceTree = "<group>"; };
 		72AD3DD51B8AFE140000A217 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		72B4A2761B994D4B0017C2D9 /* OrderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		72B6EBFD1B99539D00634B21 /* OrderList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderList.swift; sourceTree = "<group>"; };
@@ -453,6 +493,7 @@
 		72C438421B9ABF0F00663D4B /* BookCreateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCreateList.swift; sourceTree = "<group>"; };
 		72C438451B9B5D8200663D4B /* CourseReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseReviewController.swift; sourceTree = "<group>"; };
 		72C438491B9C1A2800663D4B /* MyProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductCell.swift; sourceTree = "<group>"; };
+		72C71EC31BA6834100A80344 /* TrainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
 		72CA00001B60FEDC0093DC30 /* FeedArticleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedArticleViewCell.swift; sourceTree = "<group>"; };
 		72CA00011B60FEDC0093DC30 /* FeedArticleViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedArticleViewCell.xib; sourceTree = "<group>"; };
 		72CA00041B613D440093DC30 /* FeedHeaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHeaderProtocol.swift; sourceTree = "<group>"; };
@@ -461,6 +502,17 @@
 		72CAFFE71B5F49160093DC30 /* FeedMultPicViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedMultPicViewCell.xib; sourceTree = "<group>"; };
 		72CAFFEA1B5F7D950093DC30 /* FeedFwdHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedFwdHeaderView.xib; sourceTree = "<group>"; };
 		72CAFFEC1B5F82090093DC30 /* FeedFwdHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedFwdHeaderView.swift; sourceTree = "<group>"; };
+		72CF49FE1BA5B68E00211BFA /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
+		72CF49FF1BA5B68E00211BFA /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		72CF4A001BA5B68E00211BFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72CF4A011BA5B68E00211BFA /* IsaoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsaoTextField.swift; sourceTree = "<group>"; };
+		72CF4A021BA5B68E00211BFA /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiroTextField.swift; sourceTree = "<group>"; };
+		72CF4A031BA5B68E00211BFA /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaedeTextField.swift; sourceTree = "<group>"; };
+		72CF4A041BA5B68E00211BFA /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
+		72CF4A051BA5B68E00211BFA /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
+		72CF4A061BA5B68E00211BFA /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
+		72CF4A071BA5B68E00211BFA /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
+		72CF4A081BA5B68E00211BFA /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
 		72D039C61B91A969005E73EA /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		72D039C81B91AA66005E73EA /* DayBookList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBookList.swift; sourceTree = "<group>"; };
 		72DB3A611B9C88000011C68D /* ParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxHeaderView.h; sourceTree = "<group>"; };
@@ -500,6 +552,11 @@
 		72E1AB4D1B8DE66600B60AF9 /* CVSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVSet.swift; sourceTree = "<group>"; };
 		72E1AB4E1B8DE66600B60AF9 /* CVShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVShape.swift; sourceTree = "<group>"; };
 		72E1AB691B8E078900B60AF9 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		72E566061BA5BBB700949DF4 /* BodyEvalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEvalController.swift; sourceTree = "<group>"; };
+		72E566081BA5BBE500949DF4 /* BodyEvalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEvalCell.swift; sourceTree = "<group>"; };
+		72E5660A1BA5D97D00949DF4 /* BodyEvalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEvalItem.swift; sourceTree = "<group>"; };
+		72E5660C1BA5DADC00949DF4 /* BodyEvalList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEvalList.swift; sourceTree = "<group>"; };
+		72E5660E1BA5DC0000949DF4 /* BodyEvalListByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEvalListByDate.swift; sourceTree = "<group>"; };
 		72FB48691B6A4044004067AF /* AlbumPicAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumPicAddCell.swift; sourceTree = "<group>"; };
 		72FB486A1B6A4044004067AF /* AlbumPicAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumPicAddCell.xib; sourceTree = "<group>"; };
 		ACDF5292F110A00FBBEE1AF7 /* Pods-o2gym.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-o2gym.release.xcconfig"; path = "Pods/Target Support Files/Pods-o2gym/Pods-o2gym.release.xcconfig"; sourceTree = "<group>"; };
@@ -649,9 +706,24 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		72249E231BA682DC0065EFAB /* Train */ = {
+			isa = PBXGroup;
+			children = (
+				72C71EC51BA6883A00A80344 /* TrainItem */,
+				72E566051BA5BB5800949DF4 /* BodyEvaluation */,
+				72C71EC31BA6834100A80344 /* TrainViewController.swift */,
+			);
+			name = Train;
+			sourceTree = "<group>";
+		};
 		722C247B1B93638D00164E34 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7247EB991B6881A700A22F0C /* O2Nav.swift */,
+				723E59871B5CB775005EC263 /* BaseViewCell.swift */,
+				729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */,
+				720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */,
+				72249E231BA682DC0065EFAB /* Train */,
 				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
 				72B752251B9C80830083411F /* GymDetail */,
 				72B752241B9C72F40083411F /* Recommend */,
@@ -700,6 +772,8 @@
 				72C0CE901B96A7CD006A4035 /* DayTime.swift */,
 				72B4A2761B994D4B0017C2D9 /* OrderItem.swift */,
 				72B6EBFF1B99AF8F00634B21 /* Product.swift */,
+				72E5660A1BA5D97D00949DF4 /* BodyEvalItem.swift */,
+				7217767A1BA7059B00304292 /* Train.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -719,6 +793,10 @@
 				72B6EBFD1B99539D00634B21 /* OrderList.swift */,
 				72C438421B9ABF0F00663D4B /* BookCreateList.swift */,
 				7271FA091B9C207700C2A934 /* ProductList.swift */,
+				72E5660C1BA5DADC00949DF4 /* BodyEvalList.swift */,
+				72E5660E1BA5DC0000949DF4 /* BodyEvalListByDate.swift */,
+				7217767C1BA7071D00304292 /* TrainList.swift */,
+				7217767E1BA70B4C00304292 /* TrainListByDate.swift */,
 			);
 			name = DataList;
 			sourceTree = "<group>";
@@ -764,10 +842,6 @@
 				724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */,
 				722C247B1B93638D00164E34 /* UI */,
 				72420BB41B676FE000462032 /* listdownload.jpg */,
-				7247EB991B6881A700A22F0C /* O2Nav.swift */,
-				723E59871B5CB775005EC263 /* BaseViewCell.swift */,
-				729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */,
-				720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */,
 				724EE8B71B5C014A001F8670 /* Resource */,
 				723E82961B4A950B00861D6D /* DataList */,
 				723E828B1B49754600861D6D /* Data */,
@@ -810,6 +884,7 @@
 		724EB5391B48368700729F8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				72CF49FD1BA5B68E00211BFA /* TextFieldEffects */,
 				72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */,
 				72DB3AA01B9DB64E0011C68D /* RYProfileViewDelegate.swift */,
 				72DB3A641B9C89140011C68D /* UIImage+ImageEffects.h */,
@@ -1048,6 +1123,37 @@
 			name = CourseReview;
 			sourceTree = "<group>";
 		};
+		72C71EC51BA6883A00A80344 /* TrainItem */ = {
+			isa = PBXGroup;
+			children = (
+				72A7A91F1BA6E160009266D3 /* TrainningController.swift */,
+				72A7A9211BA6E17B009266D3 /* TrainningItemCell.swift */,
+				72A7A9221BA6E17B009266D3 /* TrainningItemCell.xib */,
+				72A7A9271BA6E47C009266D3 /* TrainningHeaderCell.swift */,
+				72A7A9281BA6E47C009266D3 /* TrainningHeaderCell.xib */,
+				721776801BA72BE500304292 /* TrainHistoryController.swift */,
+			);
+			name = TrainItem;
+			sourceTree = "<group>";
+		};
+		72CF49FD1BA5B68E00211BFA /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				72CF49FE1BA5B68E00211BFA /* AkiraTextField.swift */,
+				72CF49FF1BA5B68E00211BFA /* HoshiTextField.swift */,
+				72CF4A001BA5B68E00211BFA /* Info.plist */,
+				72CF4A011BA5B68E00211BFA /* IsaoTextField.swift */,
+				72CF4A021BA5B68E00211BFA /* JiroTextField.swift */,
+				72CF4A031BA5B68E00211BFA /* KaedeTextField.swift */,
+				72CF4A041BA5B68E00211BFA /* MadokaTextField.swift */,
+				72CF4A051BA5B68E00211BFA /* MinoruTextField.swift */,
+				72CF4A061BA5B68E00211BFA /* TextFieldEffects.h */,
+				72CF4A071BA5B68E00211BFA /* TextFieldsEffects.swift */,
+				72CF4A081BA5B68E00211BFA /* YokoTextField.swift */,
+			);
+			path = TextFieldEffects;
+			sourceTree = "<group>";
+		};
 		72E1AB341B8DE66600B60AF9 /* CVCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1079,6 +1185,18 @@
 				72E1AB4E1B8DE66600B60AF9 /* CVShape.swift */,
 			);
 			path = CVCalendar;
+			sourceTree = "<group>";
+		};
+		72E566051BA5BB5800949DF4 /* BodyEvaluation */ = {
+			isa = PBXGroup;
+			children = (
+				72E566061BA5BBB700949DF4 /* BodyEvalController.swift */,
+				72E566081BA5BBE500949DF4 /* BodyEvalCell.swift */,
+				72A7A9191BA6B4C9009266D3 /* EvalHistoryTableController.swift */,
+				72A7A91B1BA6B4E5009266D3 /* EvalHistoryTableCell.swift */,
+				72A7A91C1BA6B4E5009266D3 /* EvalHistoryTableCell.xib */,
+			);
+			name = BodyEvaluation;
 			sourceTree = "<group>";
 		};
 		E053521FC95ADD480ECABFF2 /* Pods */ = {
@@ -1177,6 +1295,7 @@
 				724EE8AE1B58BD3D001F8670 /* PickerView.xib in Resources */,
 				7291D64F1B900CC700DE40C8 /* TimeTableCell.xib in Resources */,
 				72CAFFE91B5F49160093DC30 /* FeedMultPicViewCell.xib in Resources */,
+				72A7A91E1BA6B4E5009266D3 /* EvalHistoryTableCell.xib in Resources */,
 				724652AF1B52A717004E69C1 /* Info.plist in Resources */,
 				72420BB51B676FE000462032 /* listdownload.jpg in Resources */,
 				724EB4FC1B47BECC00729F8F /* Main.storyboard in Resources */,
@@ -1186,10 +1305,12 @@
 				724EE8AD1B58BD3D001F8670 /* LimCollectionViewCell.xib in Resources */,
 				72CAFFEB1B5F7D950093DC30 /* FeedFwdHeaderView.xib in Resources */,
 				724652A11B525821004E69C1 /* RecommendCoachCell.xib in Resources */,
+				72CF4A0B1BA5B68E00211BFA /* Info.plist in Resources */,
 				722C23BB1B92DA9B00164E34 /* BookedCourseComplexCell.xib in Resources */,
 				72CA00031B60FEDC0093DC30 /* FeedArticleViewCell.xib in Resources */,
 				729E183C1B5E0ADF000B14EE /* FeedToolBarView.xib in Resources */,
 				724EB5011B47BECC00729F8F /* LaunchScreen.xib in Resources */,
+				72A7A9241BA6E17B009266D3 /* TrainningItemCell.xib in Resources */,
 				72420BA01B66100200462032 /* FeedCoachViewCell.xib in Resources */,
 				72420BB91B67DD3C00462032 /* MyPostViewController.xib in Resources */,
 				7247EBA61B68DED900A22F0C /* UserDetailHeaderView.xib in Resources */,
@@ -1199,6 +1320,7 @@
 				72420BBD1B67E63400462032 /* AlbumViewController.xib in Resources */,
 				724EE8BE1B5C06D5001F8670 /* yh.OTF in Resources */,
 				7246529D1B52580A004E69C1 /* RecommendGymCell.xib in Resources */,
+				72A7A92A1BA6E47C009266D3 /* TrainningHeaderCell.xib in Resources */,
 				723C132F1B988C7A007123A1 /* OrderItemCell.xib in Resources */,
 				729E18401B5E3562000B14EE /* FeedHeaderView.xib in Resources */,
 				724652A51B525841004E69C1 /* RecommendUserCell.xib in Resources */,
@@ -1261,6 +1383,7 @@
 				72E1AB681B8DE66600B60AF9 /* CVShape.swift in Sources */,
 				7271FA0A1B9C207700C2A934 /* ProductList.swift in Sources */,
 				72B4A2771B994D4B0017C2D9 /* OrderItem.swift in Sources */,
+				72A7A9201BA6E160009266D3 /* TrainningController.swift in Sources */,
 				724652BE1B555C65004E69C1 /* TestViewController.swift in Sources */,
 				729E18361B5DF828000B14EE /* FeedPicViewCell.swift in Sources */,
 				724EE8AB1B58BD3D001F8670 /* LimCameraImagePickerViewController.swift in Sources */,
@@ -1268,6 +1391,7 @@
 				72C0CE8E1B95F06A006A4035 /* WorkingTimeSectionHeader.swift in Sources */,
 				724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */,
 				720B7A5A1B6BE724004C5F8F /* NYTPhotoCaptionView.m in Sources */,
+				72CF4A0D1BA5B68E00211BFA /* JiroTextField.swift in Sources */,
 				72AD3DD61B8AFE140000A217 /* ArticleDetailViewController.swift in Sources */,
 				72420BA21B66533F00462032 /* Timeline.swift in Sources */,
 				72B6EC021B99BBA400634B21 /* HRToast+UIView.swift in Sources */,
@@ -1278,12 +1402,15 @@
 				72CA00071B6141970093DC30 /* StringResource.swift in Sources */,
 				72E1AB5F1B8DE66600B60AF9 /* CVCalendarViewPresentationMode.swift in Sources */,
 				72148C6D1B57852A00A063FF /* QNResponseInfo.m in Sources */,
+				72E5660F1BA5DC0000949DF4 /* BodyEvalListByDate.swift in Sources */,
 				723E82911B49756B00861D6D /* Gym.swift in Sources */,
 				722C23BA1B92DA9B00164E34 /* BookedCourseComplexCell.swift in Sources */,
 				72DB3AA11B9DB64E0011C68D /* RYProfileViewDelegate.swift in Sources */,
 				72B752271B9C80A20083411F /* GymDetailController.swift in Sources */,
+				72C71EC41BA6834100A80344 /* TrainViewController.swift in Sources */,
 				724652B01B52A717004E69C1 /* UIImageView+ImageLoader.swift in Sources */,
 				72DB3AA81B9DE57F0011C68D /* MyGoodCell.swift in Sources */,
+				72E566091BA5BBE500949DF4 /* BodyEvalCell.swift in Sources */,
 				72148C6B1B57852A00A063FF /* QNDns.m in Sources */,
 				720B7A5D1B6BE724004C5F8F /* NYTPhotosOverlayView.m in Sources */,
 				72E1AB6A1B8E078900B60AF9 /* BookViewController.swift in Sources */,
@@ -1302,6 +1429,7 @@
 				722C23B31B922D8A00164E34 /* MeViewController.swift in Sources */,
 				7291D6521B9031BD00DE40C8 /* BookedCourseCell.swift in Sources */,
 				723C13271B96F35B007123A1 /* WorkingHourConfigViewController.swift in Sources */,
+				72CF4A111BA5B68E00211BFA /* TextFieldsEffects.swift in Sources */,
 				72B6EC001B99AF8F00634B21 /* Product.swift in Sources */,
 				72148C6E1B57852A00A063FF /* QNSessionManager.m in Sources */,
 				724EB4F51B47BECC00729F8F /* AppDelegate.swift in Sources */,
@@ -1311,16 +1439,19 @@
 				723E82951B4A399A00861D6D /* BaseDataItem.swift in Sources */,
 				724EB54A1B4836F900729F8F /* Validation.swift in Sources */,
 				72E1AB671B8DE66600B60AF9 /* CVSet.swift in Sources */,
+				72A7A9231BA6E17B009266D3 /* TrainningItemCell.swift in Sources */,
 				72E1AB5E1B8DE66600B60AF9 /* CVCalendarViewDelegate.swift in Sources */,
 				72E1AB661B8DE66600B60AF9 /* CVSelectionType.swift in Sources */,
 				72E1AB531B8DE66600B60AF9 /* CVCalendarManager.swift in Sources */,
 				72E1AB641B8DE66600B60AF9 /* CVRange.swift in Sources */,
 				720B7AC31B6BECE9004C5F8F /* PicForNYT.swift in Sources */,
+				72CF4A0F1BA5B68E00211BFA /* MadokaTextField.swift in Sources */,
 				72E1AB5A1B8DE66600B60AF9 /* CVCalendarViewAnimator.swift in Sources */,
 				72C0CE911B96A7CD006A4035 /* DayTime.swift in Sources */,
 				72E1AB651B8DE66600B60AF9 /* CVScrollDirection.swift in Sources */,
 				724652A41B525841004E69C1 /* RecommendUserCell.swift in Sources */,
 				72CA00051B613D440093DC30 /* FeedHeaderProtocol.swift in Sources */,
+				72E5660D1BA5DADC00949DF4 /* BodyEvalList.swift in Sources */,
 				720B7A5F1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.m in Sources */,
 				72C4384A1B9C1A2800663D4B /* MyProductCell.swift in Sources */,
 				72E1AB521B8DE66600B60AF9 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
@@ -1332,6 +1463,7 @@
 				728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */,
 				729703D91B6BCB8100DB9DB6 /* JTSImageViewController.m in Sources */,
 				729703D81B6BCB8100DB9DB6 /* JTSImageInfo.m in Sources */,
+				72CF4A0C1BA5B68E00211BFA /* IsaoTextField.swift in Sources */,
 				723E82901B49756B00861D6D /* Course.swift in Sources */,
 				720B7A591B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m in Sources */,
 				723E829E1B4AC3D600861D6D /* Local.swift in Sources */,
@@ -1340,10 +1472,12 @@
 				72420B9F1B66100200462032 /* FeedCoachViewCell.swift in Sources */,
 				72148C741B57852A00A063FF /* QNUploadManager.m in Sources */,
 				724652B81B54ECF2004E69C1 /* AlbumViewController.swift in Sources */,
+				72CF4A0A1BA5B68E00211BFA /* HoshiTextField.swift in Sources */,
 				7246529C1B52580A004E69C1 /* RecommendGymCell.swift in Sources */,
 				723E829C1B4A9A7300861D6D /* BaseDataList.swift in Sources */,
 				7247EBAA1B6942CF00A22F0C /* UINavigationBar+Awesome.m in Sources */,
 				723E598B1B5CDA10005EC263 /* RecommendCourseCell.swift in Sources */,
+				72CF4A0E1BA5B68E00211BFA /* KaedeTextField.swift in Sources */,
 				72B6EBFE1B99539D00634B21 /* OrderList.swift in Sources */,
 				72148C721B57852A00A063FF /* QNFormUpload.m in Sources */,
 				724EB5491B4836F900729F8F /* Upload.swift in Sources */,
@@ -1362,6 +1496,7 @@
 				72CAFFE81B5F49160093DC30 /* FeedMultPicViewCell.swift in Sources */,
 				72C438461B9B5D8200663D4B /* CourseReviewController.swift in Sources */,
 				724652AD1B52A717004E69C1 /* Diskcached.swift in Sources */,
+				72CF4A121BA5B68E00211BFA /* YokoTextField.swift in Sources */,
 				724652A01B525821004E69C1 /* RecommendCoachCell.swift in Sources */,
 				72FB486B1B6A4044004067AF /* AlbumPicAddCell.swift in Sources */,
 				729E182C1B5DF730000B14EE /* FeedStreamViewController.swift in Sources */,
@@ -1371,6 +1506,7 @@
 				72E1AB591B8DE66600B60AF9 /* CVCalendarView.swift in Sources */,
 				723C132B1B988B4D007123A1 /* OrderedListViewController.swift in Sources */,
 				723E59931B5D12AC005EC263 /* UIViewController+MGSwipeTabBarController.m in Sources */,
+				72CF4A091BA5B68E00211BFA /* AkiraTextField.swift in Sources */,
 				729703DB1B6BCB8100DB9DB6 /* UIApplication+JTSImageViewController.m in Sources */,
 				729E183E1B5E1B77000B14EE /* FeedToolBarView.swift in Sources */,
 				72B8FF051B7CA4CB000C96AE /* MyCourseViewController.swift in Sources */,
@@ -1384,6 +1520,8 @@
 				724652B31B538872004E69C1 /* Helper.swift in Sources */,
 				72E1AB5C1B8DE66600B60AF9 /* CVCalendarViewAppearance.swift in Sources */,
 				72C438431B9ABF0F00663D4B /* BookCreateList.swift in Sources */,
+				72E566071BA5BBB700949DF4 /* BodyEvalController.swift in Sources */,
+				72A7A91D1BA6B4E5009266D3 /* EvalHistoryTableCell.swift in Sources */,
 				72E1AB561B8DE66600B60AF9 /* CVCalendarMonthContentViewController.swift in Sources */,
 				7247EB9A1B6881A700A22F0C /* O2Nav.swift in Sources */,
 				723E59881B5CB775005EC263 /* BaseViewCell.swift in Sources */,
@@ -1391,21 +1529,26 @@
 				723E59991B5D15A7005EC263 /* HMSegmentedControl.m in Sources */,
 				72148C751B57852A00A063FF /* QNUploadOption.m in Sources */,
 				729703DC1B6BCB8100DB9DB6 /* UIImage+JTSImageEffects.m in Sources */,
+				7217767D1BA7071D00304292 /* TrainList.swift in Sources */,
 				722C24811B9363C100164E34 /* ProfileViewController.swift in Sources */,
 				720B7A5E1B6BE724004C5F8F /* NYTPhotosViewController.m in Sources */,
 				72E1AB511B8DE66600B60AF9 /* CVCalendarDayView.swift in Sources */,
 				72B752291B9C80BA0083411F /* SimpleOptionCell.swift in Sources */,
+				721776811BA72BE500304292 /* TrainHistoryController.swift in Sources */,
 				72148C671B57852A00A063FF /* QNAsyncRun.m in Sources */,
 				72BDA1091B907E2300CCB29A /* BookedCourseTitleCell.swift in Sources */,
 				723C13291B96F3AB007123A1 /* WorkingHourConfigCell.swift in Sources */,
 				720B7A611B6BE724004C5F8F /* NYTPhotoViewController.m in Sources */,
 				72D039C71B91A969005E73EA /* Book.swift in Sources */,
+				72A7A9291BA6E47C009266D3 /* TrainningHeaderCell.swift in Sources */,
 				72E1AB631B8DE66600B60AF9 /* CVDate.swift in Sources */,
 				72E1AB541B8DE66600B60AF9 /* CVCalendarMenuView.swift in Sources */,
 				72D039C91B91AA66005E73EA /* DayBookList.swift in Sources */,
 				72E1AB4F1B8DE66600B60AF9 /* CVAuxiliaryView.swift in Sources */,
 				72B8FF081B7CA566000C96AE /* MyCourse.swift in Sources */,
+				72E5660B1BA5D97D00949DF4 /* BodyEvalItem.swift in Sources */,
 				72148C6A1B57852A00A063FF /* QNUrlSafeBase64.m in Sources */,
+				72CF4A101BA5B68E00211BFA /* MinoruTextField.swift in Sources */,
 				724652BA1B54EEC6004E69C1 /* MyPostViewController.swift in Sources */,
 				724652961B5230EE004E69C1 /* RecommendArticleCell.swift in Sources */,
 				726C88321B74C88400F8FAA5 /* MultipartFormData.swift in Sources */,
@@ -1413,11 +1556,13 @@
 				72BDA1021B90516E00CCB29A /* UIView_Border.swift in Sources */,
 				722C23B71B922F7F00164E34 /* WeekBookList.swift in Sources */,
 				724EB53C1B4836A900729F8F /* Alamofire.swift in Sources */,
+				7217767F1BA70B4C00304292 /* TrainListByDate.swift in Sources */,
 				72148C681B57852A00A063FF /* QNCrc32.m in Sources */,
 				72148C661B57852A00A063FF /* GTM_Base64.m in Sources */,
 				724652AE1B52A717004E69C1 /* ImageLoader.swift in Sources */,
 				72DB3A661B9C89140011C68D /* UIImage+ImageEffects.m in Sources */,
 				7247EBA51B68DED900A22F0C /* UserDetailHeaderView.swift in Sources */,
+				72A7A91A1BA6B4C9009266D3 /* EvalHistoryTableController.swift in Sources */,
 				724EB54E1B483B9C00729F8F /* Host.swift in Sources */,
 				72148C701B57852A00A063FF /* QNFileRecorder.m in Sources */,
 				724EB5451B4836F900729F8F /* Manager.swift in Sources */,
@@ -1427,6 +1572,7 @@
 				724EE8A51B58AF5F001F8670 /* WeiboPostViewController.swift in Sources */,
 				723E82A01B4ACDEA00861D6D /* FirstViewController.swift in Sources */,
 				723E82DE1B4EC77200861D6D /* Comments.swift in Sources */,
+				7217767B1BA7059B00304292 /* Train.swift in Sources */,
 				72E1AB571B8DE66600B60AF9 /* CVCalendarMonthView.swift in Sources */,
 				72E1AB581B8DE66600B60AF9 /* CVCalendarTouchController.swift in Sources */,
 				723E828F1B49756B00861D6D /* Article.swift in Sources */,

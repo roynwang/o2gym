@@ -224,6 +224,20 @@ extension UIImageView {
 }
 
 extension NSDate {
+    
+    func dateToString(formatStr:String="yyyyMMdd") -> String {
+        let dateFormatter = NSDateFormatter()
+        
+        //dateFormatter.locale = [NSLocale localeWithIdentifier:@"en_US_POSIX"];
+        // see QA1480; NSDateFormatter otherwise reserves the right slightly to
+        // modify any date string passed to it, according to user settings, per
+        // it's other use, for UI work
+        
+        dateFormatter.dateFormat = formatStr
+        // or whatever you want; per the unicode standards
+        
+        return dateFormatter.stringFromDate(self)
+    }
     class func dateFromString(dateStr:String, formatStr:String="yyyyMMdd")->NSDate {
         let dateFormatter = NSDateFormatter()
         
