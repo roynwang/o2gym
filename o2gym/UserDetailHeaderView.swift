@@ -31,7 +31,7 @@ public class UserDetailHeaderView:UIView{
         self.Avator.layer.masksToBounds = true
         self.Avator.fitLoad(usr.avatar!, placeholder: UIImage(named:"avatar"))
         self.Name.text = usr.displayname
-        if usr.gym != nil {
+        if usr.gym_id != nil {
             self.Location.text = usr.gym
             self.Location.tag = usr.gym_id
             self.LocIcon.hidden = false

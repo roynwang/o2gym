@@ -95,7 +95,7 @@ class FeedArticleViewCell: UITableViewCell {
         self.Title.text = weibo.title
         self.Brief.text = weibo.brief
         if weibo.img_set.count > 0 {
-        self.Img.loadUrl(weibo.img_set[0], placeholder: UIImage(named:"avatar")) { (_, uiimg, errno_t) -> () in
+        self.Img.loadUrl(weibo.img_set[0], placeholder: UIImage(named:"avatar")) { ( uiimg) -> () in
             self.Img.image = Helper.RBSquareImage(uiimg!)
         }
         }

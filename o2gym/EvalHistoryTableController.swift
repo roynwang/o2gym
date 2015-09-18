@@ -109,7 +109,12 @@ class EvalHistoryTableController: UITableViewController, AddableProtocol, DZNEmp
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let c1 =  sb.instantiateViewControllerWithIdentifier("bodyeval") as! BodyEvalController
-        c1.usr = self.book.customer.name
+        var tmpname = Local.USER.name!
+        if self.book != nil {
+            tmpname = self.book.customer.name!
+        }
+
+        c1.usr = tmpname
         if indexPath.row == self.evalHistory.count {
             c1.isNew = true
             

@@ -9,12 +9,12 @@
 import UIKit
 import Alamofire
 
-@IBDesignable class LoginView: UIView {
+@IBDesignable class LoginView: UIView, UITextFieldDelegate {
     
     var view: UIView!
     
     @IBOutlet weak var LoginWithPhoneBtn: UIButton!
-    @IBOutlet weak var SendSms: UIButton!
+    @IBOutlet weak var SendSms: JKCountDownButton!
     @IBOutlet weak var Vcode: UITextField!
     @IBOutlet weak var PhoneNum: UITextField!
     @IBOutlet weak var PhoneLoginView: UIView!
@@ -71,12 +71,19 @@ import Alamofire
     
     
     func determineLoginMethod(){
-        print(WXApi.isWXAppInstalled())
-        print(WXApi.isWXAppSupportApi())
-        if WXApi.isWXAppInstalled() && WXApi.isWXAppSupportApi() {
-            self.LoginBtn.hidden = false
-            self.PhoneLoginView.hidden = true
-        }
+        
+        self.SendSms.enabled = false
+        self.LoginBtn.enabled = false
+        self.PhoneNum.delegate = self
+        self.Vcode.delegate = self
+        
+        
+//        print(WXApi.isWXAppInstalled())
+//        print(WXApi.isWXAppSupportApi())
+//        if WXApi.isWXAppInstalled() && WXApi.isWXAppSupportApi() {
+//            self.LoginBtn.hidden = false
+//            self.PhoneLoginView.hidden = true
+//        }
         
     }
     
@@ -90,6 +97,22 @@ import Alamofire
     }
     
     @IBAction func sendVcode(sender: AnyObject) {
+        self.SendSms.startWithSecond(90)
+        self.SendSms.titleLabel?.text = "已发送"
+        self.SendSms.didChange { (btn, second) -> String! in
+            return "\(second)秒"
+        }
+        self.SendSms.enabled = false
+        self.SendSms.alpha = 0.5
+        
+        self.SendSms.didFinished { (btn, second) -> String! in
+            self.SendSms.enabled = true
+            self.SendSms.alpha = 1
+            return "重新获取"
+        }
+        
+        
+        
         Alamofire.request(.POST, Host.VcodeSend(), parameters:["number": self.PhoneNum.text!])
             .responseJSON { (req, resp, data) -> Void in
                 return
@@ -102,6 +125,22 @@ import Alamofire
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func phoneEditing(sender: UITextField) {
+        
+        if sender.text != nil && sender.text!.characters.count == 11 {
+            self.SendSms.enabled = true
+            self.LoginBtn.enabled = true
+        } else {
+            self.SendSms.enabled = false
+            self.LoginBtn.enabled = false
+        }
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

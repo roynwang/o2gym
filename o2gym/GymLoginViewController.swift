@@ -17,6 +17,7 @@ class GymLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.loginSuccess = self.showContentView
         if Local.HASLOGIN {
             self.loginView.hidden = true
         }

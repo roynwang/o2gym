@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		720B7A591B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A421B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m */; };
-		720B7A5A1B6BE724004C5F8F /* NYTPhotoCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A441B6BE724004C5F8F /* NYTPhotoCaptionView.m */; };
-		720B7A5B1B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A461B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.m */; };
-		720B7A5C1B6BE724004C5F8F /* NYTPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A481B6BE724004C5F8F /* NYTPhotosDataSource.m */; };
-		720B7A5D1B6BE724004C5F8F /* NYTPhotosOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A4A1B6BE724004C5F8F /* NYTPhotosOverlayView.m */; };
-		720B7A5E1B6BE724004C5F8F /* NYTPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A4C1B6BE724004C5F8F /* NYTPhotosViewController.m */; };
-		720B7A5F1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A4E1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.m */; };
-		720B7A601B6BE724004C5F8F /* NYTPhotoTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A501B6BE724004C5F8F /* NYTPhotoTransitionController.m */; };
-		720B7A611B6BE724004C5F8F /* NYTPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A521B6BE724004C5F8F /* NYTPhotoViewController.m */; };
-		720B7A621B6BE724004C5F8F /* NYTScalingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B7A541B6BE724004C5F8F /* NYTScalingImageView.m */; };
-		720B7AC31B6BECE9004C5F8F /* PicForNYT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */; };
 		72148C661B57852A00A063FF /* GTM_Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148C3D1B57852A00A063FF /* GTM_Base64.m */; };
 		72148C671B57852A00A063FF /* QNAsyncRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148C3F1B57852A00A063FF /* QNAsyncRun.m */; };
 		72148C681B57852A00A063FF /* QNCrc32.m in Sources */ = {isa = PBXBuildFile; fileRef = 72148C411B57852A00A063FF /* QNCrc32.m */; };
@@ -131,7 +120,6 @@
 		729703DA1B6BCB8100DB9DB6 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 729703D21B6BCB8100DB9DB6 /* JTSSimpleImageDownloader.m */; };
 		729703DB1B6BCB8100DB9DB6 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729703D41B6BCB8100DB9DB6 /* UIApplication+JTSImageViewController.m */; };
 		729703DC1B6BCB8100DB9DB6 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 729703D61B6BCB8100DB9DB6 /* UIImage+JTSImageEffects.m */; };
-		729703DE1B6BD12F00DB9DB6 /* PicViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */; };
 		729E182C1B5DF730000B14EE /* FeedStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E182A1B5DF730000B14EE /* FeedStreamViewController.swift */; };
 		729E18361B5DF828000B14EE /* FeedPicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E18341B5DF828000B14EE /* FeedPicViewCell.swift */; };
 		729E18371B5DF828000B14EE /* FeedPicViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729E18351B5DF828000B14EE /* FeedPicViewCell.xib */; };
@@ -168,6 +156,10 @@
 		72C0CE8E1B95F06A006A4035 /* WorkingTimeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CE8C1B95F06A006A4035 /* WorkingTimeSectionHeader.swift */; };
 		72C0CE8F1B95F06A006A4035 /* WorkingTimeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C0CE8D1B95F06A006A4035 /* WorkingTimeSectionHeader.xib */; };
 		72C0CE911B96A7CD006A4035 /* DayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CE901B96A7CD006A4035 /* DayTime.swift */; };
+		72C34ED61BAC34CB00E68122 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C34ED01BAC34CB00E68122 /* SDBrowserImageView.m */; settings = {ASSET_TAGS = (); }; };
+		72C34ED71BAC34CB00E68122 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C34ED21BAC34CB00E68122 /* SDPhotoBrowser.m */; settings = {ASSET_TAGS = (); }; };
+		72C34ED81BAC34CB00E68122 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C34ED51BAC34CB00E68122 /* SDWaitingView.m */; settings = {ASSET_TAGS = (); }; };
+		72C34EDC1BAC71FA00E68122 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C34EDB1BAC71FA00E68122 /* JKCountDownButton.m */; settings = {ASSET_TAGS = (); }; };
 		72C438431B9ABF0F00663D4B /* BookCreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438421B9ABF0F00663D4B /* BookCreateList.swift */; };
 		72C438461B9B5D8200663D4B /* CourseReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438451B9B5D8200663D4B /* CourseReviewController.swift */; };
 		72C4384A1B9C1A2800663D4B /* MyProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C438491B9C1A2800663D4B /* MyProductCell.swift */; };
@@ -250,27 +242,6 @@
 /* Begin PBXFileReference section */
 		08FD74F0E89E2C40127DB775 /* Pods-o2gym.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-o2gym.debug.xcconfig"; path = "Pods/Target Support Files/Pods-o2gym/Pods-o2gym.debug.xcconfig"; sourceTree = "<group>"; };
 		35C36C372CB58A9FF858AC1F /* Pods_o2gym.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_o2gym.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		720B7A411B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTOperatingSystemCompatibilityUtility.h; sourceTree = "<group>"; };
-		720B7A421B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTOperatingSystemCompatibilityUtility.m; sourceTree = "<group>"; };
-		720B7A431B6BE724004C5F8F /* NYTPhotoCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotoCaptionView.h; sourceTree = "<group>"; };
-		720B7A441B6BE724004C5F8F /* NYTPhotoCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotoCaptionView.m; sourceTree = "<group>"; };
-		720B7A451B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotoDismissalInteractionController.h; sourceTree = "<group>"; };
-		720B7A461B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotoDismissalInteractionController.m; sourceTree = "<group>"; };
-		720B7A471B6BE724004C5F8F /* NYTPhotosDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotosDataSource.h; sourceTree = "<group>"; };
-		720B7A481B6BE724004C5F8F /* NYTPhotosDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotosDataSource.m; sourceTree = "<group>"; };
-		720B7A491B6BE724004C5F8F /* NYTPhotosOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotosOverlayView.h; sourceTree = "<group>"; };
-		720B7A4A1B6BE724004C5F8F /* NYTPhotosOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotosOverlayView.m; sourceTree = "<group>"; };
-		720B7A4B1B6BE724004C5F8F /* NYTPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotosViewController.h; sourceTree = "<group>"; };
-		720B7A4C1B6BE724004C5F8F /* NYTPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotosViewController.m; sourceTree = "<group>"; };
-		720B7A4D1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotoTransitionAnimator.h; sourceTree = "<group>"; };
-		720B7A4E1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotoTransitionAnimator.m; sourceTree = "<group>"; };
-		720B7A4F1B6BE724004C5F8F /* NYTPhotoTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotoTransitionController.h; sourceTree = "<group>"; };
-		720B7A501B6BE724004C5F8F /* NYTPhotoTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotoTransitionController.m; sourceTree = "<group>"; };
-		720B7A511B6BE724004C5F8F /* NYTPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotoViewController.h; sourceTree = "<group>"; };
-		720B7A521B6BE724004C5F8F /* NYTPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTPhotoViewController.m; sourceTree = "<group>"; };
-		720B7A531B6BE724004C5F8F /* NYTScalingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTScalingImageView.h; sourceTree = "<group>"; };
-		720B7A541B6BE724004C5F8F /* NYTScalingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTScalingImageView.m; sourceTree = "<group>"; };
-		720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicForNYT.swift; sourceTree = "<group>"; };
 		72148C3C1B57852A00A063FF /* GTM_Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTM_Base64.h; sourceTree = "<group>"; };
 		72148C3D1B57852A00A063FF /* GTM_Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTM_Base64.m; sourceTree = "<group>"; };
 		72148C3E1B57852A00A063FF /* QNAsyncRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAsyncRun.h; sourceTree = "<group>"; };
@@ -322,9 +293,6 @@
 		722C23B61B922F7F00164E34 /* WeekBookList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekBookList.swift; sourceTree = "<group>"; };
 		722C23B81B92DA9B00164E34 /* BookedCourseComplexCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookedCourseComplexCell.swift; sourceTree = "<group>"; };
 		722C23B91B92DA9B00164E34 /* BookedCourseComplexCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookedCourseComplexCell.xib; sourceTree = "<group>"; };
-		722C24781B934CA500164E34 /* NYTPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhoto.h; sourceTree = "<group>"; };
-		722C24791B934CA500164E34 /* NYTPhotoContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotoContainer.h; sourceTree = "<group>"; };
-		722C247A1B934CA500164E34 /* NYTPhotosViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotosViewControllerDataSource.h; sourceTree = "<group>"; };
 		722C247C1B9363AA00164E34 /* ProfileAvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAvatarCell.swift; sourceTree = "<group>"; };
 		722C247D1B9363AA00164E34 /* ProfileAvatarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileAvatarCell.xib; sourceTree = "<group>"; };
 		722C24801B9363C100164E34 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -424,7 +392,6 @@
 		729703D41B6BCB8100DB9DB6 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
 		729703D51B6BCB8100DB9DB6 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
 		729703D61B6BCB8100DB9DB6 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
-		729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicViewer.swift; sourceTree = "<group>"; };
 		729E182A1B5DF730000B14EE /* FeedStreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedStreamViewController.swift; sourceTree = "<group>"; };
 		729E18341B5DF828000B14EE /* FeedPicViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPicViewCell.swift; sourceTree = "<group>"; };
 		729E18351B5DF828000B14EE /* FeedPicViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedPicViewCell.xib; sourceTree = "<group>"; };
@@ -461,6 +428,15 @@
 		72C0CE8C1B95F06A006A4035 /* WorkingTimeSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingTimeSectionHeader.swift; sourceTree = "<group>"; };
 		72C0CE8D1B95F06A006A4035 /* WorkingTimeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkingTimeSectionHeader.xib; sourceTree = "<group>"; };
 		72C0CE901B96A7CD006A4035 /* DayTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTime.swift; sourceTree = "<group>"; };
+		72C34ECF1BAC34CB00E68122 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		72C34ED01BAC34CB00E68122 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		72C34ED11BAC34CB00E68122 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		72C34ED21BAC34CB00E68122 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		72C34ED31BAC34CB00E68122 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		72C34ED41BAC34CB00E68122 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		72C34ED51BAC34CB00E68122 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		72C34EDA1BAC71FA00E68122 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
+		72C34EDB1BAC71FA00E68122 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
 		72C438421B9ABF0F00663D4B /* BookCreateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCreateList.swift; sourceTree = "<group>"; };
 		72C438451B9B5D8200663D4B /* CourseReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseReviewController.swift; sourceTree = "<group>"; };
 		72C438491B9C1A2800663D4B /* MyProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductCell.swift; sourceTree = "<group>"; };
@@ -559,44 +535,6 @@
 				35C36C372CB58A9FF858AC1F /* Pods_o2gym.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		720B7A401B6BE724004C5F8F /* NYTPhotoViewer */ = {
-			isa = PBXGroup;
-			children = (
-				722C24781B934CA500164E34 /* NYTPhoto.h */,
-				722C24791B934CA500164E34 /* NYTPhotoContainer.h */,
-				722C247A1B934CA500164E34 /* NYTPhotosViewControllerDataSource.h */,
-				720B7A411B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.h */,
-				720B7A421B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m */,
-				720B7A431B6BE724004C5F8F /* NYTPhotoCaptionView.h */,
-				720B7A441B6BE724004C5F8F /* NYTPhotoCaptionView.m */,
-				720B7A451B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.h */,
-				720B7A461B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.m */,
-				720B7A471B6BE724004C5F8F /* NYTPhotosDataSource.h */,
-				720B7A481B6BE724004C5F8F /* NYTPhotosDataSource.m */,
-				720B7A491B6BE724004C5F8F /* NYTPhotosOverlayView.h */,
-				720B7A4A1B6BE724004C5F8F /* NYTPhotosOverlayView.m */,
-				720B7A4B1B6BE724004C5F8F /* NYTPhotosViewController.h */,
-				720B7A4C1B6BE724004C5F8F /* NYTPhotosViewController.m */,
-				720B7A4D1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.h */,
-				720B7A4E1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.m */,
-				720B7A4F1B6BE724004C5F8F /* NYTPhotoTransitionController.h */,
-				720B7A501B6BE724004C5F8F /* NYTPhotoTransitionController.m */,
-				720B7A511B6BE724004C5F8F /* NYTPhotoViewController.h */,
-				720B7A521B6BE724004C5F8F /* NYTPhotoViewController.m */,
-				720B7A531B6BE724004C5F8F /* NYTScalingImageView.h */,
-				720B7A541B6BE724004C5F8F /* NYTScalingImageView.m */,
-				720B7A551B6BE724004C5F8F /* Protocols */,
-			);
-			path = NYTPhotoViewer;
-			sourceTree = "<group>";
-		};
-		720B7A551B6BE724004C5F8F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		72148C3A1B57852A00A063FF /* QiniuSDK */ = {
@@ -707,8 +645,6 @@
 				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
 				7247EB991B6881A700A22F0C /* O2Nav.swift */,
 				723E59871B5CB775005EC263 /* BaseViewCell.swift */,
-				729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */,
-				720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */,
 				72A00CAB1BAA81EF007B2922 /* Login */,
 				72BC78811B94A51000ED7B3E /* Schedule */,
 				721A61111BA9AFCB00F91F12 /* Tabs */,
@@ -858,6 +794,8 @@
 		724EB5391B48368700729F8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				72C34ED91BAC71FA00E68122 /* JKCountDownButton */,
+				72C34ECE1BAC34CB00E68122 /* SDPhotoBrowser */,
 				723E82801B492C6500861D6D /* SwiftyJSON.swift */,
 				724652B21B538872004E69C1 /* Helper.swift */,
 				72BDA1011B90516E00CCB29A /* UIView_Border.swift */,
@@ -873,7 +811,6 @@
 				7247EBA91B6942CF00A22F0C /* UINavigationBar+Awesome.m */,
 				72CF49FD1BA5B68E00211BFA /* TextFieldEffects */,
 				72E1AB341B8DE66600B60AF9 /* CVCalendar */,
-				720B7A401B6BE724004C5F8F /* NYTPhotoViewer */,
 				729703CA1B6BCB8100DB9DB6 /* JTSImage */,
 				723E59961B5D15A7005EC263 /* HMSegmentedControl */,
 				723E598D1B5D12AC005EC263 /* MGSwipeTabBarController */,
@@ -1060,6 +997,29 @@
 				7291D64D1B900CC700DE40C8 /* TimeTableCell.xib */,
 			);
 			name = Book;
+			sourceTree = "<group>";
+		};
+		72C34ECE1BAC34CB00E68122 /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				72C34ECF1BAC34CB00E68122 /* SDBrowserImageView.h */,
+				72C34ED01BAC34CB00E68122 /* SDBrowserImageView.m */,
+				72C34ED11BAC34CB00E68122 /* SDPhotoBrowser.h */,
+				72C34ED21BAC34CB00E68122 /* SDPhotoBrowser.m */,
+				72C34ED31BAC34CB00E68122 /* SDPhotoBrowserConfig.h */,
+				72C34ED41BAC34CB00E68122 /* SDWaitingView.h */,
+				72C34ED51BAC34CB00E68122 /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		72C34ED91BAC71FA00E68122 /* JKCountDownButton */ = {
+			isa = PBXGroup;
+			children = (
+				72C34EDA1BAC71FA00E68122 /* JKCountDownButton.h */,
+				72C34EDB1BAC71FA00E68122 /* JKCountDownButton.m */,
+			);
+			path = JKCountDownButton;
 			sourceTree = "<group>";
 		};
 		72C438441B9B5C6700663D4B /* CourseReview */ = {
@@ -1350,7 +1310,6 @@
 				723E599B1B5D2E99005EC263 /* Settings.swift in Sources */,
 				72C0CE8E1B95F06A006A4035 /* WorkingTimeSectionHeader.swift in Sources */,
 				724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */,
-				720B7A5A1B6BE724004C5F8F /* NYTPhotoCaptionView.m in Sources */,
 				72CF4A0D1BA5B68E00211BFA /* JiroTextField.swift in Sources */,
 				72AD3DD61B8AFE140000A217 /* ArticleDetailViewController.swift in Sources */,
 				72420BA21B66533F00462032 /* Timeline.swift in Sources */,
@@ -1372,7 +1331,6 @@
 				72DB3AA81B9DE57F0011C68D /* MyGoodCell.swift in Sources */,
 				72E566091BA5BBE500949DF4 /* BodyEvalCell.swift in Sources */,
 				72148C6B1B57852A00A063FF /* QNDns.m in Sources */,
-				720B7A5D1B6BE724004C5F8F /* NYTPhotosOverlayView.m in Sources */,
 				72E1AB6A1B8E078900B60AF9 /* BookViewController.swift in Sources */,
 				72B7522B1B9C80E60083411F /* CoachItemCell.swift in Sources */,
 				72CAFFED1B5F82090093DC30 /* FeedFwdHeaderView.swift in Sources */,
@@ -1388,6 +1346,7 @@
 				722C247E1B9363AA00164E34 /* ProfileAvatarCell.swift in Sources */,
 				72E1AB611B8DE66600B60AF9 /* CVCalendarWeekday.swift in Sources */,
 				722C23B31B922D8A00164E34 /* MeViewController.swift in Sources */,
+				72C34ED81BAC34CB00E68122 /* SDWaitingView.m in Sources */,
 				7291D6521B9031BD00DE40C8 /* BookedCourseCell.swift in Sources */,
 				723C13271B96F35B007123A1 /* WorkingHourConfigViewController.swift in Sources */,
 				72CF4A111BA5B68E00211BFA /* TextFieldsEffects.swift in Sources */,
@@ -1401,9 +1360,9 @@
 				72A7A9231BA6E17B009266D3 /* TrainningItemCell.swift in Sources */,
 				72E1AB5E1B8DE66600B60AF9 /* CVCalendarViewDelegate.swift in Sources */,
 				72E1AB661B8DE66600B60AF9 /* CVSelectionType.swift in Sources */,
+				72C34EDC1BAC71FA00E68122 /* JKCountDownButton.m in Sources */,
 				72E1AB531B8DE66600B60AF9 /* CVCalendarManager.swift in Sources */,
 				72E1AB641B8DE66600B60AF9 /* CVRange.swift in Sources */,
-				720B7AC31B6BECE9004C5F8F /* PicForNYT.swift in Sources */,
 				72CF4A0F1BA5B68E00211BFA /* MadokaTextField.swift in Sources */,
 				72E1AB5A1B8DE66600B60AF9 /* CVCalendarViewAnimator.swift in Sources */,
 				72C0CE911B96A7CD006A4035 /* DayTime.swift in Sources */,
@@ -1411,7 +1370,6 @@
 				724652A41B525841004E69C1 /* RecommendUserCell.swift in Sources */,
 				72CA00051B613D440093DC30 /* FeedHeaderProtocol.swift in Sources */,
 				72E5660D1BA5DADC00949DF4 /* BodyEvalList.swift in Sources */,
-				720B7A5F1B6BE724004C5F8F /* NYTPhotoTransitionAnimator.m in Sources */,
 				72C4384A1B9C1A2800663D4B /* MyProductCell.swift in Sources */,
 				72E1AB521B8DE66600B60AF9 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
 				723E82931B4980AF00861D6D /* ext.swift in Sources */,
@@ -1424,7 +1382,6 @@
 				729703D81B6BCB8100DB9DB6 /* JTSImageInfo.m in Sources */,
 				72CF4A0C1BA5B68E00211BFA /* IsaoTextField.swift in Sources */,
 				723E82901B49756B00861D6D /* Course.swift in Sources */,
-				720B7A591B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m in Sources */,
 				723E829E1B4AC3D600861D6D /* Local.swift in Sources */,
 				723E82A21B4C1ED100861D6D /* FeedViewController.swift in Sources */,
 				722C23B51B922DBC00164E34 /* ScheduleViewController.swift in Sources */,
@@ -1439,17 +1396,15 @@
 				72CF4A0E1BA5B68E00211BFA /* KaedeTextField.swift in Sources */,
 				72B6EBFE1B99539D00634B21 /* OrderList.swift in Sources */,
 				72148C721B57852A00A063FF /* QNFormUpload.m in Sources */,
-				720B7A5B1B6BE724004C5F8F /* NYTPhotoDismissalInteractionController.m in Sources */,
 				72DB3A9F1B9D970F0011C68D /* NewUserDetailViewController.swift in Sources */,
 				7271FA081B9C203900C2A934 /* MyProductViewController.swift in Sources */,
-				720B7A5C1B6BE724004C5F8F /* NYTPhotosDataSource.m in Sources */,
 				728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */,
 				729E18421B5E3853000B14EE /* FeedHeaderView.swift in Sources */,
-				720B7A601B6BE724004C5F8F /* NYTPhotoTransitionController.m in Sources */,
 				723E82981B4A951900861D6D /* Feed.swift in Sources */,
 				722C24B81B94943200164E34 /* PlainTextCell.swift in Sources */,
 				723E82881B49753500861D6D /* User.swift in Sources */,
 				72148C711B57852A00A063FF /* QNConfiguration.m in Sources */,
+				72C34ED71BAC34CB00E68122 /* SDPhotoBrowser.m in Sources */,
 				72CAFFE81B5F49160093DC30 /* FeedMultPicViewCell.swift in Sources */,
 				72C438461B9B5D8200663D4B /* CourseReviewController.swift in Sources */,
 				72CF4A121BA5B68E00211BFA /* YokoTextField.swift in Sources */,
@@ -1469,7 +1424,6 @@
 				72148C6F1B57852A00A063FF /* QNUserAgent.m in Sources */,
 				72E1AB5B1B8DE66600B60AF9 /* CVCalendarViewAnimatorDelegate.swift in Sources */,
 				723E59921B5D12AC005EC263 /* MGSwipeTabBarController.m in Sources */,
-				729703DE1B6BD12F00DB9DB6 /* PicViewer.swift in Sources */,
 				72E1AB621B8DE66600B60AF9 /* CVCalendarWeekView.swift in Sources */,
 				72CA00021B60FEDC0093DC30 /* FeedArticleViewCell.swift in Sources */,
 				721776831BA8195700304292 /* AddableProtocol.swift in Sources */,
@@ -1485,17 +1439,16 @@
 				724652991B5232D5004E69C1 /* RecommendListViewController.swift in Sources */,
 				723E59991B5D15A7005EC263 /* HMSegmentedControl.m in Sources */,
 				72148C751B57852A00A063FF /* QNUploadOption.m in Sources */,
+				72C34ED61BAC34CB00E68122 /* SDBrowserImageView.m in Sources */,
 				729703DC1B6BCB8100DB9DB6 /* UIImage+JTSImageEffects.m in Sources */,
 				7217767D1BA7071D00304292 /* TrainList.swift in Sources */,
 				722C24811B9363C100164E34 /* ProfileViewController.swift in Sources */,
-				720B7A5E1B6BE724004C5F8F /* NYTPhotosViewController.m in Sources */,
 				72E1AB511B8DE66600B60AF9 /* CVCalendarDayView.swift in Sources */,
 				72B752291B9C80BA0083411F /* SimpleOptionCell.swift in Sources */,
 				721776811BA72BE500304292 /* TrainHistoryController.swift in Sources */,
 				72148C671B57852A00A063FF /* QNAsyncRun.m in Sources */,
 				72BDA1091B907E2300CCB29A /* BookedCourseTitleCell.swift in Sources */,
 				723C13291B96F3AB007123A1 /* WorkingHourConfigCell.swift in Sources */,
-				720B7A611B6BE724004C5F8F /* NYTPhotoViewController.m in Sources */,
 				72D039C71B91A969005E73EA /* Book.swift in Sources */,
 				72A7A9291BA6E47C009266D3 /* TrainningHeaderCell.swift in Sources */,
 				72E1AB631B8DE66600B60AF9 /* CVDate.swift in Sources */,
@@ -1521,7 +1474,6 @@
 				724EB54E1B483B9C00729F8F /* Host.swift in Sources */,
 				72148C701B57852A00A063FF /* QNFileRecorder.m in Sources */,
 				723E82811B492C6500861D6D /* SwiftyJSON.swift in Sources */,
-				720B7A621B6BE724004C5F8F /* NYTScalingImageView.m in Sources */,
 				723E82A01B4ACDEA00861D6D /* GymLoginViewController.swift in Sources */,
 				723E82DE1B4EC77200861D6D /* Comments.swift in Sources */,
 				7217767B1BA7059B00304292 /* Train.swift in Sources */,
@@ -1667,6 +1619,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1687,6 +1640,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

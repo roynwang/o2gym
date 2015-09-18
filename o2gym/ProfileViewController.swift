@@ -77,10 +77,9 @@ class ProfileViewController: UITableViewController {
             cell.Name.text = Local.USER.displayname
             cell.tappedAvatar = {
                 (view) in
-            
                 let picker = FSMediaPicker()
                 picker.delegate = self
-                picker.showFromView(self.view)
+                picker.showFromView(self.tableView)
 
             }
             return cell

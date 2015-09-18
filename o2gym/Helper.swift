@@ -138,4 +138,11 @@ public class Helper{
         }
         return ret
     }
+    
+    class func ImageUrlWithSize(url:String, width:CGFloat, height:CGFloat) -> String{
+        return ImageUrlWithSize(url, width: Int(width*3), height: Int(height*3))
+    }
+    class func ImageUrlWithSize(url:String, width:Int, height:Int) -> String{
+        return url + "?imageView2/1/w/\(width)/h/\(height)"
+    }
 }

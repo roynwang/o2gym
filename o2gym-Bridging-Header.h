@@ -19,8 +19,8 @@
 #import "JTSImageInfo.h"
 #import "AFNetworking.h"
 
-#import "NYTPhotosViewController.h"
-#import "NYTPhoto.h"
+//#import "NYTPhotosViewController.h"
+//#import "NYTPhoto.h"
 
 
 
@@ -37,6 +37,9 @@
 #import "UIImageView+NHLinearShadow.h"
 #import "UIImage+Additions.h"
 #import "WXApi.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 //#import "CKCountdownButton.h"
+#import "SDPhotoBrowser.h"
+#import "Haneke.h"
+#import "JKCountDownButton.h"
 #endif

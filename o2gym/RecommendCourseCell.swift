@@ -34,7 +34,7 @@ class RecommendCourseCell: BaseViewCell {
     
     func setContent(item:BaseDataItem){
         let r = item as! RecommendItem
-        self.Img.sd_setImageWithURL(NSURL(string:r.recommendpic!))
+        self.Img.hnk_setImageFromURL(NSURL(string:r.recommendpic!))
         self.CourseTitle.text = r.recommendtitle
         self.SubTitle.text = "    " + r.recommendsubtitle! + "    "
         self.Location.text = r.recommendloc

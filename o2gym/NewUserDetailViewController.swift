@@ -70,37 +70,7 @@ class NewUserDetailViewController: RYProfileViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        usr.loadRemote({ (tar) -> Void in
-            let tarusr = tar as! User
-            self.header.setContent(tarusr)
-            self.title = tarusr.displayname
-            
-            
-            //self.mypost.setUser(self.usrname)
-            self.album.setUser(self.usrname)
-            //self.mycourse.setUser(self.usrname)
-            
-            let gr = UITapGestureRecognizer()
-            gr.addTarget(self, action: "showGym:")
-            self.header.Location.addGestureRecognizer(gr)
-            
-            }, onfail: nil)
-        
-        var favimgname = "fav_bar"
-        
-        if Local.HASLOGIN {
-            if let index = Local.USER.upped_person.indexOf(self.usrname){
-                self.faved = true
-                favimgname = "fav_bar_active"
-            }
-        }
-        self.favbtn = Helper.createButtonFromImg(favimgname, selector: "favperson", tar: self)
-        
-        
-        self.navigationItem.rightBarButtonItems = [
-//            Helper.createBarButtonItemFromImg("fwd_bar", selector: "recommendperson", tar: self),
-            UIBarButtonItem(customView: self.favbtn)
-        ]
+
 
     }
     
@@ -172,6 +142,38 @@ class NewUserDetailViewController: RYProfileViewController {
             O2Nav.setNavigationBarTransformProgress(1)
 
             }, completion: nil)
+        
+        usr.loadRemote({ (tar) -> Void in
+            let tarusr = tar as! User
+            self.header.setContent(tarusr)
+            self.title = tarusr.displayname
+            
+            
+            //self.mypost.setUser(self.usrname)
+            self.album.setUser(self.usrname)
+            //self.mycourse.setUser(self.usrname)
+            
+            let gr = UITapGestureRecognizer()
+            gr.addTarget(self, action: "showGym:")
+            self.header.Location.addGestureRecognizer(gr)
+            
+            }, onfail: nil)
+        
+        var favimgname = "fav_bar"
+        
+        if Local.HASLOGIN {
+            if let _ = Local.USER.upped_person.indexOf(self.usrname){
+                self.faved = true
+                favimgname = "fav_bar_active"
+            }
+        }
+        self.favbtn = Helper.createButtonFromImg(favimgname, selector: "favperson", tar: self)
+        
+        
+        self.navigationItem.rightBarButtonItems = [
+            //            Helper.createBarButtonItemFromImg("fwd_bar", selector: "recommendperson", tar: self),
+            UIBarButtonItem(customView: self.favbtn)
+        ]
         
     }
     

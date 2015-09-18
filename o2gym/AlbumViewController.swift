@@ -114,11 +114,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             self.emptyStr = NSAttributedString(string:"还没有照片", attributes:attributes)
             self.collectionView!.reloadEmptyDataSet()
             print(self.album.count)
-            }, itemcallback: { (item) -> Void in
-                let img = UIImageView()
-                img.loadUrl((item as! Pic).url)
-                self.allpics.append(img)
-        })
+            }, itemcallback:nil)
     
     }
     
@@ -177,7 +173,6 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             }
             let pic = self.album.datalist[i] as! Pic
             cell.Img.fitLoad(pic.url, placeholder: nil)
-            print(pic.url)
             return cell
         }
     }
@@ -189,26 +184,17 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             picker.delegate = self
             picker.showFromView(self.collectionView)
         } else {
-            var photos:[PicForNYT] = []
-            var start = self.isSelf ? 1 : 0
             
-            var t = 0
-            while t < self.album.count {
-                let v = UIImageView()
-                v.loadUrl((self.album.datalist[t] as! Pic).url)
-                photos.append(
-                    PicForNYT(
-                        url: NSURL(string:(self.album.datalist[t] as! Pic).url),
-                        attributedCaptionTitle: NSAttributedString(string: "",attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])))
-                t += 1
-            }
+            let browser = SDPhotoBrowser()
+            browser.sourceImagesContainerView = self.collectionView?.cellForItemAtIndexPath(indexPath)
+            browser.imageCount = self.album.count
+            browser.delegate = self
             
             let i = self.isSelf ? (indexPath.row-1) : indexPath.row
-            let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[i] as NYTPhoto)
+            browser.currentImageIndex = Int32(i)
+            browser.show()
             
-            photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-            //self.presentViewController(photosViewController, animated: true, completion: nil)
-            O2Nav.controller.presentViewController(photosViewController, animated: true, completion: nil)
+            //O2Nav.controller.presentViewController(photosViewController, animated: true, completion: nil)
             
         }
     }
@@ -291,6 +277,19 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     
 }
 
+extension AlbumViewController : SDPhotoBrowserDelegate{
+    public func photoBrowser(browser: SDPhotoBrowser!, highQualityImageURLForIndex index: Int) -> NSURL! {
+        return NSURL(string:(self.album.datalist[index] as! Pic).url)
+    }
+    public func photoBrowser(browser: SDPhotoBrowser!, placeholderImageForIndex index: Int) -> UIImage! {
+        var tarIndex = index
+        if self.isSelf {
+            tarIndex += 1
+        }
+        let cell = self.collectionView?.cellForItemAtIndexPath(NSIndexPath(forRow: tarIndex, inSection: 0))
+        return (cell as! AlbumPicCell).Img.image!
+    }
+}
 
 extension AlbumViewController : FSMediaPickerDelegate {
     

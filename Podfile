@@ -4,7 +4,6 @@
 target 'o2gym' do
 	use_frameworks!
 	pod 'AFNetworking'
-	pod 'SDWebImage'
 	pod 'THCalendarDatePicker', '~> 1.2.1'
 #	pod 'DZNPhotoPickerController'
 	pod 'CZPicker'
@@ -20,8 +19,10 @@ target 'o2gym' do
 	pod "UIImage+Additions"
 	pod 'WeChat'
 	pod 'Alamofire', "~> 2.0.0"
+	pod 'SDWebImage'
 #	pod 'ImageLoader'
-#	pod 'CKCountdownButton'
+	pod 'Haneke', '~> 1.0'
+	pod 'RGToast', '1.0.0'
 end
 
 target 'o2gymTests' do

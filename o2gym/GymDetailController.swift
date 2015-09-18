@@ -12,30 +12,35 @@ class GymDetailController: UITableViewController {
     
     var gymid:Int!
     var gym:Gym!
+    var headerImageView : UIImageView!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         gym = Gym(id: self.gymid)
         
+        //self.header = UIView(frame: CGRectMake(0, 0, self.tableView.frame.width, 300))
+//        self.header  = ParallaxHeaderView.parallaxHeaderViewWithImage(uiimg, forSize: CGSizeMake(self.tableView.frame.width, 300)) as! ParallaxHeaderView
+        self.headerImageView = UIImageView(frame: CGRectMake(0, 0, self.tableView.frame.width, 300))
+        self.headerImageView.backgroundColor = O2Color.BgGreyColor
+        self.tableView.tableHeaderView = ParallaxHeaderView.parallaxHeaderViewWithSubView(headerImageView) as! ParallaxHeaderView
+            //self.scrollViewDidScroll(self.tableView)
+        
+        
+        
+        
+        self.navigationController?.navigationBar.translucent = true
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.view.backgroundColor = O2Color.BgGreyColor
+        
         gym.loadRemote({ (_) -> Void in
-            
-            let imageview:UIImageView = UIImageView()
-            
-            imageview.loadUrl(self.gym.img_set[0], placeholder: nil, completionHandler: { (_, uiimg, err) -> () in
-                if uiimg != nil {
-                    let header: ParallaxHeaderView = ParallaxHeaderView.parallaxHeaderViewWithImage(uiimg, forSize: CGSizeMake(self.tableView.frame.width, 300)) as! ParallaxHeaderView
-                    self.tableView.tableHeaderView = header
-                    self.scrollViewDidScroll(self.tableView)
-                }
-            })
+            //self.header.headerImage
+            self.headerImageView.hnk_setImageFromURL(NSURL(string:self.gym.img_set[0]))
             self.title = self.gym.name!
             O2Nav.setNavigationBarTransformProgress(1)
             O2Nav.setNavTitle(self.gym.name!)
             self.tableView.reloadData()
             }, onfail: nil)
-        self.navigationController?.navigationBar.translucent = true
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.view.backgroundColor = O2Color.BgGreyColor
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -44,30 +49,31 @@ class GymDetailController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//
-//
-//    }
+
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         O2Nav.setController(self)
         //self.scrollViewDidScroll(self.tableView)
-        UIView.animateWithDuration(0.5, animations: {
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-            }, completion: {(_) in
-        })
+        UIView.animateWithDuration(0.2, delay: 0.1, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                       self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            }, completion: nil)
+        
+  
+  
         
         self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor.colorWithAlphaComponent(0)
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor.colorWithAlphaComponent(0)
         
+        
+    
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     // MARK: - Table view data source
     

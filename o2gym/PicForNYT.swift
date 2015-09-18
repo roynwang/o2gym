@@ -13,8 +13,8 @@ class PicForNYT: NSObject, NYTPhoto{
     var url: NSURL?
     var placeholderImage: UIImage?
     let attributedCaptionTitle: NSAttributedString
-    let attributedCaptionSummary = NSAttributedString(string: "summary string", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-    let attributedCaptionCredit = NSAttributedString(string: "credit", attributes: [NSForegroundColorAttributeName: UIColor.darkGrayColor()])
+    let attributedCaptionSummary = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+    let attributedCaptionCredit = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: UIColor.darkGrayColor()])
     
     init(image: UIImage?, attributedCaptionTitle: NSAttributedString) {
         self.image = image

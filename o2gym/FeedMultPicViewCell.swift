@@ -40,7 +40,7 @@ class FeedMultPicViewCell: UITableViewCell {
     
     
     var imgs:[UIImageView] = []
-    var photos:[PicForNYT] = []
+    
     
     
     override func awakeFromNib() {
@@ -108,10 +108,6 @@ class FeedMultPicViewCell: UITableViewCell {
         self.ImgContainer.contentSize.width = self.NextX
         self.ImgContainer.addGestureRecognizer(tapped)
         
-        
-        let pnyt = PicForNYT(url:NSURL(string: img),attributedCaptionTitle: NSAttributedString(string: "",attributes: [NSForegroundColorAttributeName: UIColor.grayColor()]))
-        self.photos.append(pnyt)
-        
     }
     func emptyPic(){
         for view in self.ImgContainer.subviews {
@@ -120,7 +116,6 @@ class FeedMultPicViewCell: UITableViewCell {
         }
         self.imgs = []
   
-        self.photos = []
         self.NextX = self.Spacing
     }
     func showBrowser(sender:UITapGestureRecognizer){
@@ -136,12 +131,14 @@ class FeedMultPicViewCell: UITableViewCell {
         }
         
         
+        
+        
         //let index:Int = find(self.imgs, sender.view as! UIImageView)!
         
-        let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[index] as NYTPhoto)
-        
-        photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-        O2Nav.controller.navigationController?.presentViewController(photosViewController, animated: true, completion: nil)
+//        let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[index] as NYTPhoto)
+//        
+//        photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+//        O2Nav.controller.navigationController?.presentViewController(photosViewController, animated: true, completion: nil)
         
     }
     

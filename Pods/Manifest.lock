@@ -24,6 +24,7 @@ PODS:
   - CZPicker (0.3.6)
   - DZNEmptyDataSet (1.7.1)
   - FSMediaPicker (0.0.2)
+  - Haneke (1.0.1)
   - HCSStarRatingView (1.4.2)
   - KNSemiModalViewController (0.3)
   - MKInputBoxView (0.9.3)
@@ -31,6 +32,7 @@ PODS:
   - Pingpp/Core (2.1.1)
   - Pingpp/Wx (2.1.1):
     - Pingpp/Core
+  - RGToast (1.0.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -45,10 +47,12 @@ DEPENDENCIES:
   - CZPicker
   - DZNEmptyDataSet
   - FSMediaPicker
+  - Haneke (~> 1.0)
   - HCSStarRatingView (~> 1.4.2)
   - MKInputBoxView
   - NHLinearShadow (~> 1.0.1)
   - Pingpp/Wx (~> 2.1.0)
+  - RGToast (= 1.0.0)
   - SDWebImage
   - THCalendarDatePicker (~> 1.2.1)
   - UIImage+Additions
@@ -60,11 +64,13 @@ SPEC CHECKSUMS:
   CZPicker: bf966778ebd3af6c291b4a4190d08a0e2c5c6974
   DZNEmptyDataSet: 2a398066c2bf5848f7f693fb50954b5064debd12
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
+  Haneke: d60be8b96b228633b24708dd153169d6849d6f78
   HCSStarRatingView: 6157471eff9fe3ec7240e131a5b0aba39f097e57
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
   MKInputBoxView: 022c89a4815fbcf2fcdea95f967fdba2c4f5fb73
   NHLinearShadow: 78fbadda3c09585e0f0bdf7772b2cea37e873804
   Pingpp: edc54cfba764fed14c60bc8e2e0e649b4e125df5
+  RGToast: 62d8fb6c83706047ac3d59224ecf70db23f8329b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   THCalendarDatePicker: 5d2b396b690796c45c30925dd0c23943141dbac6
   UIImage+Additions: 6181430b139099649e56171d58a52d6c37d57e42

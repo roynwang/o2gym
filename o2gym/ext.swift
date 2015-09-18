@@ -219,26 +219,44 @@ extension UIImageView {
         if tmp == nil {
             tmp = UIImage()
         }
-        self.sd_setImageWithURL(NSURL(string: URL)!, placeholderImage: tmp) { (uiimg, err, _, _) -> Void in
-            if uiimg != nil {
-                self.image = uiimg
-                self.image = Helper.RBSquareImageTo(uiimg, size: CGSize(width: self.frame.size.width*2, height: self.frame.size.height*2))
-            }
+        let imgurl = Helper.ImageUrlWithSize(URL, width:self.frame.width, height: self.frame.height)
+        
+        var format : HNKCacheFormat? = HNKCache.sharedCache().formats["thumbnail"] as? HNKCacheFormat
+        if format == nil {
+            format = HNKCacheFormat(name: "thumbnail")
+            format!.size = CGSizeMake(self.frame.width*3, self.frame.height*3)
+            format!.compressionQuality = 1
+            format!.preloadPolicy = HNKPreloadPolicy.LastSession
+            format!.scaleMode = HNKScaleMode.AspectFill
+            
+            //format.size = CGSizeMake(self.frame.width, self.frame.height)
+        
         }
+        self.hnk_cacheFormat = format
+        
+//        self.hnk_setImageFromURL(NSURL(string: Helper.ImageUrlWithSize(URL, width:self.frame.width, height: self.frame.height)), placeholder: tmp)
+        self.hnk_setImageFromURL(NSURL(string:imgurl), placeholder: tmp)
+        
+        
+//        self.sd_setImageWithURL(NSURL(string: Helper.ImageUrlWithSize(URL, width:self.frame.width, height: self.frame.height)), placeholderImage: tmp)
     }
     
-    public typealias CompletionHandler = (NSURL, UIImage?, NSError?) -> Void
+    public typealias CompletionHandler = (UIImage?) -> Void
     
     func loadUrl(URL: String, placeholder:UIImage? = nil, completionHandler: CompletionHandler? = nil){
         var tmp = placeholder
         if tmp == nil {
             tmp = UIImage()
         }
-        self.sd_setImageWithURL(NSURL(string: URL)!, placeholderImage: tmp) { (uiimg, err, _, url) -> Void in
+        
+        self.hnk_setImageFromURL(NSURL(string: URL)!, placeholder: tmp, success: { (uiimg) -> Void in
+            self.image = uiimg
             if completionHandler != nil {
-                completionHandler!(url,uiimg,err)
+                completionHandler!(uiimg)
             }
-        }
+
+            }, failure: nil)
+        
 
     }
     
