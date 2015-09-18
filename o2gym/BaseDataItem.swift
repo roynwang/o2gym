@@ -15,6 +15,10 @@ public class BaseDataItem {
         return "base"
     }
     
+    var needAuth:Bool{
+        return false
+    }
+    
     var isLoaded:Bool = false
     
     public convenience init(dict:JSON){
@@ -89,6 +93,8 @@ public class BaseDataItem {
     
     
     public func delete<T:BaseDataItem>(onsuccess:((T)->Void)?, onfail:((String?)->Void)?){
+
+        
         request(.DELETE, self.UrlGet, headers:Local.AuthHeaders)
             .response{ (_, resp, data, error) in
                 if error == nil{
@@ -125,9 +131,15 @@ public class BaseDataItem {
     
     
     public func loadRemote<T:BaseDataItem>(onsuccess :((T)->Void)?,onfail :((String)->Void)?){
-        println(Local.AuthHeaders)
-        request(.GET, self.UrlGet, headers:Local.AuthHeaders)
-            .responseJSON { (_, resp, data, error) in
+        var req:Request
+        
+        if self.needAuth {
+            req = request(.GET, self.UrlGet,headers:Local.AuthHeaders)
+        } else {
+            req = request(.GET, self.UrlGet)
+        }
+        
+        req.responseJSON { (_, resp, data, error) in
                 println(self.UrlGet)
                 if error == nil{
                     self.isLoaded = true
@@ -163,8 +175,15 @@ public class BaseDataItem {
     }
     
     public func requestGet(url: String,onsuccess :(()->Void)?,onfail :((String)->Void)?){
-        request(.GET, url,headers:Local.AuthHeaders)
-            .responseJSON { (_, resp, data, error) in
+        var req:Request
+        
+        if self.needAuth {
+            req = request(.GET, url,headers:Local.AuthHeaders)
+        } else {
+            req = request(.GET, url)
+        }
+ 
+        req.responseJSON { (_, resp, data, error) in
                 if error == nil{
                     switch resp!.statusCode{
                     case 200,201,202,203:

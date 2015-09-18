@@ -24,8 +24,7 @@ class MyProductViewController: UITableViewController {
     }
     
     func addProduct(){
-        println("xxxxxx")
-        
+
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let cont =  sb.instantiateViewControllerWithIdentifier("addproduct") as! AddProductViewController
         //cont.product = self.productlist.datalist[indexPath.section] as! Product
@@ -85,7 +84,7 @@ class MyProductViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return 40
     }
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

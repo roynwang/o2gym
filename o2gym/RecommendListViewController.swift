@@ -11,6 +11,7 @@ import UIKit
 class RecommendListViewController: UITableViewController {
     
     override func viewDidLoad() {
+        Local.RECOMMEND = RecommendList()
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "RecommendArticleCell", bundle: nil), forCellReuseIdentifier: "recommendarticlecell")
         self.tableView.registerNib(UINib(nibName: "RecommendCoachCell", bundle: nil), forCellReuseIdentifier: "recommendcoachcell")
@@ -31,6 +32,8 @@ class RecommendListViewController: UITableViewController {
             self.tableView.reloadData()
         }, itemcallback: nil)
         
+        //Local.login(nil, onfail: nil)
+        
         
         //        var bounds = self.navigationController?.navigationBar.bounds as CGRect!
         //        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
@@ -46,14 +49,24 @@ class RecommendListViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         O2Nav.setController(self)
-        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
         
+        
+        //UIView.animateWithDuration(0.5, animations: {
+        self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        O2Nav.resetNav()
+//        O2Nav.resetNav()
+        
+        if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
+            O2Nav.nav!.titleTextAttributes = [
+                NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(1),
+                NSFontAttributeName: font
+            ]
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,9 +103,9 @@ class RecommendListViewController: UITableViewController {
             return 130
         }
     }
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 4
-    }
+//    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 4
+//    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let i = indexPath.row

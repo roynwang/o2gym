@@ -29,7 +29,7 @@ class GymDetailController: UITableViewController {
             })
             self.title = self.gym.name!
             O2Nav.setNavigationBarTransformProgress(1)
-            O2Nav.setNavTitle(self.gym.name!)
+            O2Nav.setNavTitle(title: self.gym.name!)
             self.tableView.reloadData()
             }, onfail: nil)
         self.navigationController?.navigationBar.translucent = true

@@ -73,7 +73,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R82-sw-j2u">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R82-sw-j2u">
                         <rect key="frame" x="466" y="55" width="38" height="20"/>
                         <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="10"/>
                         <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
@@ -96,6 +96,12 @@
                             <action selector="ActionTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wH4-UF-V8B"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR5-nH-x3L">
+                        <rect key="frame" x="237" y="56" width="40" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.93725490199999995" green="0.41960784309999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7La-jh-3FF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1cG-j9-SAa"/>
@@ -113,12 +119,14 @@
                     <constraint firstAttribute="trailing" secondItem="R82-sw-j2u" secondAttribute="trailing" constant="10" id="VD9-BJ-mlz"/>
                     <constraint firstAttribute="trailing" secondItem="5s5-oz-Kt5" secondAttribute="trailing" constant="10" id="WDW-G9-1ds"/>
                     <constraint firstItem="wuK-Hv-aLT" firstAttribute="leading" secondItem="7La-jh-3FF" secondAttribute="trailing" id="XGg-gh-t0T"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cR5-nH-x3L" secondAttribute="bottom" id="dTq-ny-gct"/>
                     <constraint firstAttribute="bottomMargin" secondItem="R82-sw-j2u" secondAttribute="bottom" id="eH7-Vk-dHY"/>
                     <constraint firstItem="MvL-al-cjB" firstAttribute="leading" secondItem="icx-CN-2my" secondAttribute="trailing" id="gls-9V-TRs"/>
                     <constraint firstItem="rdm-e4-Yq0" firstAttribute="leading" secondItem="nAd-1i-4Ee" secondAttribute="trailing" id="jNA-0Y-bhP"/>
                     <constraint firstItem="wuK-Hv-aLT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="mh8-iW-Xgd"/>
                     <constraint firstItem="Gcr-nP-aaz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="pdx-Kf-he0"/>
                     <constraint firstItem="MvL-al-cjB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="teI-I2-Kbv"/>
+                    <constraint firstAttribute="centerX" secondItem="cR5-nH-x3L" secondAttribute="centerX" id="uRJ-0K-3bC"/>
                     <constraint firstItem="Gcr-nP-aaz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="vTc-Gk-rZk"/>
                     <constraint firstItem="icx-CN-2my" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zXD-AT-Uut"/>
                 </constraints>
@@ -136,6 +144,7 @@
                 <outlet property="Coach" destination="rdm-e4-Yq0" id="HpM-Rs-8R0"/>
                 <outlet property="CreatedTime" destination="wuK-Hv-aLT" id="DNR-bb-3i7"/>
                 <outlet property="Customer" destination="Vz8-pV-9KK" id="z3Q-bv-he3"/>
+                <outlet property="Price" destination="cR5-nH-x3L" id="ArJ-la-Pc6"/>
                 <outlet property="Status" destination="5s5-oz-Kt5" id="znC-by-Kbb"/>
             </connections>
             <point key="canvasLocation" x="292" y="219"/>

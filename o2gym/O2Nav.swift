@@ -48,8 +48,10 @@ public class O2Nav{
 
         }
     }
-    class func setNavTitle(title:String){
-        O2Nav.nav?.topItem?.title = title
+    class func setNavTitle(title:String? = nil){
+        if title != nil {
+            O2Nav.nav?.topItem?.title = title!
+        }
         if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
             O2Nav.nav!.titleTextAttributes = [
                 NSForegroundColorAttributeName: UIColor.whiteColor(),
@@ -81,5 +83,11 @@ public class O2Nav{
         cont.gymid = gymid
         O2Nav.pushViewController(cont)
     }
+//    class func showLogin(){
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let cont =  sb.instantiateViewControllerWithIdentifier("login") as! FirstViewController
+//        //cont.product = self.productlist.datalist[indexPath.section] as! Product
+//        O2Nav.pushViewController(cont)
+//    }
     
 }

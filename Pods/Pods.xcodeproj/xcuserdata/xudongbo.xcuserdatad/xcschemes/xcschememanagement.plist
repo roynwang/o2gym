@@ -4,62 +4,52 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-o2gym-AFNetworking.xcscheme</key>
+		<key>AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-CZPicker-CZPicker.xcscheme</key>
+		<key>CZPicker-CZPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-CZPicker.xcscheme</key>
+		<key>CZPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-DZNEmptyDataSet.xcscheme</key>
+		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-DZNPhotoPickerController.xcscheme</key>
+		<key>FSMediaPicker-FSMediaPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-GROAuth2SessionManager.xcscheme</key>
+		<key>FSMediaPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-HCSStarRatingView.xcscheme</key>
+		<key>HCSStarRatingView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-KNSemiModalViewController.xcscheme</key>
+		<key>KNSemiModalViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-MBProgressHUD.xcscheme</key>
+		<key>MKInputBoxView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-o2gym-MKInputBoxView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-o2gym-SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-o2gym-THCalendarDatePicker.xcscheme</key>
+		<key>NHLinearShadow.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -69,70 +59,90 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>THCalendarDatePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIImage+Additions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>12AB39A2BCB41AF01AA8A086</key>
+		<key>0F0CF49F56E08CC0F055582185F25A21</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A56D9C47CF1AE68C377806C</key>
+		<key>2F97E06B53256B45F7DE0D00B5B4CAFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D976D8A23C6063E7C0FEE56</key>
+		<key>348518BA1FD27923E1A28AF342B093AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>269C959E71C505966D347558</key>
+		<key>3C07BEE98A3FD2D96F74844BC9A9C076</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4472A211FCD1F0721F343A6B</key>
+		<key>3E7790623D122F0099DE2D36129BE04D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>707B1E351D2577536D9048E6</key>
+		<key>3F93CB0BAE94B9C21A02505F5AC9AE2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71F96D338C8C5244C3F96C3D</key>
+		<key>4CB115DC81EFFEB43A4009DDBF40C7DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>828E7477C07C2BA7A50AC0CF</key>
+		<key>53810C60D2540A9CE2D154BF659B5637</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C4A36592CE552249567775D</key>
+		<key>78DC10C830B451D36A50C0CB1D9B2313</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E907C60687720761067268F</key>
+		<key>7DDDCCAB2A12EC09A715BE86619B40BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA99BC5BB5FCD8E23CA9E7B5</key>
+		<key>993F1F535F0AF7AE40745B0413E4A902</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E825F194B5CC785C770B79EA</key>
+		<key>BE3BF6D03737AFDAA114295F883D78E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FF1F8F532BBFFE6731698B0D</key>
+		<key>CDD80F45964F8D5BD4C40FEA3A7A2B01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF4B062E4CE4E30F407B6AA155C535EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

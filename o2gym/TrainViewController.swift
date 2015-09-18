@@ -8,12 +8,11 @@
 
 import UIKit
 
-class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegate{
+class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegate {
     
     
     var book:Book!
 
-    
     var circleSeg:HMSegmentedControl!
     
     //var Nav:O2Nav!
@@ -25,6 +24,9 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
     //    }
     override func viewDidAppear(animated: Bool) {
         
+    }
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,8 +43,6 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
-        var baritem = self.navigationController?.tabBarItem!
-        baritem!.selectedImage = UIImage(named: "circle_active")
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         
@@ -67,9 +67,17 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
         circleSeg.indexChangeBlock = {
             index in
             self.setSelectedIndex(index, animated: true)
-            self.viewControllers[index].viewDidAppear(true)
+            
+           
         }
         self.navigationItem.titleView = circleSeg
+        
+       
+        
+        
+        let addBtn = UIBarButtonItem(image: UIImage(named: "add_circle"), style: UIBarButtonItemStyle.Done, target: self, action: "newItem")
+        
+        self.navigationItem.rightBarButtonItem = addBtn
         
         
 //        let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -88,6 +96,8 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
         
         //self.hidesBottomBarWhenPushed = true
         
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,9 +108,11 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
     
     func swipeTabBarController(swipeTabBarController: MGSwipeTabBarController!, didScrollToIndex toIndex: Int, fromIndex: Int) {
         self.circleSeg.setSelectedSegmentIndex(UInt(toIndex), animated: true)
+        
     }
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    func newItem(){
+        let ap = self.viewControllers[self.selectedIndex] as! AddableProtocol
+        ap.addItem()
+    }
 }

@@ -14,6 +14,7 @@ class OrderItemCell: UITableViewCell {
     var actiontype:String!
     var order:OrderItem!
     
+    @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var ActionBtn: UIButton!
     @IBOutlet weak var Status: UILabel!
     @IBOutlet weak var CreatedTime: UILabel!
@@ -38,10 +39,11 @@ class OrderItemCell: UITableViewCell {
         self.Customer.text = order.customer.displayname
         self.Coach.text = order.coach.displayname
         self.BillId.text = order.billid.toString()
+        self.Price.text = "￥" + self.order.amount.toString()
         self.Status.text = "进行中"
         if order.status == "unpaid" {
             self.actiontype = "pay"
-            self.ActionBtn.setTitle("支付: ￥" + self.order.amount.toString() , forState: UIControlState.Normal)
+            self.ActionBtn.setTitle("支付", forState: UIControlState.Normal)
             self.Status.text = "未支付"
         }
         if order.status == "paid" {
@@ -54,7 +56,7 @@ class OrderItemCell: UITableViewCell {
             self.Status.text = "已完成"
             
         }
-        if self.actiontype == nil {
+        if self.actiontype == nil || Local.USER.iscoach{
             self.ActionBtn.hidden = true
         }
     

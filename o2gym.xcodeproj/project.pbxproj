@@ -40,6 +40,8 @@
 		7217767D1BA7071D00304292 /* TrainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217767C1BA7071D00304292 /* TrainList.swift */; };
 		7217767F1BA70B4C00304292 /* TrainListByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7217767E1BA70B4C00304292 /* TrainListByDate.swift */; };
 		721776811BA72BE500304292 /* TrainHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721776801BA72BE500304292 /* TrainHistoryController.swift */; };
+		721776831BA8195700304292 /* AddableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721776821BA8195700304292 /* AddableProtocol.swift */; };
+		721A61131BA9B05D00F91F12 /* GymNowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721A61121BA9B05D00F91F12 /* GymNowController.swift */; };
 		722C23B31B922D8A00164E34 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C23B21B922D8A00164E34 /* MeViewController.swift */; };
 		722C23B51B922DBC00164E34 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C23B41B922DBC00164E34 /* ScheduleViewController.swift */; };
 		722C23B71B922F7F00164E34 /* WeekBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C23B61B922F7F00164E34 /* WeekBookList.swift */; };
@@ -75,7 +77,7 @@
 		723E829A1B4A952400861D6D /* RecommendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82991B4A952400861D6D /* RecommendList.swift */; };
 		723E829C1B4A9A7300861D6D /* BaseDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E829B1B4A9A7300861D6D /* BaseDataList.swift */; };
 		723E829E1B4AC3D600861D6D /* Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E829D1B4AC3D600861D6D /* Local.swift */; };
-		723E82A01B4ACDEA00861D6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E829F1B4ACDEA00861D6D /* FirstViewController.swift */; };
+		723E82A01B4ACDEA00861D6D /* GymLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E829F1B4ACDEA00861D6D /* GymLoginViewController.swift */; };
 		723E82A21B4C1ED100861D6D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82A11B4C1ED100861D6D /* FeedViewController.swift */; };
 		723E82DE1B4EC77200861D6D /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E82DD1B4EC77200861D6D /* Comments.swift */; };
 		72420B9F1B66100200462032 /* FeedCoachViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420B9D1B66100200462032 /* FeedCoachViewCell.swift */; };
@@ -122,11 +124,6 @@
 		724EB5491B4836F900729F8F /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5421B4836F900729F8F /* Upload.swift */; };
 		724EB54A1B4836F900729F8F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB5431B4836F900729F8F /* Validation.swift */; };
 		724EB54E1B483B9C00729F8F /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EB54D1B483B9C00729F8F /* Host.swift */; };
-		724EE8A51B58AF5F001F8670 /* WeiboPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */; };
-		724EE8AB1B58BD3D001F8670 /* LimCameraImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8A71B58BD3D001F8670 /* LimCameraImagePickerViewController.swift */; };
-		724EE8AC1B58BD3D001F8670 /* LimCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */; };
-		724EE8AD1B58BD3D001F8670 /* LimCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */; };
-		724EE8AE1B58BD3D001F8670 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8AA1B58BD3D001F8670 /* PickerView.xib */; };
 		724EE8B61B5BE1E2001F8670 /* RecommendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724EE8B51B5BE1E2001F8670 /* RecommendItem.swift */; };
 		724EE8BE1B5C06D5001F8670 /* yh.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 724EE8BD1B5C06D5001F8670 /* yh.OTF */; };
 		726C88301B74C85600F8FAA5 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C882F1B74C85600F8FAA5 /* ServerTrustPolicy.swift */; };
@@ -141,6 +138,7 @@
 		7291D64F1B900CC700DE40C8 /* TimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7291D64D1B900CC700DE40C8 /* TimeTableCell.xib */; };
 		7291D6521B9031BD00DE40C8 /* BookedCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291D6501B9031BD00DE40C8 /* BookedCourseCell.swift */; };
 		7291D6531B9031BD00DE40C8 /* BookedCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7291D6511B9031BD00DE40C8 /* BookedCourseCell.xib */; };
+		7291E1281BAB22D4001DFBE2 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291E1271BAB22D4001DFBE2 /* LoginDelegate.swift */; };
 		729703D71B6BCB8100DB9DB6 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 729703CC1B6BCB8100DB9DB6 /* JTSAnimatedGIFUtility.m */; };
 		729703D81B6BCB8100DB9DB6 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 729703CE1B6BCB8100DB9DB6 /* JTSImageInfo.m */; };
 		729703D91B6BCB8100DB9DB6 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729703D01B6BCB8100DB9DB6 /* JTSImageViewController.m */; };
@@ -155,6 +153,9 @@
 		729E183E1B5E1B77000B14EE /* FeedToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E183D1B5E1B77000B14EE /* FeedToolBarView.swift */; };
 		729E18401B5E3562000B14EE /* FeedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729E183F1B5E3562000B14EE /* FeedHeaderView.xib */; };
 		729E18421B5E3853000B14EE /* FeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E18411B5E3853000B14EE /* FeedHeaderView.swift */; };
+		72A00CA81BAA65B9007B2922 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A00CA71BAA65B9007B2922 /* LoginView.xib */; };
+		72A00CAA1BAA7E9E007B2922 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A00CA91BAA7E9E007B2922 /* LoginView.swift */; };
+		72A00CAD1BAA964C007B2922 /* MeLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A00CAC1BAA964C007B2922 /* MeLoginController.swift */; };
 		72A7A91A1BA6B4C9009266D3 /* EvalHistoryTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7A9191BA6B4C9009266D3 /* EvalHistoryTableController.swift */; };
 		72A7A91D1BA6B4E5009266D3 /* EvalHistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7A91B1BA6B4E5009266D3 /* EvalHistoryTableCell.swift */; };
 		72A7A91E1BA6B4E5009266D3 /* EvalHistoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A7A91C1BA6B4E5009266D3 /* EvalHistoryTableCell.xib */; };
@@ -247,7 +248,7 @@
 		72E5660F1BA5DC0000949DF4 /* BodyEvalListByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E5660E1BA5DC0000949DF4 /* BodyEvalListByDate.swift */; };
 		72FB486B1B6A4044004067AF /* AlbumPicAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB48691B6A4044004067AF /* AlbumPicAddCell.swift */; };
 		72FB486C1B6A4044004067AF /* AlbumPicAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FB486A1B6A4044004067AF /* AlbumPicAddCell.xib */; };
-		DE3453E42DA7B725301CCB0A /* libPods-o2gym.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A6B3EE0A4C8DB1793B3B56 /* libPods-o2gym.a */; };
+		B10E3F4B2BBFA2108DDF124F /* Pods_o2gym.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C36C372CB58A9FF858AC1F /* Pods_o2gym.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,7 +263,7 @@
 
 /* Begin PBXFileReference section */
 		08FD74F0E89E2C40127DB775 /* Pods-o2gym.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-o2gym.debug.xcconfig"; path = "Pods/Target Support Files/Pods-o2gym/Pods-o2gym.debug.xcconfig"; sourceTree = "<group>"; };
-		40A6B3EE0A4C8DB1793B3B56 /* libPods-o2gym.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-o2gym.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35C36C372CB58A9FF858AC1F /* Pods_o2gym.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_o2gym.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720B7A411B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTOperatingSystemCompatibilityUtility.h; sourceTree = "<group>"; };
 		720B7A421B6BE724004C5F8F /* NYTOperatingSystemCompatibilityUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTOperatingSystemCompatibilityUtility.m; sourceTree = "<group>"; };
 		720B7A431B6BE724004C5F8F /* NYTPhotoCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTPhotoCaptionView.h; sourceTree = "<group>"; };
@@ -328,6 +329,8 @@
 		7217767C1BA7071D00304292 /* TrainList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainList.swift; sourceTree = "<group>"; };
 		7217767E1BA70B4C00304292 /* TrainListByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainListByDate.swift; sourceTree = "<group>"; };
 		721776801BA72BE500304292 /* TrainHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainHistoryController.swift; sourceTree = "<group>"; };
+		721776821BA8195700304292 /* AddableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddableProtocol.swift; sourceTree = "<group>"; };
+		721A61121BA9B05D00F91F12 /* GymNowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymNowController.swift; sourceTree = "<group>"; };
 		722C23B21B922D8A00164E34 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		722C23B41B922DBC00164E34 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		722C23B61B922F7F00164E34 /* WeekBookList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekBookList.swift; sourceTree = "<group>"; };
@@ -339,7 +342,6 @@
 		722C247C1B9363AA00164E34 /* ProfileAvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAvatarCell.swift; sourceTree = "<group>"; };
 		722C247D1B9363AA00164E34 /* ProfileAvatarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileAvatarCell.xib; sourceTree = "<group>"; };
 		722C24801B9363C100164E34 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		722C24B31B93758700164E34 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		722C24B41B93765800164E34 /* o2gym-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "o2gym-Bridging-Header.h"; sourceTree = "<group>"; };
 		722C24B61B94943200164E34 /* PlainTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainTextCell.swift; sourceTree = "<group>"; };
 		722C24B71B94943200164E34 /* PlainTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlainTextCell.xib; sourceTree = "<group>"; };
@@ -371,7 +373,7 @@
 		723E82991B4A952400861D6D /* RecommendList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendList.swift; sourceTree = "<group>"; };
 		723E829B1B4A9A7300861D6D /* BaseDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataList.swift; sourceTree = "<group>"; };
 		723E829D1B4AC3D600861D6D /* Local.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Local.swift; sourceTree = "<group>"; };
-		723E829F1B4ACDEA00861D6D /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		723E829F1B4ACDEA00861D6D /* GymLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymLoginViewController.swift; sourceTree = "<group>"; };
 		723E82A11B4C1ED100861D6D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		723E82DD1B4EC77200861D6D /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		72420B9D1B66100200462032 /* FeedCoachViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCoachViewCell.swift; sourceTree = "<group>"; };
@@ -425,11 +427,6 @@
 		724EB5421B4836F900729F8F /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		724EB5431B4836F900729F8F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		724EB54D1B483B9C00729F8F /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
-		724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboPostViewController.swift; sourceTree = "<group>"; };
-		724EE8A71B58BD3D001F8670 /* LimCameraImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimCameraImagePickerViewController.swift; sourceTree = "<group>"; };
-		724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimCollectionViewCell.swift; sourceTree = "<group>"; };
-		724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LimCollectionViewCell.xib; sourceTree = "<group>"; };
-		724EE8AA1B58BD3D001F8670 /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
 		724EE8B51B5BE1E2001F8670 /* RecommendItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendItem.swift; sourceTree = "<group>"; };
 		724EE8BD1B5C06D5001F8670 /* yh.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = yh.OTF; sourceTree = "<group>"; };
 		726C882F1B74C85600F8FAA5 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
@@ -444,6 +441,7 @@
 		7291D64D1B900CC700DE40C8 /* TimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableCell.xib; sourceTree = "<group>"; };
 		7291D6501B9031BD00DE40C8 /* BookedCourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookedCourseCell.swift; sourceTree = "<group>"; };
 		7291D6511B9031BD00DE40C8 /* BookedCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookedCourseCell.xib; sourceTree = "<group>"; };
+		7291E1271BAB22D4001DFBE2 /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		729703CB1B6BCB8100DB9DB6 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
 		729703CC1B6BCB8100DB9DB6 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
 		729703CD1B6BCB8100DB9DB6 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
@@ -464,6 +462,9 @@
 		729E183D1B5E1B77000B14EE /* FeedToolBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedToolBarView.swift; sourceTree = "<group>"; };
 		729E183F1B5E3562000B14EE /* FeedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedHeaderView.xib; sourceTree = "<group>"; };
 		729E18411B5E3853000B14EE /* FeedHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHeaderView.swift; sourceTree = "<group>"; };
+		72A00CA71BAA65B9007B2922 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		72A00CA91BAA7E9E007B2922 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		72A00CAC1BAA964C007B2922 /* MeLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeLoginController.swift; sourceTree = "<group>"; };
 		72A7A9191BA6B4C9009266D3 /* EvalHistoryTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvalHistoryTableController.swift; sourceTree = "<group>"; };
 		72A7A91B1BA6B4E5009266D3 /* EvalHistoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvalHistoryTableCell.swift; sourceTree = "<group>"; };
 		72A7A91C1BA6B4E5009266D3 /* EvalHistoryTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvalHistoryTableCell.xib; sourceTree = "<group>"; };
@@ -568,7 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72148C951B5786D400A063FF /* libz.dylib in Frameworks */,
-				DE3453E42DA7B725301CCB0A /* libPods-o2gym.a in Frameworks */,
+				B10E3F4B2BBFA2108DDF124F /* Pods_o2gym.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +586,7 @@
 		05F65DE06A9745D22C1E1924 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				40A6B3EE0A4C8DB1793B3B56 /* libPods-o2gym.a */,
+				35C36C372CB58A9FF858AC1F /* Pods_o2gym.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -706,12 +707,26 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		721A61111BA9AFCB00F91F12 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				723E829F1B4ACDEA00861D6D /* GymLoginViewController.swift */,
+				72A00CAC1BAA964C007B2922 /* MeLoginController.swift */,
+				724652981B5232D5004E69C1 /* RecommendListViewController.swift */,
+				723E59941B5D1381005EC263 /* CircleViewController.swift */,
+				722C23B21B922D8A00164E34 /* MeViewController.swift */,
+				721A61121BA9B05D00F91F12 /* GymNowController.swift */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
 		72249E231BA682DC0065EFAB /* Train */ = {
 			isa = PBXGroup;
 			children = (
 				72C71EC51BA6883A00A80344 /* TrainItem */,
 				72E566051BA5BB5800949DF4 /* BodyEvaluation */,
 				72C71EC31BA6834100A80344 /* TrainViewController.swift */,
+				721776821BA8195700304292 /* AddableProtocol.swift */,
 			);
 			name = Train;
 			sourceTree = "<group>";
@@ -719,12 +734,15 @@
 		722C247B1B93638D00164E34 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
 				7247EB991B6881A700A22F0C /* O2Nav.swift */,
 				723E59871B5CB775005EC263 /* BaseViewCell.swift */,
 				729703DD1B6BD12F00DB9DB6 /* PicViewer.swift */,
 				720B7AC21B6BECE9004C5F8F /* PicForNYT.swift */,
+				72A00CAB1BAA81EF007B2922 /* Login */,
+				72BC78811B94A51000ED7B3E /* Schedule */,
+				721A61111BA9AFCB00F91F12 /* Tabs */,
 				72249E231BA682DC0065EFAB /* Train */,
-				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
 				72B752251B9C80830083411F /* GymDetail */,
 				72B752241B9C72F40083411F /* Recommend */,
 				72B752231B9C72310083411F /* UserDetail */,
@@ -840,18 +858,16 @@
 			children = (
 				724EB4FD1B47BECC00729F8F /* Images.xcassets */,
 				724EB4FF1B47BECC00729F8F /* LaunchScreen.xib */,
+				724EE8B71B5C014A001F8670 /* Resource */,
 				722C247B1B93638D00164E34 /* UI */,
 				72420BB41B676FE000462032 /* listdownload.jpg */,
-				724EE8B71B5C014A001F8670 /* Resource */,
 				723E82961B4A950B00861D6D /* DataList */,
 				723E828B1B49754600861D6D /* Data */,
 				724EB54C1B483B5F00729F8F /* Global */,
 				724EB5391B48368700729F8F /* Utils */,
-				724EB4F41B47BECC00729F8F /* AppDelegate.swift */,
 				724EB4F21B47BECC00729F8F /* Supporting Files */,
 				724652BD1B555C65004E69C1 /* TestViewController.swift */,
-				723E829F1B4ACDEA00861D6D /* FirstViewController.swift */,
-				722C24B31B93758700164E34 /* Bridge.h */,
+				724EB4F41B47BECC00729F8F /* AppDelegate.swift */,
 			);
 			path = o2gym;
 			sourceTree = "<group>";
@@ -884,29 +900,28 @@
 		724EB5391B48368700729F8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				72CF49FD1BA5B68E00211BFA /* TextFieldEffects */,
+				723E82801B492C6500861D6D /* SwiftyJSON.swift */,
+				724652B21B538872004E69C1 /* Helper.swift */,
+				72BDA1011B90516E00CCB29A /* UIView_Border.swift */,
+				72B6EC011B99BBA400634B21 /* HRToast+UIView.swift */,
+				723E82921B4980AF00861D6D /* ext.swift */,
 				72DB3A9C1B9D96F00011C68D /* RyProfileViewController.swift */,
+				7247EBA81B6942CF00A22F0C /* UINavigationBar+Awesome.h */,
 				72DB3AA01B9DB64E0011C68D /* RYProfileViewDelegate.swift */,
 				72DB3A641B9C89140011C68D /* UIImage+ImageEffects.h */,
 				72DB3A651B9C89140011C68D /* UIImage+ImageEffects.m */,
 				72DB3A611B9C88000011C68D /* ParallaxHeaderView.h */,
 				72DB3A621B9C88000011C68D /* ParallaxHeaderView.m */,
+				7247EBA91B6942CF00A22F0C /* UINavigationBar+Awesome.m */,
+				72CF49FD1BA5B68E00211BFA /* TextFieldEffects */,
 				72E1AB341B8DE66600B60AF9 /* CVCalendar */,
 				720B7A401B6BE724004C5F8F /* NYTPhotoViewer */,
 				729703CA1B6BCB8100DB9DB6 /* JTSImage */,
-				7247EBA81B6942CF00A22F0C /* UINavigationBar+Awesome.h */,
-				7247EBA91B6942CF00A22F0C /* UINavigationBar+Awesome.m */,
-				723E82921B4980AF00861D6D /* ext.swift */,
 				723E59961B5D15A7005EC263 /* HMSegmentedControl */,
 				723E598D1B5D12AC005EC263 /* MGSwipeTabBarController */,
-				724EE8A61B58BD3D001F8670 /* LimWhatsAppImagePicker */,
 				72148C3A1B57852A00A063FF /* QiniuSDK */,
 				724652A71B52A717004E69C1 /* ImageLoader */,
 				724EB54B1B48371F00729F8F /* af */,
-				723E82801B492C6500861D6D /* SwiftyJSON.swift */,
-				724652B21B538872004E69C1 /* Helper.swift */,
-				72BDA1011B90516E00CCB29A /* UIView_Border.swift */,
-				72B6EC011B99BBA400634B21 /* HRToast+UIView.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -940,17 +955,6 @@
 			name = Global;
 			sourceTree = "<group>";
 		};
-		724EE8A61B58BD3D001F8670 /* LimWhatsAppImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				724EE8A71B58BD3D001F8670 /* LimCameraImagePickerViewController.swift */,
-				724EE8A81B58BD3D001F8670 /* LimCollectionViewCell.swift */,
-				724EE8A91B58BD3D001F8670 /* LimCollectionViewCell.xib */,
-				724EE8AA1B58BD3D001F8670 /* PickerView.xib */,
-			);
-			path = LimWhatsAppImagePicker;
-			sourceTree = "<group>";
-		};
 		724EE8B71B5C014A001F8670 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +983,16 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		72A00CAB1BAA81EF007B2922 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				72A00CA71BAA65B9007B2922 /* LoginView.xib */,
+				72A00CA91BAA7E9E007B2922 /* LoginView.swift */,
+				7291E1271BAB22D4001DFBE2 /* LoginDelegate.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		72B752221B9C71F70083411F /* Circle */ = {
 			isa = PBXGroup;
 			children = (
@@ -991,9 +1005,7 @@
 				72CAFFEA1B5F7D950093DC30 /* FeedFwdHeaderView.xib */,
 				72CAFFEC1B5F82090093DC30 /* FeedFwdHeaderView.swift */,
 				72CA00041B613D440093DC30 /* FeedHeaderProtocol.swift */,
-				724EE8A41B58AF5F001F8670 /* WeiboPostViewController.swift */,
 				72AD3DD51B8AFE140000A217 /* ArticleDetailViewController.swift */,
-				723E59941B5D1381005EC263 /* CircleViewController.swift */,
 				729E18341B5DF828000B14EE /* FeedPicViewCell.swift */,
 				729E18351B5DF828000B14EE /* FeedPicViewCell.xib */,
 				72CAFFE61B5F49160093DC30 /* FeedMultPicViewCell.swift */,
@@ -1009,6 +1021,7 @@
 		72B752231B9C72310083411F /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */,
 				72DB3AA21B9DE2820011C68D /* MyGoodsViewController.swift */,
 				72B8FF031B7CA4CB000C96AE /* MyCourseViewController.swift */,
 				724652B91B54EEC6004E69C1 /* MyPostViewController.swift */,
@@ -1021,7 +1034,6 @@
 				72FB486A1B6A4044004067AF /* AlbumPicAddCell.xib */,
 				72420BBE1B67E89F00462032 /* AlbumPicCell.swift */,
 				72420BBF1B67E89F00462032 /* AlbumPicCell.xib */,
-				72DB3A9E1B9D970F0011C68D /* NewUserDetailViewController.swift */,
 				72DB3AA61B9DE57F0011C68D /* MyGoodCell.swift */,
 				72DB3AA71B9DE57F0011C68D /* MyGoodCell.xib */,
 			);
@@ -1031,7 +1043,6 @@
 		72B752241B9C72F40083411F /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
-				724652981B5232D5004E69C1 /* RecommendListViewController.swift */,
 				724652941B5230EE004E69C1 /* RecommendArticleCell.swift */,
 				724652951B5230EE004E69C1 /* RecommendArticleCell.xib */,
 				7246529A1B52580A004E69C1 /* RecommendGymCell.swift */,
@@ -1094,9 +1105,7 @@
 		72BC78821B94A51A00ED7B3E /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				722C23B21B922D8A00164E34 /* MeViewController.swift */,
 				72BC78801B94A2F700ED7B3E /* MyProfile */,
-				72BC78811B94A51000ED7B3E /* Schedule */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1220,6 +1229,7 @@
 				724EB4EC1B47BECC00729F8F /* Frameworks */,
 				724EB4ED1B47BECC00729F8F /* Resources */,
 				C82305E29DFE793C7CF7F1B5 /* Copy Pods Resources */,
+				5D6FCDC25234DF7D7F80AB40 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1254,6 +1264,7 @@
 		724EB4E71B47BECC00729F8F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = royn;
 				TargetAttributes = {
@@ -1292,7 +1303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				722C24B91B94943200164E34 /* PlainTextCell.xib in Resources */,
-				724EE8AE1B58BD3D001F8670 /* PickerView.xib in Resources */,
 				7291D64F1B900CC700DE40C8 /* TimeTableCell.xib in Resources */,
 				72CAFFE91B5F49160093DC30 /* FeedMultPicViewCell.xib in Resources */,
 				72A7A91E1BA6B4E5009266D3 /* EvalHistoryTableCell.xib in Resources */,
@@ -1302,7 +1312,6 @@
 				729E18371B5DF828000B14EE /* FeedPicViewCell.xib in Resources */,
 				723E598C1B5CDA10005EC263 /* RecommendCourseCell.xib in Resources */,
 				722C247F1B9363AA00164E34 /* ProfileAvatarCell.xib in Resources */,
-				724EE8AD1B58BD3D001F8670 /* LimCollectionViewCell.xib in Resources */,
 				72CAFFEB1B5F7D950093DC30 /* FeedFwdHeaderView.xib in Resources */,
 				724652A11B525821004E69C1 /* RecommendCoachCell.xib in Resources */,
 				72CF4A0B1BA5B68E00211BFA /* Info.plist in Resources */,
@@ -1325,6 +1334,7 @@
 				729E18401B5E3562000B14EE /* FeedHeaderView.xib in Resources */,
 				724652A51B525841004E69C1 /* RecommendUserCell.xib in Resources */,
 				72C0CE8F1B95F06A006A4035 /* WorkingTimeSectionHeader.xib in Resources */,
+				72A00CA81BAA65B9007B2922 /* LoginView.xib in Resources */,
 				724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */,
 				7291D6531B9031BD00DE40C8 /* BookedCourseCell.xib in Resources */,
 				72420BC11B67E89F00462032 /* AlbumPicCell.xib in Resources */,
@@ -1342,6 +1352,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5D6FCDC25234DF7D7F80AB40 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-o2gym/Pods-o2gym-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A3C78689517D41BE3A228F3F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1386,7 +1411,6 @@
 				72A7A9201BA6E160009266D3 /* TrainningController.swift in Sources */,
 				724652BE1B555C65004E69C1 /* TestViewController.swift in Sources */,
 				729E18361B5DF828000B14EE /* FeedPicViewCell.swift in Sources */,
-				724EE8AB1B58BD3D001F8670 /* LimCameraImagePickerViewController.swift in Sources */,
 				723E599B1B5D2E99005EC263 /* Settings.swift in Sources */,
 				72C0CE8E1B95F06A006A4035 /* WorkingTimeSectionHeader.swift in Sources */,
 				724652BC1B54EF4E004E69C1 /* MyPost.swift in Sources */,
@@ -1404,6 +1428,7 @@
 				72148C6D1B57852A00A063FF /* QNResponseInfo.m in Sources */,
 				72E5660F1BA5DC0000949DF4 /* BodyEvalListByDate.swift in Sources */,
 				723E82911B49756B00861D6D /* Gym.swift in Sources */,
+				7291E1281BAB22D4001DFBE2 /* LoginDelegate.swift in Sources */,
 				722C23BA1B92DA9B00164E34 /* BookedCourseComplexCell.swift in Sources */,
 				72DB3AA11B9DB64E0011C68D /* RYProfileViewDelegate.swift in Sources */,
 				72B752271B9C80A20083411F /* GymDetailController.swift in Sources */,
@@ -1418,6 +1443,7 @@
 				72CAFFED1B5F82090093DC30 /* FeedFwdHeaderView.swift in Sources */,
 				724EE8B61B5BE1E2001F8670 /* RecommendItem.swift in Sources */,
 				72E1AB5D1B8DE66600B60AF9 /* CVCalendarViewAppearanceDelegate.swift in Sources */,
+				72A00CAA1BAA7E9E007B2922 /* LoginView.swift in Sources */,
 				723E59951B5D1381005EC263 /* CircleViewController.swift in Sources */,
 				72DB3AA31B9DE2820011C68D /* MyGoodsViewController.swift in Sources */,
 				72148C761B57852A00A063FF /* QNUpToken.m in Sources */,
@@ -1488,7 +1514,6 @@
 				728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */,
 				729E18421B5E3853000B14EE /* FeedHeaderView.swift in Sources */,
 				720B7A601B6BE724004C5F8F /* NYTPhotoTransitionController.m in Sources */,
-				724EE8AC1B58BD3D001F8670 /* LimCollectionViewCell.swift in Sources */,
 				723E82981B4A951900861D6D /* Feed.swift in Sources */,
 				722C24B81B94943200164E34 /* PlainTextCell.swift in Sources */,
 				723E82881B49753500861D6D /* User.swift in Sources */,
@@ -1517,11 +1542,13 @@
 				724EB5461B4836F900729F8F /* ParameterEncoding.swift in Sources */,
 				72E1AB621B8DE66600B60AF9 /* CVCalendarWeekView.swift in Sources */,
 				72CA00021B60FEDC0093DC30 /* FeedArticleViewCell.swift in Sources */,
+				721776831BA8195700304292 /* AddableProtocol.swift in Sources */,
 				724652B31B538872004E69C1 /* Helper.swift in Sources */,
 				72E1AB5C1B8DE66600B60AF9 /* CVCalendarViewAppearance.swift in Sources */,
 				72C438431B9ABF0F00663D4B /* BookCreateList.swift in Sources */,
 				72E566071BA5BBB700949DF4 /* BodyEvalController.swift in Sources */,
 				72A7A91D1BA6B4E5009266D3 /* EvalHistoryTableCell.swift in Sources */,
+				72A00CAD1BAA964C007B2922 /* MeLoginController.swift in Sources */,
 				72E1AB561B8DE66600B60AF9 /* CVCalendarMonthContentViewController.swift in Sources */,
 				7247EB9A1B6881A700A22F0C /* O2Nav.swift in Sources */,
 				723E59881B5CB775005EC263 /* BaseViewCell.swift in Sources */,
@@ -1562,6 +1589,7 @@
 				724652AE1B52A717004E69C1 /* ImageLoader.swift in Sources */,
 				72DB3A661B9C89140011C68D /* UIImage+ImageEffects.m in Sources */,
 				7247EBA51B68DED900A22F0C /* UserDetailHeaderView.swift in Sources */,
+				721A61131BA9B05D00F91F12 /* GymNowController.swift in Sources */,
 				72A7A91A1BA6B4C9009266D3 /* EvalHistoryTableController.swift in Sources */,
 				724EB54E1B483B9C00729F8F /* Host.swift in Sources */,
 				72148C701B57852A00A063FF /* QNFileRecorder.m in Sources */,
@@ -1569,8 +1597,7 @@
 				726C88301B74C85600F8FAA5 /* ServerTrustPolicy.swift in Sources */,
 				723E82811B492C6500861D6D /* SwiftyJSON.swift in Sources */,
 				720B7A621B6BE724004C5F8F /* NYTScalingImageView.m in Sources */,
-				724EE8A51B58AF5F001F8670 /* WeiboPostViewController.swift in Sources */,
-				723E82A01B4ACDEA00861D6D /* FirstViewController.swift in Sources */,
+				723E82A01B4ACDEA00861D6D /* GymLoginViewController.swift in Sources */,
 				723E82DE1B4EC77200861D6D /* Comments.swift in Sources */,
 				7217767B1BA7059B00304292 /* Train.swift in Sources */,
 				72E1AB571B8DE66600B60AF9 /* CVCalendarMonthView.swift in Sources */,
@@ -1659,6 +1686,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "氧气健身";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/xudongbo/Desktop/IOS/o2gym/o2gym-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1698,6 +1726,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "氧气健身";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/xudongbo/Desktop/IOS/o2gym/o2gym-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "Pods/**";
@@ -1714,6 +1743,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
@@ -1733,6 +1763,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";

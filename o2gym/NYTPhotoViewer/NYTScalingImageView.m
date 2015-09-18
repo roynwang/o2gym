@@ -9,7 +9,7 @@
 #import "NYTScalingImageView.h"
 
 #import "tgmath.h"
-#import "../SDWebImage/UIImageView+WebCache.h"
+#import "UIImageView+WebCache.h"
 
 @interface NYTScalingImageView ()
 

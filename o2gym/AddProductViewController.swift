@@ -25,6 +25,9 @@ class AddProductViewController: UITableViewController {
             self.create = true
             self.product = Product(coach: Local.USER)
         }
+        
+        self.hidesBottomBarWhenPushed = true
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -55,13 +58,13 @@ class AddProductViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 4
+        return 5
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        if section == 3 {
+        if section == 4 {
             return 0
         }
         return 1
@@ -91,6 +94,12 @@ class AddProductViewController: UITableViewController {
                 cell.OptionValue.text = self.product.promotion.toString()
             }
             break
+        case 3:
+            cell.OptionName.text = "描述"
+            if self.product.introduction != nil {
+                cell.OptionValue.text = self.product.introduction
+            }
+            break
         default:
             break
             
@@ -104,7 +113,7 @@ class AddProductViewController: UITableViewController {
         header.contentView.borderColor = O2Color.BorderGrey
         
         
-        if section != 3 {
+        if section != 4 {
             header.contentView.bottomBorderWidth = 0.5
         }
         
@@ -154,6 +163,14 @@ class AddProductViewController: UITableViewController {
             alert.onSubmit = {
                 (v1:String!, v2:String!) ->Void in
                 self.product.promotion = v1.toInt()
+                self.tableView.reloadData()
+            }
+            break
+        case 3:
+            alert.setTitle("描述")
+            alert.onSubmit = {
+                (v1:String!, v2:String!) ->Void in
+                self.product.introduction = v1
                 self.tableView.reloadData()
             }
             break

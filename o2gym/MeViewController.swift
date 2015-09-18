@@ -41,6 +41,30 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if !Local.USER.iscoach {
+            let c1 = ProfileViewController()
+        //c1.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
+            c1.view.backgroundColor = O2Color.BgGreyColor
+            let c2 = ScheduleViewController()
+            c2.view.backgroundColor = O2Color.BgGreyColor
+            self.viewControllers = [c1,c2]
+        
+            self.circleSeg = HMSegmentedControl(sectionTitles: ["我","课表"])
+            circleSeg.selectionIndicatorHeight = 1
+        } else {
+            let c1 = ProfileViewController()
+            //c1.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
+            c1.view.backgroundColor = O2Color.BgGreyColor
+   
+            self.viewControllers = [c1]
+            
+            self.circleSeg = HMSegmentedControl(sectionTitles: ["我"])
+            self.circleSeg.selectionIndicatorHeight = 0
+        }
+        
+
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         var baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "me_active")
@@ -48,7 +72,7 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         
         
         let width:CGFloat = 150
-        self.circleSeg = HMSegmentedControl(sectionTitles: ["我","课表"])
+        
         
         let startx:CGFloat = self.navigationController!.navigationBar.frame.width/2 - width/2
         
@@ -56,7 +80,7 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         circleSeg.frame = CGRectMake(startx, 6, width, 30);
         circleSeg.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         circleSeg.selectionIndicatorColor = UIColor.whiteColor()
-        circleSeg.selectionIndicatorHeight = 1
+
         if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
             circleSeg.titleTextAttributes = [
                 NSFontAttributeName: font,
@@ -72,12 +96,7 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         self.navigationItem.titleView = circleSeg
         
         
-        let c1 = ProfileViewController()
-        //c1.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        c1.view.backgroundColor = O2Color.BgGreyColor
-        let c2 = ScheduleViewController()
-        c2.view.backgroundColor = O2Color.BgGreyColor
-        self.viewControllers = [c1,c2]
+
         self.delegate = self
         
         //self.hidesBottomBarWhenPushed = true
@@ -107,3 +126,6 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
     */
 
 }
+
+
+

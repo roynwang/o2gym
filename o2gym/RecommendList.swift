@@ -10,6 +10,10 @@ import Foundation
 
 public class RecommendList:BaseDataList {
     
+    override var needAuth:Bool{
+        return false
+    }
+    
     override func loaditem(dict: JSON) -> BaseDataItem? {
         return RecommendItem(dict:dict)
 //        let type = dict["recommend_type"].stringValue

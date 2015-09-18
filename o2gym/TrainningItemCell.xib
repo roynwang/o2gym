@@ -14,10 +14,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="重量（kg)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZO-Ub-EbM" customClass="BodyEvalTextField" customModule="o2gym" customModuleProvider="target">
-                        <rect key="frame" x="8" y="8" width="191" height="68.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <textInputTraits key="textInputTraits"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="重量(kg)" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ZZO-Ub-EbM" customClass="KaedeTextField" customModule="o2gym" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="171" height="68.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                 <color key="value" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -27,20 +27,26 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                <color key="value" red="0.62060681750000002" green="0.33935328780000001" blue="0.9741556187" alpha="0.25" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDw-ai-GEc">
-                        <rect key="frame" x="198.5" y="8" width="20" height="68.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="179" y="8" width="60" height="68.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="MKz-o1-QcG"/>
+                            <constraint firstAttribute="width" constant="60" id="MKz-o1-QcG"/>
                         </constraints>
                     </view>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="次数/时间" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bdv-fZ-Rso" customClass="BodyEvalTextField" customModule="o2gym" customModuleProvider="target">
-                        <rect key="frame" x="218.5" y="8" width="191" height="68.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <textInputTraits key="textInputTraits"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="次数/时间" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bdv-fZ-Rso" customClass="KaedeTextField" customModule="o2gym" customModuleProvider="target">
+                        <rect key="frame" x="239" y="8" width="171" height="68.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                 <color key="value" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,6 +56,9 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                <color key="value" red="0.62060681750000002" green="0.33935328780000001" blue="0.9741556187" alpha="0.25" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </textField>

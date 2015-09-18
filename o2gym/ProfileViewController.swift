@@ -65,7 +65,7 @@ class ProfileViewController: UITableViewController {
         case "profileavatarcell":
             return 100
         default:
-            return 60
+            return 50
         }
     }
     
@@ -77,7 +77,11 @@ class ProfileViewController: UITableViewController {
             cell.Name.text = Local.USER.displayname
             cell.tappedAvatar = {
                 (view) in
-                self.presentImagePickerWithSourceType(UIImagePickerControllerSourceType.PhotoLibrary, sender: view)
+            
+                let picker = FSMediaPicker()
+                picker.delegate = self
+                picker.showFromView(self.view)
+
             }
             return cell
         }
@@ -176,102 +180,30 @@ class ProfileViewController: UITableViewController {
         }
         
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
-}
-extension ProfileViewController {
-    func presentImagePickerWithSourceType(sourceType: UIImagePickerControllerSourceType, sender:UIView) {
-        let picker = UIImagePickerController()
-        picker.sourceType = sourceType
-        picker.allowsEditing = true
-        picker.delegate = self
-        picker.cropMode = DZNPhotoEditorViewControllerCropMode.Square
-        picker.finalizationBlock = {
-            (picker, payload) in
-            self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                let imgview = sender as! UIImageView
-                
-                var image:UIImage? = payload[UIImagePickerControllerEditedImage] as! UIImage?
-                if image == nil{
-                    image = payload[UIImagePickerControllerOriginalImage] as! UIImage?
-                }
-                
-                imgview.image = image
-                var ratio:CGFloat = 1
-                let imgdata = UIImageJPEGRepresentation(image, 1)
-                if imgdata.length/1024 > 50 {
-                    ratio = CGFloat(300)/CGFloat(imgdata.length/1024)
-                }
-                Local.USER.avatar = "test"
-                //let nsdata = NSData(
-                Helper.upload(UIImageJPEGRepresentation(image,ratio), complete: { (info, filename, resp) -> Void in
-                    Local.USER.avatar = Host.ImgHost + filename
-                    Local.USER.update(nil, onfail: nil)
-                })
-            })
-            
-        }
-        
-        picker.cancellationBlock = {
-            (picker) in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
-        
-        self.presentViewController(picker, animated: true, completion: nil)
-    }
-}
-extension ProfileViewController:UINavigationControllerDelegate {
+
     
 }
 
-extension ProfileViewController:UIImagePickerControllerDelegate {
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        
+extension ProfileViewController : FSMediaPickerDelegate {
+    
+    func mediaPicker(mediaPicker: FSMediaPicker!, didFinishWithMediaInfo mediaInfo: [NSObject : AnyObject]!) {
+        let image : UIImage = mediaInfo["UIImagePickerControllerEditedImage"] as! UIImage
+        var ratio:CGFloat = 1
+        let imgdata = UIImageJPEGRepresentation(image, 1)
+        if imgdata.length/1024 > 50 {
+            ratio = CGFloat(300)/CGFloat(imgdata.length/1024)
+        }
+        Local.USER.avatar = "test"
+        //let nsdata = NSData(
+        Helper.upload(UIImageJPEGRepresentation(image,ratio), complete: { (info, filename, resp) -> Void in
+            Local.USER.avatar = Host.ImgHost + filename
+            Local.USER.update(nil, onfail: nil)
+            
+            //update local
+            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! ProfileAvatarCell
+            cell.Avatar.fitLoad(Local.USER.avatar!, placeholder: nil)
+        })
+
     }
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
-    }
+    
 }

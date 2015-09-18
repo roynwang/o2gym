@@ -36,9 +36,13 @@ public class TrainListByDate:BaseDataList{
             var itemdata = evaldata.buildParam()
             itemdata["date"] = self.date
             itemdata["name"] = self.name
-            itemdata["course"] = self.courseid.toString()
+            //courseid can be empty
+            if self.courseid != nil {
+                itemdata["course"] = self.courseid.toString()
+            }
             ret.append(itemdata)
         }
+        println(ret)
         return ret
     }
 }

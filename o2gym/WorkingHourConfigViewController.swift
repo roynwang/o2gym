@@ -26,6 +26,9 @@ class WorkingHourConfigViewController: UITableViewController {
         
         
         self.navigationItem.rightBarButtonItem = b
+        
+        self.hidesBottomBarWhenPushed = true
+
 
         
         // Uncomment the following line to preserve selection between presentations

@@ -34,7 +34,9 @@ class RecommendGymCell: BaseViewCell {
     
     func setContent(item:BaseDataItem){
         let usr:RecommendItem = item as! RecommendItem
-        self.Img.load(usr.recommendpic!)
+        self.Img.load(usr.recommendpic!, placeholder: nil) { (_, img, err) -> () in
+            UIImageView.addShadowWithColor(UIColor.blackColor(), inImageView: self.Img)
+        }
         self.Title.text = usr.recommendtitle
         self.Tags.text = "   " + usr.recommendsubtitle! + "    "
         self.Location.text = usr.recommendloc

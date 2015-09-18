@@ -10,7 +10,7 @@ import Foundation
 
 class Host {
     //static let ip : String = "http://45.33.58.236:8000/api"
-    //static let ip : String = "http://127.0.0.1:8000/api"
+//    static let ip : String = "http://127.0.0.1:8000/api"
     static let ip : String = "http://192.168.1.105:8000/api"
     static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
     
@@ -226,5 +226,12 @@ class Host {
             return "\(self.ip)/\(name)/t/\(date!)/"
         }
         return "\(self.ip)/\(name)/t/"
+    }
+    
+    class func VcodeLogin(phoneNum:String, vcode:String)->String{
+         return "\(self.ip)/sms/\(phoneNum)/?vcode=\(vcode)"
+    }
+    class func VcodeSend()->String{
+        return "\(self.ip)/sms/"
     }
 }

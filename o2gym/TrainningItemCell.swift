@@ -10,11 +10,12 @@ import UIKit
 
 class TrainningItemCell: UITableViewCell {
 
-    @IBOutlet weak var Repeatttimes: BodyEvalTextField!
-    @IBOutlet weak var Weight: BodyEvalTextField!
+    @IBOutlet weak var Repeatttimes: KaedeTextField!
+    @IBOutlet weak var Weight: KaedeTextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .None
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="yh.OTF">
+            <string>RTWSYueGoTrial-Regular</string>
+            <string>RTWSYueGoTrial-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="o2gym" customModuleProvider="target">
+            <connections>
+                <outlet property="LoginBtn" destination="QO1-js-GXt" id="VaZ-Dv-CAH"/>
+                <outlet property="LoginWithPhoneBtn" destination="rJk-2A-IIm" id="jYk-79-95N"/>
+                <outlet property="PhoneLoginView" destination="X0w-EM-Mo9" id="O4Q-Hv-32n"/>
+                <outlet property="PhoneNum" destination="ZMp-Fe-kve" id="mxV-ZH-MSQ"/>
+                <outlet property="SendSms" destination="YgL-mh-jbp" id="Vlc-6q-vOb"/>
+                <outlet property="Vcode" destination="Imr-we-C3U" id="x8k-0M-aBz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_light" translatesAutoresizingMaskIntoConstraints="NO" id="igc-lP-qWq">
+                    <rect key="frame" x="250" y="100" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="1RF-zj-nYO"/>
+                        <constraint firstAttribute="height" constant="100" id="khS-T0-62u"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登陆氧气，练出好身材" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHk-bS-aWe">
+                    <rect key="frame" x="205" y="240" width="190" height="19"/>
+                    <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="19"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QO1-js-GXt">
+                    <rect key="frame" x="200" y="309" width="200" height="40"/>
+                    <color key="backgroundColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Gx4-yb-sBv"/>
+                        <constraint firstAttribute="width" constant="200" id="pcs-E7-QXl"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="       微信登录" image="wechat">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="loginWithWeChat" destination="-1" eventType="touchUpInside" id="cIm-Gq-3TH"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0w-EM-Mo9">
+                    <rect key="frame" x="175" y="289" width="250" height="160"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Imr-we-C3U">
+                            <rect key="frame" x="25" y="58" width="100" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="X5L-sW-n89"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZMp-Fe-kve">
+                            <rect key="frame" x="25" y="18" width="200" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="06I-oO-knR"/>
+                                <constraint firstAttribute="height" constant="30" id="WKe-xb-Krm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgL-mh-jbp">
+                            <rect key="frame" x="159" y="58" width="66" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <inset key="contentEdgeInsets" minX="20" minY="6" maxX="20" maxY="6"/>
+                            <state key="normal" title="获取">
+                                <color key="titleColor" red="0.46274509800000002" green="0.15686274510000001" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.46274509800000002" green="0.15686274510000001" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sendVcode:" destination="-1" eventType="touchUpInside" id="ijV-Hr-sGk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-2A-IIm">
+                            <rect key="frame" x="25" y="98" width="200" height="27"/>
+                            <color key="backgroundColor" red="0.46274509800000002" green="0.15686274510000001" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="15"/>
+                            <state key="normal" title="登录">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="loginWithVcode" destination="-1" eventType="touchUpInside" id="gdS-Gk-np6"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Imr-we-C3U" firstAttribute="leading" secondItem="X0w-EM-Mo9" secondAttribute="leading" constant="25" id="HSP-qm-TIa"/>
+                        <constraint firstAttribute="width" constant="250" id="IkP-vM-hOj"/>
+                        <constraint firstAttribute="centerX" secondItem="ZMp-Fe-kve" secondAttribute="centerX" id="JvD-2c-Nvf"/>
+                        <constraint firstItem="ZMp-Fe-kve" firstAttribute="top" secondItem="X0w-EM-Mo9" secondAttribute="top" constant="18" id="KfL-xt-fMp"/>
+                        <constraint firstAttribute="height" constant="160" id="Lkz-aM-vZc"/>
+                        <constraint firstItem="rJk-2A-IIm" firstAttribute="leading" secondItem="X0w-EM-Mo9" secondAttribute="leading" constant="25" id="OrW-N7-Hhy"/>
+                        <constraint firstAttribute="trailing" secondItem="YgL-mh-jbp" secondAttribute="trailing" constant="25" id="eQF-EB-8XZ"/>
+                        <constraint firstItem="Imr-we-C3U" firstAttribute="top" secondItem="ZMp-Fe-kve" secondAttribute="bottom" constant="10" id="uZk-87-Jhq"/>
+                        <constraint firstAttribute="trailing" secondItem="rJk-2A-IIm" secondAttribute="trailing" constant="25" id="wCF-YP-dKM"/>
+                        <constraint firstItem="rJk-2A-IIm" firstAttribute="top" secondItem="Imr-we-C3U" secondAttribute="bottom" constant="10" id="wEc-AM-SaQ"/>
+                        <constraint firstItem="YgL-mh-jbp" firstAttribute="top" secondItem="ZMp-Fe-kve" secondAttribute="bottom" constant="10" id="xkb-Ko-lNu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="QO1-js-GXt" firstAttribute="top" secondItem="KHk-bS-aWe" secondAttribute="bottom" constant="50" id="24q-Mp-v1n"/>
+                <constraint firstAttribute="centerX" secondItem="KHk-bS-aWe" secondAttribute="centerX" id="8T8-mO-8Fp"/>
+                <constraint firstItem="X0w-EM-Mo9" firstAttribute="top" secondItem="KHk-bS-aWe" secondAttribute="bottom" constant="30" id="DIp-ti-EDs"/>
+                <constraint firstAttribute="centerX" secondItem="X0w-EM-Mo9" secondAttribute="centerX" id="Jxp-iy-SgE"/>
+                <constraint firstAttribute="centerX" secondItem="igc-lP-qWq" secondAttribute="centerX" id="LYh-pu-VOP"/>
+                <constraint firstItem="KHk-bS-aWe" firstAttribute="top" secondItem="igc-lP-qWq" secondAttribute="bottom" constant="40" id="W0A-Vs-1R9"/>
+                <constraint firstAttribute="centerX" secondItem="QO1-js-GXt" secondAttribute="centerX" id="gBb-WZ-S5V"/>
+                <constraint firstAttribute="centerY" secondItem="igc-lP-qWq" secondAttribute="centerY" constant="150" id="qR9-hy-Vuf"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo_light" width="250" height="250"/>
+        <image name="wechat" width="21" height="17"/>
+    </resources>
+</document>

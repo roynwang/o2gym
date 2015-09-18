@@ -76,12 +76,12 @@ import UIKit
     }
     
     override public func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
-            self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65, y: self.placeholderInsets.y)
+        UIView.animateWithDuration(0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
+            self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.55, y: self.placeholderInsets.y)
         }), completion: nil)
         
-        UIView.animateWithDuration(0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .BeginFromCurrentState, animations: ({
-            self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.6, y: 0)
+        UIView.animateWithDuration(0.55, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .BeginFromCurrentState, animations: ({
+            self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.5, y: 0)
         }), completion: nil)
     }
     

@@ -88,6 +88,9 @@ class WorkingTimeConfigViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = b
         
+        self.hidesBottomBarWhenPushed = true
+
+        
         // Do any additional setup after loading the view.
     }
     func save(){

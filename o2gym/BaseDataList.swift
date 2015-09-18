@@ -9,6 +9,8 @@
 import Foundation
 
 public class BaseDataList {
+    
+    
     public var count:Int {
         get {
             return self.datalist.count
@@ -19,6 +21,10 @@ public class BaseDataList {
     public var delta:Int = 0
     public var isLoaded:Bool = false
 
+    var needAuth:Bool{
+        return false
+    }
+    
     
     var executing:Bool = false
     
@@ -43,6 +49,11 @@ public class BaseDataList {
         let trequest = NSMutableURLRequest(URL: NSURL(string: self.Url)!)
         trequest.HTTPMethod = "POST"
         trequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if self.needAuth {
+            for (key,value) in Local.AuthHeaders{
+             trequest.setValue(key, forHTTPHeaderField: value)
+            }
+        }
         
         let values = self.buildParam()
         
@@ -85,8 +96,13 @@ public class BaseDataList {
         if self.executing {return}
         self.executing = true
         self.delta = 0
-        request(.GET, url, headers:Local.AuthHeaders)
-            .responseJSON { (_, _, data, _) in
+        var req:Request
+        if self.needAuth {
+            req = request(.GET, url, headers:Local.AuthHeaders)
+        } else {
+            req = request(.GET, url)
+        }
+        req.responseJSON { (_, _, data, _) in
                 if data == nil {
                     if allcallback != nil{
                         allcallback!()

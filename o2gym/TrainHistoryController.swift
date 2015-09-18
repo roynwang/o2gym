@@ -8,32 +8,50 @@
 
 import UIKit
 
-class TrainHistoryController: UITableViewController {
+class TrainHistoryController: UITableViewController, AddableProtocol, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     var book:Book!
     var trainHistory:TrainListByDate!
+    var isNew:Bool = false
+    
+    var emptyStr:NSAttributedString!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.tableView.registerNib(UINib(nibName: "EvalHistoryTableCell", bundle: nil), forCellReuseIdentifier: "historycell")
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.rowHeight = 60
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        
+        let attributes = [
+            NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 20)!,
+            NSForegroundColorAttributeName : UIColor.lightGrayColor()]
+        self.emptyStr = NSAttributedString(string:"...载入中...", attributes:attributes)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        self.trainHistory = TrainListByDate(name: self.book.customer.name!, date: nil)
+    override func viewWillAppear(animated: Bool) {
+        
+        var tmpname = Local.USER.name!
+        if self.book != nil {
+            tmpname = self.book.customer.name!
+        }
+        self.trainHistory = TrainListByDate(name: tmpname, date: nil)
         self.trainHistory.load({ () -> Void in
             self.tableView?.reloadData()
+            let attributes = [
+                NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 26)!,
+                NSForegroundColorAttributeName : UIColor.lightGrayColor()]
+            self.emptyStr = NSAttributedString(string:"没有历史数据", attributes:attributes)
+            self.tableView.reloadEmptyDataSet()
             }, itemcallback: nil)
     }
 
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        return self.emptyStr
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,7 +72,7 @@ class TrainHistoryController: UITableViewController {
         if self.trainHistory == nil {
             return 0
         }
-        return self.trainHistory.count + 1
+        return self.trainHistory.count
     }
 
 
@@ -67,24 +85,50 @@ class TrainHistoryController: UITableViewController {
             cell.DateText.textColor = O2Color.MainColor
             cell.DateText.textAlignment = NSTextAlignment.Left
             cell.DateText.backgroundColor = UIColor.clearColor()
-        } else {
-            cell.DateText.text = " + 开始训练"
-            cell.DateText.textAlignment = NSTextAlignment.Center
-            cell.DateText.backgroundColor = O2Color.MainColor
-            cell.DateText.textColor = UIColor.whiteColor()
         }
+//        else {
+//            cell.DateText.text = " + 开始训练"
+//            cell.DateText.textAlignment = NSTextAlignment.Center
+//            cell.DateText.backgroundColor = O2Color.MainColor
+//            cell.DateText.textColor = UIColor.whiteColor()
+//        }
         // Configure the cell...
 
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let c = TrainningController()
         if indexPath.row == self.trainHistory.count {
-            let c = TrainningController()
+            
             c.name = self.book.customer.name
             c.book = self.book
-            self.navigationController?.pushViewController(c, animated: true)
+            
+        } else {
+            if self.book != nil {
+                c.name = self.book.customer.name
+                c.book = self.book
+            } else {
+                c.name = Local.USER.name!
+            }
+            let history = self.trainHistory.datalist[indexPath.row] as! Train
+            c.date = history.date.stringByReplacingOccurrencesOfString("-", withString: "") 
+            
         }
+        self.navigationController?.pushViewController(c, animated: true)
+    }
+    
+    
+    func addItem() {
+        let c = TrainningController()
+
+        c.name = Local.USER.name!
+        if self.book != nil  {
+            c.name = self.book.customer.name
+        }
+        c.book = self.book
+            
+        self.navigationController?.pushViewController(c, animated: true)
     }
 
     /*

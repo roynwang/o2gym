@@ -60,7 +60,6 @@ public class MyCourseViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.registerNib(UINib(nibName: "RecommendCourseCell", bundle: nil), forCellReuseIdentifier: "recommendcoursecell")
-
         
         //self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = 167

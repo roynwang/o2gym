@@ -13,10 +13,61 @@ public class Local{
     static var _usr:User? = nil
     static var _timelne:Timeline? = nil
     static var _token:String? = nil
-    static var AuthHeaders = ["Authorization":"JWT " + Local.TOKEN]
+    static var _hasLogin:Bool = false
+    
+    
+    static var AuthHeaders:[String:String] {
+        if Local.TOKEN == "" {
+            return ["Authorization":"JWT " + Local.TOKEN]
+        }
+        return [String:String]()
+    }
+    
+    
+    public class func loginWithVcode(phoneNum:String, vcode:String, onsuccess :((User)->Void)?,onfail :((String)->Void)?){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        request(.GET, Host.VcodeLogin(phoneNum, vcode: vcode))
+            .responseJSON { (req, resp, data, err) -> Void in
+                if err != nil {
+                    if onfail != nil {
+                        onfail!("登陆失败")
+                    }
+                    return
+                }
+                if resp?.statusCode == 200{
+                    let dict = JSON(data!)
+                    
+                    self._token = dict["token"].stringValue
+                    defaults.setValue(self._token, forKey: "o2gym_token")
+                    
+                    self._usr = User(name: phoneNum)
+                    self._timelne = Timeline(name: phoneNum)
+                    self._hasLogin = true
+                    
+                    //self.TIMELINE.loadRemote(nil, onfail: nil)
+                    
+                    self.USER.loadRemote(onsuccess, onfail: onfail)
+                } else {
+                    if onfail != nil {
+                        onfail!("登陆失败")
+                    }
+                }
+        }
+    }
+    
+    
+    
     
     public class func login(onsuccess :((User)->Void)?,onfail :((String)->Void)?){
+        
         let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let token = defaults.stringForKey("o2gym_token") {
+            self._hasLogin = true
+            self._token = token
+            return
+        }
+
         let name:String = defaults.stringForKey("o2gym_name")!
         let pwd:String = defaults.stringForKey("o2gym_pwd")!
         
@@ -25,19 +76,21 @@ public class Local{
                 if err != nil {
                     if onfail != nil {
                         onfail!("登陆失败")
-                        
                     }
                     return
                 }
                 
                 if resp?.statusCode == 200{
                     let dict = JSON(data!)
-                    self._token = dict["token"].stringValue
                     
+                    self._token = dict["token"].stringValue
+                    defaults.setValue(self._token, forKey: "o2gym_token")
+
                     self._usr = User(name: name)
                     self._timelne = Timeline(name: name)
+                    self._hasLogin = true
                     
-                    self.TIMELINE.loadRemote(nil, onfail: nil)
+                    //self.TIMELINE.loadRemote(nil, onfail: nil)
                     
                     self.USER.loadRemote(onsuccess, onfail: onfail)
                     
@@ -53,12 +106,17 @@ public class Local{
 
     }
     
-    
+    public static var HASLOGIN:Bool {
+        return Local._hasLogin
+    }
     
     public static var USER:User{
         return Local._usr!
     }
     public static var TOKEN:String{
+        if Local._token == nil {
+            return ""
+        }
         return Local._token!
     }
     public static var TIMELINE:Timeline{

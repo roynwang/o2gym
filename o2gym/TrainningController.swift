@@ -12,8 +12,11 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     
     var name:String!
     var book:Book!
+    var date:String!
     var actions:[String : [Train]] = [String : [Train]]()
     var actionkey:[String] = [String]()
+    
+    var trainList:TrainListByDate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +28,14 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         
         self.tableView.separatorStyle = .None
         
-        self.title = "新训练"
         
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
+        if self.date == nil {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
+            self.title = "新训练"
+        } else {
+            self.title = self.date
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,10 +44,34 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if self.date != nil {
+            self.trainList = TrainListByDate(name: self.name, date: self.date)
+            self.trainList.load({ () -> Void in
+                self.trainListToActions(self.trainList)
+                self.tableView.reloadData()
+            }, itemcallback: nil)
+        }
+    }
+    func trainListToActions(tl: TrainListByDate){
+        for item in tl.datalist {
+            let train = item as! Train
+            if nil == self.actions.indexForKey(train.action_name) {
+                self.actions[train.action_name] = [Train]()
+                self.actionkey.append(train.action_name)
+            }
+            self.actions[train.action_name]?.append(train)
+        }
+        
+    }
+    
+    
     func save(){
         self.saveAllTrains()
         let forsave = TrainListByDate(name: self.name, date: NSDate().dateToString())
-        forsave.courseid = self.book.id
+        if self.book != nil {
+            forsave.courseid = self.book.id
+        }
         for trains in self.actions.values {
             for train in trains {
                 forsave.datalist.append(train)
@@ -85,6 +116,11 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         if section != self.numberOfSectionsInTableView(self.tableView) {
             cell.ActionName.text = self.actionkey[section]
         }
+        if self.date != nil {
+            cell.AddBtn.hidden = true
+        }
+        
+        
         cell.doAddRow = {
             //self.saveAllTrains()
             //has filled the last one
@@ -110,6 +146,10 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             cell.DateText.textColor = O2Color.MainColor
            
             cell.selectionStyle = .None
+            
+            if self.date != nil {
+                cell.hidden = true
+            }
             return cell
         }
         
@@ -121,6 +161,7 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         if train.repeattimes != nil {
             cell.Repeatttimes.text = train.repeattimes
         }
+   
         return cell
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -128,11 +169,11 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         if section + 1 == self.numberOfSectionsInTableView(self.tableView){
             return 0
         }
-        return 60
+        return 40
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return 45
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

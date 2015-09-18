@@ -8,12 +8,14 @@
 
 import UIKit
 
-class EvalHistoryTableController: UITableViewController {
+class EvalHistoryTableController: UITableViewController, AddableProtocol, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     
     var book:Book!
     var evalHistory:BodyEvalListByDate!
     
+    
+    var emptyStr:NSAttributedString!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,13 +29,36 @@ class EvalHistoryTableController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "EvalHistoryTableCell", bundle: nil), forCellReuseIdentifier: "historycell")
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.rowHeight = 60
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        
+        
+        let attributes = [
+            NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 20)!,
+            NSForegroundColorAttributeName : UIColor.lightGrayColor()]
+        self.emptyStr = NSAttributedString(string:"...载入中...", attributes:attributes)
     }
     
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        return self.emptyStr
+    }
     
-    override func viewDidAppear(animated: Bool) {
-        self.evalHistory = BodyEvalListByDate(name: self.book.customer.name!, date: nil)
+    override func viewWillAppear(animated: Bool) {
+        
+        var tmpname = Local.USER.name!
+        if self.book != nil {
+            tmpname = self.book.customer.name!
+        }
+        self.evalHistory = BodyEvalListByDate(name: tmpname, date: nil)
         self.evalHistory.load({ () -> Void in
             self.tableView?.reloadData()
+            
+            let attributes = [
+                NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 26)!,
+                NSForegroundColorAttributeName : UIColor.lightGrayColor()]
+            self.emptyStr = NSAttributedString(string:"没有历史数据", attributes:attributes)
+            self.tableView.reloadEmptyDataSet()
             }, itemcallback: nil)
     }
     
@@ -57,7 +82,7 @@ class EvalHistoryTableController: UITableViewController {
         if self.evalHistory == nil {
             return 0
         }
-        return self.evalHistory.count + 1
+        return self.evalHistory.count
     }
 
 
@@ -71,12 +96,13 @@ class EvalHistoryTableController: UITableViewController {
             cell.DateText.textColor = O2Color.MainColor
             cell.DateText.textAlignment = NSTextAlignment.Left
             cell.DateText.backgroundColor = UIColor.clearColor()
-        } else {
-            cell.DateText.text = " + 添加"
-            cell.DateText.textAlignment = NSTextAlignment.Center
-            cell.DateText.backgroundColor = O2Color.MainColor
-            cell.DateText.textColor = UIColor.whiteColor()
         }
+//        else {
+//            cell.DateText.text = " + 添加"
+//            cell.DateText.textAlignment = NSTextAlignment.Center
+//            cell.DateText.backgroundColor = O2Color.MainColor
+//            cell.DateText.textColor = UIColor.whiteColor()
+//        }
         return cell
     }
     
@@ -96,6 +122,12 @@ class EvalHistoryTableController: UITableViewController {
         self.navigationController?.pushViewController(c1, animated: true)
     }
 
+    func addItem() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let c1 =  sb.instantiateViewControllerWithIdentifier("bodyeval") as! BodyEvalController
+        c1.usr = self.book == nil ? Local.USER.name! : self.book.customer.name
+        self.navigationController?.pushViewController(c1, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

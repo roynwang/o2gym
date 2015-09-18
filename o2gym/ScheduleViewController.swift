@@ -14,6 +14,7 @@ class ScheduleViewController: UITableViewController {
     var daylist:[String : [Book]]!
     var days:[String]!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.days = []
         self.navigationController?.navigationController?.navigationBar.translucent = false
@@ -28,6 +29,7 @@ class ScheduleViewController: UITableViewController {
         self.tableView.sectionIndexColor = O2Color.TextGrey
         //self.tableView.backgroundColor = O2Color.BgGreyColor
 
+        
         
         //self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         // Uncomment the following line to preserve selection between presentations
@@ -117,6 +119,8 @@ class ScheduleViewController: UITableViewController {
         header.contentView.bottomBorderWidth = 0.5
         if section != 0 {
             header.contentView.topBorderWidth = 0.5
+        } else {
+             header.contentView.topBorderWidth = 0
         }
     }
     

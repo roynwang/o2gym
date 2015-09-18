@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "piccell"
 
-public class AlbumViewController: UICollectionViewController {
+public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     var rydelegate:RYProfileViewDelegate!
     
@@ -26,6 +26,8 @@ public class AlbumViewController: UICollectionViewController {
     var nomore:Bool = false
     var started:Bool = false
     var allpics:[UIImageView] = []
+    
+    var emptyStr:NSAttributedString!
     
     
     public func setUser(name:String){
@@ -52,7 +54,7 @@ public class AlbumViewController: UICollectionViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.isSelf = (self.usrname == Local.USER.name)
+        self.isSelf = (Local.HASLOGIN && self.usrname == Local.USER.name)
         
         
         //let framewidth = CGRectGetWidth(self.collectionView!.frame)
@@ -71,7 +73,24 @@ public class AlbumViewController: UICollectionViewController {
         self.hidesBottomBarWhenPushed = true
         //self.load(nil)
         // Do any additional setup after loading the view.
+        let attributes = [
+            NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 20)!,
+            NSForegroundColorAttributeName : UIColor.lightGrayColor()]
+        self.emptyStr = NSAttributedString(string:"...载入中...", attributes:attributes)
         
+        
+        self.collectionView!.emptyDataSetSource = self
+        self.collectionView!.emptyDataSetDelegate = self
+        
+    }
+    
+    
+    public func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        return self.emptyStr
+    }
+    
+    public func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
+        return -200
     }
     
     func segmentTitle()->String{
@@ -89,6 +108,12 @@ public class AlbumViewController: UICollectionViewController {
             if callback != nil{
                 callback!()
             }
+            let attributes = [
+                NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 20)!,
+                NSForegroundColorAttributeName : UIColor.lightGrayColor()]
+            self.emptyStr = NSAttributedString(string:"还没有照片", attributes:attributes)
+            self.collectionView!.reloadEmptyDataSet()
+            println(self.album.count)
             }, itemcallback: { (item) -> Void in
                 let img = UIImageView()
                 img.load((item as! Pic).url)
@@ -163,13 +188,11 @@ public class AlbumViewController: UICollectionViewController {
     
     public override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if self.isSelf && indexPath.row == 0 {
-           let sb = UIStoryboard(name: "Main", bundle: nil)
-           let v = sb.instantiateViewControllerWithIdentifier("newpost") as! WeiboPostViewController
-            //just for trigger viewDidLoad
-            let p = v.view
-           self.navigationController?.pushViewController(v, animated: true)
+            let picker = FSMediaPicker()
+            picker.editMode = FSEditModeNone
+            picker.delegate = self
+            picker.showFromView(self.collectionView)
         } else {
-            
             var photos:[PicForNYT] = []
             var start = self.isSelf ? 1 : 0
             
@@ -271,3 +294,39 @@ public class AlbumViewController: UICollectionViewController {
     */
     
 }
+
+
+extension AlbumViewController : FSMediaPickerDelegate {
+    
+    
+    
+    public func mediaPicker(mediaPicker: FSMediaPicker!, didFinishWithMediaInfo mediaInfo: [NSObject : AnyObject]!) {
+        let image : UIImage = mediaInfo["UIImagePickerControllerOriginalImage"] as! UIImage
+        var ratio:CGFloat = 1
+        let imgdata = UIImageJPEGRepresentation(image, 1)
+        if imgdata.length/1024 > 50 {
+            ratio = CGFloat(300)/CGFloat(imgdata.length/1024)
+        }
+        //Local.USER.avatar = "test"
+        //let nsdata = NSData(
+        Helper.upload(UIImageJPEGRepresentation(image,ratio), complete: { (info, filename, resp) -> Void in
+            let img = Host.ImgHost + filename
+            let post = Weibo(usr: Local.USER)
+            post.setContent("新照片", brief: "", imgs: "[\"\(img)\"]")
+            post.save({ (_) -> Void in
+                println("saved ... ...")
+            }, error_handler: nil)
+        
+//            Local.USER.avatar = Host.ImgHost + filename
+//            Local.USER.update(nil, onfail: nil)
+//            
+//            //update local
+//            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! ProfileAvatarCell
+//            cell.Avatar.fitLoad(Local.USER.avatar!, placeholder: nil)
+        })
+        
+    }
+    
+}
+
+

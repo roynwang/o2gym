@@ -10,8 +10,6 @@ import UIKit
 
 class MyProductCell: UITableViewCell {
 
-    
- 
     var product:Product!
     
     @IBOutlet weak var Promotion: UILabel!

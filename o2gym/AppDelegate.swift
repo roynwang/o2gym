@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
 
@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         
+        
         //hide the back title
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), forBarMetrics: UIBarMetrics.Default)
         
@@ -45,8 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         UINavigationBar.appearance().shadowImage = UIImage()
         
+        
+        let tabbar = self.window?.rootViewController as! UITabBarController
+        tabbar.delegate = self
 //        var myImage = UIImage(named: "back");
 //        UIBarButtonItem.appearance().setBackButtonBackgroundImage(myImage, forState: .Normal, barMetrics: .Default);
+        
+        WXApi.registerApp("wx8a54b204656aeefb")
+        
+        
         return true
     }
 
@@ -83,5 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
 }
 

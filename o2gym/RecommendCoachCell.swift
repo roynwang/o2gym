@@ -37,7 +37,11 @@ class RecommendCoachCell: BaseViewCell {
         let r = item as! RecommendItem
         self.Name.text = r.recommendtitle
         self.Tags.text = "   " + r.recommendsubtitle! + "    "
-        self.Img.load(r.recommendpic!)
+        //self.Img.load(r.recommendpic!)
+        self.Img.load(r.recommendpic!, placeholder: nil) { (_, img, err) -> () in
+            UIImageView.addShadowWithColor(UIColor.lightGrayColor(), inImageView: self.Img)
+        }
+      
         self.Loc.text = r.recommendloc
         self.addCorner(r.corner)
     }

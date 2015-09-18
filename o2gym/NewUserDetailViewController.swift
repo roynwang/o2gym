@@ -22,28 +22,30 @@ class NewUserDetailViewController: RYProfileViewController {
     var header:UserDetailHeaderView!
 
     override func viewDidLoad() {
-        self.mypost = MyPostViewController(nibName: "MyPostViewController", bundle: nil, usrname:self.usrname)
-        self.mypost.rydelegate = self
+        
+//        self.mypost = MyPostViewController(nibName: "MyPostViewController", bundle: nil, usrname:self.usrname)
+//        self.mypost.rydelegate = self
+        
+        
+        
         self.album = AlbumViewController(nibName: "AlbumViewController", bundle: nil, usrname:self.usrname)
         self.album.rydelegate = self
         
         self.mycourse = MyGoodsViewController(nibName: "MyPostViewController", bundle: nil, usrname:self.usrname)
         self.mycourse.rydelegate = self
         
-        self.viewControllerSet = [album,mypost,mycourse]
+        self.viewControllerSet = [album,mycourse]
         self.header = self.initHeaderView()
         self.headerView = self.header
         self.segmentControlView = self.initSeg()
-        let header = self.headerView as! UserDetailHeaderView
+    
         self.usr = User(name: self.usrname)
         
         super.viewDidLoad()
         
         self.view.backgroundColor = O2Color.MainColor
         
-    
-        
-              // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
     }
     
 
@@ -74,7 +76,7 @@ class NewUserDetailViewController: RYProfileViewController {
             self.title = tarusr.displayname
             
             
-            self.mypost.setUser(self.usrname)
+            //self.mypost.setUser(self.usrname)
             self.album.setUser(self.usrname)
             //self.mycourse.setUser(self.usrname)
             
@@ -86,14 +88,17 @@ class NewUserDetailViewController: RYProfileViewController {
         
         var favimgname = "fav_bar"
         
-        if let index = find(Local.USER.upped_person, self.usrname){
-            self.faved = true
-            favimgname = "fav_bar_active"
+        if Local.HASLOGIN {
+            if let index = find(Local.USER.upped_person, self.usrname){
+                self.faved = true
+                favimgname = "fav_bar_active"
+            }
         }
         self.favbtn = Helper.createButtonFromImg(favimgname, selector: "favperson", tar: self)
         
+        
         self.navigationItem.rightBarButtonItems = [
-            Helper.createBarButtonItemFromImg("fwd_bar", selector: "recommendperson", tar: self),
+//            Helper.createBarButtonItemFromImg("fwd_bar", selector: "recommendperson", tar: self),
             UIBarButtonItem(customView: self.favbtn)
         ]
 
@@ -107,7 +112,7 @@ class NewUserDetailViewController: RYProfileViewController {
     }
     
     func initSeg() -> UIView{
-        let titles = ["相册","氧气罐","课程"]
+        let titles = ["相册","课程"]
         let unit:CGFloat = 75
         let seg = HMSegmentedControl(sectionTitles: titles)
         let width : CGFloat = unit * CGFloat(titles.count)
@@ -115,7 +120,7 @@ class NewUserDetailViewController: RYProfileViewController {
         seg.frame = CGRectMake(startx, 0, width, 39.5);
         seg.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         seg.selectionIndicatorColor = O2Color.MainColor
-        seg.selectionIndicatorHeight = 1
+        seg.selectionIndicatorHeight = 2
         
         seg.titleTextAttributes = [
             NSFontAttributeName: UIFont.systemFontOfSize(16),
@@ -130,9 +135,13 @@ class NewUserDetailViewController: RYProfileViewController {
         
         let ret = UIView(frame: CGRectMake(0,0,width,39.5))
         ret.addSubview(seg)
-        ret.bottomBorderWidth = 0.4
-        ret.borderColor = O2Color.BorderGrey
+        //ret.bottomBorderWidth = 0.4
+        
         ret.backgroundColor = UIColor.whiteColor()
+        
+        let split = UIView(frame: CGRectMake(0,39,self.view.frame.width,1))
+        split.backgroundColor = O2Color.BorderGrey
+        ret.addSubview(split)
         
         
     
@@ -154,16 +163,20 @@ class NewUserDetailViewController: RYProfileViewController {
        
         O2Nav.setController(self)
         
-        UIView.animateWithDuration(0.5, animations: {
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-            }, completion: {(_) in
-                
-        })
-        self.navigationController?.navigationBar.translucent = true
-        self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor.colorWithAlphaComponent(0)
-        self.navigationController?.navigationBar.barTintColor = O2Color.MainColor.colorWithAlphaComponent(0)
-        O2Nav.setNavigationBarTransformProgress(1)
+        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            
+            self.navigationController?.navigationBar.translucent = true
+            self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor.colorWithAlphaComponent(0)
+            self.navigationController?.navigationBar.barTintColor = O2Color.MainColor.colorWithAlphaComponent(0)
+            O2Nav.setNavigationBarTransformProgress(1)
+
+            }, completion: nil)
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        O2Nav.setNavTitle()
     }
     
     override func RYscrollViewDidScroll(scrollView: UIScrollView) {
