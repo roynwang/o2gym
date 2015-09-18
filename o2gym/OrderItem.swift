@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 
 public class OrderItem : BaseDataItem{
@@ -80,35 +81,38 @@ public class OrderItem : BaseDataItem{
     }
     
     public override func buildParam() -> [String : String] {
-        var ret =  [
+        let ret =  [
             "coach": self.coach.id!.toString(),
             "custom": self.customer.id!.toString(),
             "product": self.product.toString()
         ]
 
-        println(ret)
+        print(ret)
         return ret
     }
     
     public func pay(on_success:(()->Void)?){
         
         //get the charge
-        request(.GET, Host.PayOrderGet(self.billid,channel: "wx"))
-        .responseString(encoding: NSUTF8StringEncoding) { (_, resp, data, err) -> Void in
+       Alamofire.request(.GET, Host.PayOrderGet(self.billid,channel: "wx"))
+        .responseString(encoding: NSUTF8StringEncoding) {
+            (_, resp, data) -> Void
+            in
             if resp?.statusCode == 201 {
-                Pingpp.createPayment(data, appURLScheme: "o2gym", withCompletion: { (result, error) -> Void in
-                    
-                    println(result)
+                Pingpp.createPayment(data.value, appURLScheme: "o2gym", withCompletion: {
+                    (result, error) -> Void
+                    in
+                    print(result)
                     if error != nil {
-                        println(error.code.rawValue)
-                        println(error.getMsg())
+                        print(error.code.rawValue)
+                        print(error.getMsg())
                     } else {
                         on_success!()
                     }
 
                 })
             } else {
-                println(err)
+                print(data.error)
             }
         }
         

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="504" height="169"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="504" height="168.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vaZ-hb-0uW">
-                        <rect key="frame" x="0.0" y="2" width="504" height="164.5"/>
+                        <rect key="frame" x="8" y="2" width="488" height="164.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEM-oO-vaU">
                         <rect key="frame" x="20" y="74" width="44.5" height="20"/>
@@ -42,20 +43,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loc" translatesAutoresizingMaskIntoConstraints="NO" id="v2F-Bn-evB">
-                        <rect key="frame" x="358" y="144" width="16" height="16"/>
+                        <rect key="frame" x="441.5" y="144" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="7JT-zS-bH1"/>
                             <constraint firstAttribute="height" constant="16" id="xiA-TX-sdg"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC5-Qt-s96">
-                        <rect key="frame" x="378" y="146" width="22.5" height="10"/>
+                        <rect key="frame" x="461" y="146" width="22.5" height="10"/>
                         <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJg-9V-lgh">
-                        <rect key="frame" x="456" y="122.5" width="36" height="16"/>
+                        <rect key="frame" x="456" y="122" width="36" height="16"/>
                         <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="16"/>
                         <color key="textColor" red="0.93725490199999995" green="0.41960784309999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -64,23 +65,25 @@
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="v2F-Bn-evB" secondAttribute="trailing" constant="122" id="2Es-XG-e7l"/>
                     <constraint firstItem="FC5-Qt-s96" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="4" id="3DE-XW-Afc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="FC5-Qt-s96" secondAttribute="trailing" constant="12" id="4H4-Zo-uvW"/>
                     <constraint firstAttribute="bottomMargin" secondItem="v2F-Bn-evB" secondAttribute="bottom" id="BrS-Bz-ned"/>
                     <constraint firstItem="FC5-Qt-s96" firstAttribute="leading" secondItem="v2F-Bn-evB" secondAttribute="trailing" constant="4" id="IzL-uF-N6r"/>
                     <constraint firstItem="BKx-o7-UCt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="JmM-fw-DcC"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vaZ-hb-0uW" secondAttribute="bottom" constant="-6" id="TXA-7D-hak"/>
-                    <constraint firstItem="vaZ-hb-0uW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="UPS-Yk-imV"/>
+                    <constraint firstItem="vaZ-hb-0uW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UPS-Yk-imV"/>
                     <constraint firstAttribute="bottomMargin" secondItem="FC5-Qt-s96" secondAttribute="bottom" id="Vhn-in-GVQ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="FC5-Qt-s96" secondAttribute="bottom" constant="4" id="WBe-km-8ai"/>
                     <constraint firstItem="vaZ-hb-0uW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="Xod-3S-vm1"/>
                     <constraint firstAttribute="centerY" secondItem="GEM-oO-vaU" secondAttribute="centerY" id="aRj-j3-KYX"/>
                     <constraint firstItem="GEM-oO-vaU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="d16-tS-cHl"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vaZ-hb-0uW" secondAttribute="trailing" constant="-8" id="dbt-8e-cFA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vaZ-hb-0uW" secondAttribute="trailing" id="dbt-8e-cFA"/>
                     <constraint firstItem="BKx-o7-UCt" firstAttribute="top" secondItem="GEM-oO-vaU" secondAttribute="bottom" constant="8" id="gyn-s0-3Mt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="RJg-9V-lgh" secondAttribute="bottom" constant="22" id="pZK-Ag-gr2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="RJg-9V-lgh" secondAttribute="trailing" constant="4" id="yBc-tM-RVd"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="2Es-XG-e7l"/>
                         <exclude reference="3DE-XW-Afc"/>
                         <exclude reference="Vhn-in-GVQ"/>
                     </mask>

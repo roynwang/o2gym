@@ -20,7 +20,7 @@ class ScheduleViewController: UITableViewController {
         self.navigationController?.navigationController?.navigationBar.translucent = false
         self.curDate = CVDate(date: NSDate())
         self.tableView.registerNib(UINib(nibName: "BookedCourseComplexCell", bundle: nil), forCellReuseIdentifier: "bookedcoursecell")
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -40,16 +40,15 @@ class ScheduleViewController: UITableViewController {
     }
     override func viewWillAppear(animated: Bool) {
      
-        var t = Local.USER
         self.weekSchedule = WeekBookList(name: Local.USER.name!, date: self.curDate.numDescription)
         
         self.weekSchedule.load({ () -> Void in
             self.days = []
-            println("load week done")
+            print("load week done")
             self.daylist = [String:[Book]]()
             for item in self.weekSchedule.datalist {
                 let book = item as! Book
-                if nil == find(self.daylist.keys.array, book.date) {
+                if nil == self.daylist.keys.indexOf(book.date) {
                     self.daylist[book.date] = [book]
                     self.days.append(book.date)
                 } else {
@@ -111,8 +110,8 @@ class ScheduleViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
         header.contentView.backgroundColor =  O2Color.BgGreyColor
-        header.textLabel.textColor = UIColor.darkGrayColor()
-        header.textLabel.font = UIFont(name: "RTWS YueGothic Trial", size: 14)
+        header.textLabel!.textColor = UIColor.darkGrayColor()
+        header.textLabel!.font = UIFont(name: "RTWS YueGothic Trial", size: 14)
         //header.textLabel.text = self.daylist.keys.array[section]
         header.alpha = 1 //make the header transparent
         header.contentView.borderColor = O2Color.BorderGrey

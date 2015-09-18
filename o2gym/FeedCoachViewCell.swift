@@ -105,12 +105,10 @@ class FeedCoachViewCell: UITableViewCell {
         
         
         //self.Img.load(weibo.coach!.avatar!)
-        self.Img.load(weibo.coach!.avatar!, placeholder: UIImage(named:"avatar")) { (_, uiimg, errno_t) -> () in
-            self.Img.image = Helper.RBSquareImage(uiimg!)
-        }
+        self.Img.fitLoad(weibo.coach!.avatar!, placeholder: UIImage(named:"avatar"))
         self.Name.text = weibo.coach!.name
-        println(Local.TIMELINE.follows)
-        if let index = find(Local.TIMELINE.follows, weibo.coach!.id!) {
+        print(Local.TIMELINE.follows)
+        if let _ = Local.TIMELINE.follows.indexOf(weibo.coach!.id!) {
             self.FollowBtn.hidden = true
             self.Followed.hidden = false
         } else {

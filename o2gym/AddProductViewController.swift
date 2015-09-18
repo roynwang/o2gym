@@ -15,9 +15,9 @@ class AddProductViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = O2Color.BgGreyColor
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        var b = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
+        let b = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
         
         self.navigationItem.rightBarButtonItem = b
         
@@ -138,15 +138,15 @@ class AddProductViewController: UITableViewController {
         
         alert.onSubmit = {
             (v1:String!, v2:String!) ->Void in
-            println(v1)
-            println(v2)
+            print(v1)
+            print(v2)
         }
         switch indexPath.section {
         case 0 :
             alert.setTitle("数量")
             alert.onSubmit = {
                 (v1:String!, v2:String!) ->Void in
-                self.product.amount = v1.toInt()
+                self.product.amount = Int(v1)
                 self.tableView.reloadData()
             }
             break
@@ -154,7 +154,7 @@ class AddProductViewController: UITableViewController {
             alert.setTitle("价格")
             alert.onSubmit = {
                 (v1:String!, v2:String!) ->Void in
-                self.product.price = v1.toInt()
+                self.product.price = Int(v1)
                 self.tableView.reloadData()
             }
             break
@@ -162,7 +162,7 @@ class AddProductViewController: UITableViewController {
             alert.setTitle("促销")
             alert.onSubmit = {
                 (v1:String!, v2:String!) ->Void in
-                self.product.promotion = v1.toInt()
+                self.product.promotion = Int(v1)
                 self.tableView.reloadData()
             }
             break

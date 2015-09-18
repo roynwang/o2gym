@@ -37,7 +37,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             self.allpics
         }
     }
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -113,10 +113,10 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
                 NSForegroundColorAttributeName : UIColor.lightGrayColor()]
             self.emptyStr = NSAttributedString(string:"还没有照片", attributes:attributes)
             self.collectionView!.reloadEmptyDataSet()
-            println(self.album.count)
+            print(self.album.count)
             }, itemcallback: { (item) -> Void in
                 let img = UIImageView()
-                img.load((item as! Pic).url)
+                img.loadUrl((item as! Pic).url)
                 self.allpics.append(img)
         })
     
@@ -176,12 +176,8 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
                 i -= 1
             }
             let pic = self.album.datalist[i] as! Pic
-            cell.Img.load(pic.url, placeholder: nil) { (_, uiimg, err) -> () in
-                //self.allpics[i] = uiimg!
-                cell.Img.image = Helper.RBSquareImage(uiimg!)
-                
-            }
-            println(pic.url)
+            cell.Img.fitLoad(pic.url, placeholder: nil)
+            print(pic.url)
             return cell
         }
     }
@@ -199,7 +195,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             var t = 0
             while t < self.album.count {
                 let v = UIImageView()
-                v.load((self.album.datalist[t] as! Pic).url)
+                v.loadUrl((self.album.datalist[t] as! Pic).url)
                 photos.append(
                     PicForNYT(
                         url: NSURL(string:(self.album.datalist[t] as! Pic).url),
@@ -253,7 +249,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
         }
         self.album.loadHistory(addlatest, itemcallback: {(item) -> Void in
             let img = UIImageView()
-            img.load((item as! Pic).url)
+            img.loadUrl((item as! Pic).url)
             self.allpics.append(img)
         })
     }
@@ -303,18 +299,18 @@ extension AlbumViewController : FSMediaPickerDelegate {
     public func mediaPicker(mediaPicker: FSMediaPicker!, didFinishWithMediaInfo mediaInfo: [NSObject : AnyObject]!) {
         let image : UIImage = mediaInfo["UIImagePickerControllerOriginalImage"] as! UIImage
         var ratio:CGFloat = 1
-        let imgdata = UIImageJPEGRepresentation(image, 1)
+        let imgdata = UIImageJPEGRepresentation(image, 1)!
         if imgdata.length/1024 > 50 {
             ratio = CGFloat(300)/CGFloat(imgdata.length/1024)
         }
         //Local.USER.avatar = "test"
         //let nsdata = NSData(
-        Helper.upload(UIImageJPEGRepresentation(image,ratio), complete: { (info, filename, resp) -> Void in
+        Helper.upload(UIImageJPEGRepresentation(image,ratio)!, complete: { (info, filename, resp) -> Void in
             let img = Host.ImgHost + filename
             let post = Weibo(usr: Local.USER)
             post.setContent("新照片", brief: "", imgs: "[\"\(img)\"]")
             post.save({ (_) -> Void in
-                println("saved ... ...")
+                print("saved ... ...")
             }, error_handler: nil)
         
 //            Local.USER.avatar = Host.ImgHost + filename

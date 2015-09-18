@@ -42,7 +42,7 @@ class CircleViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
-        var baritem = self.navigationController?.tabBarItem!
+        let baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "circle_active")
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         

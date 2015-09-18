@@ -34,7 +34,7 @@ class CourseReviewController: UIViewController {
 
     
     @IBAction func submitReview(sender: AnyObject) {
-        println(self.Comments.text)
+        print(self.Comments.text)
         self.book.comment = ""
         self.book.comment = self.Comments.text!
         self.book.rate = Int(self.RateView.value * 10)

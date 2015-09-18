@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeLoginController: UIViewController {
+class MeLoginController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginView: LoginView!
     override func viewDidLoad() {
@@ -28,7 +28,13 @@ class MeLoginController: UIViewController {
     override func viewDidAppear(animated: Bool){
         if Local.HASLOGIN {
             self.showContentView()
-        } 
+        } else {
+            self.loginView.determineLoginMethod()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("mmmmmmm")
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,12 +48,13 @@ class MeLoginController: UIViewController {
         self.navigationController?.pushViewController(cont, animated: false)
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
     
-       
     
-   
     
-
     /*
     // MARK: - Navigation
 

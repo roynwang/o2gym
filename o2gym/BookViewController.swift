@@ -127,29 +127,29 @@ class BookViewController: UIViewController {
             //update height
             var allshowntime:[Int] = []
             for h in 0..<Local.TimeMap.count-1 {
-                if  nil == find(self.dayTime.out, h) {
+                if  nil == self.dayTime.out.indexOf(h) {
                     allshowntime.append(h)
                 }
             }
             // remove booked time form na
             if let v = self.bookedTime[self.dayTime.date] {
-                self.dayTime.na = self.dayTime.na.filter({ nil == find(v,$0)})
+                self.dayTime.na = self.dayTime.na.filter({ nil == v.indexOf($0)})
                 self.dayBookedTime = v
             }
             
             for book in self.order.booked{
                 if book.date == self.dayTime.date {
-                    if let i = find(self.dayTime.na, book.hour){
+                    if let i = self.dayTime.na.indexOf(book.hour){
                         self.dayTime.na.removeAtIndex(i)
                     }
-                    if let i = find(self.dayTime.na, book.hour+1){
+                    if let i = self.dayTime.na.indexOf(book.hour+1){
                         self.dayTime.na.removeAtIndex(i)
                     }
                 }
             }
             
             
-            println(self.dayTime.na)
+            print(self.dayTime.na)
             self.TimeCollectionView.reloadData()
             }, onfail: nil)
         
@@ -172,7 +172,7 @@ class BookViewController: UIViewController {
         
     }
     func collapse(gr:UITapGestureRecognizer){
-        println(gr.view!.tag)
+        print(gr.view!.tag)
         if !self.isCollapsed {
             
             UIView.animateWithDuration(0.15, animations: { () -> Void in
@@ -310,7 +310,7 @@ class BookViewController: UIViewController {
             }
         }
         
-        var sortedday = self.bookedTime.keys.array.sorted{ $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+        let sortedday = self.bookedTime.keys.sort{ $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
         
         for day in sortedday  {
             var hours:[Int] = self.bookedTime[day]!
@@ -356,10 +356,10 @@ class BookViewController: UIViewController {
         
         
         book.save({ (book) -> Void in
-            println("save successful")
+            print("save successful")
             cell.done()
             
-            if rowIndex == (self.bookedTime.keys.array.count - 1) {
+            if rowIndex == (self.bookedTime.keys.count - 1) {
                 let animation = CATransition()
                 animation.type = kCATransitionFade
                 animation.duration = 0.4;
@@ -373,8 +373,8 @@ class BookViewController: UIViewController {
             //self.dayBookedTime = []
             
             }, error_handler: { (error) -> Void in
-                println("save failed")
-                println(error)
+                print("save failed")
+                print(error)
                 
         })
         
@@ -428,10 +428,10 @@ extension BookViewController: CVCalendarViewDelegate {
     func didSelectDayView(dayView: CVCalendarDayView) {
         let date = dayView.date
         self.curDate = date
-        println("\(Calendar.presentedDate.commonDescription) is selected!")
+        print("\(Calendar.presentedDate.commonDescription) is selected!")
         //TODO: load the day schedule
         self.dayBookedTime = []
-        if let i = self.bookedTime.indexForKey(self.curDate.numDescription) {
+        if let _ = self.bookedTime.indexForKey(self.curDate.numDescription) {
             self.dayBookedTime = self.bookedTime[self.curDate.numDescription]!
         }
         
@@ -449,7 +449,7 @@ extension BookViewController: CVCalendarViewDelegate {
     
     func didDeselectDayView(dayView: CVCalendarDayView) {
         let date = dayView.date
-        println("\(date.commonDescription) is deselected!")
+        print("\(date.commonDescription) is deselected!")
     }
     
     func presentedDateUpdated(date: CVDate) {
@@ -481,7 +481,7 @@ extension BookViewController: CVCalendarViewDelegate {
 }
 
 
-extension BookViewController: CVCalendarViewDelegate
+extension BookViewController
 {
     func preliminaryView(viewOnDayView dayView: DayView) -> UIView
     {
@@ -509,7 +509,7 @@ extension BookViewController: CVCalendarViewDelegate
         let ringLineWidth: CGFloat = 4.0
         let ringLineColour: UIColor = O2Color.MainColor
         
-        var newView = UIView(frame: dayView.bounds)
+        let newView = UIView(frame: dayView.bounds)
         
         let diameter: CGFloat = (newView.bounds.width) - ringSpacing
         let radius: CGFloat = diameter / 2.0
@@ -523,7 +523,7 @@ extension BookViewController: CVCalendarViewDelegate
         ringLayer.lineWidth = ringLineWidth
         ringLayer.strokeColor = ringLineColour.CGColor
         
-        var ringLineWidthInset: CGFloat = CGFloat(ringLineWidth/2.0) + ringInsetWidth
+        let ringLineWidthInset: CGFloat = CGFloat(ringLineWidth/2.0) + ringInsetWidth
         let ringRect: CGRect = CGRectInset(rect, ringLineWidthInset, ringLineWidthInset)
         let centrePoint: CGPoint = CGPointMake(ringRect.midX, ringRect.midY)
         let startAngle: CGFloat = CGFloat(-π/2.0)
@@ -573,7 +573,7 @@ extension BookViewController : UICollectionViewDataSource {
         
         var allshowntime:[Int] = []
         for h in 0..<Local.TimeMap.count - 1 {
-            if  nil == find(self.dayTime.out, h) {
+            if  nil == self.dayTime.out.indexOf(h) {
                 allshowntime.append(h)
             }
         }
@@ -587,7 +587,7 @@ extension BookViewController : UICollectionViewDataSource {
                 self.dayBookedTime = []
                 self.bookedTime.removeValueForKey(self.curDate.numDescription)
             } else {
-                if nil == find(self.dayTime.na, index + 1) {
+                if nil == self.dayTime.na.indexOf(index + 1) {
                     self.dayBookedTime = [index, index+1]
                     self.bookedTime[self.curDate.numDescription] = self.dayBookedTime
                 } else {
@@ -601,26 +601,26 @@ extension BookViewController : UICollectionViewDataSource {
         cell.userInteractionEnabled = true
         cell.Time.userInteractionEnabled = true
         
-        if let i = find(self.dayTime.noon, cell.Time.tag){
+        if let _ = self.dayTime.noon.indexOf(cell.Time.tag){
             cell.Time.text = "午休"
         }
         
-        if let i = find(allshowntime, cell.Time.tag) {
+        if let _ = allshowntime.indexOf(cell.Time.tag) {
             cell.enableLabel()
         }
         
-        if let i = find(self.dayTime.na, cell.Time.tag) {
+        if let _ = self.dayTime.na.indexOf(cell.Time.tag) {
             cell.disableLabel()
         }
         
-        if let i = find(self.dayBookedTime, cell.Time.tag) {
+        if let _ = self.dayBookedTime.indexOf(cell.Time.tag) {
             cell.activeLabel()
         }
         for book in self.order.booked {
             if self.curDate.numDescription == book.date &&
                 (book.hour == cell.Time.tag || book.hour+1 == cell.Time.tag ){
                     cell.enableLabel()
-                    if let i = find(self.dayBookedTime, cell.Time.tag) {
+                    if let _ = self.dayBookedTime.indexOf(cell.Time.tag) {
                         cell.activeLabel()
                     }
                     cell.userInteractionEnabled = !book.done
@@ -640,7 +640,7 @@ extension BookViewController : UICollectionViewDataSource {
     func refreshTime(){
         var allshowntime:[Int] = []
         for h in 0..<Local.TimeMap.count - 1 {
-            if  nil == find(self.dayTime.out, h) {
+            if  nil == self.dayTime.out.indexOf(h) {
                 allshowntime.append(h)
             }
         }
@@ -651,7 +651,7 @@ extension BookViewController : UICollectionViewDataSource {
         }
         for i in self.dayTime.na {
             //for i in self.dayNaTime {
-            if let index = find(allshowntime,i) {
+            if let index = allshowntime.indexOf(i) {
                 let cell = self.getCellByIndex(index)
                 cell.disableLabel()
             }
@@ -661,7 +661,7 @@ extension BookViewController : UICollectionViewDataSource {
         
         
         for i in self.dayBookedTime {
-            if let index = find(allshowntime,i) {
+            if let index = allshowntime.indexOf(i) {
                 let cell = self.getCellByIndex(index)
                 cell.activeLabel()
             }
@@ -683,7 +683,7 @@ extension BookViewController : UITableViewDataSource{
         if self.coach == nil {
             return 0
         }
-        return self.bookedTime.keys.array.count
+        return self.bookedTime.keys.count
         //return 10
     }
     
@@ -692,7 +692,7 @@ extension BookViewController : UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookedcoursecell", forIndexPath: indexPath) as! BookedCourseCell
-        let day = self.bookedTime.keys.array.sorted { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending } [indexPath.row]
+        let day = self.bookedTime.keys.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending } [indexPath.row]
         let time = Local.TimeMap[self.bookedTime[day]![0]]
         cell.Day.text = day
         cell.Hour.text = time
@@ -702,9 +702,9 @@ extension BookViewController : UITableViewDataSource{
         cell.DelBtn.hidden = false
         
         for book in self.order.booked {
-            println(book.done)
-            println(book.date.stringByReplacingOccurrencesOfString("-", withString: "/") == day)
-            println(book.hour == self.bookedTime[day]![0])
+            print(book.done)
+            print(book.date.stringByReplacingOccurrencesOfString("-", withString: "/") == day)
+            print(book.hour == self.bookedTime[day]![0])
             if book.done &&
                 book.date.stringByReplacingOccurrencesOfString("-", withString: "/") == day &&
                 book.hour == self.bookedTime[day]![0] {
@@ -750,7 +750,7 @@ extension BookViewController : UITableViewDelegate {
         cell.SubmitBtn.addTarget(self, action: "submitBooks:", forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        if self.bookedTime.keys.array.count == 0 {
+        if self.bookedTime.keys.count == 0 {
             cell.SubmitBtn.backgroundColor = UIColor.clearColor()
             cell.SubmitBtn.borderColor = O2Color.BorderGrey.colorWithAlphaComponent(0.8)
             //cell.SubmitBtn.tintColor = O2Color.TextGrey

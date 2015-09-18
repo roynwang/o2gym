@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,11 +19,11 @@
             <rect key="frame" x="0.0" y="0.0" width="504" height="173"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="504" height="172.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tuo-Kh-TUs">
-                        <rect key="frame" x="0.0" y="2" width="504" height="168.5"/>
+                        <rect key="frame" x="8" y="2" width="488" height="168.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="90" id="EMK-Xx-iw9"/>
                             <constraint firstAttribute="width" constant="90" id="KA5-NV-WbN"/>
@@ -57,20 +58,25 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loc" translatesAutoresizingMaskIntoConstraints="NO" id="Jck-wy-5gT">
-                        <rect key="frame" x="358" y="148" width="16" height="16"/>
+                        <rect key="frame" x="441.5" y="148" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="8M1-gF-igp"/>
                             <constraint firstAttribute="width" constant="16" id="WDi-Xh-fuf"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-1i-3rd">
-                        <rect key="frame" x="378" y="150" width="130" height="10"/>
+                        <rect key="frame" x="461" y="150" width="22.5" height="10"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="130" id="ZJf-K5-IKV"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZJf-K5-IKV"/>
+                            </mask>
+                        </variation>
                     </label>
                 </subviews>
                 <constraints>
@@ -83,12 +89,13 @@
                     <constraint firstAttribute="trailingMargin" secondItem="Tuo-Kh-TUs" secondAttribute="trailing" constant="-8" id="EMB-nJ-hn0"/>
                     <constraint firstAttribute="bottomMargin" secondItem="H4E-1i-3rd" secondAttribute="bottom" constant="4" id="ILS-sD-Hw8"/>
                     <constraint firstItem="Tuo-Kh-TUs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="MIp-lB-fNJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="H4E-1i-3rd" secondAttribute="trailing" constant="12" id="Mkq-WX-sUt"/>
                     <constraint firstItem="7R1-tV-HPR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="OD2-CL-Jtt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Tuo-Kh-TUs" secondAttribute="bottom" constant="-6" id="aVZ-6G-A8T"/>
-                    <constraint firstItem="Tuo-Kh-TUs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="gLZ-Qc-Jp7"/>
+                    <constraint firstItem="Tuo-Kh-TUs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="gLZ-Qc-Jp7"/>
                     <constraint firstItem="Tuo-Kh-TUs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="j53-3N-pUE"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Jck-wy-5gT" secondAttribute="bottom" id="m8J-d7-4zn"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Tuo-Kh-TUs" secondAttribute="trailing" constant="-8" id="na5-qF-3v0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Tuo-Kh-TUs" secondAttribute="trailing" id="na5-qF-3v0"/>
                     <constraint firstItem="H4E-1i-3rd" firstAttribute="leading" secondItem="Jck-wy-5gT" secondAttribute="trailing" constant="4" id="trl-fR-IaJ"/>
                 </constraints>
                 <variation key="default">
@@ -97,6 +104,7 @@
                         <exclude reference="EMB-nJ-hn0"/>
                         <exclude reference="MIp-lB-fNJ"/>
                         <exclude reference="j53-3N-pUE"/>
+                        <exclude reference="9dQ-lv-xy0"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

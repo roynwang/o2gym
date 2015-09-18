@@ -51,10 +51,10 @@ class FeedToolBarView: UIView {
 
         }
         else{
-            println(Local.USER.upped)
+            print(Local.USER.upped)
             self.weibo.up(false)
             self.action("fav", active: false)
-            println(Local.USER.upped)
+            print(Local.USER.upped)
     
         }
     }
@@ -137,7 +137,7 @@ class FeedToolBarView: UIView {
         xibSetup()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         // 1. setup any properties here
         
         // 2. call super.init(coder:)
@@ -155,7 +155,7 @@ class FeedToolBarView: UIView {
         view.frame = bounds
         
         // Make the view stretch with containing view
-        view.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
         self.HrHeight.constant = 0.5
         
@@ -181,17 +181,17 @@ class FeedToolBarView: UIView {
         //self.reset()
         self.weibo = weibo
 
-        if let index = find(Local.USER.upped, weibo.id!) {
+        if let index = Local.USER.upped.indexOf(weibo.id!) {
             self.action("fav")
         } else {
             self.action("fav", active: false)
         }
-        if let index = find(Local.USER.fwded, weibo.id!) {
+        if let index = Local.USER.fwded.indexOf(weibo.id!) {
             self.action("fwd")
         } else {
             self.action("fwd", active: false)
         }
-        if let index = find(Local.USER.commented, weibo.id!) {
+        if let index = Local.USER.commented.indexOf(weibo.id!) {
             self.action("comment")
         } else {
             self.action("comment", active: false)

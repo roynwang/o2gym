@@ -42,7 +42,7 @@ class ArticleDetailViewController: UIViewController {
         var favimgname = "fav_bar"
         
         
-        if let index = find(Local.USER.upped, self.weiboid){
+        if let _ = Local.USER.upped.indexOf(self.weiboid){
             self.faved = true
             favimgname = "fav_bar_active"
         }
@@ -70,13 +70,13 @@ class ArticleDetailViewController: UIViewController {
         let weibo = Weibo(weiboid: self.weiboid)
         weibo.loadRemote({ (data) -> Void in
             let wb = data as! Weibo
-            self.Avatar.load(wb.usr.avatar!, placeholder: UIImage(named:"avatar")) { (_, uiimg, errno_t) -> () in
-                self.Avatar.image = Helper.RBSquareImage(uiimg!)
-            }
+            
+            
+            self.Avatar.fitLoad(wb.usr.avatar!, placeholder: UIImage(named:"avatar"))
             self.ArticleTitle.text = wb.title
             self.author = wb.usr
             
-            if let i = find(Local.TIMELINE.follows, self.author.id!) {
+            if let _ = Local.TIMELINE.follows.indexOf(self.author.id!) {
                 self.FollowBtn.hidden = true
             }
           
@@ -120,7 +120,7 @@ class ArticleDetailViewController: UIViewController {
         }
         else{
             self.favbtn.setImage(ArticleDetailViewController.imgfav, forState: UIControlState.Normal)
-            if let index = find(Local.USER.upped, self.weiboid) {
+            if let index = Local.USER.upped.indexOf(self.weiboid) {
                 Local.USER.upped.removeAtIndex(index)
             }
             wb.up(false)

@@ -42,7 +42,7 @@ public class TrainListByDate:BaseDataList{
             }
             ret.append(itemdata)
         }
-        println(ret)
+        print(ret)
         return ret
     }
 }

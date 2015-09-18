@@ -45,7 +45,7 @@ class FeedMultPicViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        self.contentView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         //self.HrHeight.constant = 0.5
         // Initialization code
         self.CellContainer.layer.borderWidth = 0.5
@@ -57,7 +57,7 @@ class FeedMultPicViewCell: UITableViewCell {
         
         self.NextX += self.Spacing
         
-        println(self.ImgContainer.frame.width)
+        print(self.ImgContainer.frame.width)
         
         
         
@@ -101,12 +101,7 @@ class FeedMultPicViewCell: UITableViewCell {
         tmp.addGestureRecognizer(tapped)
         
         
-        tmp.load(img, placeholder: nil, completionHandler:
-            { (_, uiimg, _) in
-                
-                tmp.image = Helper.RBSquareImage(uiimg!)
-                //tmp.addGestureRecognizer(tapped)
-        })
+        tmp.fitLoad(img)
         
         self.NextX += self.PicWidth
         self.NextX += self.Spacing

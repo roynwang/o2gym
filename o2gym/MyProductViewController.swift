@@ -15,9 +15,9 @@ class MyProductViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.backgroundColor = O2Color.BgGreyColor
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        var b = UIBarButtonItem(title: "添加", style: UIBarButtonItemStyle.Done, target: self, action: "addProduct")
+        let b = UIBarButtonItem(title: "添加", style: UIBarButtonItemStyle.Done, target: self, action: "addProduct")
         
         self.navigationItem.rightBarButtonItem = b
 

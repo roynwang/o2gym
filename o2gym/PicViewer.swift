@@ -20,6 +20,6 @@ public class PicViewer {
             imageInfo: imageInfo,
             mode: JTSImageViewControllerMode.Image,
             backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
-        imageViewer.showFromViewController(controller, transition: JTSImageViewControllerTransition._FromOriginalPosition)
+        imageViewer.showFromViewController(controller, transition: JTSImageViewControllerTransition.FromOriginalPosition)
     }
 }

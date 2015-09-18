@@ -75,12 +75,12 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         for trains in self.actions.values {
             for train in trains {
                 forsave.datalist.append(train)
-                println(train.repeattimes)
+                print(train.repeattimes)
             }
         }
-        println(forsave)
+        print(forsave)
         forsave.bulkCreate({ () -> Void in
-            println("save success")
+            print("save success")
         }, error_handler: nil)
     }
 
@@ -127,7 +127,7 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             //if self.actions[self.actionkey[section]]!.last?.repeattimes != nil {
                 self.actions[self.actionkey[section]]?.append(Train())
             //}
-            println(self.actions)
+            print(self.actions)
             
             self.tableView.reloadData()
         }

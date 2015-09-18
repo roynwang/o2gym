@@ -24,7 +24,7 @@ extension UIImageView {
             return objc_getAssociatedObject(self, &ImageLoaderURLKey) as? NSURL
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &ImageLoaderURLKey, newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &ImageLoaderURLKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 
@@ -33,21 +33,21 @@ extension UIImageView {
             return objc_getAssociatedObject(self, &ImageLoaderBlockKey)
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &ImageLoaderBlockKey, newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &ImageLoaderBlockKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 
     // MARK: - public
-    public func load(URL: URLLiteralConvertible) {
-        load(URL, placeholder: nil) { _ in }
+    public func loadUrl(URL: URLLiteralConvertible) {
+        loadUrl(URL, placeholder: nil) { _ in }
     }
 
-    public func load(URL: URLLiteralConvertible, placeholder: UIImage?) {
-        load(URL, placeholder: placeholder) { _ in }
+    public func loadUrl(URL: URLLiteralConvertible, placeholder: UIImage?) {
+        loadUrl(URL, placeholder: placeholder) { _ in }
     }
 
 
-    public func load(URL: URLLiteralConvertible, placeholder: UIImage?, completionHandler:(NSURL, UIImage?, NSError?) -> ()) {
+    public func loadUrl(URL: URLLiteralConvertible, placeholder: UIImage?, completionHandler:(NSURL, UIImage?, NSError?) -> ()) {
         cancelLoading()
 
         if let placeholder = placeholder {
@@ -62,7 +62,7 @@ extension UIImageView {
 
     public func cancelLoading() {
         if let URL = URL {
-            PicManager.sharedInstance.cancel(URL, block: block as? Block)
+            Manager.sharedInstance.cancel(URL, block: block as? Block)
         }
     }
 
@@ -99,14 +99,14 @@ extension UIImageView {
         }
 
         // caching
-        if let image = PicManager.sharedInstance.cache[URL] {
+        if let image = Manager.sharedInstance.cache[URL] {
             completionHandler(URL, image, nil)
             return
         }
 
         dispatch_async(UIImageView._requesting_queue, {
 
-            let loader = PicManager.sharedInstance.load(URL).completionHandler(completionHandler)
+            let loader = Manager.sharedInstance.load(URL).completionHandler(completionHandler)
             self.block = loader.blocks.last
 
             return

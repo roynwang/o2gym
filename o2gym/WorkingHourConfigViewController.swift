@@ -20,9 +20,9 @@ class WorkingHourConfigViewController: UITableViewController {
     var noonend:Int! = -1
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        var b = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
+        let b = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
         
         
         self.navigationItem.rightBarButtonItem = b
@@ -65,8 +65,8 @@ class WorkingHourConfigViewController: UITableViewController {
             }
         }
         self.workingHour.update({ (_) -> Void in
-            println(self.workingHour.out_hours)
-            println(self.workingHour.noon_hours)
+            print(self.workingHour.out_hours)
+            print(self.workingHour.noon_hours)
         }, onfail: nil)
         
         
@@ -168,36 +168,36 @@ class WorkingHourConfigViewController: UITableViewController {
             ret = 0
             
         }
-        else if self.workingHour.out_hours[0].toInt() == 0 {
+        else if Int(self.workingHour.out_hours[0]) == 0 {
             if self.workingHour.out_hours.count == 1 {
                 //return Local.TimeMap[1]
                 ret = 1
             }
             var i = 0
             while i < self.workingHour.out_hours.count - 1 &&
-                self.workingHour.out_hours[i].toInt()! == (self.workingHour.out_hours[i+1].toInt()! - 1) {
+                Int(self.workingHour.out_hours[i])! == (Int(self.workingHour.out_hours[i+1])! - 1) {
                 i += 1
             }
             //return Local.TimeMap[self.workingHour.out_hours[i].toInt()! + 1]
-            ret = self.workingHour.out_hours[i].toInt()! + 1
+            ret = Int(self.workingHour.out_hours[i])! + 1
         }
         self.start = ret
     }
     //TODO: too complex
     func getWorkingEnd(){
         var ret:Int! = -1
-        if self.workingHour.out_hours.count == 0 || self.workingHour.out_hours.last!.toInt() != Local.TimeMap.count-1 {
+        if self.workingHour.out_hours.count == 0 || Int(self.workingHour.out_hours.last!) != Local.TimeMap.count-1 {
             //return Local.TimeMap.last!
             ret = Local.TimeMap.count - 1
             self.end = ret
         }
-        else if self.workingHour.out_hours.last!.toInt() == Local.TimeMap.count-1 {
+        else if Int(self.workingHour.out_hours.last!) == Local.TimeMap.count-1 {
             var i = self.workingHour.out_hours.count - 1
-            while i > 0 && self.workingHour.out_hours[i].toInt()! == (self.workingHour.out_hours[i-1].toInt()! + 1) {
+            while i > 0 && Int(self.workingHour.out_hours[i])! == (Int(self.workingHour.out_hours[i-1])! + 1) {
                 i -= 1
             }
             //return Local.TimeMap[self.workingHour.out_hours[i].toInt()!-1]
-            ret = self.workingHour.out_hours[i].toInt()! - 1
+            ret = Int(self.workingHour.out_hours[i])! - 1
         }
         self.end = ret
         
@@ -207,7 +207,7 @@ class WorkingHourConfigViewController: UITableViewController {
             self.noonstart = -1
   
         } else {
-            self.noonstart = self.workingHour.noon_hours[0].toInt()!
+            self.noonstart = Int(self.workingHour.noon_hours[0])!
             
         }
         
@@ -217,7 +217,7 @@ class WorkingHourConfigViewController: UITableViewController {
             self.noonend = -1
 
         } else {
-            self.noonend = self.workingHour.noon_hours.last!.toInt()! + 1
+            self.noonend = Int(self.workingHour.noon_hours.last!)! + 1
            
         }
     }

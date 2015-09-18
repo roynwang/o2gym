@@ -23,11 +23,11 @@ public class MyCourseViewController: UITableViewController {
         self.mycourse = MyCourse(name: name)
         self.load(nil)
     }
-    public required init(coder aDecoder: NSCoder!) {
-        super.init(coder: aDecoder)
+    public required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
     }
     
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -123,7 +123,7 @@ public class MyCourseViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("recommendcoursecell", forIndexPath: indexPath) as! RecommendCourseCell
         let course = self.mycourse.datalist[indexPath.row] as! Course
 //
-        cell.Img.load(course.pic!)
+        cell.Img.loadUrl(course.pic!)
         cell.backgroundColor = UIColor.blackColor()
         cell.CourseTitle.text = course.title
         cell.SubTitle.text = course.brief

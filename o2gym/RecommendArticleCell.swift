@@ -44,7 +44,7 @@ class RecommendArticleCell: BaseViewCell {
 
         }
         //self.ArticleTitle.text = r.recommendtitle
-        self.Img.load(r.recommendpic!)
+        self.Img.loadUrl(r.recommendpic!)
         self.UpCount.text = wb.upnum.toString()
     }
     

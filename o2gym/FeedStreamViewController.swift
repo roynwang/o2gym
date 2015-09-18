@@ -35,7 +35,7 @@ class FeedStreamViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         
-        var refreshControl = UIRefreshControl()
+        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: Selector("loadNew"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refreshControl
         
@@ -184,7 +184,7 @@ class FeedStreamViewController: UITableViewController {
                 
                 cell.fillCard(weibo)
                 cell.tag = weibo.isfwd ? weibo.fwdfrom! : weibo.id!
-                var tapped:UITapGestureRecognizer = UITapGestureRecognizer()
+                let tapped:UITapGestureRecognizer = UITapGestureRecognizer()
                 tapped.addTarget(self, action: "tapped:")
                 cell.addGestureRecognizer(tapped)
                 return cell

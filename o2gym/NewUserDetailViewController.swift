@@ -56,7 +56,7 @@ class NewUserDetailViewController: RYProfileViewController {
     }
     
     func showGym(gr:UITapGestureRecognizer){
-        println("show gym")
+        print("show gym")
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let cont =  sb.instantiateViewControllerWithIdentifier("gymdetail") as! GymDetailController
         //cont.product = self.productlist.datalist[indexPath.section] as! Product
@@ -89,7 +89,7 @@ class NewUserDetailViewController: RYProfileViewController {
         var favimgname = "fav_bar"
         
         if Local.HASLOGIN {
-            if let index = find(Local.USER.upped_person, self.usrname){
+            if let index = Local.USER.upped_person.indexOf(self.usrname){
                 self.faved = true
                 favimgname = "fav_bar_active"
             }

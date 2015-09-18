@@ -19,13 +19,13 @@ class BaseViewCell: UITableViewCell {
 //        corner.image = img
         let corner: UIImageView = UIImageView(image: img)
         self.contentView.addSubview(corner)
-        corner.setTranslatesAutoresizingMaskIntoConstraints(false)
+        corner.translatesAutoresizingMaskIntoConstraints = false
         let views = ["corner" : corner]
         
         var topSpace = NSLayoutConstraint.constraintsWithVisualFormat("V:|-2-[corner]",
-            options: NSLayoutFormatOptions(0), metrics: nil, views: views)
+            options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
         var trailSpace = NSLayoutConstraint.constraintsWithVisualFormat("[corner]-8-|",
-            options: NSLayoutFormatOptions(0), metrics: nil, views: views)
+            options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
         self.contentView.addConstraints(topSpace)
         self.contentView.addConstraints(trailSpace)
     }

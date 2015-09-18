@@ -49,11 +49,14 @@ class WorkingTimeConfigViewController: UIViewController {
     func showDatePicker(){
         
         datePicker.date = NSDate()
-        presentSemiViewController(datePicker, withOptions: [
-            KNSemiModalOptionKeys.pushParentBack    : NSNumber(bool: false),
-            KNSemiModalOptionKeys.animationDuration : NSNumber(float: 0.3),
-            KNSemiModalOptionKeys.shadowOpacity     : NSNumber(float: 0.3)
-            ])
+        
+        
+//        presentSemiViewController(datePicker, withOptions: [
+//            KNSemiModalOptionKeys.pushParentBack    : NSNumber(bool: false),
+//            KNSemiModalOptionKeys.animationDuration : NSNumber(float: 0.3),
+//            KNSemiModalOptionKeys.shadowOpacity     : NSNumber(float: 0.3)
+//            ])
+        presentSemiViewController(datePicker)
         
     }
     
@@ -83,7 +86,7 @@ class WorkingTimeConfigViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        var b = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
+        let b = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
         
         
         self.navigationItem.rightBarButtonItem = b
@@ -97,7 +100,7 @@ class WorkingTimeConfigViewController: UIViewController {
         self.restTime.update({ (_) -> Void in
             self.navigationController?.popViewControllerAnimated(true)
         }, onfail: { (_) -> Void in
-            println("failed")
+            print("failed")
         })
     }
     
@@ -142,7 +145,7 @@ extension WorkingTimeConfigViewController : UICollectionViewDataSource, UICollec
             cell.Time.text =  "error"
         }
         if self.restTime.weekrest != nil {
-            if let i = find(self.restTime.weekrest, indexPath.row.toString()){
+            if let _ = self.restTime.weekrest.indexOf(indexPath.row.toString()){
                 cell.activeLabel()
             }
         }
@@ -166,7 +169,7 @@ extension WorkingTimeConfigViewController : UICollectionViewDataSource, UICollec
             cell.deactiveLabel()
         }
         
-        if let i = find(self.restTime.weekrest, indexPath.row.toString()) {
+        if let i = self.restTime.weekrest.indexOf(indexPath.row.toString()) {
             self.restTime.weekrest.removeAtIndex(i)
             
         } else {
@@ -174,7 +177,7 @@ extension WorkingTimeConfigViewController : UICollectionViewDataSource, UICollec
         }
         self.RestDaysText.text = ""
         for item in self.restTime.weekrest {
-            self.RestDaysText.text! += " \(Helper.intToWeekDay(item.toInt()!))"
+            self.RestDaysText.text! += " \(Helper.intToWeekDay(Int(item)!))"
         }
     }
     
@@ -199,14 +202,14 @@ extension WorkingTimeConfigViewController:THDatePickerDelegate{
 
 extension WorkingTimeConfigViewController :  UITableViewDataSource, UITableViewDelegate{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        println(tableView.tag)
-        println("xxxx")
+        print(tableView.tag)
+        print("xxxx")
         return 1
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        println("============")
-        println(tableView.tag)
-        println("============")
+        print("============")
+        print(tableView.tag)
+        print("============")
         let cell = tableView.dequeueReusableCellWithIdentifier("header") as! WorkingTimeSectionHeader
         if tableView == self.ExceptionLeaveTable {
             cell.Title.text = "例外休息日"
@@ -247,7 +250,7 @@ extension WorkingTimeConfigViewController :  UITableViewDataSource, UITableViewD
             cell.removeBtn.hidden = false
             cell.removeItem = {
                 ()->Void in
-                if let i = find(self.restTime.excep_work, day) {
+                if let i = self.restTime.excep_work.indexOf(day) {
                     self.restTime.excep_work.removeAtIndex(i)
                 }
             }
@@ -259,7 +262,7 @@ extension WorkingTimeConfigViewController :  UITableViewDataSource, UITableViewD
             cell.removeBtn.hidden = false
             cell.removeItem = {
                 ()->Void in
-                if let i = find(self.restTime.excep_rest, day) {
+                if let i = self.restTime.excep_rest.indexOf(day) {
                     self.restTime.excep_work.removeAtIndex(i)
                 }
             }

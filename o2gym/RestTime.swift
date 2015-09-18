@@ -49,11 +49,11 @@ public class RestTime : BaseDataItem{
     }
     public override func buildParam() -> [String : String] {
         return [
-            "weekrest": "|".join(self.weekrest),
-            "excep_rest": "|".join(self.excep_rest),
-            "excep_work": "|".join(self.excep_work),
-            "out_hours" : "|".join(self.out_hours),
-            "noon_hours" : "|".join(self.noon_hours)
+            "weekrest": self.weekrest.joinWithSeparator("|"),
+            "excep_rest": self.excep_rest.joinWithSeparator("|"),
+            "excep_work": self.excep_work.joinWithSeparator("|"),
+            "out_hours" : self.out_hours.joinWithSeparator("|"),
+            "noon_hours" : self.noon_hours.joinWithSeparator("|")
         ]
     }
 

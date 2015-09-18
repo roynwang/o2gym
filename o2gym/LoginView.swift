@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @IBDesignable class LoginView: UIView {
     
@@ -33,7 +34,7 @@ import UIKit
         xibSetup()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         // 1. setup any properties here
         
         // 2. call super.init(coder:)
@@ -50,9 +51,10 @@ import UIKit
         view.frame = bounds
         
         // Make the view stretch with containing view
-        view.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
         // Adding custom subview on top of our view (over any custom drawing > see note below)
+        self.determineLoginMethod()
         addSubview(view)
     }
     
@@ -69,8 +71,8 @@ import UIKit
     
     
     func determineLoginMethod(){
-        println(WXApi.isWXAppInstalled())
-        println(WXApi.isWXAppSupportApi())
+        print(WXApi.isWXAppInstalled())
+        print(WXApi.isWXAppSupportApi())
         if WXApi.isWXAppInstalled() && WXApi.isWXAppSupportApi() {
             self.LoginBtn.hidden = false
             self.PhoneLoginView.hidden = true
@@ -80,7 +82,7 @@ import UIKit
     
     
     @IBAction func loginWithVcode() {
-        Local.loginWithVcode(self.PhoneNum.text, vcode: self.Vcode.text, onsuccess: { (_) -> Void in
+        Local.loginWithVcode(self.PhoneNum.text!, vcode: self.Vcode.text!, onsuccess: { (_) -> Void in
             if self.loginSuccessAction != nil {
                 self.loginSuccessAction!()
             }
@@ -88,16 +90,20 @@ import UIKit
     }
     
     @IBAction func sendVcode(sender: AnyObject) {
-        request(.POST, Host.VcodeSend(), parameters:["number": self.PhoneNum.text!])
-            .responseJSON { (req, resp, data, err) -> Void in
+        Alamofire.request(.POST, Host.VcodeSend(), parameters:["number": self.PhoneNum.text!])
+            .responseJSON { (req, resp, data) -> Void in
                 return
         }
     }
     
     
     @IBAction func loginWithWeChat() {
-        println("xxxxx")
+        print("xxxxx")
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

@@ -56,7 +56,7 @@ class Host {
             action = "down"
         }
         let url : String = "\(self.ip)/\(by)/u/\(name)/\(action)"
-        println(url)
+        print(url)
         return url
     }
     
@@ -124,7 +124,7 @@ class Host {
             action = "down"
         }
         let url : String = "\(self.ip)/\(Local.USER.name!)/w/\(weibo.id!.toString())/\(action)"
-        println(url)
+        print(url)
         return url
     }
     

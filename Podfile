@@ -19,6 +19,9 @@ target 'o2gym' do
 	pod "NHLinearShadow", "~> 1.0.1"
 	pod "UIImage+Additions"
 	pod 'WeChat'
+	pod 'Alamofire', "~> 2.0.0"
+#	pod 'ImageLoader'
+#	pod 'CKCountdownButton'
 end
 
 target 'o2gymTests' do

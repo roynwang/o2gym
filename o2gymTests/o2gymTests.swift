@@ -8,61 +8,61 @@
 
 import UIKit
 import XCTest
-import o2gym
 
 
-public class o2gymTests: XCTestCase {
-    
-    override public func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override public func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    
-    func testUserCreate(){
-        var usr = User(id:nil, name:"royn",iscoach:true, avatar: nil)
-        usr.save(nil, error_handler: nil)
-        sleep(1)
-    }
-    
-    func testUserGet(){
-        var usr = User(name:"royn")
-        usr.loadRemote()
-        sleep(1)
-    }
-    
-    func testWeiboCreate(){
-        let usr = User(id:2,name:"royn")
-        let weibo = Weibo(usr:usr)
-        weibo.setContent("mmmmmmm", brief: "brief", imgs: "imgs")
-        weibo.save(nil,error_handler: nil)
-        sleep(1)
-    }
-    
-    func testWeiboGet(){
-        let usr = User(id:2,name:"royn")
-        let weibo = Weibo(usr:usr, weiboid:4)
-        weibo.loadRemote()
-        sleep(1)
-    }
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    func testHttp(){
-        let url = NSURL(string: "http://www.stackoverflow.com")
-        
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
-        }
-        task.resume()
-    }
-    
-}
+//
+//public class o2gymTests: XCTestCase {
+//    
+//    override public func setUp() {
+//        super.setUp()
+//        // Put setup code here. This method is called before the invocation of each test method in the class.
+//    }
+//    
+//    override public func tearDown() {
+//        // Put teardown code here. This method is called after the invocation of each test method in the class.
+//        super.tearDown()
+//    }
+//    
+//    
+//    func testUserCreate(){
+//        var usr = User(id:nil, name:"royn",iscoach:true, avatar: nil)
+//        usr.save(nil, error_handler: nil)
+//        sleep(1)
+//    }
+//    
+//    func testUserGet(){
+//        var usr = User(name:"royn")
+//        usr.loadRemote()
+//        sleep(1)
+//    }
+//    
+//    func testWeiboCreate(){
+//        let usr = User(id:2,name:"royn")
+//        let weibo = Weibo(usr:usr)
+//        weibo.setContent("mmmmmmm", brief: "brief", imgs: "imgs")
+//        weibo.save(nil,error_handler: nil)
+//        sleep(1)
+//    }
+//    
+//    func testWeiboGet(){
+//        let usr = User(id:2,name:"royn")
+//        let weibo = Weibo(usr:usr, weiboid:4)
+//        weibo.loadRemote()
+//        sleep(1)
+//    }
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measureBlock() {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
+//    func testHttp(){
+//        let url = NSURL(string: "http://www.stackoverflow.com")
+//        
+//        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+//            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+//        }
+//        task.resume()
+//    }
+//    
+//}

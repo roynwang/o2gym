@@ -54,7 +54,7 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         self.delegate = self
         
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
-        var baritem = self.navigationController?.tabBarItem!
+        let baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "muscle_active")
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         

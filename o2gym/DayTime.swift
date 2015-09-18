@@ -34,10 +34,10 @@ public class DayTime : BaseDataItem{
     }
     
     public override func loadFromJSON(dict: JSON) {
-        dict["na"].arrayValue.map({self.na.append($0.stringValue.toInt()!)})
-        dict["availiable"].arrayValue.map({self.availiable.append($0.stringValue.toInt()!)})
-        dict["out"].arrayValue.map({self.out.append($0.stringValue.toInt()!)})
-        dict["noon"].arrayValue.map({self.noon.append($0.stringValue.toInt()!)})
+        dict["na"].arrayValue.map({self.na.append(Int($0.stringValue)!)})
+        dict["availiable"].arrayValue.map({self.availiable.append(Int($0.stringValue)!)})
+        dict["out"].arrayValue.map({self.out.append(Int($0.stringValue)!)})
+        dict["noon"].arrayValue.map({self.noon.append(Int($0.stringValue)!)})
     }
     
 }

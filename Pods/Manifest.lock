@@ -20,7 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CZPicker (0.3.5)
+  - Alamofire (2.0.0)
+  - CZPicker (0.3.6)
   - DZNEmptyDataSet (1.7.1)
   - FSMediaPicker (0.0.2)
   - HCSStarRatingView (1.4.2)
@@ -40,6 +41,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Alamofire (~> 2.0.0)
   - CZPicker
   - DZNEmptyDataSet
   - FSMediaPicker
@@ -54,7 +56,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
-  CZPicker: ce4f352d65ef5ccb8d7378afe3ee4e5bdbead15a
+  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  CZPicker: bf966778ebd3af6c291b4a4190d08a0e2c5c6974
   DZNEmptyDataSet: 2a398066c2bf5848f7f693fb50954b5064debd12
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
   HCSStarRatingView: 6157471eff9fe3ec7240e131a5b0aba39f097e57

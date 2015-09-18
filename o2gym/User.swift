@@ -99,12 +99,12 @@ public class User : BaseDataItem{
     
     func setUpped(name:String, up:Bool = true){
         if up {
-            if let index = find(self.upped_person, name) {
+            if let index = self.upped_person.indexOf(name) {
                 self.upped_person.append(name)
             }
         }
         else {
-            if let index = find(self.upped_person, name) {
+            if let index = self.upped_person.indexOf(name) {
                 self.upped_person.removeAtIndex(index)
             }
         }

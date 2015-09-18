@@ -80,12 +80,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         Pingpp.handleOpenURL(url, sourceApplication: sourceApplication) { (result, err) -> Void in
             if result == "success"{
-                println("pay success")
+                print("pay success")
             } else {
-                println("pay failed")
+                print("pay failed")
             }
             
         }

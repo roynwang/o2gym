@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 public class Helper{
     
@@ -18,7 +19,7 @@ public class Helper{
     }
     
     class func createButtonFromImg(image:String, selector:Selector, tar:AnyObject?)->UIButton{
-        var img = UIImage(named: image)
+        let img = UIImage(named: image)
         let tmpbtn = UIButton(frame: CGRect(x:0, y:0, width:img!.size.width, height:img!.size.height))
         tmpbtn.setImage(img, forState: UIControlState.Normal)
         tmpbtn.addTarget(tar, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
@@ -28,25 +29,25 @@ public class Helper{
     
     class func getExt(url:NSURL)->String{
         let a = url.queryDictionary()
-        println(a["ext"])
+        print(a["ext"])
         return a["ext"]!
         
     }
     class func arrayToJsonString(arr:[String]) -> String{
-        let data = NSJSONSerialization.dataWithJSONObject(arr, options: nil, error: nil)
+        let data = try? NSJSONSerialization.dataWithJSONObject(arr, options: [])
         return NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
     }
     class func upload(picdata:NSData, complete: QNUpCompletionHandler!){
         request(Method.GET, Host.UploadTokenGet(), parameters: nil)
-            .responseJSON(options: nil) {
-                (req, resp, data, error) -> Void in
-                if error == nil{
-                    let dict = JSON(data!)
+            .responseJSON {
+                (req, resp, data) -> Void in
+//                if error == nil{
+                    let dict = JSON(data.value!)
                     let key = dict["key"].stringValue
                     let token = dict["token"].stringValue
                     let mgr:QNUploadManager = QNUploadManager()
                     mgr.putData(picdata, key: key, token: token, complete:complete, option: nil)
-                }
+//                }
         }
         
     }
@@ -70,8 +71,8 @@ public class Helper{
     }
     
     class func RBSquareImage(image: UIImage) -> UIImage {
-        var originalWidth  = image.size.width
-        var originalHeight = image.size.height
+        let originalWidth  = image.size.width
+        let originalHeight = image.size.height
         
         var edge: CGFloat
         if originalWidth > originalHeight {
@@ -80,13 +81,13 @@ public class Helper{
             edge = originalWidth
         }
         
-        var posX = (originalWidth  - edge) / 2.0
-        var posY = (originalHeight - edge) / 2.0
+        let posX = (originalWidth  - edge) / 2.0
+        let posY = (originalHeight - edge) / 2.0
         
-        var cropSquare = CGRectMake(posX, posY, edge, edge)
+        let cropSquare = CGRectMake(posX, posY, edge, edge)
         
-        var imageRef = CGImageCreateWithImageInRect(image.CGImage, cropSquare);
-        return UIImage(CGImage: imageRef, scale: UIScreen.mainScreen().scale, orientation: image.imageOrientation)!
+        let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropSquare);
+        return UIImage(CGImage: imageRef!, scale: UIScreen.mainScreen().scale, orientation: image.imageOrientation)
     }
     
     class func RBResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {

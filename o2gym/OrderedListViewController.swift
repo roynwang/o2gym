@@ -19,7 +19,7 @@ class OrderedListViewController: UITableViewController {
         self.orderlist.load({ () -> Void in
             self.tableView.reloadData()
         }, itemcallback: nil)
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

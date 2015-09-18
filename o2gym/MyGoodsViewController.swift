@@ -14,11 +14,11 @@ class MyGoodsViewController: UITableViewController {
     var usrname:String!
     var myGoods:ProductList!
     
-    required init(coder aDecoder: NSCoder!) {
-        super.init(coder: aDecoder)
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
     }
     
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -46,7 +46,7 @@ class MyGoodsViewController: UITableViewController {
 //        let footer  = UIView(frame: CGRectMake(0,0,self.view.frame.width,10))
 //        footer.topBorderWidth = 0.5
 //        footer.borderColor = O2Color.BorderGrey
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

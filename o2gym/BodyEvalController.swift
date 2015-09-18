@@ -45,7 +45,7 @@ class BodyEvalController: UITableViewController {
         }
         if forsave.count != 0 {
             forsave.bulkCreate({ () -> Void in
-                println("bulk done")
+                print("bulk done")
             }, error_handler: nil)
         }
     }

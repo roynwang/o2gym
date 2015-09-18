@@ -20,7 +20,8 @@ class GymDetailController: UITableViewController {
         gym.loadRemote({ (_) -> Void in
             
             let imageview:UIImageView = UIImageView()
-            imageview.load(self.gym.img_set[0], placeholder: nil, completionHandler: { (_, uiimg, err) -> () in
+            
+            imageview.loadUrl(self.gym.img_set[0], placeholder: nil, completionHandler: { (_, uiimg, err) -> () in
                 if uiimg != nil {
                     let header: ParallaxHeaderView = ParallaxHeaderView.parallaxHeaderViewWithImage(uiimg, forSize: CGSizeMake(self.tableView.frame.width, 300)) as! ParallaxHeaderView
                     self.tableView.tableHeaderView = header
@@ -29,11 +30,11 @@ class GymDetailController: UITableViewController {
             })
             self.title = self.gym.name!
             O2Nav.setNavigationBarTransformProgress(1)
-            O2Nav.setNavTitle(title: self.gym.name!)
+            O2Nav.setNavTitle(self.gym.name!)
             self.tableView.reloadData()
             }, onfail: nil)
         self.navigationController?.navigationBar.translucent = true
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.view.backgroundColor = O2Color.BgGreyColor
         
         // Uncomment the following line to preserve selection between presentations

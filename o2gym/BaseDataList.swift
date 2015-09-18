@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 public class BaseDataList {
     
@@ -57,21 +58,26 @@ public class BaseDataList {
         
         let values = self.buildParam()
         
-        var error: NSError?
-        trequest.HTTPBody = NSJSONSerialization.dataWithJSONObject(values, options: nil, error: &error)
+       var error: NSError?
+        do {
+            trequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(values, options: [])
+        } catch let error1 as NSError {
+            error = error1
+            trequest.HTTPBody = nil
+        }
         
         request(trequest as URLRequestConvertible)
             .responseJSON {
-                (_, resp, data, error) in
-                println(resp)
-                println(data)
+                (_, resp, data) in
+                print(resp)
+                print(data)
                 if resp?.statusCode == 201{
                     if success_handler != nil {
                         success_handler!()
                     }
                 } else {
                     if error_handler != nil {
-                        error_handler!(error)
+                        //error_handler!(error)
                     }
                 }
                 
@@ -102,15 +108,15 @@ public class BaseDataList {
         } else {
             req = request(.GET, url)
         }
-        req.responseJSON { (_, _, data, _) in
-                if data == nil {
+        req.responseJSON { (_, _, data) in
+                if data.value == nil {
                     if allcallback != nil{
                         allcallback!()
                     }
                     return
                 }
-                print(data)
-                let dict = JSON(data!)
+                print(data, terminator: "")
+                let dict = JSON(data.value!)
                 var results:[JSON]? = nil
                 if listkey == nil{
                     results = dict.arrayValue
@@ -120,7 +126,7 @@ public class BaseDataList {
                     self.prevurl = dict["previous"].string
                 }
                 if insert{
-                    results?.reverse()
+                    Array(arrayLiteral: results?.reverse())
                 }
                 self.delta = results!.count
                 for item in results! {

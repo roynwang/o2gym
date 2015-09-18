@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Alamofire
 public class Book : BaseDataItem{
     var id:Int!
     public var date:String!

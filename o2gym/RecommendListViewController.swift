@@ -18,10 +18,10 @@ class RecommendListViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "RecommendGymCell", bundle: nil), forCellReuseIdentifier: "recommendgymcell")
         self.tableView.registerNib(UINib(nibName: "RecommendCourseCell", bundle: nil), forCellReuseIdentifier: "recommendcoursecell")
         
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // set active image
-        var baritem = self.navigationController?.tabBarItem!
+        let baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "o2_active")
         self.tableView.backgroundColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
@@ -32,7 +32,7 @@ class RecommendListViewController: UITableViewController {
             self.tableView.reloadData()
         }, itemcallback: nil)
         
-        //Local.login(nil, onfail: nil)
+        Local.login(nil, onfail: nil)
         
         
         //        var bounds = self.navigationController?.navigationBar.bounds as CGRect!
@@ -91,7 +91,7 @@ class RecommendListViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let i = indexPath.row
-        var item = Local.RECOMMEND?.datalist[i] as! RecommendItem
+        let item = Local.RECOMMEND?.datalist[i] as! RecommendItem
         switch(item.recommendcontent!.type){
         case "weibo":
             return 130
@@ -109,8 +109,8 @@ class RecommendListViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let i = indexPath.row
-        var item = Local.RECOMMEND?.datalist[i] as! RecommendItem
-        println(item.recommendcontent!.type)
+        let item = Local.RECOMMEND?.datalist[i] as! RecommendItem
+        print(item.recommendcontent!.type)
         
         switch(item.recommendcontent!.type){
         case "weibo":
@@ -136,7 +136,7 @@ class RecommendListViewController: UITableViewController {
         
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var item = Local.RECOMMEND?.datalist[indexPath.row] as! RecommendItem
+        let item = Local.RECOMMEND?.datalist[indexPath.row] as! RecommendItem
   
         switch(item.recommendcontent!.type){
         case "weibo":

@@ -19,7 +19,7 @@ class ProfileViewController: UITableViewController {
         self.tableView.scrollEnabled = false
         self.tableView.bounces = false
         
-        self.tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         
         
@@ -189,13 +189,13 @@ extension ProfileViewController : FSMediaPickerDelegate {
     func mediaPicker(mediaPicker: FSMediaPicker!, didFinishWithMediaInfo mediaInfo: [NSObject : AnyObject]!) {
         let image : UIImage = mediaInfo["UIImagePickerControllerEditedImage"] as! UIImage
         var ratio:CGFloat = 1
-        let imgdata = UIImageJPEGRepresentation(image, 1)
+        let imgdata = UIImageJPEGRepresentation(image, 1)!
         if imgdata.length/1024 > 50 {
             ratio = CGFloat(300)/CGFloat(imgdata.length/1024)
         }
         Local.USER.avatar = "test"
         //let nsdata = NSData(
-        Helper.upload(UIImageJPEGRepresentation(image,ratio), complete: { (info, filename, resp) -> Void in
+        Helper.upload(UIImageJPEGRepresentation(image,ratio)!, complete: { (info, filename, resp) -> Void in
             Local.USER.avatar = Host.ImgHost + filename
             Local.USER.update(nil, onfail: nil)
             

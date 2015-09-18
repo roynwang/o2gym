@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 
 public class BaseDataItem {
@@ -44,18 +45,19 @@ public class BaseDataItem {
     }
     public func save<T:BaseDataItem>(success_handler:((T)->Void)?, error_handler:((NSError?)->Void)?){
         request(.POST, self.UrlCreate, parameters:self.buildParam())
-            .responseJSON { (_, resp, data, error) in
-                println(resp?.statusCode)
+            .responseJSON { (_, resp, data) in
+                print(resp?.statusCode)
+
             
                 if resp?.statusCode == 201{
-                    let dict = JSON(data!)
+                    let dict = JSON(data.value!)
                     self.loadFromJSON(dict)
                     if success_handler != nil {
                         success_handler!(self as! T)
                     }
                 } else {
                     if error_handler != nil {
-                        error_handler!(error)
+                        //error_handler!(error)
                     }
                 }
         }
@@ -76,16 +78,16 @@ public class BaseDataItem {
                         }
                         break
                     default:
-                        println(resp?.description)
+                        print(resp?.description)
                         if onfail != nil{
                             onfail!(String(stringInterpolationSegment: resp))
                         }
                     }
                 } else{
                     if onfail != nil{
-                        onfail!(error!.description)
+                        //onfail!(error!.description)
                     } else {
-                        println(error!.description)
+                        //print(error!.description)
                     }
                 }
         }
@@ -110,16 +112,16 @@ public class BaseDataItem {
                         }
                         break
                     default:
-                        println(resp?.description)
+                        print(resp?.description)
                         if onfail != nil{
                             onfail!(String(stringInterpolationSegment: resp))
                         }
                     }
                 } else{
                     if onfail != nil{
-                        onfail!(error!.description)
+                        //onfail!(error!.description)
                     } else {
-                        println(error!.description)
+                        //print(error!.description)
                     }
                 }
         }
@@ -139,13 +141,13 @@ public class BaseDataItem {
             req = request(.GET, self.UrlGet)
         }
         
-        req.responseJSON { (_, resp, data, error) in
-                println(self.UrlGet)
-                if error == nil{
+        req.responseJSON { (_, resp, data) in
+                print(self.UrlGet)
+                //if error == nil{
                     self.isLoaded = true
                     switch resp!.statusCode{
                     case 200:
-                        let dict = JSON(data!)
+                        let dict = JSON(data.value!)
                         self.loadFromJSON(dict)
                         if onsuccess != nil{
                             onsuccess!(self as! T)
@@ -161,13 +163,13 @@ public class BaseDataItem {
                             onfail!(String(stringInterpolationSegment: resp))
                         }
                     }
-                } else{
-                    if onfail != nil{
-                        onfail!(error!.description)
-                    } else {
-                        println(error!.description)
-                    }
-                }
+//                } else{
+//                    if onfail != nil{
+//                        onfail!(error!.description)
+//                    } else {
+//                        print(error!.description)
+//                    }
+//                }
         }
     }
     public func loadRemote(){
@@ -183,8 +185,8 @@ public class BaseDataItem {
             req = request(.GET, url)
         }
  
-        req.responseJSON { (_, resp, data, error) in
-                if error == nil{
+        req.responseJSON { (_, resp, data) in
+//                if error == nil{
                     switch resp!.statusCode{
                     case 200,201,202,203:
                         if onsuccess != nil{
@@ -201,11 +203,11 @@ public class BaseDataItem {
                             onfail!(String(stringInterpolationSegment: resp))
                         }
                     }
-                } else{
-                    if onfail != nil{
-                        onfail!(error!.description)
-                    }
-                }
+//                } else{
+//                    if onfail != nil{
+//                        onfail!(error!.description)
+//                    }
+//                }
         }
         
     }

@@ -58,7 +58,7 @@ extension UIImage {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colorSpaceModel = CGColorSpaceGetModel(colorSpace)
 
-        switch (colorSpaceModel.value) {
+        switch (CGBitmapInfo.value) {
         case kCGColorSpaceModelRGB.value:
 
             // Reference: http://stackoverflow.com/questions/23723564/which-cgimagealphainfo-should-we-use
@@ -70,7 +70,7 @@ extension UIImage {
                 break
             }
             bitmapInfo &= ~CGBitmapInfo.AlphaInfoMask
-            bitmapInfo |= CGBitmapInfo(info.rawValue)
+            bitmapInfo |= CGBitmapInfo(rawValue: info.rawValue)
         default:
             break
         }
@@ -82,7 +82,7 @@ extension UIImage {
             bitsPerComponent,
             0,
             colorSpace,
-            bitmapInfo
+            UInt32(bitmapInfo)
         )
 
         let frame = CGRect(x: 0, y: 0, width: Int(width), height: Int(height))
@@ -139,7 +139,7 @@ public enum State {
 /**
     Responsible for creating and managing `Loader` objects and controlling of `NSURLSession` and `ImageCache`
 */
-public class PicManager {
+public class Manager {
 
     let session: NSURLSession
     let cache: ImageCache
@@ -147,9 +147,9 @@ public class PicManager {
     public var inflatesImage: Bool = true
 
     // MARK: singleton instance
-    public class var sharedInstance: PicManager {
+    public class var sharedInstance: Manager {
         struct Singleton {
-            static let instance = PicManager()
+            static let instance = Manager()
         }
 
         return Singleton.instance
@@ -291,13 +291,13 @@ public class PicManager {
 */
 public class Loader {
 
-    let delegate: PicManager
+    let delegate: Manager
     let task: NSURLSessionDataTask
     var receivedData: NSMutableData = NSMutableData()
     let inflatesImage: Bool
     internal var blocks: [Block] = []
 
-    init (task: NSURLSessionDataTask, delegate: PicManager) {
+    init (task: NSURLSessionDataTask, delegate: Manager) {
         self.task = task
         self.delegate = delegate
         self.inflatesImage = delegate.inflatesImage
@@ -379,21 +379,21 @@ public class Loader {
     Creates `Loader` object using the shared manager instance for the specified URL.
 */
 public func load(URL: URLLiteralConvertible) -> Loader {
-    return PicManager.sharedInstance.load(URL)
+    return Manager.sharedInstance.load(URL)
 }
 
 /**
     Suspends `Loader` object using the shared manager instance for the specified URL.
 */
 public func suspend(URL: URLLiteralConvertible) -> Loader? {
-    return PicManager.sharedInstance.suspend(URL)
+    return Manager.sharedInstance.suspend(URL)
 }
 
 /**
     Cancels `Loader` object using the shared manager instance for the specified URL.
 */
 public func cancel(URL: URLLiteralConvertible) -> Loader? {
-    return PicManager.sharedInstance.cancel(URL)
+    return Manager.sharedInstance.cancel(URL)
 }
 
 /**
@@ -402,9 +402,9 @@ public func cancel(URL: URLLiteralConvertible) -> Loader? {
 public func cache(URL: URLLiteralConvertible) -> UIImage? {
     let URL = URL.URL
 
-    return PicManager.sharedInstance.cache[URL]
+    return Manager.sharedInstance.cache[URL]
 }
 
 public var state: State {
-    return PicManager.sharedInstance.state
+    return Manager.sharedInstance.state
 }

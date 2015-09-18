@@ -62,14 +62,14 @@ class FeedViewController: UITableViewController{
         // Configure the cell...
         let i = indexPath.row
         if i < Local.FEED!.count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("basiccell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("basiccell", forIndexPath: indexPath) 
             let wb = Local.FEED!.datalist[i] as! Weibo
             cell.textLabel?.text = wb.title
             cell.detailTextLabel?.text = wb.brief
             return cell
         }
         else{
-             let cell = tableView.dequeueReusableCellWithIdentifier("loadhistory", forIndexPath: indexPath) as! UITableViewCell
+             let cell = tableView.dequeueReusableCellWithIdentifier("loadhistory", forIndexPath: indexPath) 
             cell.textLabel?.text = "加载更多..."
             if Local.FEED?.nexturl == nil {
                 cell.textLabel?.text = "没有更多了"
@@ -123,8 +123,8 @@ class FeedViewController: UITableViewController{
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let index:Int? = self.tableView.indexPathForSelectedRow()?.row
-        let tarnav:UINavigationController = segue.destinationViewController as! UINavigationController
+//        let index:Int? = self.tableView.indexPathForSelectedRow?.row
+//        let tarnav:UINavigationController = segue.destinationViewController as! UINavigationController
 //        let tarview = tarnav.childViewControllers[0] as! WeiboViewController
 //        tarview.weibo = Local.FEED?.datalist[index!] as! Weibo?
         // Get the new view controller using [segue destinationViewController].

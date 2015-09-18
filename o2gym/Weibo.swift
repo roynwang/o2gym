@@ -153,19 +153,19 @@ public class Weibo : BaseDataItem {
     
     func setUpped(up:Bool = true){
         if up {
-            if let index = find(Local.USER.upped, self.id!) {
+            if let _ = Local.USER.upped.indexOf(self.id!) {
                 Local.USER.upped.append(self.id!)
             }
-            if self.isfwd && nil == find(Local.USER.upped, self.fwdfrom!) {
+            if self.isfwd && nil == Local.USER.upped.indexOf(self.fwdfrom!) {
                 Local.USER.upped.append(self.fwdfrom!)
             }
         }
         else {
-            if let index = find(Local.USER.upped, self.id!) {
+            if let index = Local.USER.upped.indexOf(self.id!) {
                 Local.USER.upped.removeAtIndex(index)
             }
             if self.isfwd  {
-                if let index = find(Local.USER.upped, self.fwdfrom!) {
+                if let index = Local.USER.upped.indexOf(self.fwdfrom!) {
                     Local.USER.upped.removeAtIndex(index)
                 }
             }
@@ -173,7 +173,7 @@ public class Weibo : BaseDataItem {
         }
     }
     
-    public func up(_ direction:Bool = true){
+    public func up(direction:Bool = true){
         if direction {
             self.upnum=self.upnum + 1
             self.requestGet(Host.WeiboUp(self), onsuccess: nil, onfail: nil)
@@ -182,7 +182,7 @@ public class Weibo : BaseDataItem {
         } else {
             self.upnum=self.upnum - 1
             self.requestGet(Host.WeiboUp(self,up:false), onsuccess: nil, onfail: nil)
-            self.setUpped(up: false)
+            self.setUpped(false)
         }
     }
 
