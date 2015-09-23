@@ -23,7 +23,7 @@ class RecommendListViewController: UITableViewController {
         // set active image
         let baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "o2_active")
-        self.tableView.backgroundColor = UIColor.whiteColor()
+        self.tableView.backgroundColor = O2Color.BgGreyColor
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
@@ -32,8 +32,7 @@ class RecommendListViewController: UITableViewController {
             self.tableView.reloadData()
         }, itemcallback: nil)
         
-        Local.login(nil, onfail: nil)
-        
+        Local.auth(nil)
         
         //        var bounds = self.navigationController?.navigationBar.bounds as CGRect!
         //        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView

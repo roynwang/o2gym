@@ -72,8 +72,6 @@ import Alamofire
     
     func determineLoginMethod(){
         
-        self.SendSms.enabled = false
-        self.LoginBtn.enabled = false
         self.PhoneNum.delegate = self
         self.Vcode.delegate = self
         
@@ -89,24 +87,35 @@ import Alamofire
     
     
     @IBAction func loginWithVcode() {
+        if self.PhoneNum.text?.characters.count != 11 || self.Vcode.text?.characters.count !=  6{
+            self.view.makeToast(message: "请输入正确的手机号和验证码")
+            return
+        }
         Local.loginWithVcode(self.PhoneNum.text!, vcode: self.Vcode.text!, onsuccess: { (_) -> Void in
             if self.loginSuccessAction != nil {
                 self.loginSuccessAction!()
             }
-            }, onfail: nil)
+            }, onfail: { (str) -> Void in
+                self.view.makeToast(message: str)
+        })
     }
     
     @IBAction func sendVcode(sender: AnyObject) {
+        if self.PhoneNum.text?.characters.count != 11 {
+            self.view.makeToast(message: "请输入正确的手机号")
+            return
+        }
+
         self.SendSms.startWithSecond(90)
-        self.SendSms.titleLabel?.text = "已发送"
+        self.SendSms.setTitle("已发送", forState: UIControlState.Normal)
         self.SendSms.didChange { (btn, second) -> String! in
             return "\(second)秒"
         }
-        self.SendSms.enabled = false
+        self.SendSms.userInteractionEnabled = false
         self.SendSms.alpha = 0.5
         
         self.SendSms.didFinished { (btn, second) -> String! in
-            self.SendSms.enabled = true
+            self.SendSms.userInteractionEnabled = true
             self.SendSms.alpha = 1
             return "重新获取"
         }
@@ -131,13 +140,13 @@ import Alamofire
     
     @IBAction func phoneEditing(sender: UITextField) {
         
-        if sender.text != nil && sender.text!.characters.count == 11 {
-            self.SendSms.enabled = true
-            self.LoginBtn.enabled = true
-        } else {
-            self.SendSms.enabled = false
-            self.LoginBtn.enabled = false
-        }
+//        if sender.text != nil && sender.text!.characters.count == 11 {
+//            self.SendSms.enabled = true
+//            self.LoginBtn.enabled = true
+//        } else {
+//            self.SendSms.enabled = false
+//            self.LoginBtn.enabled = false
+//        }
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {

@@ -22,6 +22,7 @@ public class OrderItem : BaseDataItem{
     public var product:Int!
     public var booked:[Book] = []
     public var amount:Int!
+    public var channel:String!
   
     override var UrlCreate:String {
         return Host.OrderItemCreate(self.name!)
@@ -77,6 +78,7 @@ public class OrderItem : BaseDataItem{
         self.amount = dict["amount"].intValue
         //TODO
         self.name = self.customer.name
+        self.channel = dict["channel"].string
         
     }
     
@@ -91,10 +93,14 @@ public class OrderItem : BaseDataItem{
         return ret
     }
     
-    public func pay(on_success:(()->Void)?){
+    public func pay(onSuccess:(()->Void)?, onFail:(()->Void)?){
+        
+        Local.payFail = onFail
+        Local.paySuccess = onSuccess
+        
         
         //get the charge
-       Alamofire.request(.GET, Host.PayOrderGet(self.billid,channel: "wx"))
+       Alamofire.request(.GET, Host.PayOrderGet(self.billid,channel: self.channel))
         .responseString(encoding: NSUTF8StringEncoding) {
             (_, resp, data) -> Void
             in
@@ -106,8 +112,13 @@ public class OrderItem : BaseDataItem{
                     if error != nil {
                         print(error.code.rawValue)
                         print(error.getMsg())
+                        if onFail != nil {
+                            onFail!()
+                        }
                     } else {
-                        on_success!()
+                        if onSuccess != nil {
+                            onSuccess!()
+                        }
                     }
 
                 })

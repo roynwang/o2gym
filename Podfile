@@ -23,6 +23,7 @@ target 'o2gym' do
 #	pod 'ImageLoader'
 	pod 'Haneke', '~> 1.0'
 	pod 'RGToast', '1.0.0'
+	pod 'SIAlertView'
 end
 
 target 'o2gymTests' do

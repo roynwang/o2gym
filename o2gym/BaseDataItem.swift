@@ -43,21 +43,36 @@ public class BaseDataItem {
     func buildParam()->[String:String]{
         preconditionFailure("This method must be overridden")
     }
-    public func save<T:BaseDataItem>(success_handler:((T)->Void)?, error_handler:((NSError?)->Void)?){
-        request(.POST, self.UrlCreate, parameters:self.buildParam())
+    public func save<T:BaseDataItem>(success_handler:((T)->Void)?, error_handler:((String)->Void)?){
+        print(Local.AuthHeaders)
+        request(.POST, self.UrlCreate, parameters:self.buildParam() , headers: Local.AuthHeaders)
+            .validate()
             .responseJSON { (_, resp, data) in
-                print(resp?.statusCode)
-
-            
-                if resp?.statusCode == 201{
-                    let dict = JSON(data.value!)
+                self.isLoaded = true
+                switch data {
+                case .Success(let json):
+                    let dict = JSON(json)
                     self.loadFromJSON(dict)
                     if success_handler != nil {
                         success_handler!(self as! T)
                     }
-                } else {
-                    if error_handler != nil {
-                        //error_handler!(error)
+                    print("create success")
+                case .Failure(let msg, _):
+                    do {
+                        let js = try NSJSONSerialization.JSONObjectWithData(msg!, options: NSJSONReadingOptions.AllowFragments)
+                        if error_handler != nil {
+                            let err = JSON(js)
+                            if err["detail"].string != nil {
+                                error_handler!(err["detail"].stringValue)
+                            } else {
+                                error_handler!("神奇的错误")
+                            }
+                        }
+
+                    } catch {
+                        if error_handler != nil {
+                            error_handler!("神奇的错误")
+                        }
                     }
                 }
         }
@@ -95,7 +110,7 @@ public class BaseDataItem {
     
     
     public func delete<T:BaseDataItem>(onsuccess:((T)->Void)?, onfail:((String?)->Void)?){
-
+        
         
         request(.DELETE, self.UrlGet, headers:Local.AuthHeaders)
             .response{ (_, resp, data, error) in
@@ -128,7 +143,7 @@ public class BaseDataItem {
     }
     
     
-
+    
     
     
     
@@ -141,35 +156,48 @@ public class BaseDataItem {
             req = request(.GET, self.UrlGet)
         }
         
-        req.responseJSON { (_, resp, data) in
-                print(self.UrlGet)
-                //if error == nil{
-                    self.isLoaded = true
-                    switch resp!.statusCode{
-                    case 200:
-                        let dict = JSON(data.value!)
-                        self.loadFromJSON(dict)
-                        if onsuccess != nil{
-                            onsuccess!(self as! T)
-                        }
-                        break
-                    case 404:
-                        if onfail != nil{
-                            onfail!("无法访问" + self.UrlGet)
-                        }
-                        break
-                    default:
-                        if onfail != nil{
-                            onfail!(String(stringInterpolationSegment: resp))
-                        }
+        req
+            .validate()
+            .responseJSON { (_, resp, data) in
+                self.isLoaded = true
+                switch data {
+                case .Success(let json):
+                    let dict = JSON(json)
+                    self.loadFromJSON(dict)
+                    if onsuccess != nil{
+                        onsuccess!(self as! T)
                     }
-//                } else{
-//                    if onfail != nil{
-//                        onfail!(error!.description)
-//                    } else {
-//                        print(error!.description)
-//                    }
-//                }
+                    
+                    print("Validation Successful")
+                case .Failure(_, let error):
+                    
+                    if onfail != nil{
+                        onfail!(String(stringInterpolationSegment: resp))
+                    }
+                    print(error)
+                }
+                print(self.UrlGet)
+                
+                
+                //            self.isLoaded = true
+                //            switch resp!.statusCode{
+                //            case 200:
+                //                let dict = JSON(data.value!)
+                //                self.loadFromJSON(dict)
+                //                if onsuccess != nil{
+                //                    onsuccess!(self as! T)
+                //                }
+                //                break
+                //            case 404:
+                //                if onfail != nil{
+                //                    onfail!("无法访问" + self.UrlGet)
+                //                }
+                //                break
+                //            default:
+                //                if onfail != nil{
+                //                    onfail!(String(stringInterpolationSegment: resp))
+                //                }
+                //            }
         }
     }
     public func loadRemote(){
@@ -184,30 +212,30 @@ public class BaseDataItem {
         } else {
             req = request(.GET, url)
         }
- 
+        
         req.responseJSON { (_, resp, data) in
-//                if error == nil{
-                    switch resp!.statusCode{
-                    case 200,201,202,203:
-                        if onsuccess != nil{
-                            onsuccess!()
-                        }
-                        break
-                    case 404:
-                        if onfail != nil{
-                            onfail!("无法访问" + url)
-                        }
-                        break
-                    default:
-                        if onfail != nil{
-                            onfail!(String(stringInterpolationSegment: resp))
-                        }
-                    }
-//                } else{
-//                    if onfail != nil{
-//                        onfail!(error!.description)
-//                    }
-//                }
+            //                if error == nil{
+            switch resp!.statusCode{
+            case 200,201,202,203:
+                if onsuccess != nil{
+                    onsuccess!()
+                }
+                break
+            case 404:
+                if onfail != nil{
+                    onfail!("无法访问" + url)
+                }
+                break
+            default:
+                if onfail != nil{
+                    onfail!(String(stringInterpolationSegment: resp))
+                }
+            }
+            //                } else{
+            //                    if onfail != nil{
+            //                        onfail!(error!.description)
+            //                    }
+            //                }
         }
         
     }

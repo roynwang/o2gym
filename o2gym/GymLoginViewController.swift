@@ -11,13 +11,13 @@ import UIKit
 class GymLoginViewController: UIViewController {
     
     @IBOutlet weak var loginView: LoginView!
-    var loginSuccess:(()->Void)!
+    //var loginSuccess:(()->Void)!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loginSuccess = self.showContentView
+        self.loginView.loginSuccessAction = self.showContentView
         if Local.HASLOGIN {
             self.loginView.hidden = true
         }

@@ -13,16 +13,19 @@ public class Local{
     
     static var _usr:User? = nil
     static var _timelne:Timeline? = nil
-    static var _token:String? = nil
+    static var _token:String? = ""
     static var _hasLogin:Bool = false
     
     
     static var AuthHeaders:[String:String] {
-        if Local.TOKEN == "" {
+        if Local.TOKEN != "" {
             return ["Authorization":"JWT " + Local.TOKEN]
         }
         return [String:String]()
     }
+    
+    public static var paySuccess:(()->Void)?
+    public static var payFail:(()->Void)?
     
     
     public class func loginWithVcode(phoneNum:String, vcode:String, onsuccess :((User)->Void)?,onfail :((String)->Void)?){
@@ -31,27 +34,32 @@ public class Local{
             .responseJSON { (req, resp, data) -> Void in
                 if data.error != nil {
                     if onfail != nil {
-                        onfail!("登陆失败")
+                        onfail!("一个神奇的错误")
                     }
                     return
                 }
                 if resp?.statusCode == 200{
                     let dict = JSON(data.value!)
-                    
                     self._token = dict["token"].stringValue
+                    print("==================")
+                    print(self._token)
+                    print("==================")
                     defaults.setValue(self._token, forKey: "o2gym_token")
                     defaults.setValue(phoneNum, forKey: "o2gym_name")
-                    
                     self._usr = User(name: phoneNum)
                     self._timelne = Timeline(name: phoneNum)
-                    self._hasLogin = true
-                    
-                    //self.TIMELINE.loadRemote(nil, onfail: nil)
-                    
                     self.USER.loadRemote(onsuccess, onfail: onfail)
+                    
+
+                    //refresh token after 4 seconds
+                    let delay = 4.0 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), {
+                        Local.auth(nil)
+                    })
                 } else {
+                   
                     if onfail != nil {
-                        onfail!("登陆失败")
+                        onfail!("是不是验证码错了？检查一下或者重发")
                     }
                 }
         }
@@ -59,57 +67,55 @@ public class Local{
     
     
     
+    public class func saveToken(usr:User, token:String){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(usr.name!, forKey: "o2gym_name")
+        defaults.setValue(token, forKey: "o2gym_token")
+    }
     
-    public class func login(onsuccess :((User)->Void)?,onfail :((String)->Void)?){
+    
+    public class func auth(onsuccess:(()->Void)!){
+        
+        if Local.HASLOGIN {
+            return
+        }
         
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if let token = defaults.stringForKey("o2gym_token")  {
-            self._hasLogin = true
             self._token = token
-            self._usr = User(name: defaults.stringForKey("o2gym_name")!)
-            self._timelne = Timeline(name: defaults.stringForKey("o2gym_name")!)
-            self.USER.loadRemote(onsuccess, onfail: onfail)
-            return
+         
         }
 
-//        let name:String = defaults.stringForKey("o2gym_name")!
-//        let pwd:String = defaults.stringForKey("o2gym_pwd")!
-        
-//        request(.POST, Host.JwtAuth(), parameters:["username":name, "password":pwd])
-//            .responseJSON { (req, resp, data) -> Void in
-////                if err != nil {
-////                    if onfail != nil {
-////                        onfail!("登陆失败")
-////                    }
-////                    return
-////                }
-////                
-//                if resp?.statusCode == 200{
-//                    let dict = JSON(data.value!)
-//                    
-//                    self._token = dict["token"].stringValue
-//                    defaults.setValue(self._token, forKey: "o2gym_token")
-//
-//                    self._usr = User(name: name)
-//                    self._timelne = Timeline(name: name)
-//                    self._hasLogin = true
-//                    
-//                    //self.TIMELINE.loadRemote(nil, onfail: nil)
-//                    
-//                    self.USER.loadRemote(onsuccess, onfail: onfail)
-//                    
-//                }
-////                else {
-////                    if onfail != nil {
-////                        onfail!("登陆失败")
-////                    }
-////                }
-//        }
-    }
-    
-    public class func auth(username:String, pwd:String){
-
+        request(.POST, Host.TokenRefresh(), parameters:["token":Local.TOKEN])
+        .validate()
+        .responseJSON { (_, resp, result) -> Void in
+            switch (result){
+            case .Success(let data):
+                let js = JSON(data)
+                if js["token"].string != nil {
+                    self._token = js["token"].stringValue
+                    
+                    print("refreshed token")
+                    print(self._token)
+                    
+                    defaults.setValue(self._token, forKey: "o2gym_token")
+                    if self._usr  == nil {
+                        self._usr = User(name: defaults.stringForKey("o2gym_name")!)
+                        self._timelne = Timeline(name: defaults.stringForKey("o2gym_name")!)
+                        Local.USER.loadRemote()
+                    }
+                    if onsuccess != nil {
+                        onsuccess!()
+                    }
+                    self._hasLogin = true
+                } else {
+                    self._hasLogin = false
+                }
+            case .Failure:
+                self._hasLogin = false
+            }
+        }
     }
     
     public static var HASLOGIN:Bool {

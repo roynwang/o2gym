@@ -24,6 +24,7 @@ class MyGoodsViewController: UITableViewController {
     
     convenience init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!, usrname:String) {
         self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
         self.usrname = usrname
         self.myGoods = ProductList(name: self.usrname)
         
@@ -38,7 +39,7 @@ class MyGoodsViewController: UITableViewController {
         
         self.tableView.registerNib(UINib(nibName: "MyGoodCell", bundle: nil), forCellReuseIdentifier: "mygood")
 
-        self.tableView.bounces = false
+        //self.tableView.bounces = false
         self.myGoods.load({ () -> Void in
             self.tableView.reloadData()
         }, itemcallback: nil)

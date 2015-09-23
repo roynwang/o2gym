@@ -116,6 +116,8 @@ public class Helper{
         return newImage
     }
     
+    
+    
     class func intToWeekDay(index:Int)->String{
         var ret:String = ""
         switch index {

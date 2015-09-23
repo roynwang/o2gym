@@ -11,7 +11,9 @@ import Foundation
 class Host {
     //static let ip : String = "http://45.33.58.236:8000/api"
 //    static let ip : String = "http://127.0.0.1:8000/api"
-    static let ip : String = "http://192.168.1.105:8000/api"
+//    static let ip : String = "http://172.20.10.2/api"
+    static let ip : String = "http://192.168.1.111:8000/api"
+//    static let ip : String = "http://123.57.245.221/api"
     static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
     
     class func JwtAuth()->String{
@@ -233,5 +235,9 @@ class Host {
     }
     class func VcodeSend()->String{
         return "\(self.ip)/sms/"
+    }
+    
+    class func TokenRefresh() -> String{
+        return "\(self.ip)/t/"
     }
 }

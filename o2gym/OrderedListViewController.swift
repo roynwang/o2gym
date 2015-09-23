@@ -11,14 +11,20 @@ import UIKit
 class OrderedListViewController: UITableViewController {
 
     
+    
     var orderlist:OrderList!
+    
+    
+    
+    var executing:Bool = false
+
+    var nomore:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "OrderItemCell", bundle: nil), forCellReuseIdentifier: "orderitemcell")
         self.orderlist = OrderList(name: Local.USER.name!)
-        self.orderlist.load({ () -> Void in
-            self.tableView.reloadData()
-        }, itemcallback: nil)
+
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,7 +32,7 @@ class OrderedListViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.tableView.bounces = false
+        //self.tableView.bounces = false
         
     }
 
@@ -39,6 +45,11 @@ class OrderedListViewController: UITableViewController {
         O2Nav.setController(self)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        self.orderlist.load({ () -> Void in
+            self.tableView.reloadData()
+            }, itemcallback: nil)
+    }
     
     // MARK: - Table view data source
 
@@ -62,6 +73,42 @@ class OrderedListViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let cont =  sb.instantiateViewControllerWithIdentifier("orderdetail") as! OrderDetailListController
+        cont.order = self.orderlist.datalist[indexPath.row] as! OrderItem
+        self.navigationController?.pushViewController(cont, animated: true)
+        
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        
+        if distanceFromBottom < height {
+            self.loadOld()
+        }
+    }
+    
+    func loadOld() {
+        if self.nomore || self.executing {
+            return
+        }
+        self.executing = true
+        func addlatest(){
+            self.executing = false
+            if self.orderlist.delta == 0 {
+                self.nomore = true
+                return
+            }
+            self.tableView.reloadData()
+            
+            //self.showUpdateToast(self.feed.delta)
+        }
+        self.orderlist.loadHistory(addlatest, itemcallback: nil)
     }
 
 

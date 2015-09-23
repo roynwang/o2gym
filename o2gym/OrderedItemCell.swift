@@ -24,6 +24,7 @@ class OrderItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        
         // Initialization code
     }
 
@@ -40,11 +41,19 @@ class OrderItemCell: UITableViewCell {
         self.Coach.text = order.coach.displayname
         self.BillId.text = order.billid.toString()
         self.Price.text = "￥" + self.order.amount.toString()
+        self.ActionBtn.userInteractionEnabled = true
         self.Status.text = "进行中"
+        
+        if order.status == "inprogress" {
+            self.ActionBtn.hidden = true
+            return
+        }
+        
         if order.status == "unpaid" {
             self.actiontype = "pay"
             self.ActionBtn.setTitle("支付", forState: UIControlState.Normal)
             self.Status.text = "未支付"
+            self.ActionBtn.userInteractionEnabled = false
         }
         if order.status == "paid" {
             self.actiontype = "book"
@@ -63,18 +72,13 @@ class OrderItemCell: UITableViewCell {
     }
     @IBAction func ActionTapped(sender: AnyObject) {
         if self.actiontype == "pay" {
-            self.pay()
+            //self.pay()
         }
         if self.actiontype == "book" {
             self.book()
         }
     }
-    func pay(){
-        self.order.pay { () -> Void in
-            self.order.status = "paid"
-            self.loadOrder(self.order)
-        }
-    }
+
     func book(){
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let cont =  sb.instantiateViewControllerWithIdentifier("book") as! BookViewController

@@ -25,7 +25,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     var executing:Bool = false
     var nomore:Bool = false
     var started:Bool = false
-    var allpics:[UIImageView] = []
+    //var allpics:[UIImageView] = []
     
     var emptyStr:NSAttributedString!
     
@@ -34,7 +34,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
         self.usrname = name
         self.album = Album(name: name)
         self.load { () -> Void in
-            self.allpics
+            //self.allpics
         }
     }
     public required init?(coder aDecoder: NSCoder) {
@@ -78,9 +78,14 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             NSForegroundColorAttributeName : UIColor.lightGrayColor()]
         self.emptyStr = NSAttributedString(string:"...载入中...", attributes:attributes)
         
+        self.collectionView?.bounces = true
+        //self.collectionView?.alwaysBounceHorizontal = true
+        self.collectionView?.alwaysBounceVertical = true
+        
         
         self.collectionView!.emptyDataSetSource = self
         self.collectionView!.emptyDataSetDelegate = self
+        
         
     }
     
@@ -130,6 +135,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
         return CGSizeMake(self.picWidth, self.picWidth)
     }
     
+
   
     /*
     // MARK: - Navigation
@@ -152,8 +158,19 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     
     
     public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return self.isSelf ? (self.album.count + 1 ): self.album.count
+        var count = self.album.count
+        if count == 0 {
+            return 0
+        }
+        if self.isSelf {
+            count += 1
+        }
+        if count < 9 {
+            count  = 12
+        }
+        return count
     }
     
     public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -171,8 +188,12 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             if self.isSelf {
                 i -= 1
             }
-            let pic = self.album.datalist[i] as! Pic
-            cell.Img.fitLoad(pic.url, placeholder: nil)
+            if i < self.album.count {
+                let pic = self.album.datalist[i] as! Pic
+                cell.Img.fitLoad(pic.url, placeholder: nil)
+            } else {
+                print("add place holder")
+            }
             return cell
         }
     }
@@ -231,12 +252,14 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             }
             self.collectionView!.reloadData()
             
+            self.collectionView?.collectionViewLayout.prepareLayout()
+            
             //self.showUpdateToast(self.feed.delta)
         }
         self.album.loadHistory(addlatest, itemcallback: {(item) -> Void in
-            let img = UIImageView()
-            img.loadUrl((item as! Pic).url)
-            self.allpics.append(img)
+            //let img = UIImageView(frame:CGSizeMake(self.picWidth, self.picWidth))
+            //img.loadUrl((item as! Pic).url)
+            //self.allpics.append(img)
         })
     }
     
@@ -307,10 +330,13 @@ extension AlbumViewController : FSMediaPickerDelegate {
         Helper.upload(UIImageJPEGRepresentation(image,ratio)!, complete: { (info, filename, resp) -> Void in
             let img = Host.ImgHost + filename
             let post = Weibo(usr: Local.USER)
-            post.setContent("新照片", brief: "", imgs: "[\"\(img)\"]")
+            post.setContent("发布了照片", brief: "", imgs: "[\"\(img)\"]")
             post.save({ (_) -> Void in
                 print("saved ... ...")
+                self.album.datalist.insert(Pic(url:img), atIndex: 0)
+                self.collectionView?.reloadData()
             }, error_handler: nil)
+            
         
 //            Local.USER.avatar = Host.ImgHost + filename
 //            Local.USER.update(nil, onfail: nil)

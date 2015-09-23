@@ -431,6 +431,192 @@
             </objects>
             <point key="canvasLocation" x="-82" y="3981"/>
         </scene>
+        <!--Order Detail List Controller-->
+        <scene sceneID="LmJ-YG-Fde">
+            <objects>
+                <tableViewController storyboardIdentifier="orderdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qhD-CP-rxj" customClass="OrderDetailListController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xEh-Bh-3yJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ordersummary" id="Kv7-LB-dxc" customClass="OrderSummaryCell" customModule="o2gym" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kv7-LB-dxc" id="rdy-ON-4Yh">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RE-kd-pHR">
+                                            <rect key="frame" x="16" y="13" width="35.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRq-TO-zCD">
+                                            <rect key="frame" x="557.5" y="15.5" width="26.5" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1RE-kd-pHR" firstAttribute="centerY" secondItem="rdy-ON-4Yh" secondAttribute="centerY" id="4Qh-zL-cPx"/>
+                                        <constraint firstItem="1RE-kd-pHR" firstAttribute="leading" secondItem="rdy-ON-4Yh" secondAttribute="leadingMargin" constant="8" id="Arv-ZQ-wtl"/>
+                                        <constraint firstItem="NRq-TO-zCD" firstAttribute="trailing" secondItem="rdy-ON-4Yh" secondAttribute="trailingMargin" constant="-8" id="gAC-cy-jzS"/>
+                                        <constraint firstItem="NRq-TO-zCD" firstAttribute="centerY" secondItem="rdy-ON-4Yh" secondAttribute="centerY" id="ylb-jM-d7f"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="BillId" destination="1RE-kd-pHR" id="noc-1t-ANq"/>
+                                    <outlet property="Date" destination="NRq-TO-zCD" id="fbI-oW-BAI"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productdescription" rowHeight="69" id="cBe-bb-MFc" customClass="ProductDescriptionCell" customModule="o2gym" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="93.5" width="600" height="69"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBe-bb-MFc" id="xa7-tA-vCx">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCB-sM-Y7h">
+                                            <rect key="frame" x="16" y="26.5" width="129" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KCB-sM-Y7h" firstAttribute="leading" secondItem="xa7-tA-vCx" secondAttribute="leadingMargin" constant="8" id="BIv-Wc-jMN"/>
+                                        <constraint firstItem="KCB-sM-Y7h" firstAttribute="centerY" secondItem="xa7-tA-vCx" secondAttribute="centerY" id="nrB-9v-dcs"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Description" destination="KCB-sM-Y7h" id="9WL-eC-0W0"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productsummary" rowHeight="81" id="fSK-3y-OZk" customClass="ProductSummaryCell" customModule="o2gym" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="162.5" width="600" height="81"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fSK-3y-OZk" id="p41-jz-Y1g">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypi-oC-XNg">
+                                            <rect key="frame" x="16" y="32.5" width="33" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6F-5F-6a4">
+                                            <rect key="frame" x="533" y="32" width="50.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="d6F-5F-6a4" firstAttribute="trailing" secondItem="p41-jz-Y1g" secondAttribute="trailingMargin" constant="-8" id="Eei-Jj-WZR"/>
+                                        <constraint firstItem="Ypi-oC-XNg" firstAttribute="leading" secondItem="p41-jz-Y1g" secondAttribute="leadingMargin" constant="8" id="VBc-42-ZcV"/>
+                                        <constraint firstItem="d6F-5F-6a4" firstAttribute="centerY" secondItem="p41-jz-Y1g" secondAttribute="centerY" id="iGn-9K-pkl"/>
+                                        <constraint firstItem="Ypi-oC-XNg" firstAttribute="centerY" secondItem="p41-jz-Y1g" secondAttribute="centerY" id="shV-2O-fJo"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Amount" destination="d6F-5F-6a4" id="Pnv-cc-NPK"/>
+                                    <outlet property="Price" destination="Ypi-oC-XNg" id="fDb-0q-UIX"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="payway" rowHeight="76" id="jLx-BC-wnV" customClass="PayWayCell" customModule="o2gym" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="243.5" width="600" height="76"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jLx-BC-wnV" id="295-Um-MfZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wechatpay" translatesAutoresizingMaskIntoConstraints="NO" id="3jw-WH-n2P">
+                                            <rect key="frame" x="16" y="23" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="YQW-0s-3o3"/>
+                                                <constraint firstAttribute="width" constant="30" id="yJ8-tj-C3L"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh3-vN-Nt9">
+                                            <rect key="frame" x="66" y="27" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="QAZ-Nf-JjJ">
+                                            <rect key="frame" x="552" y="28" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="RSi-hU-G3H"/>
+                                                <constraint firstAttribute="width" constant="20" id="mFy-DR-xyc"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fh3-vN-Nt9" firstAttribute="leading" secondItem="3jw-WH-n2P" secondAttribute="trailing" constant="20" id="7RE-bq-aA9"/>
+                                        <constraint firstItem="3jw-WH-n2P" firstAttribute="centerY" secondItem="295-Um-MfZ" secondAttribute="centerY" id="cUW-FD-4Z6"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QAZ-Nf-JjJ" secondAttribute="trailing" constant="20" id="e9a-Pf-nAM"/>
+                                        <constraint firstItem="fh3-vN-Nt9" firstAttribute="centerY" secondItem="295-Um-MfZ" secondAttribute="centerY" id="iIE-ZQ-99K"/>
+                                        <constraint firstItem="QAZ-Nf-JjJ" firstAttribute="centerY" secondItem="295-Um-MfZ" secondAttribute="centerY" id="xGU-47-dgc"/>
+                                        <constraint firstItem="3jw-WH-n2P" firstAttribute="leading" secondItem="295-Um-MfZ" secondAttribute="leadingMargin" constant="8" id="zZv-sr-TGE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="PayWayIcon" destination="3jw-WH-n2P" id="XHu-03-ztT"/>
+                                    <outlet property="PayWayText" destination="fh3-vN-Nt9" id="J1Y-XB-T4q"/>
+                                    <outlet property="SelectedIcon" destination="QAZ-Nf-JjJ" id="OMa-s9-HMp"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="paybtn" rowHeight="76" id="nQr-kX-fgI" customClass="PayBtnCell" customModule="o2gym" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="319.5" width="600" height="76"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nQr-kX-fgI" id="9W7-VR-P2n">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqE-CQ-zCq">
+                                            <rect key="frame" x="8" y="0.0" width="584" height="67.5"/>
+                                            <color key="backgroundColor" red="0.46274509800000002" green="0.15686274510000001" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="支付">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vqE-CQ-zCq" firstAttribute="top" secondItem="9W7-VR-P2n" secondAttribute="topMargin" constant="-8" id="2ch-SP-urc"/>
+                                        <constraint firstItem="vqE-CQ-zCq" firstAttribute="leading" secondItem="9W7-VR-P2n" secondAttribute="leadingMargin" id="5mu-ij-WtE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vqE-CQ-zCq" secondAttribute="bottom" id="Hmd-qg-5hM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vqE-CQ-zCq" secondAttribute="trailing" id="gxN-N7-A7I"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="PayBtn" destination="vqE-CQ-zCq" id="yJW-DY-LMX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qhD-CP-rxj" id="c1b-lG-tiU"/>
+                            <outlet property="delegate" destination="qhD-CP-rxj" id="Hsp-fX-OCe"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8k-bG-xlO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="3981"/>
+        </scene>
         <!--圈子-->
         <scene sceneID="GCI-he-jPP">
             <objects>
@@ -1140,6 +1326,24 @@
             </objects>
             <point key="canvasLocation" x="2306" y="3085"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Mfm-M6-1TT">
+            <objects>
+                <viewController id="cvP-qD-UXB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eTf-3x-irG"/>
+                        <viewControllerLayoutGuide type="bottom" id="gTk-BF-d8e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hMi-Ql-NPL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPH-Zj-in6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3018" y="2327"/>
+        </scene>
         <!--Gym Detail Controller-->
         <scene sceneID="65R-Ld-tvx">
             <objects>
@@ -1386,5 +1590,7 @@
         <image name="muscle" width="24" height="24"/>
         <image name="muscle_active" width="24" height="24"/>
         <image name="o2" width="24" height="24"/>
+        <image name="ok" width="22" height="22"/>
+        <image name="wechatpay" width="22" height="22"/>
     </resources>
 </document>

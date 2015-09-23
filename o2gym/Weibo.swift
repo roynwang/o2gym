@@ -190,12 +190,12 @@ public class Weibo : BaseDataItem {
         
         
     }
-    public func recommendUser(tarUser:User, onsuccess:((Weibo)->Void)?, onfail:((NSError?)->Void)?){
+    public func recommendUser(tarUser:User, onsuccess:((Weibo)->Void)?, onfail:((String)->Void)?){
         self.coach = tarUser
         self.save(onsuccess,error_handler: onfail)
     }
     
-    public func fwd(usr:User ,onsuccess:((Weibo)->Void)?, onfail:((NSError?)->Void)?){
+    public func fwd(usr:User ,onsuccess:((Weibo)->Void)?, onfail:((String)->Void)?){
         let wb = Weibo(usr: usr)
         wb.setFwd(self)
         wb.save(onsuccess, error_handler: onfail)

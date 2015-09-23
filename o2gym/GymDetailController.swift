@@ -35,12 +35,16 @@ class GymDetailController: UITableViewController {
         
         gym.loadRemote({ (_) -> Void in
             //self.header.headerImage
-            self.headerImageView.hnk_setImageFromURL(NSURL(string:self.gym.img_set[0]))
+            self.headerImageView.fitLoad(self.gym.img_set[0])
+            //self.headerImageView.hnk_setImageFromURL()
             self.title = self.gym.name!
             O2Nav.setNavigationBarTransformProgress(1)
             O2Nav.setNavTitle(self.gym.name!)
             self.tableView.reloadData()
-            }, onfail: nil)
+            }, onfail: { (str) in
+                self.view.makeToast(message: str)
+            }
+            )
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

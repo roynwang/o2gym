@@ -23,6 +23,12 @@ public class Pic : BaseDataItem{
         self.url = nil
     }
     
+    public convenience init(url:String){
+        self.init()
+        self.id = nil
+        self.url = url
+    }
+    
     public convenience init(dict:JSON){
         self.init()
         self.loadFromJSON(dict)

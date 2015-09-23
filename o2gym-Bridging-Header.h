@@ -42,4 +42,6 @@
 #import "SDPhotoBrowser.h"
 #import "Haneke.h"
 #import "JKCountDownButton.h"
+#import "RGToast.h"
+#import "SIAlertView.h"
 #endif

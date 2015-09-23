@@ -333,15 +333,69 @@ class BookViewController: UIViewController {
     
     func submitBooks(sender:UIButton){
         
+        //payAlert.addButtonWithTitle(<#T##title: String!##String!#>, type: <#T##SIAlertViewButtonType#>)
+        
         if self.order.billid == nil {
+            self.view.makeToastActivity(position: HRToastPositionCenter, message: "订单创建中")
             self.order.save({ (_) -> Void in
                 self.saveAllBook(sender)
-            }, error_handler: nil)
+                self.view.hideToastActivity()
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let cont =  sb.instantiateViewControllerWithIdentifier("orderdetail") as! OrderDetailListController
+                cont.order = self.order
+                cont.backtwice = true
+                self.navigationController?.pushViewController(cont, animated: true)
+                //self.showPay()
+                }, error_handler: {
+                    (error) in
+                    self.view.makeToast(message: "订单创建失败")
+            })
         } else {
             self.saveAllBook(sender)
+            self.view.makeToast(message: "预约已提交",duration:2, position:HRToastPositionCenter)
+            let delay = 2.0 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), {
+                self.navigationController?.popViewControllerAnimated(true)
+            })
         }
         
     }
+    
+    func showPay(){
+        if self.order.status == "unpaid" {
+            
+            let payAlert = SIAlertView(title: "支付", andMessage: "预约已提交，请在30分钟内支付。您也可以在 我->我的订单 处支付及预约剩余课程")
+            
+            payAlert.addButtonWithTitle("支付", type: SIAlertViewButtonType.Default, handler: { (alert) -> Void in
+                
+              
+    
+                self.order.pay({ () -> Void in
+                    self.view.hideToastActivity()
+                    self.view.makeToast(message: "支付成功", duration: 2, position: HRToastPositionCenter)
+                    
+                    let delay = 2.0 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), {
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                    }, onFail:{()-> Void
+                        in
+                        self.view.hideToastActivity()
+                        let payFail = SIAlertView(title: "支付失败", andMessage: "支付没成功？您也可以稍后在 我->我的订单 处重新支付")
+                        payFail.addButtonWithTitle("关闭",type: SIAlertViewButtonType.Default, handler:nil)
+                        payFail.show()
+                })
+            })
+            payAlert.addButtonWithTitle("取消", type: SIAlertViewButtonType.Cancel, handler: nil)
+            
+            payAlert.show()
+            
+        } else {
+            self.view.makeToast(message: "预约已提交")
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
     
     func submitBook(date:String,hour:Int, rowIndex:Int, sender:UIButton){
         let book = Book(date: date, hour: hour, coach: self.coach, customer: Local.USER, orderid: self.order.id)
@@ -358,7 +412,7 @@ class BookViewController: UIViewController {
         book.save({ (book) -> Void in
             print("save successful")
             cell.done()
-            
+
             if rowIndex == (self.bookedTime.keys.count - 1) {
                 let animation = CATransition()
                 animation.type = kCATransitionFade
@@ -366,15 +420,15 @@ class BookViewController: UIViewController {
                 sender.layer.addAnimation(animation, forKey: nil)
                 sender.hidden = true
                 self.dayBookedTime = []
-                //self.bookedTime = [String:[Int]]()
-                //self.reloadTimeCollectionView()
-                //self.BookedTable.reloadData()
+                
+                //TODO
+                //show oder detail
+            
             }
             //self.dayBookedTime = []
             
             }, error_handler: { (error) -> Void in
-                print("save failed")
-                print(error)
+                self.view.makeToast(message: error)
                 
         })
         

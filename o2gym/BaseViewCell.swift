@@ -22,9 +22,9 @@ class BaseViewCell: UITableViewCell {
         corner.translatesAutoresizingMaskIntoConstraints = false
         let views = ["corner" : corner]
         
-        var topSpace = NSLayoutConstraint.constraintsWithVisualFormat("V:|-2-[corner]",
+        let topSpace = NSLayoutConstraint.constraintsWithVisualFormat("V:|-4-[corner]",
             options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        var trailSpace = NSLayoutConstraint.constraintsWithVisualFormat("[corner]-8-|",
+        let trailSpace = NSLayoutConstraint.constraintsWithVisualFormat("[corner]-0-|",
             options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
         self.contentView.addConstraints(topSpace)
         self.contentView.addConstraints(trailSpace)

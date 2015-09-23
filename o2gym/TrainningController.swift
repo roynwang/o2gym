@@ -173,26 +173,51 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 45
+        return 50
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section + 1 == self.numberOfSectionsInTableView(self.tableView){
-            let alert = MKInputBoxView.boxOfType(MKInputBoxType.PlainTextInput)
-            alert.setTitle("请输入动作名称")
-            alert.setSubmitButtonText("好")
-            alert.setCancelButtonText("取消")
-            alert.borderColor = O2Color.LightMainColor
-            //alert.setBlurEffectStyle(UIBlurEffectStyle.Dark)
-            alert.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.3)
-            alert.onSubmit = {
-                (v1:String!, v2:String!) ->Void in
-                self.actions[v1] = [Train]()
-                self.actions[v1]?.append(Train())
-                self.actionkey.append(v1)
-                self.tableView.reloadData()
-            }
-            alert.show()
+
+            
+            var inputTextField: UITextField?
+            let alert = UIAlertController(title: "添加动作", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addTextFieldWithConfigurationHandler({ (textfield) -> Void in
+                inputTextField = textfield
+            })
+
+            alert.addAction(UIAlertAction(title: "好", style: UIAlertActionStyle.Default, handler: {
+                (_) -> Void in
+                    let v1 = inputTextField!.text!
+                    self.actions[v1] = [Train]()
+                    self.actions[v1]?.append(Train())
+                    self.actionkey.append(v1)
+                    self.tableView.reloadData()
+                
+            }))
+            alert.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { (al) -> Void in
+            }))
+        
+            
+                
+            self.presentViewController(alert, animated: true, completion: nil)
+            //alert.show()
+            
+//            let alert = MKInputBoxView.boxOfType(MKInputBoxType.PlainTextInput)
+//            alert.setTitle("请输入动作名称")
+//            alert.setSubmitButtonText("好")
+//            alert.setCancelButtonText("取消")
+//            alert.borderColor = O2Color.LightMainColor
+//            alert.setBlurEffectStyle(UIBlurEffectStyle.Light)
+//            alert.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
+//            alert.onSubmit = {
+//                (v1:String!, v2:String!) ->Void in
+//                self.actions[v1] = [Train]()
+//                self.actions[v1]?.append(Train())
+//                self.actionkey.append(v1)
+//                self.tableView.reloadData()
+//            }
+//            alert.show()
         }
     }
     

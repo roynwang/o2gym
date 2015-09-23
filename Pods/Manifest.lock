@@ -36,6 +36,7 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - SIAlertView (1.3)
   - THCalendarDatePicker (1.2.1):
     - KNSemiModalViewController (~> 0.3)
   - UIImage+Additions (2.1.0)
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - Pingpp/Wx (~> 2.1.0)
   - RGToast (= 1.0.0)
   - SDWebImage
+  - SIAlertView
   - THCalendarDatePicker (~> 1.2.1)
   - UIImage+Additions
   - WeChat
@@ -72,6 +74,7 @@ SPEC CHECKSUMS:
   Pingpp: edc54cfba764fed14c60bc8e2e0e649b4e125df5
   RGToast: 62d8fb6c83706047ac3d59224ecf70db23f8329b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SIAlertView: 20c794b55eaf44d888773ea51647cf8907723919
   THCalendarDatePicker: 5d2b396b690796c45c30925dd0c23943141dbac6
   UIImage+Additions: 6181430b139099649e56171d58a52d6c37d57e42
   WeChat: 93915b3be360b5bdfe48e8a9d64ff0315a28c240

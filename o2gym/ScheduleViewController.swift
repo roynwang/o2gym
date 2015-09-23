@@ -13,6 +13,16 @@ class ScheduleViewController: UITableViewController {
     var weekSchedule:WeekBookList!
     var daylist:[String : [Book]]!
     var days:[String]!
+    
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    init(){
+        super.init(style: UITableViewStyle.Grouped)
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -27,6 +37,8 @@ class ScheduleViewController: UITableViewController {
         self.tableView.rowHeight = 100
         self.tableView.separatorColor = O2Color.BorderGrey
         self.tableView.sectionIndexColor = O2Color.TextGrey
+        
+        
         //self.tableView.backgroundColor = O2Color.BgGreyColor
 
         
@@ -107,24 +119,27 @@ class ScheduleViewController: UITableViewController {
         return self.days[section]
     }
 
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor =  O2Color.BgGreyColor
-        header.textLabel!.textColor = UIColor.darkGrayColor()
-        header.textLabel!.font = UIFont(name: "RTWS YueGothic Trial", size: 14)
-        //header.textLabel.text = self.daylist.keys.array[section]
-        header.alpha = 1 //make the header transparent
-        header.contentView.borderColor = O2Color.BorderGrey
-        header.contentView.bottomBorderWidth = 0.5
-        if section != 0 {
-            header.contentView.topBorderWidth = 0.5
-        } else {
-             header.contentView.topBorderWidth = 0
-        }
-    }
+//    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
+//        header.contentView.backgroundColor =  O2Color.BgGreyColor
+//        header.textLabel!.textColor = UIColor.darkGrayColor()
+//        header.textLabel!.font = UIFont(name: "RTWS YueGothic Trial", size: 14)
+//        //header.textLabel.text = self.daylist.keys.array[section]
+//        header.alpha = 1 //make the header transparent
+//        header.contentView.borderColor = O2Color.BorderGrey
+//        header.contentView.bottomBorderWidth = 0.5
+//        if section != 0 {
+//            header.contentView.topBorderWidth = 0.5
+//        } else {
+//            header.contentView.topBorderWidth = 0
+//        }
+//    }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        if section == 0 {
+            return 40
+        }
+        return 25
     }
 
     /*

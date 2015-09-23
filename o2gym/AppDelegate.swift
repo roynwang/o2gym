@@ -55,6 +55,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         WXApi.registerApp("wx8a54b204656aeefb")
         
         
+        SIAlertView.appearance().buttonColor = UIColor.whiteColor()
+        SIAlertView.appearance().cancelButtonColor = O2Color.TextBlack
+        SIAlertView.appearance().cornerRadius = 4
+        SIAlertView.appearance().setDefaultButtonImage(UIImage.add_imageWithColor(O2Color.LightMainColor), forState: UIControlState.Normal)
+         SIAlertView.appearance().setCancelButtonImage(UIImage.add_imageWithColor(O2Color.BgGreyColor), forState: UIControlState.Normal)
+        
+        
         return true
     }
 
@@ -84,8 +91,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         Pingpp.handleOpenURL(url, sourceApplication: sourceApplication) { (result, err) -> Void in
             if result == "success"{
                 print("pay success")
+                if Local.paySuccess != nil {
+                    Local.paySuccess!()
+                }
             } else {
                 print("pay failed")
+                if Local.payFail != nil {
+                    Local.payFail!()
+                }
             }
             
         }
