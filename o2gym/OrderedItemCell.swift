@@ -44,16 +44,14 @@ class OrderItemCell: UITableViewCell {
         self.ActionBtn.userInteractionEnabled = true
         self.Status.text = "进行中"
         
-        if order.status == "inprogress" {
-            self.ActionBtn.hidden = true
-            return
-        }
+
         
         if order.status == "unpaid" {
             self.actiontype = "pay"
             self.ActionBtn.setTitle("支付", forState: UIControlState.Normal)
             self.Status.text = "未支付"
             self.ActionBtn.userInteractionEnabled = false
+            self.ActionBtn.hidden = false
         }
         if order.status == "paid" {
             self.actiontype = "book"
@@ -64,6 +62,10 @@ class OrderItemCell: UITableViewCell {
         if order.status == "done" {
             self.Status.text = "已完成"
             
+        }
+        if order.status == "inprogress" {
+            self.Status.text = "已完成"
+            self.actiontype = nil
         }
         if self.actiontype == nil || Local.USER.iscoach{
             self.ActionBtn.hidden = true

@@ -803,12 +803,13 @@ extension BookViewController : UITableViewDelegate {
         
         cell.SubmitBtn.addTarget(self, action: "submitBooks:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        
+        cell.SubmitBtn.userInteractionEnabled = true
         if self.bookedTime.keys.count == 0 {
             cell.SubmitBtn.backgroundColor = UIColor.clearColor()
             cell.SubmitBtn.borderColor = O2Color.BorderGrey.colorWithAlphaComponent(0.8)
             //cell.SubmitBtn.tintColor = O2Color.TextGrey
             cell.SubmitBtn.setTitleColor(O2Color.BorderGrey.colorWithAlphaComponent(0.8), forState: UIControlState.Normal)
+            cell.SubmitBtn.userInteractionEnabled = false
         }
         self.BookedTableHeader = cell
         cell.BudgetLabel.text = "已选择 \(self.bookedTime.count.toString())/\(self.budget)"

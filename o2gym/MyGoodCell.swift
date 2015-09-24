@@ -10,6 +10,7 @@ import UIKit
 
 class MyGoodCell: UITableViewCell {
 
+    @IBOutlet weak var AgendaIcon: UIImageView!
     @IBOutlet weak var Sold: UILabel!
     @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var Amount: UILabel!
@@ -18,6 +19,7 @@ class MyGoodCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.selectionStyle = .None
+        self.AgendaIcon.image = UIImage(named: "agenda")?.add_tintedImageWithColor(O2Color.UpdateToast, style: ADDImageTintStyleKeepingAlpha)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

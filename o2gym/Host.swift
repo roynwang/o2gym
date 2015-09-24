@@ -196,7 +196,7 @@ class Host {
     }
     
     class func BookCreate(user:String, date:String) -> String{
-        let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
+        //let fdate = date.stringByReplacingOccurrencesOfString("/", withString: "")
         let url : String = "\(self.ip)/\(user)/b/"
         return url
     }
@@ -239,5 +239,9 @@ class Host {
     
     class func TokenRefresh() -> String{
         return "\(self.ip)/t/"
+    }
+    
+    class func NearByGymGet(longitude:String, latitude:String) -> String {
+        return "\(self.ip)/a/?longitude=\(longitude)&latitude=\(latitude)"
     }
 }

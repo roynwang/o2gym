@@ -46,6 +46,11 @@
 		722E66201BB26773005453E3 /* ProductDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E661F1BB26773005453E3 /* ProductDescriptionCell.swift */; settings = {ASSET_TAGS = (); }; };
 		722E66221BB267BC005453E3 /* PayBtnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E66211BB267BC005453E3 /* PayBtnCell.swift */; settings = {ASSET_TAGS = (); }; };
 		722E66241BB28849005453E3 /* PayWayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E66231BB28849005453E3 /* PayWayCell.swift */; settings = {ASSET_TAGS = (); }; };
+		722E66271BB3A351005453E3 /* NearByGymController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E66261BB3A351005453E3 /* NearByGymController.swift */; settings = {ASSET_TAGS = (); }; };
+		722E66291BB3A383005453E3 /* NearByGyms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E66281BB3A383005453E3 /* NearByGyms.swift */; settings = {ASSET_TAGS = (); }; };
+		722E662C1BB3A742005453E3 /* NearByGymCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E662A1BB3A742005453E3 /* NearByGymCell.swift */; settings = {ASSET_TAGS = (); }; };
+		722E662D1BB3A742005453E3 /* NearByGymCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722E662B1BB3A742005453E3 /* NearByGymCell.xib */; settings = {ASSET_TAGS = (); }; };
+		722E662F1BB3AD4E005453E3 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E662E1BB3AD4E005453E3 /* MainPageViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		723C13271B96F35B007123A1 /* WorkingHourConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C13261B96F35B007123A1 /* WorkingHourConfigViewController.swift */; };
 		723C13291B96F3AB007123A1 /* WorkingHourConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C13281B96F3AB007123A1 /* WorkingHourConfigCell.swift */; };
 		723C132B1B988B4D007123A1 /* OrderedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C132A1B988B4D007123A1 /* OrderedListViewController.swift */; };
@@ -310,6 +315,11 @@
 		722E661F1BB26773005453E3 /* ProductDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDescriptionCell.swift; sourceTree = "<group>"; };
 		722E66211BB267BC005453E3 /* PayBtnCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayBtnCell.swift; sourceTree = "<group>"; };
 		722E66231BB28849005453E3 /* PayWayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWayCell.swift; sourceTree = "<group>"; };
+		722E66261BB3A351005453E3 /* NearByGymController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByGymController.swift; sourceTree = "<group>"; };
+		722E66281BB3A383005453E3 /* NearByGyms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByGyms.swift; sourceTree = "<group>"; };
+		722E662A1BB3A742005453E3 /* NearByGymCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByGymCell.swift; sourceTree = "<group>"; };
+		722E662B1BB3A742005453E3 /* NearByGymCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearByGymCell.xib; sourceTree = "<group>"; };
+		722E662E1BB3AD4E005453E3 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		723C13261B96F35B007123A1 /* WorkingHourConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingHourConfigViewController.swift; sourceTree = "<group>"; };
 		723C13281B96F3AB007123A1 /* WorkingHourConfigCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingHourConfigCell.swift; sourceTree = "<group>"; };
 		723C132A1B988B4D007123A1 /* OrderedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedListViewController.swift; sourceTree = "<group>"; };
@@ -636,6 +646,7 @@
 				723E59941B5D1381005EC263 /* CircleViewController.swift */,
 				722C23B21B922D8A00164E34 /* MeViewController.swift */,
 				721A61121BA9B05D00F91F12 /* GymNowController.swift */,
+				722E662E1BB3AD4E005453E3 /* MainPageViewController.swift */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -654,9 +665,10 @@
 		722C247B1B93638D00164E34 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				72C34EDD1BAFDFA100E68122 /* OrderDetail */,
 				724EB4FA1B47BECC00729F8F /* Main.storyboard */,
 				7247EB991B6881A700A22F0C /* O2Nav.swift */,
+				722E66251BB3A31C005453E3 /* NearBy */,
+				72C34EDD1BAFDFA100E68122 /* OrderDetail */,
 				72A00CAB1BAA81EF007B2922 /* Login */,
 				72BC78811B94A51000ED7B3E /* Schedule */,
 				721A61111BA9AFCB00F91F12 /* Tabs */,
@@ -669,6 +681,16 @@
 				72BC78821B94A51A00ED7B3E /* Me */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		722E66251BB3A31C005453E3 /* NearBy */ = {
+			isa = PBXGroup;
+			children = (
+				722E66261BB3A351005453E3 /* NearByGymController.swift */,
+				722E662A1BB3A742005453E3 /* NearByGymCell.swift */,
+				722E662B1BB3A742005453E3 /* NearByGymCell.xib */,
+			);
+			name = NearBy;
 			sourceTree = "<group>";
 		};
 		723E598D1B5D12AC005EC263 /* MGSwipeTabBarController */ = {
@@ -733,6 +755,7 @@
 				72E5660E1BA5DC0000949DF4 /* BodyEvalListByDate.swift */,
 				7217767C1BA7071D00304292 /* TrainList.swift */,
 				7217767E1BA70B4C00304292 /* TrainListByDate.swift */,
+				722E66281BB3A383005453E3 /* NearByGyms.swift */,
 			);
 			name = DataList;
 			sourceTree = "<group>";
@@ -1248,6 +1271,7 @@
 				7247EBA61B68DED900A22F0C /* UserDetailHeaderView.xib in Resources */,
 				72BDA10A1B907E2300CCB29A /* BookedCourseTitleCell.xib in Resources */,
 				72FB486C1B6A4044004067AF /* AlbumPicAddCell.xib in Resources */,
+				722E662D1BB3A742005453E3 /* NearByGymCell.xib in Resources */,
 				72DB3AA91B9DE57F0011C68D /* MyGoodCell.xib in Resources */,
 				72420BBD1B67E63400462032 /* AlbumViewController.xib in Resources */,
 				724EE8BE1B5C06D5001F8670 /* yh.OTF in Resources */,
@@ -1390,6 +1414,7 @@
 				72E1AB661B8DE66600B60AF9 /* CVSelectionType.swift in Sources */,
 				72C34EDC1BAC71FA00E68122 /* JKCountDownButton.m in Sources */,
 				72E1AB531B8DE66600B60AF9 /* CVCalendarManager.swift in Sources */,
+				722E66291BB3A383005453E3 /* NearByGyms.swift in Sources */,
 				72E1AB641B8DE66600B60AF9 /* CVRange.swift in Sources */,
 				72CF4A0F1BA5B68E00211BFA /* MadokaTextField.swift in Sources */,
 				72E1AB5A1B8DE66600B60AF9 /* CVCalendarViewAnimator.swift in Sources */,
@@ -1397,6 +1422,7 @@
 				72E1AB651B8DE66600B60AF9 /* CVScrollDirection.swift in Sources */,
 				724652A41B525841004E69C1 /* RecommendUserCell.swift in Sources */,
 				72CA00051B613D440093DC30 /* FeedHeaderProtocol.swift in Sources */,
+				722E66271BB3A351005453E3 /* NearByGymController.swift in Sources */,
 				72E5660D1BA5DADC00949DF4 /* BodyEvalList.swift in Sources */,
 				72C4384A1B9C1A2800663D4B /* MyProductCell.swift in Sources */,
 				72E1AB521B8DE66600B60AF9 /* CVCalendarDayViewControlCoordinator.swift in Sources */,
@@ -1415,6 +1441,7 @@
 				723E82A21B4C1ED100861D6D /* FeedViewController.swift in Sources */,
 				72C34EDF1BAFDFC000E68122 /* OrderDetailListController.swift in Sources */,
 				722C23B51B922DBC00164E34 /* ScheduleViewController.swift in Sources */,
+				722E662C1BB3A742005453E3 /* NearByGymCell.swift in Sources */,
 				72420B9F1B66100200462032 /* FeedCoachViewCell.swift in Sources */,
 				72148C741B57852A00A063FF /* QNUploadManager.m in Sources */,
 				724652B81B54ECF2004E69C1 /* AlbumViewController.swift in Sources */,
@@ -1439,6 +1466,7 @@
 				72C438461B9B5D8200663D4B /* CourseReviewController.swift in Sources */,
 				72CF4A121BA5B68E00211BFA /* YokoTextField.swift in Sources */,
 				724652A01B525821004E69C1 /* RecommendCoachCell.swift in Sources */,
+				722E662F1BB3AD4E005453E3 /* MainPageViewController.swift in Sources */,
 				72FB486B1B6A4044004067AF /* AlbumPicAddCell.swift in Sources */,
 				729E182C1B5DF730000B14EE /* FeedStreamViewController.swift in Sources */,
 				723E829A1B4A952400861D6D /* RecommendList.swift in Sources */,

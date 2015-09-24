@@ -22,6 +22,8 @@ public class User : BaseDataItem{
     public var gym:String! = ""
     public var gym_id:Int!
     public var displayname:String!
+    public var tags:String!
+    public var introduction:String!
     
     override var type:String {
         return "user"
@@ -72,6 +74,8 @@ public class User : BaseDataItem{
         self.avatar = dict["avatar"].string
         self.upnum = dict["upnum"].intValue
         self.displayname = dict["displayname"].stringValue
+        self.tags = dict["tags"].string
+        self.introduction = dict["introduction"].string
         dict["upped"].arrayValue.map({self.upped.append($0.intValue)})
         dict["fwded"].arrayValue.map({self.fwded.append($0.intValue)})
         dict["commented"].arrayValue.map({self.commented.append($0.intValue)})

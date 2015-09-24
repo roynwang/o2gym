@@ -21,13 +21,10 @@ class GymDetailController: UITableViewController {
         
         //self.header = UIView(frame: CGRectMake(0, 0, self.tableView.frame.width, 300))
 //        self.header  = ParallaxHeaderView.parallaxHeaderViewWithImage(uiimg, forSize: CGSizeMake(self.tableView.frame.width, 300)) as! ParallaxHeaderView
-        self.headerImageView = UIImageView(frame: CGRectMake(0, 0, self.tableView.frame.width, 300))
+        self.headerImageView = UIImageView(frame: CGRectMake(0, 0, self.tableView.frame.width, 250))
         self.headerImageView.backgroundColor = O2Color.BgGreyColor
         self.tableView.tableHeaderView = ParallaxHeaderView.parallaxHeaderViewWithSubView(headerImageView) as! ParallaxHeaderView
             //self.scrollViewDidScroll(self.tableView)
-        
-        
-        
         
         self.navigationController?.navigationBar.translucent = true
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -35,7 +32,7 @@ class GymDetailController: UITableViewController {
         
         gym.loadRemote({ (_) -> Void in
             //self.header.headerImage
-            self.headerImageView.fitLoad(self.gym.img_set[0])
+            self.headerImageView.loadUrl(self.gym.img_set[0])
             //self.headerImageView.hnk_setImageFromURL()
             self.title = self.gym.name!
             O2Nav.setNavigationBarTransformProgress(1)
@@ -45,6 +42,9 @@ class GymDetailController: UITableViewController {
                 self.view.makeToast(message: str)
             }
             )
+        self.tableView.estimatedRowHeight = 100
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -108,18 +108,34 @@ class GymDetailController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("option", forIndexPath: indexPath) as! SimpleOptionCell
             cell.OptionName.text = "地址"
             cell.OptionValue.text = self.gym.address
+            cell.contentView.borderColor = O2Color.BorderGrey
+            cell.contentView.bottomBorderWidth = 0.5
+            cell.contentView.topBorderWidth = 0.5
+
             return cell
         }
         if indexPath.section == 1{
             let cell = tableView.dequeueReusableCellWithIdentifier("option", forIndexPath: indexPath) as! SimpleOptionCell
             cell.OptionName.text = "简介"
             cell.OptionValue.text = self.gym.introduction
+            cell.contentView.borderColor = O2Color.BorderGrey
+            cell.contentView.bottomBorderWidth = 0.5
+            cell.contentView.topBorderWidth = 0.5
             return cell
         }
         if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCellWithIdentifier("coach", forIndexPath: indexPath) as! CoachItemCell
             let coach = self.gym.coaches[indexPath.row]
             cell.setByCoach(coach)
+            
+            cell.contentView.borderColor = O2Color.BorderGrey
+            
+            cell.contentView.topBorderWidth = 0.5
+            
+            cell.contentView.bottomBorderWidth = 0
+            if indexPath.row == self.gym.coaches.count - 1 {
+                cell.contentView.bottomBorderWidth = 0.5
+            }
             return cell
         }
         return UITableViewCell()
@@ -141,15 +157,15 @@ class GymDetailController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return 10
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 2 {
-            return 60
-        }
-        return 30
-    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath.section == 2 {
+//            return 60
+//        }
+//        return 40
+//    }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let header = self.tableView.tableHeaderView

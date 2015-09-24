@@ -37,9 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         //hide the back title
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), forBarMetrics: UIBarMetrics.Default)
         
+        
+        
+        
         //set default back image
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back")
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back")
+
  
         
         

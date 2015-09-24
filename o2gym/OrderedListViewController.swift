@@ -19,11 +19,14 @@ class OrderedListViewController: UITableViewController {
     var executing:Bool = false
 
     var nomore:Bool = false
-    
+    var refreshcontrol : UIRefreshControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "OrderItemCell", bundle: nil), forCellReuseIdentifier: "orderitemcell")
-        self.orderlist = OrderList(name: Local.USER.name!)
+        if Local.ORDERLIST == nil {
+            Local.ORDERLIST = OrderList(name: Local.USER.name!)
+        }
+        self.orderlist = Local.ORDERLIST
 
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         // Uncomment the following line to preserve selection between presentations
@@ -69,7 +72,12 @@ class OrderedListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("orderitemcell", forIndexPath: indexPath) as! OrderItemCell
 
-        cell.loadOrder(self.orderlist.datalist[indexPath.row] as! OrderItem)
+//        print(indexPath.row)
+//        if indexPath.row == 0 {
+//            print("xxxxxx")
+//        }
+        let orderitem = self.orderlist.datalist[indexPath.row] as! OrderItem
+        cell.loadOrder(orderitem)
         // Configure the cell...
 
         return cell

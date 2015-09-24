@@ -330,7 +330,7 @@ extension AlbumViewController : FSMediaPickerDelegate {
         Helper.upload(UIImageJPEGRepresentation(image,ratio)!, complete: { (info, filename, resp) -> Void in
             let img = Host.ImgHost + filename
             let post = Weibo(usr: Local.USER)
-            post.setContent("发布了照片", brief: "", imgs: "[\"\(img)\"]")
+            post.setContent("新照片", brief: "", imgs: "[\"\(img)\"]")
             post.save({ (_) -> Void in
                 print("saved ... ...")
                 self.album.datalist.insert(Pic(url:img), atIndex: 0)

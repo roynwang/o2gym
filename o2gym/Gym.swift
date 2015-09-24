@@ -15,6 +15,7 @@ public class Gym : BaseDataItem{
     public var introduction:String? = nil
     public var imgs:String? = nil
     public var img_set:[String] = []
+    public var distance:Int!
     public var coaches:[User] = []
     
     
@@ -60,6 +61,7 @@ public class Gym : BaseDataItem{
         for item in dict["coaches_set"].arrayValue {
             self.coaches.append(User(dict: item))
         }
+        self.distance = dict["distance"].int
         self.load_img_set()
     }
     

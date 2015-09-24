@@ -24,6 +24,7 @@ class RecommendCoachCell: BaseViewCell {
         // Initialization code
         self.Tags.layer.cornerRadius = 7
         self.Tags.clipsToBounds = true
+        self.backgroundColor = O2Color.BgGreyColor
         self.selectionStyle = UITableViewCellSelectionStyle.None
         
     }

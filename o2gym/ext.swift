@@ -228,7 +228,6 @@ extension UIImageView {
             format!.compressionQuality = 1
             format!.preloadPolicy = HNKPreloadPolicy.LastSession
             format!.scaleMode = HNKScaleMode.AspectFill
-            
             //format.size = CGSizeMake(self.frame.width, self.frame.height)
         
         }
@@ -250,7 +249,8 @@ extension UIImageView {
         }
         
         self.hnk_setImageFromURL(NSURL(string: URL)!, placeholder: tmp, success: { (uiimg) -> Void in
-            self.image = uiimg
+            self.image = Helper.RBResizeImage(uiimg, targetSize: CGSizeMake(self.frame.width * 2, self.frame.height * 2))
+            
             if completionHandler != nil {
                 completionHandler!(uiimg)
             }

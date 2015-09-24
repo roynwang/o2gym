@@ -21,12 +21,15 @@ class RecommendListViewController: UITableViewController {
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // set active image
-        let baritem = self.navigationController?.tabBarItem!
-        baritem!.selectedImage = UIImage(named: "o2_active")
+//        let baritem = self.navigationController?.tabBarItem!
+//        baritem!.selectedImage = UIImage(named: "o2_active")
         self.tableView.backgroundColor = O2Color.BgGreyColor
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
         
         Local.RECOMMEND?.load({ () -> Void in
             self.tableView.reloadData()
@@ -47,6 +50,15 @@ class RecommendListViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    func refresh(){
+        Local.RECOMMEND = RecommendList()
+        Local.RECOMMEND?.load({ () -> Void in
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+            }, itemcallback: nil)
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
         O2Nav.setController(self)

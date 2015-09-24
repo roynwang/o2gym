@@ -22,6 +22,7 @@ class RecommendGymCell: BaseViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.None
         self.Tags.layer.cornerRadius = 7
         self.Tags.clipsToBounds = true
+        self.backgroundColor = O2Color.BgGreyColor
        
         // Initialization code
     }

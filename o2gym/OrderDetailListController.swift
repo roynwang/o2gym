@@ -28,6 +28,7 @@ class OrderDetailListController: UITableViewController {
         
         //self.view.makeToastActivity(position: HRToastPositionCenter, message: "载入中")
         self.order.loadRemote({ (_) -> Void in
+            self.order.channel = "wx"
             self.product = Product(productid: self.order.product)
             self.product.loadRemote({ (_) -> Void in
                 //self.view.hideToastActivity()
@@ -210,7 +211,10 @@ class OrderDetailListController: UITableViewController {
                         if self.backtwice {
                             self.navigationController?.popViewControllerAnimated(false)
                         }
-                        O2Nav.controller.view.makeToast(message: "支付成功")
+                        
+                        Local.ORDERLIST?.load({ () -> Void in
+                            O2Nav.controller.view.makeToast(message: "支付成功")
+                            }, itemcallback: nil)
                         
                         
                     } else {
