@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 
-public class BaseDataItem {
+public class BaseDataItem:NSObject {
     
     var type:String {
         return "base"
@@ -51,6 +51,7 @@ public class BaseDataItem {
                 self.isLoaded = true
                 switch data {
                 case .Success(let json):
+                    print(json)
                     let dict = JSON(json)
                     self.loadFromJSON(dict)
                     if success_handler != nil {
@@ -111,12 +112,11 @@ public class BaseDataItem {
     
     public func delete<T:BaseDataItem>(onsuccess:((T)->Void)?, onfail:((String?)->Void)?){
         
-        
         request(.DELETE, self.UrlGet, headers:Local.AuthHeaders)
             .response{ (_, resp, data, error) in
                 if error == nil{
                     switch resp!.statusCode{
-                    case 200,201,202,203:
+                    case 200,201,202,203,204:
                         if onsuccess != nil{
                             onsuccess!(self as! T)
                         }
@@ -177,33 +177,11 @@ public class BaseDataItem {
                     print(error)
                 }
                 print(self.UrlGet)
-                
-                
-                //            self.isLoaded = true
-                //            switch resp!.statusCode{
-                //            case 200:
-                //                let dict = JSON(data.value!)
-                //                self.loadFromJSON(dict)
-                //                if onsuccess != nil{
-                //                    onsuccess!(self as! T)
-                //                }
-                //                break
-                //            case 404:
-                //                if onfail != nil{
-                //                    onfail!("无法访问" + self.UrlGet)
-                //                }
-                //                break
-                //            default:
-                //                if onfail != nil{
-                //                    onfail!(String(stringInterpolationSegment: resp))
-                //                }
-                //            }
         }
     }
     public func loadRemote(){
         self.loadRemote(nil, onfail: nil)
     }
-    
     public func requestGet(url: String,onsuccess :(()->Void)?,onfail :((String)->Void)?){
         var req:Request
         
@@ -231,11 +209,39 @@ public class BaseDataItem {
                     onfail!(String(stringInterpolationSegment: resp))
                 }
             }
-            //                } else{
-            //                    if onfail != nil{
-            //                        onfail!(error!.description)
-            //                    }
-            //                }
+            
+        }
+        
+    }
+    
+    public func requestPost(url: String, parameters:[String:String], onsuccess :(()->Void)?,onfail :((String)->Void)?){
+        var req:Request
+        
+        if self.needAuth {
+            req = request(.POST, url, parameters:parameters, headers:Local.AuthHeaders)
+        } else {
+            req = request(.POST, url, parameters:parameters)
+        }
+        
+        req.responseJSON { (_, resp, data) in
+            //                if error == nil{
+            switch resp!.statusCode{
+            case 200,201,202,203:
+                if onsuccess != nil{
+                    onsuccess!()
+                }
+                break
+            case 404:
+                if onfail != nil{
+                    onfail!("无法访问" + url)
+                }
+                break
+            default:
+                if onfail != nil{
+                    onfail!(String(stringInterpolationSegment: resp))
+                }
+            }
+
         }
         
     }

@@ -13,31 +13,30 @@ class GymLoginViewController: UIViewController {
     @IBOutlet weak var loginView: LoginView!
     //var loginSuccess:(()->Void)!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.loginView.loginSuccessAction = self.showContentView
+        
         if Local.HASLOGIN {
             self.loginView.hidden = true
+            
         }
         
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        // Do any additional setup after loading the view.
     }
-    override func viewDidAppear(animated: Bool) {
+    
+    override func viewDidAppear(animated: Bool){
         if Local.HASLOGIN {
-            let cont = GymNowController()
-            cont.navigationItem.hidesBackButton = true
-            self.navigationController?.pushViewController(cont, animated: false)
+            self.showContentView()
+        } else {
+            self.loginView.determineLoginMethod()
         }
     }
     
-    
-    func showContentView(){
-        let cont = GymNowController()
-        cont.navigationItem.hidesBackButton = true
-        self.navigationController?.pushViewController(cont, animated: false)
+    override func viewWillAppear(animated: Bool) {
+        print("mmmmmmm")
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,10 +44,17 @@ class GymLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func showContentView(){
+        let cont = GymNowController()
+        cont.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(cont, animated: false)
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
     }
+    
     
 //    @IBAction func Login(sender: UIButton) {
 //        self.loginIndicator.hidden = false

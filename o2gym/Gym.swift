@@ -17,6 +17,9 @@ public class Gym : BaseDataItem{
     public var img_set:[String] = []
     public var distance:Int!
     public var coaches:[User] = []
+    public var location:String!
+    public var phone:String!
+    public var mappic:String!
     
     
     override var type:String {
@@ -62,7 +65,10 @@ public class Gym : BaseDataItem{
             self.coaches.append(User(dict: item))
         }
         self.distance = dict["distance"].int
+        self.location = dict["location"].string
+        self.phone = dict["phone"].string
         self.load_img_set()
+        self.mappic = "http://restapi.amap.com/v3/staticmap?markers=mid,0xFF0000,:" + self.location + "&key=a2be60fd9e30425d8e7c003ba81a1f12&size=600*600"
     }
     
 }

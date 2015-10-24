@@ -15,7 +15,7 @@ class RYProfileViewController: UIViewController{
     var viewControllerSet:[UIScrollViewDelegate]!
     
     var containerScroll:UIScrollView!
-    var headerHeight:CGFloat = 200
+    var headerHeight:CGFloat = 220
     var segmentHeight:CGFloat = 50
     var navHeaderHeight:CGFloat!
     
@@ -24,6 +24,8 @@ class RYProfileViewController: UIViewController{
     private var curentChildView: UIScrollView!
     private var headerContainer: UIView!
     
+    private var headerShown:Bool = true
+
     
     
     
@@ -37,7 +39,7 @@ class RYProfileViewController: UIViewController{
         
         containerScroll = UIScrollView(frame: self.view.frame)
         containerScroll.contentSize = CGSizeMake(self.view.frame.width, self.view.frame.height + headerHeight)
-        containerScroll.bounces = false
+        containerScroll.bounces = true
         containerScroll.scrollEnabled = false
         
         self.view.addSubview(containerScroll)
@@ -112,11 +114,34 @@ class RYProfileViewController: UIViewController{
 
 extension RYProfileViewController:RYProfileViewDelegate  {
     func RYscrollViewDidScroll(scrollView: UIScrollView) {
-        if self.curentChildView.contentOffset.y <= (self.headerHeight - self.navHeaderHeight) {
-            self.containerScroll.setContentOffset(self.curentChildView.contentOffset, animated: false)
+        
+        //curentChildView.bounces = (scrollView.contentOffset.y > 100);
+        
+        if self.curentChildView.contentOffset.y > 0 &&
+        self.containerScroll.contentOffset.y < (self.headerHeight - self.navHeaderHeight) &&
+        self.headerShown{
+            
+            self.containerScroll.setContentOffset(CGPointMake(0, self.headerHeight - self.navHeaderHeight),  animated: true)
+
+            self.headerShown = false
         } else {
-              self.containerScroll.setContentOffset(CGPointMake(0, self.headerHeight-self.navHeaderHeight),  animated: false)
+
+            
+            if self.curentChildView.contentOffset.y < 0  && !self.headerShown{
+                self.headerShown = true
+                self.containerScroll.setContentOffset(CGPointZero, animated: true)
+            }
+
         }
+        
+        print(self.containerScroll.contentOffset)
+      
+        
+//        if self.curentChildView.contentOffset.y <= (self.headerHeight - self.navHeaderHeight) {
+//            self.containerScroll.setContentOffset(self.curentChildView.contentOffset, animated: false)
+//        } else {
+//              self.containerScroll.setContentOffset(CGPointMake(0, self.headerHeight-self.navHeaderHeight),  animated: false)
+//        }
         
     }
 }

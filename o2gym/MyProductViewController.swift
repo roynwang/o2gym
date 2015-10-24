@@ -20,6 +20,7 @@ class MyProductViewController: UITableViewController {
         let b = UIBarButtonItem(title: "添加", style: UIBarButtonItemStyle.Done, target: self, action: "addProduct")
         
         self.navigationItem.rightBarButtonItem = b
+        self.tableView.rowHeight = 80
 
     }
     
@@ -56,19 +57,17 @@ class MyProductViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        if self.productlist == nil {
-            return 0
-        }
-        return self.productlist.count + 1
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        if section >= self.productlist.count {
+        
+        if self.productlist == nil {
             return 0
         }
-        return 1
+        return self.productlist.count
 
     }
 
@@ -77,29 +76,17 @@ class MyProductViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("productoption", forIndexPath: indexPath) as! MyProductCell
         
         
-        cell.setByProduct(self.productlist.datalist[indexPath.section] as! Product)
+        cell.setByProduct(self.productlist.datalist[indexPath.row] as! Product)
         // Configure the cell...
 
         return cell
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 25
     }
     
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.borderColor = O2Color.BorderGrey
-        
-        
-        
-        if section < self.productlist.count {
-            header.contentView.bottomBorderWidth = 0.5
-        }
-        header.contentView.topBorderWidth = 0.5
-        
-        header.contentView.backgroundColor = self.view.backgroundColor
-    }
+
 
 
 
@@ -110,12 +97,21 @@ class MyProductViewController: UITableViewController {
     }
 
 
+
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.tableView.makeToastActivity()
+            let prod = self.productlist.datalist[indexPath.row] as! Product
+            prod.delete({ (_) -> Void in
+                self.tableView.hideToastActivity()
+                self.productlist.datalist.removeAtIndex(indexPath.row)
+                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }, onfail: { (_) -> Void in
+                     self.tableView.makeToast(message: "删除失败")
+            })
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

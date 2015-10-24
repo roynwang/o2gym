@@ -22,4 +22,15 @@ public class Album:BaseDataList {
     override var Url:String{
         return Host.AlbumGet(self.usrname)
     }
+    
+//    override func buildParam()->[[String:String]]{
+//        var ret = [[String:String]]()
+//        for item in self.datalist {
+//            let pic = item as! Pic
+//            let itemdata = ["id":pic.id.toString()]
+//            ret.append(itemdata)
+//        }
+//        print(ret)
+//        return ret
+//    }
 }

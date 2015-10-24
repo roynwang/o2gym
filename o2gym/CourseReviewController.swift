@@ -17,6 +17,7 @@ class CourseReviewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        self.title = "课程反馈"
         // Do any additional setup after loading the view.
     }
 

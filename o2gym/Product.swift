@@ -57,7 +57,8 @@ public class Product : BaseDataItem{
             "coach":self.coach.id!.toString(),
             "amount":self.amount.toString(),
             "price":self.price.toString(),
-            "promotion":self.promotion.toString()
+            "promotion":self.promotion.toString(),
+            "introduction":self.introduction
         ]
     }
     

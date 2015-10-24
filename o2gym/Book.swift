@@ -78,10 +78,11 @@ public class Book : BaseDataItem{
         self.coach = User(dict: dict["coachprofile"])
         self.customer = User(dict: dict["customerprofile"])
         self.done = dict["done"].boolValue
+        self.rate = dict["rate"].int
     }
     
     public func review(){
-        request(.PATCH, self.UrlGet, parameters:["order":self.orderId,"rate":self.rate, "comment":self.comment,"done":true], encoding:ParameterEncoding.JSON)
+        request(.PATCH, self.UrlGet, parameters:["order":self.orderId,"rate":self.rate, "comment":self.comment], encoding:ParameterEncoding.JSON)
     }
     
 //    public func upload(){

@@ -60,11 +60,16 @@ public class O2Nav{
         }
     }
     
-    class func showUser(usrname:String) {
+    class func showUser(usrname:String,hideback:Bool=false) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let cont =  sb.instantiateViewControllerWithIdentifier("userdetail") as! NewUserDetailViewController
         cont.usrname = usrname
         cont.hidesBottomBarWhenPushed = true
+        if hideback {
+            cont.navigationItem.hidesBackButton = true
+            cont.hidesBottomBarWhenPushed = false
+        }
+        
         O2Nav.pushViewController(cont)
     }
 
@@ -78,10 +83,11 @@ public class O2Nav{
     
     class func showGym(gymid:Int){
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cont =  sb.instantiateViewControllerWithIdentifier("gymdetail") as! GymDetailController
-        //cont.product = self.productlist.datalist[indexPath.section] as! Product
+        let cont =  sb.instantiateViewControllerWithIdentifier("newgym") as! NewGymDetailViewController
+        cont.hidesBottomBarWhenPushed = true
         cont.gymid = gymid
         O2Nav.pushViewController(cont)
+        
     }
 //    class func showLogin(){
 //        let sb = UIStoryboard(name: "Main", bundle: nil)

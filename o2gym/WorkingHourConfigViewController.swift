@@ -67,6 +67,7 @@ class WorkingHourConfigViewController: UITableViewController {
         self.workingHour.update({ (_) -> Void in
             print(self.workingHour.out_hours)
             print(self.workingHour.noon_hours)
+            self.navigationController?.popViewControllerAnimated(true)
         }, onfail: nil)
         
         

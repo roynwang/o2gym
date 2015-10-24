@@ -10,16 +10,34 @@ import UIKit
 
 class ProfileViewController: UITableViewController {
     
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+    }
+    
+    override init(style: UITableViewStyle) {
+        super.init(style: style)
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        //self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.registerNib(UINib(nibName: "ProfileAvatarCell", bundle: nil), forCellReuseIdentifier: "profileavatarcell")
-        self.tableView.registerNib(UINib(nibName: "PlainTextCell", bundle: nil), forCellReuseIdentifier: "plaintextcell")
+        self.tableView.registerNib(UINib(nibName: "BasicConfigCell", bundle: nil), forCellReuseIdentifier: "basicconfigcell")
         
-        self.tableView.scrollEnabled = false
         self.tableView.bounces = false
         
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.backgroundColor = O2Color.BgGreyColor
+        
         
         
         
@@ -30,6 +48,24 @@ class ProfileViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    override func viewWillAppear(animated: Bool) {
+        if Local.USER.needRefresh {
+            self.tableView.reloadData()
+            Local.USER.needRefresh = false
+        }
+        if self.tableView.indexPathForSelectedRow != nil {
+            self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow!, animated: true)
+
+        }
+        O2Nav.setController(self)
+        
+        O2Nav.setNavigationBarTransformProgress(0)
+
+    }
+    override func viewDidAppear(animated: Bool) {
+        O2Nav.setNavTitle("设置")
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,10 +77,8 @@ class ProfileViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        if Local.USER.iscoach {
-            return 3
-        }
-        return 3
+
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +88,7 @@ class ProfileViewController: UITableViewController {
             return 1
         }
         if section == 1 {
-            return Local.USER.iscoach ? 4 : 1
+            return Local.USER.iscoach ? 6 : 2
         }
         return 0
     }
@@ -73,8 +107,9 @@ class ProfileViewController: UITableViewController {
         let celltype = getCellType(indexPath)
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier(celltype, forIndexPath: indexPath) as! ProfileAvatarCell
-            cell.Avatar.fitLoad(Local.USER.avatar!, placeholder: UIImage(named: "avatar"))
-            cell.Name.text = Local.USER.displayname
+            cell.setUser(Local.USER)
+//            cell.Avatar.fitLoad(Local.USER.avatar!, placeholder: UIImage(named: "avatar"))
+//            cell.Name.text = Local.USER.displayname
             cell.tappedAvatar = {
                 (view) in
                 let picker = FSMediaPicker()
@@ -85,23 +120,25 @@ class ProfileViewController: UITableViewController {
             return cell
         }
         
-        let cell:PlainTextCell = tableView.dequeueReusableCellWithIdentifier("plaintextcell", forIndexPath: indexPath) as! PlainTextCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("basicconfigcell", forIndexPath: indexPath) as! BasicConfigCell
         switch celltype {
-        case "gym":
-            cell.PlainText.text = "我的订单"
-            return cell
+        case "album":
+            cell.OptionKey.text = "相册"
+        case "order":
+            cell.OptionKey.text = "我的订单"
+        case "profile":
+            cell.OptionKey.text = "基本资料"
         case "restday":
-            cell.PlainText.text = "工作日设置"
-            return cell
+            cell.OptionKey.text = "工作日设置"
         case "workinghour":
-            cell.PlainText.text = "工作时间设置"
-            return cell
+            cell.OptionKey.text = "工作时间设置"
         case "myproduct":
-            cell.PlainText.text = "课程设置"
-            return cell
+            cell.OptionKey.text = "课程设置"
+            
         default:
             return cell
         }
+         return cell
     }
     
     func getCellType(indexPath:NSIndexPath)->String{
@@ -111,12 +148,16 @@ class ProfileViewController: UITableViewController {
         if indexPath.section == 1 {
             switch indexPath.row{
             case 0:
-                return "gym"
-            case 1:
-                return "restday"
+                return "profile"
             case 2:
-                return "workinghour"
+                return "album"
+            case 1:
+                return "order"
             case 3:
+                return "restday"
+            case 4:
+                return "workinghour"
+            case 5:
                 return "myproduct"
             default:
                 return "error"
@@ -129,58 +170,73 @@ class ProfileViewController: UITableViewController {
         return 20
     }
     
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.borderColor = O2Color.BorderGrey
-        
-        if section == 0 {
-            header.contentView.bottomBorderWidth = 0.5
-            
-        }
-        if section == 1 {
-            header.contentView.topBorderWidth = 0.5
-            header.contentView.bottomBorderWidth = 0.5
-        }
-        if section == 2 {
-            header.contentView.topBorderWidth = 0.5
-            
-        }
-        if section == 3 {
-            header.contentView.topBorderWidth = 0.5
-            
-        }
-        header.contentView.backgroundColor = self.view.backgroundColor
-    }
+//    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+//        header.contentView.borderColor = O2Color.BorderGrey
+//        
+//        if section == 0 {
+//            header.contentView.bottomBorderWidth = 0.5
+//            
+//        }
+//        if section == 1 {
+//            header.contentView.topBorderWidth = 0.5
+//            header.contentView.bottomBorderWidth = 0.5
+//        }
+//        if section == 2 {
+//            header.contentView.topBorderWidth = 0.5
+//            
+//        }
+//        if section == 3 {
+//            header.contentView.topBorderWidth = 0.5
+//            
+//        }
+//        header.contentView.backgroundColor = self.view.backgroundColor
+//    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         if indexPath.section == 0 && indexPath.row == 0 {
-            O2Nav.showUser(Local.USER.name!)
+            //O2Nav.showUser(Local.USER.name!)
+//            let cont = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
+//            cont.setUser(Local.USER.name!)
+//            cont.title = "相册"
+//            cont.enableDelete = true
+//            O2Nav.pushViewController(cont)
         }
         if indexPath.section == 1 && indexPath.row == 0 {
+//            let cont =  sb.instantiateViewControllerWithIdentifier("orderlist") as! OrderedListViewController
+            let cont = ProfileInfoController(style: UITableViewStyle.Grouped)
+            self.navigationController?.pushViewController(cont, animated: true)
+        }
+        if indexPath.section == 1 && indexPath.row == 2 {
+            let cont = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
+            cont.setUser(Local.USER.name!)
+            cont.title = "相册"
+            cont.enableDelete = true
+            O2Nav.pushViewController(cont)
+        }
+        if indexPath.section == 1 && indexPath.row == 1 {
             let cont =  sb.instantiateViewControllerWithIdentifier("orderlist") as! OrderedListViewController
             self.navigationController?.pushViewController(cont, animated: true)
         }
-        if indexPath.section == 1 && indexPath.row == 1 && Local.USER.iscoach {
+        if indexPath.section == 1 && indexPath.row == 3 && Local.USER.iscoach {
             let cont =  sb.instantiateViewControllerWithIdentifier("workingtimeconfig") as! WorkingTimeConfigViewController
             self.navigationController?.pushViewController(cont, animated: true)
         }
-        if indexPath.section == 1 && indexPath.row == 2 && Local.USER.iscoach {
+        if indexPath.section == 1 && indexPath.row == 4 && Local.USER.iscoach {
             
             let cont =  sb.instantiateViewControllerWithIdentifier("workinghourconfig") as! WorkingHourConfigViewController
             self.navigationController?.pushViewController(cont, animated: true)
         }
         
-        if indexPath.section == 1 && indexPath.row == 3 && Local.USER.iscoach {
+        if indexPath.section == 1 && indexPath.row == 5 && Local.USER.iscoach {
             
             let cont =  sb.instantiateViewControllerWithIdentifier("myproduct") as! MyProductViewController
             self.navigationController?.pushViewController(cont, animated: true)
         }
         
     }
-
-    
 }
 
 extension ProfileViewController : FSMediaPickerDelegate {
@@ -190,7 +246,7 @@ extension ProfileViewController : FSMediaPickerDelegate {
         var ratio:CGFloat = 1
         let imgdata = UIImageJPEGRepresentation(image, 1)!
         if imgdata.length/1024 > 50 {
-            ratio = CGFloat(300)/CGFloat(imgdata.length/1024)
+            ratio = CGFloat(100)/CGFloat(imgdata.length/1024)
         }
         Local.USER.avatar = "test"
         //let nsdata = NSData(

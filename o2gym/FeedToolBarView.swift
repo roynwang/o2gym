@@ -181,17 +181,17 @@ class FeedToolBarView: UIView {
         //self.reset()
         self.weibo = weibo
 
-        if let index = Local.USER.upped.indexOf(weibo.id!) {
+        if let _ = Local.USER.upped.indexOf(weibo.id!) {
             self.action("fav")
         } else {
             self.action("fav", active: false)
         }
-        if let index = Local.USER.fwded.indexOf(weibo.id!) {
+        if let _ = Local.USER.fwded.indexOf(weibo.id!) {
             self.action("fwd")
         } else {
             self.action("fwd", active: false)
         }
-        if let index = Local.USER.commented.indexOf(weibo.id!) {
+        if let _ = Local.USER.commented.indexOf(weibo.id!) {
             self.action("comment")
         } else {
             self.action("comment", active: false)

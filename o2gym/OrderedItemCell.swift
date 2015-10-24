@@ -39,7 +39,7 @@ class OrderItemCell: UITableViewCell {
         self.CreatedTime.text = order.created
         self.Customer.text = order.customer.displayname
         self.Coach.text = order.coach.displayname
-        self.BillId.text = order.billid.toString()
+        self.BillId.text = order.billid
         self.Price.text = "￥" + self.order.amount.toString()
         self.ActionBtn.userInteractionEnabled = true
         self.Status.text = "进行中"
@@ -64,7 +64,7 @@ class OrderItemCell: UITableViewCell {
             
         }
         if order.status == "inprogress" {
-            self.Status.text = "已完成"
+            self.Status.text = "进行中"
             self.actiontype = nil
         }
         if self.actiontype == nil || Local.USER.iscoach{

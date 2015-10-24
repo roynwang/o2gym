@@ -21,6 +21,11 @@ class ScheduleViewController: UITableViewController {
     
     init(){
         super.init(style: UITableViewStyle.Grouped)
+        
+    }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        //super.init(nibName, bundle: nibBundleOrNil)
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     override func viewDidLoad() {
@@ -32,14 +37,14 @@ class ScheduleViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "BookedCourseComplexCell", bundle: nil), forCellReuseIdentifier: "bookedcoursecell")
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        self.tableView.estimatedRowHeight = 100
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.rowHeight = 100
+//        self.tableView.estimatedRowHeight = 100
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = 140
         self.tableView.separatorColor = O2Color.BorderGrey
         self.tableView.sectionIndexColor = O2Color.TextGrey
         
         
-        //self.tableView.backgroundColor = O2Color.BgGreyColor
+        self.tableView.backgroundColor = O2Color.BgGreyColor
 
         
         
@@ -119,21 +124,12 @@ class ScheduleViewController: UITableViewController {
         return self.days[section]
     }
 
-//    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-//        header.contentView.backgroundColor =  O2Color.BgGreyColor
-//        header.textLabel!.textColor = UIColor.darkGrayColor()
-//        header.textLabel!.font = UIFont(name: "RTWS YueGothic Trial", size: 14)
-//        //header.textLabel.text = self.daylist.keys.array[section]
-//        header.alpha = 1 //make the header transparent
-//        header.contentView.borderColor = O2Color.BorderGrey
-//        header.contentView.bottomBorderWidth = 0.5
-//        if section != 0 {
-//            header.contentView.topBorderWidth = 0.5
-//        } else {
-//            header.contentView.topBorderWidth = 0
-//        }
-//    }
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
+ 
+        header.textLabel!.font = UIFont(name: "Avenir", size: 18)
+        //header.textLabel.text = self.daylist.keys.array[section]
+    }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {

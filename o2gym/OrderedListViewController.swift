@@ -29,6 +29,7 @@ class OrderedListViewController: UITableViewController {
         self.orderlist = Local.ORDERLIST
 
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.rowHeight = 80
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -76,8 +77,10 @@ class OrderedListViewController: UITableViewController {
 //        if indexPath.row == 0 {
 //            print("xxxxxx")
 //        }
-        let orderitem = self.orderlist.datalist[indexPath.row] as! OrderItem
-        cell.loadOrder(orderitem)
+        if indexPath.row <= self.orderlist.count {
+            let orderitem = self.orderlist.datalist[indexPath.row] as! OrderItem
+            cell.loadOrder(orderitem)
+        }
         // Configure the cell...
 
         return cell

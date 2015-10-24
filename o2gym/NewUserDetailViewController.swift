@@ -9,9 +9,10 @@
 import UIKit
 
 class NewUserDetailViewController: RYProfileViewController {
-    var mypost:MyPostViewController!
+    //var mypost:MyPostViewController!
     var album:AlbumViewController!
     var mycourse:MyGoodsViewController!
+    var mycomments:UserCommentListController!
     var usrname:String = ""
     var usr : User!
     var favbtn:UIButton!
@@ -28,12 +29,13 @@ class NewUserDetailViewController: RYProfileViewController {
         
         
         
-        self.album = AlbumViewController(nibName: "AlbumViewController", bundle: nil, usrname:self.usrname)
+        self.album = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
         self.album.rydelegate = self
+        self.album.usrname = self.usrname
         
         self.mycourse = MyGoodsViewController(nibName: "MyPostViewController", bundle: nil, usrname:self.usrname)
         self.mycourse.rydelegate = self
-        
+
         self.viewControllerSet = [album,mycourse]
         self.header = self.initHeaderView()
         self.headerView = self.header
@@ -46,9 +48,17 @@ class NewUserDetailViewController: RYProfileViewController {
         self.view.backgroundColor = O2Color.MainColor
         
         // Do any additional setup after loading the view.
+        
+        if self.usr.name == Local.USER.name {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: UIBarButtonItemStyle.Plain, target: self, action: "showSetting")
+        }
     }
     
-
+    func showSetting(){
+        let cont = ProfileViewController(style: UITableViewStyle.Grouped)
+        O2Nav.pushViewController(cont)
+    }
+    
     
     func recommendperson(){
         let wb = Weibo(usr: Local.USER)
@@ -56,12 +66,7 @@ class NewUserDetailViewController: RYProfileViewController {
     }
     
     func showGym(gr:UITapGestureRecognizer){
-        print("show gym")
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cont =  sb.instantiateViewControllerWithIdentifier("gymdetail") as! GymDetailController
-        //cont.product = self.productlist.datalist[indexPath.section] as! Product
-        cont.gymid = gr.view!.tag
-        O2Nav.pushViewController(cont)
+        O2Nav.showGym(gr.view!.tag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,7 +82,7 @@ class NewUserDetailViewController: RYProfileViewController {
     func initHeaderView()->UserDetailHeaderView {
         let header = UserDetailHeaderView()
         let ret = header.loadViewFromNib() as! UserDetailHeaderView
-        ret.frame = CGRectMake(0,0, self.view.frame.width, 200)
+        ret.frame = CGRectMake(0,0, self.view.frame.width, self.headerHeight)
         return ret
     }
     
@@ -93,10 +98,10 @@ class NewUserDetailViewController: RYProfileViewController {
         seg.selectionIndicatorHeight = 2
         
         seg.titleTextAttributes = [
-            NSFontAttributeName: UIFont.systemFontOfSize(16),
+            NSFontAttributeName: UIFont.systemFontOfSize(18),
             NSForegroundColorAttributeName: O2Color.TextGrey]
         seg.selectedTitleTextAttributes = [
-            NSFontAttributeName: UIFont.systemFontOfSize(16),
+            NSFontAttributeName: UIFont.systemFontOfSize(18),
             NSForegroundColorAttributeName: O2Color.TextBlack
         ]
     
@@ -170,10 +175,10 @@ class NewUserDetailViewController: RYProfileViewController {
         self.favbtn = Helper.createButtonFromImg(favimgname, selector: "favperson", tar: self)
         
         
-        self.navigationItem.rightBarButtonItems = [
-            //            Helper.createBarButtonItemFromImg("fwd_bar", selector: "recommendperson", tar: self),
-            UIBarButtonItem(customView: self.favbtn)
-        ]
+//        self.navigationItem.rightBarButtonItems = [
+//            //            Helper.createBarButtonItemFromImg("fwd_bar", selector: "recommendperson", tar: self),
+//            UIBarButtonItem(customView: self.favbtn)
+//        ]
         
     }
     

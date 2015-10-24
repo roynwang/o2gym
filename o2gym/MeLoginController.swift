@@ -26,6 +26,7 @@ class MeLoginController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewDidAppear(animated: Bool){
+        O2Nav.setController(self)
         if Local.HASLOGIN {
             self.showContentView()
         } else {
@@ -43,9 +44,11 @@ class MeLoginController: UIViewController, UITextFieldDelegate {
     }
     
     func showContentView(){
-        let cont = MeViewController()
-        cont.navigationItem.hidesBackButton = true
-        self.navigationController?.pushViewController(cont, animated: false)
+//        let cont = MeViewController()
+//        cont.navigationItem.hidesBackButton = true
+//        self.navigationController?.pushViewController(cont, animated: false)
+//        O2Nav.showUser(Local.USER.name!)
+        O2Nav.showUser(Local.USER.name!, hideback: true)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){

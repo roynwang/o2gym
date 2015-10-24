@@ -212,10 +212,10 @@ extension WorkingTimeConfigViewController :  UITableViewDataSource, UITableViewD
         print("============")
         let cell = tableView.dequeueReusableCellWithIdentifier("header") as! WorkingTimeSectionHeader
         if tableView == self.ExceptionLeaveTable {
-            cell.Title.text = "例外休息日"
+            cell.Title.text = "休假"
            
         } else {
-            cell.Title.text = "例外工作日"
+            cell.Title.text = "加班"
         }
         cell.addTapped = {
             ()->Void in
@@ -252,6 +252,7 @@ extension WorkingTimeConfigViewController :  UITableViewDataSource, UITableViewD
                 ()->Void in
                 if let i = self.restTime.excep_work.indexOf(day) {
                     self.restTime.excep_work.removeAtIndex(i)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 }
             }
             return cell
@@ -263,7 +264,8 @@ extension WorkingTimeConfigViewController :  UITableViewDataSource, UITableViewD
             cell.removeItem = {
                 ()->Void in
                 if let i = self.restTime.excep_rest.indexOf(day) {
-                    self.restTime.excep_work.removeAtIndex(i)
+                    self.restTime.excep_rest.removeAtIndex(i)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 }
             }
             return cell

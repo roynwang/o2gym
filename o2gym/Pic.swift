@@ -12,6 +12,7 @@ import Foundation
 public class Pic : BaseDataItem{
     var id:Int!
     public var url:String!
+    var by:Int!
     
 
     override var type:String {
@@ -34,15 +35,20 @@ public class Pic : BaseDataItem{
         self.loadFromJSON(dict)
     }
     
+    override var UrlGet:String {
+        return Host.PicGet(self.by, id: self.id)
+    }
+    
     public override func loadFromJSON(dict: JSON) {
         self.id = dict["id"].int
         self.url = dict["url"].string
+        self.by = dict["by"].int
     }
     
-    public func upload(){
-        let qm:QNUploadManager = QNUploadManager()
-//        qm.putFile(<#filePath: String!#>, key: <#String!#>, token: <#String!#>, complete: <#QNUpCompletionHandler!##(QNResponseInfo!, String!, [NSObject : AnyObject]!) -> Void#>, option: <#QNUploadOption!#>)
-
-    }
+//    public func upload(){
+//        let qm:QNUploadManager = QNUploadManager()
+////        qm.putFile(<#filePath: String!#>, key: <#String!#>, token: <#String!#>, complete: <#QNUpCompletionHandler!##(QNResponseInfo!, String!, [NSObject : AnyObject]!) -> Void#>, option: <#QNUploadOption!#>)
+//
+//    }
 
 }

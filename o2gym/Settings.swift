@@ -16,9 +16,12 @@ public class O2Color{
     static let MainColor:UIColor = UIColor(red: 109/255, green: 35/255, blue: 222/255, alpha: 1)
     static let LightMainColor:UIColor = UIColor(red: 157/255, green: 86/255, blue: 246/255, alpha: 1)
     static let BorderGrey:UIColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+    static let BorderThick:UIColor = UIColor(rgba: "#cccccc")
     static let BgGreyColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
     
     static let FavRed:UIColor = UIColor(red: 253/255, green: 110/255, blue: 112/255, alpha: 1)
+    
+    static let OkGreen:UIColor = UIColor(red: 106/255, green: 201/255, blue: 62/255, alpha: 1)
     
     static let TextGrey:UIColor = UIColor(rgba:"#999999")
     static let TextBlack:UIColor = UIColor(rgba:"#333333")

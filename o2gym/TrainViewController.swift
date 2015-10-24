@@ -12,6 +12,8 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
     
     
     var book:Book!
+    var usrname:String!
+    var addable:Bool = true
 
     var circleSeg:HMSegmentedControl!
     
@@ -42,6 +44,7 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
@@ -75,21 +78,32 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
        
         
         
-        let addBtn = UIBarButtonItem(image: UIImage(named: "add_circle"), style: UIBarButtonItemStyle.Done, target: self, action: "newItem")
+        if self.addable {
         
-        self.navigationItem.rightBarButtonItem = addBtn
+            let addBtn = UIBarButtonItem(image: UIImage(named: "add_circle"), style: UIBarButtonItemStyle.Done, target: self, action: "newItem")
+        
+            self.navigationItem.rightBarButtonItem = addBtn
+        }
         
         
 //        let sb = UIStoryboard(name: "Main", bundle: nil)
 //        let c1 =  sb.instantiateViewControllerWithIdentifier("evalhistory") as! EvalCollectionController
 
         let c1 = EvalHistoryTableController()
-        c1.book = self.book
-       
-//        let c1 = ProfileViewController()
+        
         
         let c2 = TrainHistoryController()
-        c2.book = self.book
+        
+        
+        
+        
+        if self.usrname != nil {
+            c1.usrname = self.usrname
+            c2.usrname = self.usrname
+        } else {
+            c1.book = self.book
+            c2.book = self.book
+        }
        
         self.viewControllers = [c2,c1]
         self.delegate = self

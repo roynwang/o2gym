@@ -44,9 +44,16 @@ class BodyEvalController: UITableViewController {
 
         }
         if forsave.count != 0 {
+            self.view.makeToastActivityWithMessage(message: "正在保存")
             forsave.bulkCreate({ () -> Void in
+                self.view.hideToastActivity()
                 print("bulk done")
-            }, error_handler: nil)
+                self.navigationController?.popViewControllerAnimated(true)
+                }, error_handler: {
+                (_) in
+                self.view.hideToastActivity()
+                self.view.makeToast(message: "保存失败")
+                })
         }
     }
 

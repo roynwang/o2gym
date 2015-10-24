@@ -12,6 +12,7 @@ class MyProductCell: UITableViewCell {
 
     var product:Product!
     
+    @IBOutlet weak var Introduction: UILabel!
     @IBOutlet weak var Promotion: UILabel!
     @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var Amount: UILabel!
@@ -32,6 +33,7 @@ class MyProductCell: UITableViewCell {
         self.Amount.text = "数量:" + product.amount.toString()
         self.Price.text = "价格:" + product.price.toString()
         self.Promotion.text = "促销:" + product.promotion.toString()
+        self.Introduction.text = "描述:" + product.introduction
     }
     
 

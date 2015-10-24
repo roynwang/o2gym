@@ -21,17 +21,24 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Alamofire (2.0.0)
+  - CCHexagonFlowLayout (1.0.2)
   - CZPicker (0.3.6)
   - DZNEmptyDataSet (1.7.1)
   - FSMediaPicker (0.0.2)
   - Haneke (1.0.1)
   - HCSStarRatingView (1.4.2)
+  - ImagePlayerView (1.0.3)
+  - KIZImagePlayer (0.0.2)
   - KNSemiModalViewController (0.3)
+  - LiquidFloatingActionButton (0.1.1)
   - MKInputBoxView (0.9.3)
   - NHLinearShadow (1.0.1)
+  - NYXImagesKit (2.3)
+  - PBJHexagon (0.1.1)
   - Pingpp/Core (2.1.1)
   - Pingpp/Wx (2.1.1):
     - Pingpp/Core
+  - PinYin4Objc (1.1.1)
   - RGToast (1.0.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -41,17 +48,26 @@ PODS:
     - KNSemiModalViewController (~> 0.3)
   - UIImage+Additions (2.1.0)
   - WeChat (1.0.1)
+  - YSMChineseSort (0.1.1):
+    - PinYin4Objc (~> 1.1.1)
 
 DEPENDENCIES:
   - AFNetworking
   - Alamofire (~> 2.0.0)
+  - CCHexagonFlowLayout
   - CZPicker
   - DZNEmptyDataSet
   - FSMediaPicker
   - Haneke (~> 1.0)
   - HCSStarRatingView (~> 1.4.2)
+  - ImagePlayerView
+  - KIZImagePlayer (from `https://github.com/zziking/KIZImagePlayer`)
+  - LiquidFloatingActionButton (from `https://github.com/yoavlt/LiquidFloatingActionButton.git`,
+    branch `swift-2.0`)
   - MKInputBoxView
   - NHLinearShadow (~> 1.0.1)
+  - NYXImagesKit
+  - PBJHexagon
   - Pingpp/Wx (~> 2.1.0)
   - RGToast (= 1.0.0)
   - SDWebImage
@@ -59,24 +75,48 @@ DEPENDENCIES:
   - THCalendarDatePicker (~> 1.2.1)
   - UIImage+Additions
   - WeChat
+  - YSMChineseSort (~> 0.1.0)
+
+EXTERNAL SOURCES:
+  KIZImagePlayer:
+    :git: https://github.com/zziking/KIZImagePlayer
+  LiquidFloatingActionButton:
+    :branch: swift-2.0
+    :git: https://github.com/yoavlt/LiquidFloatingActionButton.git
+
+CHECKOUT OPTIONS:
+  KIZImagePlayer:
+    :commit: d5f814c4c7562e9b5f718024aef2ee094ca60628
+    :git: https://github.com/zziking/KIZImagePlayer
+  LiquidFloatingActionButton:
+    :commit: d1366482e8e0f994d4ebc61973d4541870cd530f
+    :git: https://github.com/yoavlt/LiquidFloatingActionButton.git
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  CCHexagonFlowLayout: b500d18bfb2381d6b02d2a69686831a3186b62e7
   CZPicker: bf966778ebd3af6c291b4a4190d08a0e2c5c6974
   DZNEmptyDataSet: 2a398066c2bf5848f7f693fb50954b5064debd12
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
   Haneke: d60be8b96b228633b24708dd153169d6849d6f78
   HCSStarRatingView: 6157471eff9fe3ec7240e131a5b0aba39f097e57
+  ImagePlayerView: c5db63e0548d711b16b2c7a3acae720216d0082b
+  KIZImagePlayer: c79ec0c37f23a7f76f4a6154f7e006d401c1702b
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
+  LiquidFloatingActionButton: dcdae1e59eb07eccbf60c027001a4d6731c345c9
   MKInputBoxView: 022c89a4815fbcf2fcdea95f967fdba2c4f5fb73
   NHLinearShadow: 78fbadda3c09585e0f0bdf7772b2cea37e873804
+  NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
+  PBJHexagon: 689c33964ff02f71f90d86fb181cbfdabce7886a
   Pingpp: edc54cfba764fed14c60bc8e2e0e649b4e125df5
+  PinYin4Objc: 3fa9673610368330e2dfb688b1d19a35c3930a78
   RGToast: 62d8fb6c83706047ac3d59224ecf70db23f8329b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SIAlertView: 20c794b55eaf44d888773ea51647cf8907723919
   THCalendarDatePicker: 5d2b396b690796c45c30925dd0c23943141dbac6
   UIImage+Additions: 6181430b139099649e56171d58a52d6c37d57e42
   WeChat: 93915b3be360b5bdfe48e8a9d64ff0315a28c240
+  YSMChineseSort: ef532bfe993ff1b4dc9bcd644ead1a43b2632b88
 
 COCOAPODS: 0.39.0.beta.4

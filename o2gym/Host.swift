@@ -11,8 +11,8 @@ import Foundation
 class Host {
     //static let ip : String = "http://45.33.58.236:8000/api"
 //    static let ip : String = "http://127.0.0.1:8000/api"
-//    static let ip : String = "http://172.20.10.2/api"
-    static let ip : String = "http://192.168.1.111:8000/api"
+//    static let ip : String = "http://172.20.10.2:8000/api"
+    static let ip : String = "http://192.168.1.116:8000/api"
 //    static let ip : String = "http://123.57.245.221/api"
     static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
     
@@ -51,7 +51,10 @@ class Host {
         let url : String = "\(self.ip)/\(name)/"
         return url
     }
-    
+    class func UserGym(name:String) -> String {
+        let url : String = "\(self.ip)/\(name)/gym/"
+        return url
+    }
     class func UserUp(by:String, name:String, up:Bool = true) -> String {
         var action = "up"
         if !up {
@@ -167,7 +170,7 @@ class Host {
         let url : String = "\(self.ip)/\(user)/rest/"
         return url
     }
-    class func OrderItemGet(user:String,billid:Int)->String{
+    class func OrderItemGet(user:String,billid:String)->String{
         let url : String = "\(self.ip)/\(user)/b/\(billid)/"
         return url
     }
@@ -206,7 +209,7 @@ class Host {
         return url
     }
     
-    class func PayOrderGet(orderid:Int,channel:String) -> String {
+    class func PayOrderGet(orderid:String,channel:String) -> String {
         let url : String = "\(self.ip)/pay/\(orderid)/\(channel)/"
         return url
     }
@@ -244,4 +247,26 @@ class Host {
     class func NearByGymGet(longitude:String, latitude:String) -> String {
         return "\(self.ip)/a/?longitude=\(longitude)&latitude=\(latitude)"
     }
+    
+    class func UserCommentListGet(name:String) -> String {
+         return "\(self.ip)/\(name)/comments/"
+    }
+    class func CustomerList(name:String) -> String {
+         return "\(self.ip)/\(name)/customers/"
+    }
+    class func PicGet(by:Int,id:Int) -> String {
+        return "\(self.ip)/\(by.toString())/i/\(id.toString())/"
+    }
+    
+    class func WorkoutCategoryList() -> String {
+        return "\(self.ip)/w/"
+    }
+    class func WorkoutCategoryActions(id:Int, name:String) -> String {
+        return "\(self.ip)/\(name)/workout/\(id.toString())/"
+    }
+    
+//    class func WorkoutActionCreate(cate:Int, by:String){
+//        return "\(self.ip)/\(name)/workout/\(id.toString())/"
+//        
+//    }
 }

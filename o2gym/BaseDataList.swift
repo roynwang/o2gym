@@ -56,9 +56,9 @@ public class BaseDataList {
             }
         }
         
-        let values = self.buildParam()
+    let values = self.buildParam()
         
-       var error: NSError?
+       var error: NSError!
         do {
             trequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(values, options: [])
         } catch let error1 as NSError {
@@ -154,4 +154,37 @@ public class BaseDataList {
         self.datalist = []
         self.loadMore(self.Url, allcallback: allcallback, itemcallback: itemcallback, listkey: self.listkey, insert: false)
     }
+    
+//    public func requestPost(url: String, parameters:[String:String], onsuccess :(()->Void)?,onfail :((String)->Void)?){
+//        var req:Request
+//        
+//        if self.needAuth {
+//            req = request(.POST, url, parameters:parameters, headers:Local.AuthHeaders)
+//        } else {
+//            req = request(.POST, url, parameters:parameters)
+//        }
+//        
+//        req.responseJSON { (_, resp, data) in
+//            //                if error == nil{
+//            switch resp!.statusCode{
+//            case 200,201,202,203:
+//                if onsuccess != nil{
+//                    onsuccess!()
+//                }
+//                break
+//            case 404:
+//                if onfail != nil{
+//                    onfail!("无法访问" + url)
+//                }
+//                break
+//            default:
+//                if onfail != nil{
+//                    onfail!(String(stringInterpolationSegment: resp))
+//                }
+//            }
+//            
+//        }
+//        
+//    }
+
 }

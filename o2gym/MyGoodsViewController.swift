@@ -13,6 +13,7 @@ class MyGoodsViewController: UITableViewController {
     var rydelegate:RYProfileViewDelegate!
     var usrname:String!
     var myGoods:ProductList!
+    var comments : UserCommentList!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -27,7 +28,7 @@ class MyGoodsViewController: UITableViewController {
         
         self.usrname = usrname
         self.myGoods = ProductList(name: self.usrname)
-        
+        self.comments = UserCommentList(name: self.usrname)
     }
 
     
@@ -38,10 +39,16 @@ class MyGoodsViewController: UITableViewController {
         self.view.backgroundColor = O2Color.BgGreyColor
         
         self.tableView.registerNib(UINib(nibName: "MyGoodCell", bundle: nil), forCellReuseIdentifier: "mygood")
+        self.tableView.registerNib(UINib(nibName: "UserCommentCell", bundle: nil), forCellReuseIdentifier: "usercomment")
+        
+
+
 
         //self.tableView.bounces = false
         self.myGoods.load({ () -> Void in
-            self.tableView.reloadData()
+            self.comments.load({ () -> Void in
+                self.tableView.reloadData()
+                }, itemcallback: nil)
         }, itemcallback: nil)
         
 //        let footer  = UIView(frame: CGRectMake(0,0,self.view.frame.width,10))
@@ -66,7 +73,7 @@ class MyGoodsViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 2
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,19 +81,29 @@ class MyGoodsViewController: UITableViewController {
         // Return the number of rows in the section.
         if section == 0 {
             return self.myGoods.count
+        } else {
+            return self.comments == nil ? 0 : self.comments.count
         }
-        return 0
+
         
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("mygood", forIndexPath: indexPath) as! MyGoodCell
-        let product = self.myGoods.datalist[indexPath.row] as! Product
-
-        // Configure the cell...
-        cell.setByProduct(product)
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("mygood", forIndexPath: indexPath) as! MyGoodCell
+            let product = self.myGoods.datalist[indexPath.row] as! Product
+            // Configure the cell...
+            cell.setByProduct(product)
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("usercomment", forIndexPath: indexPath) as! UserCommentCell
+            
+            cell.setView(self.comments.datalist[indexPath.row] as! Book)
+            //Configure the cell...
+            
+            return cell
+        }
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -103,27 +120,18 @@ class MyGoodsViewController: UITableViewController {
         return 70
     }
     
-    
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.borderColor = O2Color.BorderGrey
 
-        if section == 0 {
-            header.contentView.bottomBorderWidth = 0.5
-        } else {
-            header.contentView.topBorderWidth = 0.5
-        }
-        
-        header.contentView.backgroundColor = self.view.backgroundColor
-    }
-    
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cont =  sb.instantiateViewControllerWithIdentifier("book") as! BookViewController
-        cont.product = self.myGoods.datalist[indexPath.row] as! Product
-        //cont.hidesBottomBarWhenPushed = true
-        O2Nav.pushViewController(cont)
+        if indexPath.section == 0 {
+            if !Local.USER.iscoach {
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let cont =  sb.instantiateViewControllerWithIdentifier("book") as! BookViewController
+                cont.product = self.myGoods.datalist[indexPath.row] as! Product
+                
+                O2Nav.pushViewController(cont)
+            }
+        }
     }
 
 

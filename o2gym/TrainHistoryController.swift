@@ -10,6 +10,7 @@ import UIKit
 
 class TrainHistoryController: UITableViewController, AddableProtocol, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
+    var usrname:String! = Local.USER.name!
     var book:Book!
     var trainHistory:TrainListByDate!
     var isNew:Bool = false
@@ -29,21 +30,33 @@ class TrainHistoryController: UITableViewController, AddableProtocol, DZNEmptyDa
             NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 20)!,
             NSForegroundColorAttributeName : UIColor.lightGrayColor()]
         self.emptyStr = NSAttributedString(string:"...载入中...", attributes:attributes)
+        
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
+
+    }
+    
+    
+    func refresh(){
+       self.viewWillAppear(false)
     }
     
     override func viewWillAppear(animated: Bool) {
         
-        var tmpname = Local.USER.name!
+        
+        var tmpname = self.usrname
         if self.book != nil {
             tmpname = self.book.customer.name!
         }
         self.trainHistory = TrainListByDate(name: tmpname, date: nil)
         self.trainHistory.load({ () -> Void in
+            self.refreshControl?.endRefreshing()
             self.tableView?.reloadData()
             let attributes = [
                 NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 26)!,
                 NSForegroundColorAttributeName : UIColor.lightGrayColor()]
-            self.emptyStr = NSAttributedString(string:"没有历史数据", attributes:attributes)
+            self.emptyStr = NSAttributedString(string:"点击右上角添加训练", attributes:attributes)
             self.tableView.reloadEmptyDataSet()
             }, itemcallback: nil)
     }
@@ -109,12 +122,13 @@ class TrainHistoryController: UITableViewController, AddableProtocol, DZNEmptyDa
                 c.name = self.book.customer.name
                 c.book = self.book
             } else {
-                c.name = Local.USER.name!
+                c.name = self.usrname
             }
             let history = self.trainHistory.datalist[indexPath.row] as! Train
             c.date = history.date.stringByReplacingOccurrencesOfString("-", withString: "") 
             
         }
+        c.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(c, animated: true)
     }
     
@@ -122,13 +136,16 @@ class TrainHistoryController: UITableViewController, AddableProtocol, DZNEmptyDa
     func addItem() {
         let c = TrainningController()
 
-        c.name = Local.USER.name!
+        c.name = self.usrname
         if self.book != nil  {
             c.name = self.book.customer.name
         }
         c.book = self.book
-            
+        c.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(c, animated: true)
+        
+        
+
     }
 
     /*

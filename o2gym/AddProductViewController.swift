@@ -108,27 +108,32 @@ class AddProductViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.borderColor = O2Color.BorderGrey
-        
-        
-        if section != 4 {
-            header.contentView.bottomBorderWidth = 0.5
-        }
-        
-        
-        header.contentView.topBorderWidth = 0.5
-        
-        header.contentView.backgroundColor = self.view.backgroundColor
-    }
+//    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+//        header.contentView.borderColor = O2Color.BorderGrey
+//        
+//        
+//        if section != 4 {
+//            header.contentView.bottomBorderWidth = 0.5
+//        }
+//        
+//        
+//        header.contentView.topBorderWidth = 0.5
+//        
+//        header.contentView.backgroundColor = self.view.backgroundColor
+//    }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let alert = MKInputBoxView.boxOfType(MKInputBoxType.NumberInput)
+        var alert : MKInputBoxView
+        if indexPath.section != 3 {
+            alert = MKInputBoxView.boxOfType(MKInputBoxType.NumberInput)
+        } else {
+            alert = MKInputBoxView.boxOfType(MKInputBoxType.PlainTextInput)
+        }
         alert.setSubmitButtonText("好")
         alert.setCancelButtonText("取消")
         alert.borderColor = O2Color.LightMainColor

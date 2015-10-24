@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="yh.OTF">
-            <string>RTWSYueGoTrial-Regular</string>
             <string>RTWSYueGoTrial-Regular</string>
             <string>RTWSYueGoTrial-Regular</string>
             <string>RTWSYueGoTrial-Regular</string>
@@ -15,39 +15,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="BookedCourseComplexCell" customModule="o2gym" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="BookedCourseComplexCell" customModule="氧气健身" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="475" height="117"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="475" height="116.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UdK-TT-9bB">
-                        <rect key="frame" x="34" y="40" width="36" height="36"/>
+                        <rect key="frame" x="34" y="37" width="42" height="42"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="36" id="4BK-cw-pFN"/>
-                            <constraint firstAttribute="height" constant="36" id="Gwq-Rg-cDV"/>
+                            <constraint firstAttribute="width" constant="42" id="4BK-cw-pFN"/>
+                            <constraint firstAttribute="height" constant="42" id="Gwq-Rg-cDV"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="18"/>
+                                <real key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYe-q0-Gmb">
-                        <rect key="frame" x="80" y="41" width="31.5" height="14"/>
-                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="14"/>
+                        <rect key="frame" x="86" y="34" width="39.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juE-9T-q8C">
-                        <rect key="frame" x="80" y="63" width="50" height="14.5"/>
+                        <rect key="frame" x="86" y="62" width="50" height="17"/>
                         <color key="backgroundColor" red="0.61417106850000003" green="0.33771302149999999" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="FcD-UO-NqU"/>
                             <constraint firstAttribute="width" constant="50" id="TBc-np-e8J"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -62,11 +68,11 @@
                         </variation>
                     </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reb-f6-eS7">
-                        <rect key="frame" x="421" y="47" width="44" height="22"/>
+                        <rect key="frame" x="417" y="54.5" width="48" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="YN3-Qo-J9s"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="14"/>
                         <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                         <state key="normal" title="改期">
                             <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,23 +148,29 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PVX-ZV-9gS">
-                        <rect key="frame" x="8" y="40" width="36" height="36"/>
+                        <rect key="frame" x="8" y="37" width="42" height="42"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="36" id="JJm-K7-9so"/>
-                            <constraint firstAttribute="height" constant="36" id="NQw-58-9u3"/>
+                            <constraint firstAttribute="width" constant="42" id="JJm-K7-9so"/>
+                            <constraint firstAttribute="height" constant="42" id="NQw-58-9u3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="18"/>
+                                <real key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PND-xB-e3P">
-                        <rect key="frame" x="421" y="47" width="44" height="22"/>
+                        <rect key="frame" x="417" y="54.5" width="48" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Ngi-hG-LRM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="14"/>
                         <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                         <state key="normal" title="评价">
                             <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,11 +209,11 @@
                         </connections>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnz-J0-4xz">
-                        <rect key="frame" x="425" y="47" width="44" height="22"/>
+                        <rect key="frame" x="421" y="54.5" width="48" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="k6u-1g-gmR"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="14"/>
                         <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                         <state key="normal" title="上课">
                             <color key="titleColor" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -245,7 +257,7 @@
                     <constraint firstItem="e3R-SS-oJI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DGC-4f-W6a"/>
                     <constraint firstItem="fYe-q0-Gmb" firstAttribute="leading" secondItem="UdK-TT-9bB" secondAttribute="trailing" constant="10" id="Etc-bD-e62"/>
                     <constraint firstItem="mnz-J0-4xz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="2" id="Ggo-3V-gZf"/>
-                    <constraint firstAttribute="centerY" secondItem="mnz-J0-4xz" secondAttribute="centerY" id="K8v-fR-VKw"/>
+                    <constraint firstAttribute="centerY" secondItem="mnz-J0-4xz" secondAttribute="centerY" constant="-8" id="K8v-fR-VKw"/>
                     <constraint firstItem="UdK-TT-9bB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="26" id="MKr-ci-SbU"/>
                     <constraint firstAttribute="centerY" secondItem="juE-9T-q8C" secondAttribute="centerY" constant="-12" id="Nbi-Qv-NmE"/>
                     <constraint firstItem="juE-9T-q8C" firstAttribute="leading" secondItem="UdK-TT-9bB" secondAttribute="trailing" constant="10" id="OqT-mN-58K"/>
@@ -257,15 +269,15 @@
                     <constraint firstAttribute="trailingMargin" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="2" id="cOT-DF-Mdv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="juE-9T-q8C" secondAttribute="bottom" constant="10" id="cgw-fU-n8w"/>
                     <constraint firstItem="reb-f6-eS7" firstAttribute="leading" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="10" id="hCN-DK-IW3"/>
-                    <constraint firstAttribute="centerY" secondItem="PND-xB-e3P" secondAttribute="centerY" id="hg7-Ui-IC0"/>
+                    <constraint firstAttribute="centerY" secondItem="PND-xB-e3P" secondAttribute="centerY" constant="-8" id="hg7-Ui-IC0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PND-xB-e3P" secondAttribute="trailing" constant="2" id="jcs-QN-bYm"/>
                     <constraint firstAttribute="centerY" secondItem="reb-f6-eS7" secondAttribute="centerY" constant="-20" id="mIL-kD-NnE"/>
                     <constraint firstAttribute="centerY" secondItem="UdK-TT-9bB" secondAttribute="centerY" id="nKv-6O-ba4"/>
                     <constraint firstAttribute="bottom" secondItem="e3R-SS-oJI" secondAttribute="bottom" id="qGC-XH-dbE"/>
                     <constraint firstItem="PVX-ZV-9gS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qYb-sr-bDn"/>
                     <constraint firstItem="PND-xB-e3P" firstAttribute="leading" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="10" id="smw-RC-7jY"/>
-                    <constraint firstAttribute="centerY" secondItem="reb-f6-eS7" secondAttribute="centerY" id="v4A-Sv-PLK"/>
-                    <constraint firstAttribute="centerY" secondItem="fYe-q0-Gmb" secondAttribute="centerY" constant="10" id="vAs-fE-nJv"/>
+                    <constraint firstAttribute="centerY" secondItem="reb-f6-eS7" secondAttribute="centerY" constant="-8" id="v4A-Sv-PLK"/>
+                    <constraint firstAttribute="centerY" secondItem="fYe-q0-Gmb" secondAttribute="centerY" constant="14" id="vAs-fE-nJv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="2" id="zCH-ED-cA1"/>
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zU5-eX-WXa"/>
                 </constraints>
@@ -274,10 +286,10 @@
                         <exclude reference="bWC-xn-cFx"/>
                         <exclude reference="Tka-ho-ue2"/>
                         <exclude reference="cgw-fU-n8w"/>
-                        <exclude reference="hCN-DK-IW3"/>
-                        <exclude reference="mIL-kD-NnE"/>
                         <exclude reference="jcs-QN-bYm"/>
                         <exclude reference="smw-RC-7jY"/>
+                        <exclude reference="hCN-DK-IW3"/>
+                        <exclude reference="mIL-kD-NnE"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

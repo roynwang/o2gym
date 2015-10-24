@@ -38,7 +38,7 @@
         <!--Main Page View Controller-->
         <scene sceneID="lq0-83-iYY">
             <objects>
-                <viewController id="qeD-TK-4uD" customClass="MainPageViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qeD-TK-4uD" customClass="MainPageViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EHN-Sc-6Ds"/>
                         <viewControllerLayoutGuide type="bottom" id="FO5-9k-Xf5"/>
@@ -57,7 +57,7 @@
         <!--First-->
         <scene sceneID="jXf-VG-eRS">
             <objects>
-                <viewController storyboardIdentifier="login" title="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Giv-gb-Q1A" customClass="FirstViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" title="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Giv-gb-Q1A" customClass="FirstViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zvb-xq-rsX"/>
                         <viewControllerLayoutGuide type="bottom" id="yDj-Ic-gx1"/>
@@ -106,7 +106,7 @@
         <!--登录-->
         <scene sceneID="6HX-h5-bGK">
             <objects>
-                <viewController id="D37-V5-ctp" customClass="MeLoginController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D37-V5-ctp" customClass="MeLoginController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Vr-u1-dFX"/>
                         <viewControllerLayoutGuide type="bottom" id="tEi-hc-3Hd"/>
@@ -115,7 +115,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RX-dh-WBy" customClass="LoginView" customModule="o2gym" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RX-dh-WBy" customClass="LoginView" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -189,7 +189,7 @@
         <!--登录-->
         <scene sceneID="zVs-PV-cGa">
             <objects>
-                <viewController title="登录" id="Pza-Dn-5Zv" customClass="GymLoginViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="登录" id="Pza-Dn-5Zv" customClass="GymLoginViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yag-yz-niF"/>
                         <viewControllerLayoutGuide type="bottom" id="UJe-b7-gUq"/>
@@ -198,7 +198,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmz-lG-ZZR" customClass="LoginView" customModule="o2gym" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmz-lG-ZZR" customClass="LoginView" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -224,7 +224,7 @@
         <!--Article Detail View Controller-->
         <scene sceneID="Jif-tm-11e">
             <objects>
-                <viewController storyboardIdentifier="articledetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5o1-8g-Bvu" customClass="ArticleDetailViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="articledetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5o1-8g-Bvu" customClass="ArticleDetailViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="08T-m6-HuB"/>
                         <viewControllerLayoutGuide type="bottom" id="BZO-Oa-Qng"/>
@@ -322,13 +322,13 @@
         <!--工作时间-->
         <scene sceneID="rXB-f2-gVo">
             <objects>
-                <tableViewController storyboardIdentifier="workinghourconfig" title="工作时间" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bg7-Vs-fvM" customClass="WorkingHourConfigViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="workinghourconfig" title="工作时间" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bg7-Vs-fvM" customClass="WorkingHourConfigViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="WB3-lJ-Cgw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="workinghourconfigcell" rowHeight="50" id="H7y-T9-EDU" customClass="WorkingHourConfigCell" customModule="o2gym" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="workinghourconfigcell" rowHeight="50" id="H7y-T9-EDU" customClass="WorkingHourConfigCell" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H7y-T9-EDU" id="pPA-yT-SPd">
@@ -374,20 +374,20 @@
         <!--体测-->
         <scene sceneID="vva-74-48b">
             <objects>
-                <tableViewController storyboardIdentifier="bodyeval" title="体测" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e9R-Qg-LHu" customClass="BodyEvalController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="bodyeval" title="体测" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e9R-Qg-LHu" customClass="BodyEvalController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="UPK-vf-M8k">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bodyevalitem" id="ttc-DL-Xbm" customClass="BodyEvalCell" customModule="o2gym" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bodyevalitem" id="ttc-DL-Xbm" customClass="BodyEvalCell" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ttc-DL-Xbm" id="jQl-U9-FTA">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="测试一下" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bll-LL-BXK" customClass="BodyEvalTextField" customModule="o2gym" customModuleProvider="target">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="测试一下" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bll-LL-BXK" customClass="BodyEvalTextField" customModule="氧气健身" customModuleProvider="target">
                                             <rect key="frame" x="10" y="0.0" width="570" height="60"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -435,7 +435,7 @@
         <!--Train View Controller-->
         <scene sceneID="lum-nc-HpD">
             <objects>
-                <viewController storyboardIdentifier="train" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1XX-LQ-HrL" customClass="TrainViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="train" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1XX-LQ-HrL" customClass="TrainViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xah-1l-SFE"/>
                         <viewControllerLayoutGuide type="bottom" id="hl7-02-hPD"/>
@@ -453,13 +453,13 @@
         <!--Order Detail List Controller-->
         <scene sceneID="LmJ-YG-Fde">
             <objects>
-                <tableViewController storyboardIdentifier="orderdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qhD-CP-rxj" customClass="OrderDetailListController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="orderdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qhD-CP-rxj" customClass="OrderDetailListController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xEh-Bh-3yJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ordersummary" id="Kv7-LB-dxc" customClass="OrderSummaryCell" customModule="o2gym" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ordersummary" id="Kv7-LB-dxc" customClass="OrderSummaryCell" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kv7-LB-dxc" id="rdy-ON-4Yh">
@@ -469,7 +469,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RE-kd-pHR">
                                             <rect key="frame" x="16" y="13" width="35.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRq-TO-zCD">
@@ -491,7 +491,7 @@
                                     <outlet property="Date" destination="NRq-TO-zCD" id="fbI-oW-BAI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productdescription" rowHeight="69" id="cBe-bb-MFc" customClass="ProductDescriptionCell" customModule="o2gym" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productdescription" rowHeight="69" id="cBe-bb-MFc" customClass="ProductDescriptionCell" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="93.5" width="600" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBe-bb-MFc" id="xa7-tA-vCx">
@@ -514,7 +514,7 @@
                                     <outlet property="Description" destination="KCB-sM-Y7h" id="9WL-eC-0W0"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productsummary" rowHeight="81" id="fSK-3y-OZk" customClass="ProductSummaryCell" customModule="o2gym" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productsummary" rowHeight="81" id="fSK-3y-OZk" customClass="ProductSummaryCell" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="162.5" width="600" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fSK-3y-OZk" id="p41-jz-Y1g">
@@ -529,7 +529,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6F-5F-6a4">
                                             <rect key="frame" x="533" y="32" width="50.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -545,7 +545,7 @@
                                     <outlet property="Price" destination="Ypi-oC-XNg" id="fDb-0q-UIX"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="payway" rowHeight="76" id="jLx-BC-wnV" customClass="PayWayCell" customModule="o2gym" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="payway" rowHeight="76" id="jLx-BC-wnV" customClass="PayWayCell" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="243.5" width="600" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jLx-BC-wnV" id="295-Um-MfZ">
@@ -567,7 +567,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh3-vN-Nt9">
                                             <rect key="frame" x="66" y="27" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="QAZ-Nf-JjJ">
@@ -593,7 +593,7 @@
                                     <outlet property="SelectedIcon" destination="QAZ-Nf-JjJ" id="OMa-s9-HMp"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="paybtn" rowHeight="76" id="nQr-kX-fgI" customClass="PayBtnCell" customModule="o2gym" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="paybtn" rowHeight="76" id="nQr-kX-fgI" customClass="PayBtnCell" customModule="氧气健身" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="319.5" width="600" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nQr-kX-fgI" id="9W7-VR-P2n">
@@ -636,10 +636,114 @@
             </objects>
             <point key="canvasLocation" x="577" y="3981"/>
         </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="gli-sz-ul2">
+            <objects>
+                <collectionViewController id="mDz-UT-YNK" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="FkQ-bO-glo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ySe-V8-Cjp">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ekb-eE-g16">
+                                <rect key="frame" x="3" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="mDz-UT-YNK" id="C7w-Ep-34q"/>
+                            <outlet property="delegate" destination="mDz-UT-YNK" id="4PR-vp-zOm"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wmo-im-cq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1370" y="4004"/>
+        </scene>
+        <!--Train Categeory Controller-->
+        <scene sceneID="1ZT-6u-HxL">
+            <objects>
+                <viewController storyboardIdentifier="workoutselection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3px-LM-Aab" customClass="TrainCategeoryController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JL9-nI-qK1"/>
+                        <viewControllerLayoutGuide type="bottom" id="YGU-ap-bd9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4dV-ai-wc3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hof-WK-lbf">
+                                <rect key="frame" x="0.0" y="20" width="600" height="120"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="bVC-Fh-GBm"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tCx-ka-xT8">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2dB-km-ycL">
+                                        <rect key="frame" x="15" y="10" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfw-n7-PV8">
+                                                    <rect key="frame" x="4" y="14" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aCu-0u-gXc">
+                                <rect key="frame" x="0.0" y="140" width="600" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hof-WK-lbf" secondAttribute="trailing" id="0g0-WT-nT0"/>
+                            <constraint firstAttribute="trailing" secondItem="aCu-0u-gXc" secondAttribute="trailing" id="FBF-uS-UXW"/>
+                            <constraint firstItem="aCu-0u-gXc" firstAttribute="top" secondItem="hof-WK-lbf" secondAttribute="bottom" id="FXP-wb-3jg"/>
+                            <constraint firstItem="hof-WK-lbf" firstAttribute="leading" secondItem="4dV-ai-wc3" secondAttribute="leading" id="KoK-Hz-xlE"/>
+                            <constraint firstItem="hof-WK-lbf" firstAttribute="top" secondItem="JL9-nI-qK1" secondAttribute="bottom" id="MR8-nB-XJg"/>
+                            <constraint firstItem="aCu-0u-gXc" firstAttribute="leading" secondItem="4dV-ai-wc3" secondAttribute="leading" id="Urg-tj-ggg"/>
+                            <constraint firstItem="YGU-ap-bd9" firstAttribute="top" secondItem="aCu-0u-gXc" secondAttribute="bottom" id="s8a-hU-rD8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ActionDetail" destination="aCu-0u-gXc" id="PB0-dQ-1xG"/>
+                        <outlet property="Categeory" destination="hof-WK-lbf" id="Bs8-RQ-jLs"/>
+                        <outlet property="CategeoryHeight" destination="bVC-Fh-GBm" id="nwn-Zi-BDD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8C-dV-PmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2114" y="4004"/>
+        </scene>
         <!--圈子-->
         <scene sceneID="GCI-he-jPP">
             <objects>
-                <viewController id="ksq-P5-sYn" customClass="CircleViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ksq-P5-sYn" customClass="CircleViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AXq-y7-j1c"/>
                         <viewControllerLayoutGuide type="bottom" id="lC6-KZ-9Re"/>
@@ -657,10 +761,29 @@
             </objects>
             <point key="canvasLocation" x="2315" y="-411"/>
         </scene>
+        <!--New Gym Detail View Controller-->
+        <scene sceneID="RT2-cz-C4D">
+            <objects>
+                <viewController storyboardIdentifier="newgym" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9VM-Y7-qEI" customClass="NewGymDetailViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="759-Tn-z6n"/>
+                        <viewControllerLayoutGuide type="bottom" id="pE0-FD-sOO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4rV-9V-Ffc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fV2-o9-FmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-176" y="1530"/>
+        </scene>
         <!--New User Detail View Controller-->
         <scene sceneID="8WX-KN-6fo">
             <objects>
-                <viewController storyboardIdentifier="userdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eLJ-Ze-pND" customClass="NewUserDetailViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userdetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eLJ-Ze-pND" customClass="NewUserDetailViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jeI-AX-brb"/>
                         <viewControllerLayoutGuide type="bottom" id="A14-Ci-PEr"/>
@@ -722,7 +845,7 @@
         <!--我的订单-->
         <scene sceneID="bSl-xd-U19">
             <objects>
-                <tableViewController storyboardIdentifier="orderlist" title="我的订单" hidesBottomBarWhenPushed="YES" id="RTB-Bq-wmK" customClass="OrderedListViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="orderlist" title="我的订单" hidesBottomBarWhenPushed="YES" id="RTB-Bq-wmK" customClass="OrderedListViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="fCG-K3-r9h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -762,7 +885,7 @@
         <!--Course Review Controller-->
         <scene sceneID="Y0S-jf-TWH">
             <objects>
-                <viewController storyboardIdentifier="coursereview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a3W-gw-PdJ" customClass="CourseReviewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="coursereview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a3W-gw-PdJ" customClass="CourseReviewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WKM-pr-Fw7"/>
                         <viewControllerLayoutGuide type="bottom" id="2Pf-Y1-bqf"/>
@@ -793,8 +916,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PfQ-u1-e4p">
-                                <rect key="frame" x="16" y="80" width="568" height="150"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfQ-u1-e4p">
+                                <rect key="frame" x="20" y="80" width="560" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="aNM-eC-cdW"/>
@@ -826,12 +949,12 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOP-rw-F6e">
-                                <rect key="frame" x="20" y="240" width="560" height="30"/>
+                                <rect key="frame" x="20" y="240" width="560" height="35"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="YPU-Kg-JZS"/>
+                                    <constraint firstAttribute="height" constant="35" id="YPU-Kg-JZS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="18"/>
                                 <state key="normal" title="完成">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -882,23 +1005,23 @@
         <!--课程列表-->
         <scene sceneID="blZ-Pl-CD8">
             <objects>
-                <tableViewController storyboardIdentifier="myproduct" title="课程列表" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Esd-Ot-wOu" customClass="MyProductViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="1ca-Qn-vkD">
+                <tableViewController storyboardIdentifier="myproduct" title="课程列表" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Esd-Ot-wOu" customClass="MyProductViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1ca-Qn-vkD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productoption" rowHeight="50" id="36b-cY-0ZZ" customClass="MyProductCell" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="50"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productoption" rowHeight="80" id="36b-cY-0ZZ" customClass="MyProductCell" customModule="氧气健身" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="36b-cY-0ZZ" id="y8Q-rQ-cgP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpl-yV-eNz">
-                                            <rect key="frame" x="18" y="15" width="32" height="19.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="18" y="16" width="30" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5W-wl-hOB">
@@ -908,26 +1031,35 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5u-D6-TgL">
-                                            <rect key="frame" x="284" y="15" width="32" height="19.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="285" y="16" width="30" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="促销" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJW-Fa-y7X">
-                                            <rect key="frame" x="548" y="14.5" width="32" height="19.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="550" y="16" width="30" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIG-mP-KQq">
+                                            <rect key="frame" x="18" y="45" width="564" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="Fpl-yV-eNz" secondAttribute="centerY" id="0Kp-h9-BqO"/>
+                                        <constraint firstAttribute="centerY" secondItem="Fpl-yV-eNz" secondAttribute="centerY" constant="15" id="0Kp-h9-BqO"/>
+                                        <constraint firstItem="aIG-mP-KQq" firstAttribute="centerY" secondItem="y8Q-rQ-cgP" secondAttribute="centerY" constant="14" id="7ge-vP-nDd"/>
                                         <constraint firstAttribute="centerX" secondItem="O5u-D6-TgL" secondAttribute="centerX" id="Exb-0c-F4x"/>
                                         <constraint firstAttribute="trailing" secondItem="YJW-Fa-y7X" secondAttribute="trailing" constant="20" id="H0s-03-EXx"/>
+                                        <constraint firstItem="aIG-mP-KQq" firstAttribute="leading" secondItem="y8Q-rQ-cgP" secondAttribute="leadingMargin" constant="10" id="KSn-wX-gF4"/>
                                         <constraint firstAttribute="centerX" secondItem="Fpl-yV-eNz" secondAttribute="centerX" id="Q94-jt-hok"/>
                                         <constraint firstItem="Fpl-yV-eNz" firstAttribute="leading" secondItem="y8Q-rQ-cgP" secondAttribute="leadingMargin" constant="10" id="SdI-ai-OAr"/>
-                                        <constraint firstAttribute="centerY" secondItem="O5u-D6-TgL" secondAttribute="centerY" id="arZ-zY-ZLu"/>
-                                        <constraint firstAttribute="centerY" secondItem="YJW-Fa-y7X" secondAttribute="centerY" id="uCF-tl-aJ4"/>
+                                        <constraint firstAttribute="centerY" secondItem="O5u-D6-TgL" secondAttribute="centerY" constant="15" id="arZ-zY-ZLu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aIG-mP-KQq" secondAttribute="trailing" constant="10" id="mJp-w3-sRI"/>
+                                        <constraint firstAttribute="centerY" secondItem="YJW-Fa-y7X" secondAttribute="centerY" constant="15" id="uCF-tl-aJ4"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -937,6 +1069,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="Amount" destination="Fpl-yV-eNz" id="rNg-Na-UFd"/>
+                                    <outlet property="Introduction" destination="aIG-mP-KQq" id="OJ6-tf-vli"/>
                                     <outlet property="Price" destination="O5u-D6-TgL" id="Iys-jM-oFb"/>
                                     <outlet property="Promotion" destination="YJW-Fa-y7X" id="q9N-6h-6Gd"/>
                                 </connections>
@@ -955,7 +1088,7 @@
         <!--预约-->
         <scene sceneID="cHz-RD-ubX">
             <objects>
-                <viewController storyboardIdentifier="book" title="预约" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JXy-vX-Uhj" customClass="BookViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="book" title="预约" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JXy-vX-Uhj" customClass="BookViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bQz-LC-CsY"/>
                         <viewControllerLayoutGuide type="bottom" id="Xji-5O-4Vi"/>
@@ -964,15 +1097,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUS-dm-WKf" customClass="CVCalendarView" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="10" y="43" width="580" height="35"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUS-dm-WKf" customClass="CVCalendarView" customModule="氧气健身" customModuleProvider="target">
+                                <rect key="frame" x="10" y="48" width="580" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="9Ot-Gf-dq1"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGT-pB-5aa">
-                                <rect key="frame" x="585" y="45" width="15" height="35"/>
+                                <rect key="frame" x="585" y="50" width="15" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="1Qy-c5-9nk"/>
@@ -982,15 +1115,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZB-9i-6x8" customClass="CVCalendarMenuView" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="10" y="15" width="580" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZB-9i-6x8" customClass="CVCalendarMenuView" customModule="氧气健身" customModuleProvider="target">
+                                <rect key="frame" x="10" y="20" width="580" height="30"/>
                                 <color key="backgroundColor" red="0.40837658380000003" green="0.76293112480000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="k0x-9k-fyo"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6J-pk-23t">
-                                <rect key="frame" x="0.0" y="45" width="15" height="35"/>
+                                <rect key="frame" x="0.0" y="50" width="15" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="DMK-fn-q3X"/>
@@ -1007,7 +1140,7 @@
                                 </variation>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPU-VG-eKh">
-                                <rect key="frame" x="0.0" y="78" width="600" height="522"/>
+                                <rect key="frame" x="0.0" y="83" width="600" height="517"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uL3-M0-cYI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="280"/>
@@ -1039,7 +1172,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EYm-Hd-RVS">
-                                        <rect key="frame" x="0.0" y="280" width="600" height="242"/>
+                                        <rect key="frame" x="0.0" y="280" width="600" height="237"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="7D7-gb-Nuy"/>
@@ -1076,7 +1209,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.34901960780000002" green="0.0" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qZB-9i-6x8" firstAttribute="top" secondItem="bQz-LC-CsY" secondAttribute="bottom" constant="-5" id="2AI-DH-d2D"/>
+                            <constraint firstItem="qZB-9i-6x8" firstAttribute="top" secondItem="bQz-LC-CsY" secondAttribute="bottom" id="2AI-DH-d2D"/>
                             <constraint firstAttribute="centerX" secondItem="qZB-9i-6x8" secondAttribute="centerX" id="8bz-Gz-njn"/>
                             <constraint firstItem="l6J-pk-23t" firstAttribute="leading" secondItem="rih-Cp-9xH" secondAttribute="leading" id="KCm-oH-Awq"/>
                             <constraint firstItem="mPU-VG-eKh" firstAttribute="top" secondItem="BGT-pB-5aa" secondAttribute="bottom" constant="-2" id="Tek-dh-jrf"/>
@@ -1125,7 +1258,7 @@
         <!--工作时间-->
         <scene sceneID="Fev-RL-xmM">
             <objects>
-                <viewController storyboardIdentifier="workingtimeconfig" title="工作时间" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mYY-fh-6Ap" customClass="WorkingTimeConfigViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="workingtimeconfig" title="工作时间" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mYY-fh-6Ap" customClass="WorkingTimeConfigViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7kT-hD-jOm"/>
                         <viewControllerLayoutGuide type="bottom" id="2d0-IV-sXO"/>
@@ -1296,14 +1429,14 @@
         <!--编辑课程-->
         <scene sceneID="HA1-3m-E5h">
             <objects>
-                <tableViewController storyboardIdentifier="addproduct" title="编辑课程" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D56-5j-Vrd" customClass="AddProductViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tnF-x5-Ty9">
+                <tableViewController storyboardIdentifier="addproduct" title="编辑课程" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D56-5j-Vrd" customClass="AddProductViewController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="tnF-x5-Ty9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productoption" id="iX4-ot-eaT" customClass="AddProductCell" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productoption" id="iX4-ot-eaT" customClass="AddProductCell" customModule="氧气健身" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iX4-ot-eaT" id="ZVf-IC-63r">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1366,14 +1499,14 @@
         <!--Gym Detail Controller-->
         <scene sceneID="65R-Ld-tvx">
             <objects>
-                <tableViewController storyboardIdentifier="gymdetail" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BZV-q2-YW2" customClass="GymDetailController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="gymdetail" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BZV-q2-YW2" customClass="GymDetailController" customModule="氧气健身" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="eF3-Xh-WoB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="option" id="DLZ-qw-tKi" customClass="SimpleOptionCell" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="option" id="DLZ-qw-tKi" customClass="SimpleOptionCell" customModule="氧气健身" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DLZ-qw-tKi" id="CUx-WA-iWZ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1417,8 +1550,8 @@
                                     <outlet property="OptionValue" destination="UBc-Fn-d7C" id="ySc-zy-Bfw"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="coach" rowHeight="91" id="t2T-po-B8Q" customClass="CoachItemCell" customModule="o2gym" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="157.5" width="600" height="91"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="coach" rowHeight="91" id="t2T-po-B8Q" customClass="CoachItemCell" customModule="氧气健身" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="93.5" width="600" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t2T-po-B8Q" id="pzd-ok-tfd">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
@@ -1488,68 +1621,42 @@
                                     <outlet property="RightArrow" destination="xw5-p6-Y9l" id="cND-Nj-AiQ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="text" rowHeight="91" id="vyT-Rj-hcC" customClass="TextOnlyCell" customModule="氧气健身" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="184.5" width="600" height="91"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vyT-Rj-hcC" id="F7A-8j-U6F">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZI-CO-3ji">
+                                            <rect key="frame" x="18" y="8" width="564" height="74.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="IZI-CO-3ji" secondAttribute="bottom" id="3kl-74-fz3"/>
+                                        <constraint firstItem="IZI-CO-3ji" firstAttribute="leading" secondItem="F7A-8j-U6F" secondAttribute="leadingMargin" constant="10" id="ELe-cw-nP5"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="IZI-CO-3ji" secondAttribute="trailing" constant="10" id="ZHQ-DU-Bae"/>
+                                        <constraint firstItem="IZI-CO-3ji" firstAttribute="top" secondItem="F7A-8j-U6F" secondAttribute="topMargin" id="vsc-a3-M4s"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="FullText" destination="IZI-CO-3ji" id="juw-fg-z4Z"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="BZV-q2-YW2" id="NuL-1z-9ai"/>
                             <outlet property="delegate" destination="BZV-q2-YW2" id="ksp-tz-BlU"/>
                         </connections>
                     </tableView>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tw6-iZ-TDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3018" y="3085"/>
-        </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="nC1-Kj-ETL">
-            <objects>
-                <tableViewController storyboardIdentifier="profilepage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uiV-W6-m9M" customClass="ProfileViewController" customModule="o2gym" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="22" sectionFooterHeight="22" id="l28-ZM-bSS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="plaintextcell" textLabel="KNf-uW-SL5" style="IBUITableViewCellStyleDefault" id="Erk-OX-zt1">
-                                <rect key="frame" x="0.0" y="22" width="600" height="30"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Erk-OX-zt1" id="fIc-Nr-yAf">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="29.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KNf-uW-SL5">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="29.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.1960784314" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.50169676860000001" green="0.1655889324" blue="0.96293008209999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="uiV-W6-m9M" id="hbV-gv-IYa"/>
-                            <outlet property="delegate" destination="uiV-W6-m9M" id="taQ-YC-Wxs"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="mYY-fh-6Ap" kind="show" identifier="test" id="NJs-XU-YEH"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7DW-vs-elo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1484" y="2327"/>
         </scene>
         <!--氧气-->
         <scene sceneID="a8w-o5-AcX">
@@ -1638,7 +1745,7 @@
         <image name="muscle" width="24" height="24"/>
         <image name="muscle_active" width="24" height="24"/>
         <image name="o2" width="24" height="24"/>
-        <image name="ok" width="22" height="22"/>
+        <image name="ok" width="20" height="20"/>
         <image name="rightarrow" width="75" height="75"/>
         <image name="wechatpay" width="22" height="22"/>
     </resources>

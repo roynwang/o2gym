@@ -25,6 +25,13 @@ public class User : BaseDataItem{
     public var tags:String!
     public var introduction:String!
     
+    public var order_count:Int!
+    public var course_count:Int!
+    public var rate:Int!
+    public var sex:Bool! = true
+    public var signature:String!
+    public var needRefresh:Bool = false
+    
     override var type:String {
         return "user"
     }
@@ -35,6 +42,7 @@ public class User : BaseDataItem{
     override var UrlGet:String {
         return Host.UserGet(self.name!)
     }
+    
     
     public init(id: Int?, name:String?, iscoach:Bool?, avatar:String?){
         self.id = id
@@ -60,13 +68,18 @@ public class User : BaseDataItem{
     public convenience init(id:Int, name:String){
         self.init(id: id, name: name, iscoach: false, avatar: nil)
     }
-     public override func buildParam()->[String:String]{
-        return [
+    public override func buildParam()->[String:String]{
+        let param:[String:String] = [
             "displayname": self.displayname,
-            "avatar" : self.avatar!
+            "avatar" : self.avatar!,
+            "sex" : (self.sex! ? 1 : 0).toString() ,
+            "signature" : self.signature!,
+            "introduction" : self.introduction!
         ]
+        print(param)
+        return param
     }
-    
+
     public override func loadFromJSON(dict:JSON){
         self.id = dict["id"].int
         self.name = dict["name"].string
@@ -86,6 +99,12 @@ public class User : BaseDataItem{
         if dict["gym_id"].array != nil && dict["gym_id"].array?.count>0{
             self.gym_id = dict["gym_id"].arrayValue[0].intValue
         }
+        
+        self.order_count = dict["order_count"].int
+        self.course_count = dict["course_count"].int
+        self.rate = dict["rate"].int
+        self.sex = dict["sex"].bool
+        self.signature = dict["signature"].string
     }
     
     public func up(name:String, direction:Bool = true){
@@ -103,7 +122,7 @@ public class User : BaseDataItem{
     
     func setUpped(name:String, up:Bool = true){
         if up {
-            if let index = self.upped_person.indexOf(name) {
+            if let _ = self.upped_person.indexOf(name) {
                 self.upped_person.append(name)
             }
         }
@@ -115,5 +134,10 @@ public class User : BaseDataItem{
     }
     func follow(name:String, onsuccess:()->Void){
         self.requestGet(Host.Follow(self.name!, follows: name), onsuccess: onsuccess, onfail: nil)
+    }
+    
+    func changeGym(onsuccess:()->Void,onfail:(String)->Void){
+        print(self.gym_id.toString())
+        self.requestPost(Host.UserGym(self.name!), parameters: ["gym": self.gym_id.toString()], onsuccess: onsuccess, onfail: onfail)
     }
 }

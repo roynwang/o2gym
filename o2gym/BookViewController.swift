@@ -687,8 +687,11 @@ extension BookViewController : UICollectionViewDataSource {
         
         return cell
     }
-    func getCellByIndex(index:Int)->TimeTableCell{
-        return self.TimeCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! TimeTableCell
+    func getCellByIndex(index:Int)->TimeTableCell?{
+        if let lastone = self.TimeCollectionView.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) {
+            return  lastone as? TimeTableCell
+        }
+        return nil
     }
     
     func refreshTime(){
@@ -700,24 +703,29 @@ extension BookViewController : UICollectionViewDataSource {
         }
         for i in 0..<self.TimeCollectionView.numberOfItemsInSection(0){
             //for i in 0..<self.dayAvaTime.count {
-            let cell = self.getCellByIndex(i)
-            cell.enableLabel()
+            if let cell = self.getCellByIndex(i) {
+                cell.enableLabel()
+            }
         }
         for i in self.dayTime.na {
             //for i in self.dayNaTime {
             if let index = allshowntime.indexOf(i) {
-                let cell = self.getCellByIndex(index)
-                cell.disableLabel()
+                if let cell = self.getCellByIndex(index) {
+                    cell.disableLabel()
+                }
             }
         }
         //disable the last one
-        self.getCellByIndex(self.TimeCollectionView.numberOfItemsInSection(0)-1).userInteractionEnabled = false
+        if let lastone = self.getCellByIndex(self.TimeCollectionView.numberOfItemsInSection(0)-1) {
+            lastone.userInteractionEnabled = false
+        }
         
         
         for i in self.dayBookedTime {
             if let index = allshowntime.indexOf(i) {
-                let cell = self.getCellByIndex(index)
-                cell.activeLabel()
+                if let cell = self.getCellByIndex(index) {
+                    cell.activeLabel()
+                }
             }
         }
     }

@@ -41,6 +41,7 @@ class NearByGymCell: UITableViewCell {
         var startx:CGFloat = 7
         for coach in gym.coaches{
             let coachimg = UIImageView(frame: CGRectMake(startx, 3, width, width))
+            print(coach.avatar!)
             coachimg.fitLoad(coach.avatar!)
             startx += width
             startx += 5

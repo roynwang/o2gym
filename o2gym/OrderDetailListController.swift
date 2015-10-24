@@ -99,7 +99,7 @@ class OrderDetailListController: UITableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("ordersummary", forIndexPath: indexPath) as! OrderSummaryCell
             cell.Date.text = "日期: " + self.order.created
-            cell.BillId.text = "单号: " + self.order.billid.toString()
+            cell.BillId.text = "单号: " + self.order.billid
             cell.borderColor = O2Color.BorderGrey
             cell.bottomBorderWidth = 0.5
             cell.topBorderWidth = 0.5
@@ -135,6 +135,7 @@ class OrderDetailListController: UITableViewController {
             if indexPath.row == self.order.booked.count - 1 {
                 cell.bottomBorderWidth = 0.5
             }
+
             return cell
         }
         if indexPath.section == 3 {
@@ -274,10 +275,12 @@ class OrderDetailListController: UITableViewController {
         }
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let wx = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 0, inSection: 3)) as! PayWayCell
-        let ali = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 1, inSection: 3)) as! PayWayCell
+
         if indexPath.section == 3 {
           
+            let wx = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 0, inSection: 3)) as! PayWayCell
+            let ali = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 1, inSection: 3)) as! PayWayCell
+            
             if indexPath.row == 0 {
                 wx.SelectedIcon.hidden = false
                 ali.SelectedIcon.hidden = true
@@ -292,12 +295,7 @@ class OrderDetailListController: UITableViewController {
             self.tableView.reloadData()
         }
         
-        if indexPath.section == 4 {
 
-
-            
-            
-        }
     }
 
     /*

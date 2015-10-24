@@ -32,27 +32,25 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         O2Nav.setController(self)
     }
     
-    override func viewDidLoad() {        
+    override func viewDidLoad() {
+          super.viewDidLoad()
+        let s = ScheduleViewController()
         if  Local.USER.iscoach {
-            let s = ScheduleViewController()
-            self.circleSeg = HMSegmentedControl(sectionTitles: ["课表"])
-            self.viewControllers = [s]
-            circleSeg.selectionIndicatorHeight = 0
+            
+            let c = CustomerListController()
+            self.circleSeg = HMSegmentedControl(sectionTitles: ["课表","客户"])
+            self.viewControllers = [s,c]
+            circleSeg.selectionIndicatorHeight = 1
         } else {
-            let c1 = EvalHistoryTableController()
-            c1.book = self.book
             let c2 = TrainHistoryController()
             c2.book = self.book
-            self.circleSeg = HMSegmentedControl(sectionTitles: ["训练","体测"])
-            self.viewControllers = [c2,c1]
+            
+            self.circleSeg = HMSegmentedControl(sectionTitles: ["课表","训练"])
+            self.viewControllers = [s,c2]
             circleSeg.selectionIndicatorHeight = 1
             let addBtn = UIBarButtonItem(image: UIImage(named: "add_circle"), style: UIBarButtonItemStyle.Done, target: self, action: "newItem")
             self.navigationItem.rightBarButtonItem = addBtn
         }
-        
-       
-        self.delegate = self
-        
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         let baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "muscle_active")
@@ -86,18 +84,8 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         self.navigationItem.titleView = circleSeg
         
         
-        
-        
-        
-        
-        //        let sb = UIStoryboard(name: "Main", bundle: nil)
-        //        let c1 =  sb.instantiateViewControllerWithIdentifier("evalhistory") as! EvalCollectionController
-        
+        self.delegate = self
 
-        
-        
-        
-        //self.hidesBottomBarWhenPushed = true
     
     }
     

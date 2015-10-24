@@ -24,6 +24,16 @@ target 'o2gym' do
 	pod 'Haneke', '~> 1.0'
 	pod 'RGToast', '1.0.0'
 	pod 'SIAlertView'
+#	pod 'DKImagePickerController'
+#	pod 'ios-NumberRangeSelector'
+	pod 'PBJHexagon'
+	pod 'CCHexagonFlowLayout'
+	pod "LiquidFloatingActionButton", :git => 'https://github.com/yoavlt/LiquidFloatingActionButton.git', :branch => 'swift-2.0'
+#pod "BLContactsViewController"
+	pod 'YSMChineseSort','~>0.1.0'
+	pod 'NYXImagesKit'
+	pod 'ImagePlayerView'
+	pod 'KIZImagePlayer', :git =>'https://github.com/zziking/KIZImagePlayer'
 end
 
 target 'o2gymTests' do

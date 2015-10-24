@@ -1,4 +1,4 @@
-//
+    //
 //  MeViewController.swift
 //  o2gym
 //
@@ -12,13 +12,6 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
     
     var circleSeg:HMSegmentedControl!
     
-    //var Nav:O2Nav!
-    
-    //    func toggleSegcon(){
-    //        self.segcon.hidden = !self.segcon.hidden
-    //        self.navigationItem.setHidesBackButton(false, animated: true)
-    //
-    //    }
     override func viewDidAppear(animated: Bool) {
         
     }
@@ -44,17 +37,16 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         
         
         if !Local.USER.iscoach {
-            let c1 = ProfileViewController()
+            let c1 = ProfileViewController(style: UITableViewStyle.Grouped)
         //c1.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
             c1.view.backgroundColor = O2Color.BgGreyColor
-            let c2 = ScheduleViewController()
-            c2.view.backgroundColor = O2Color.BgGreyColor
-            self.viewControllers = [c1,c2]
+          
+            self.viewControllers = [c1]
         
             self.circleSeg = HMSegmentedControl(sectionTitles: ["我","课表"])
             circleSeg.selectionIndicatorHeight = 1
         } else {
-            let c1 = ProfileViewController()
+            let c1 = ProfileViewController(style: UITableViewStyle.Grouped)
             //c1.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
             c1.view.backgroundColor = O2Color.BgGreyColor
    
@@ -98,6 +90,7 @@ class MeViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         
 
         self.delegate = self
+        self.view.backgroundColor = O2Color.BgGreyColor
         
         //self.hidesBottomBarWhenPushed = true
         

@@ -1,4 +1,4 @@
-//
+ //
 //  BillItem.swift
 //  o2gym
 //
@@ -13,7 +13,7 @@ import Alamofire
 public class OrderItem : BaseDataItem{
     public var id:Int!
     public var name:String!
-    public var billid:Int!
+    public var billid:String!
     public var created:String!
     public var paidtime:String!
     public var status:String!
@@ -44,7 +44,7 @@ public class OrderItem : BaseDataItem{
         self.status = "unpaid"
         self.name = self.customer.name
     }
-    public convenience init(name:String,billid:Int){
+    public convenience init(name:String,billid:String){
         self.init()
         self.name = name
         self.billid = billid
@@ -62,7 +62,7 @@ public class OrderItem : BaseDataItem{
     
     public override func loadFromJSON(dict: JSON) {
         self.id = dict["id"].intValue
-        self.billid = dict["billid"].intValue
+        self.billid = dict["billid"].stringValue
         self.created = dict["created"].stringValue
         self.paidtime = dict["paidtime"].string
         self.status = dict["status"].stringValue

@@ -147,4 +147,91 @@ public class Helper{
     class func ImageUrlWithSize(url:String, width:Int, height:Int) -> String{
         return url + "?imageView2/1/w/\(width)/h/\(height)"
     }
+    
+    
+    class func roundedPolygonPathWithRect(square: CGRect, lineWidth: Float, sides: Int, cornerRadius: Float) -> UIBezierPath {
+        let path = UIBezierPath()
+        
+        let theta = Float(2.0 * M_PI) / Float(sides)
+        let offset = cornerRadius * tanf(theta / 2.0)
+        let squareWidth = Float(min(square.size.width, square.size.height))
+        
+        var length = squareWidth - lineWidth
+        
+        if sides % 4 != 0 {
+            length = length * cosf(theta / 2.0) + offset / 2.0
+        }
+        
+        let sideLength = length * tanf(theta / 2.0)
+        
+        var point = CGPointMake(CGFloat((squareWidth / 2.0) + (sideLength / 2.0) - offset), CGFloat(squareWidth - (squareWidth - length) / 2.0))
+        var angle = Float(M_PI)
+        path.moveToPoint(point)
+        
+        for var side = 0; side < sides; side++ {
+            
+            let x = Float(point.x) + (sideLength - offset * 2.0) * cosf(angle)
+            let y = Float(point.y) + (sideLength - offset * 2.0) * sinf(angle)
+            
+            point = CGPointMake(CGFloat(x), CGFloat(y))
+            path.addLineToPoint(point)
+            
+            let centerX = Float(point.x) + cornerRadius * cosf(angle + Float(M_PI_2))
+            let centerY = Float(point.y) + cornerRadius * sinf(angle + Float(M_PI_2))
+            
+            let center = CGPointMake(CGFloat(centerX), CGFloat(centerY))
+            
+            let startAngle = CGFloat(angle) - CGFloat(M_PI_2)
+            let endAngle = CGFloat(angle) + CGFloat(theta) - CGFloat(M_PI_2)
+            
+            path.addArcWithCenter(center, radius: CGFloat(cornerRadius), startAngle: startAngle, endAngle: endAngle, clockwise: true)
+            
+            point = path.currentPoint
+            angle += theta
+        }
+        
+        path.closePath()
+        //path.usesEvenOddFillRule = true
+        return path
+    }
+    class func imageFromText(text:NSString, attr: [String : AnyObject]?, size:CGSize ) -> UIImage{
+        UIGraphicsBeginImageContext(size)
+
+        text.drawInRect(CGRectMake(0, 0, size.width, size.height), withAttributes: attr)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsGetCurrentContext()
+        return img
+        
+    }
+    class  func maskImage(image: UIImage, withMask maskImage: UIImage) -> UIImage {
+        
+        let maskRef = maskImage.CGImage
+        
+        let mask = CGImageMaskCreate(
+            CGImageGetWidth(maskRef),
+            CGImageGetHeight(maskRef),
+            CGImageGetBitsPerComponent(maskRef),
+            CGImageGetBitsPerPixel(maskRef),
+            CGImageGetBytesPerRow(maskRef),
+            CGImageGetDataProvider(maskRef),
+            nil,
+            false)
+        
+        let masked = CGImageCreateWithMask(image.CGImage, mask)
+        let maskedImage = UIImage(CGImage: masked!)
+        
+        // No need to release. Core Foundation objects are automatically memory managed.
+        
+        return maskedImage
+        
+    }
+    class func imageWithView(view:UIView) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0)
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: false)
+//        view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+        let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return snapshotImage
+    }
 }

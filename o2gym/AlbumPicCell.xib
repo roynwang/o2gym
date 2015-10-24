@@ -7,27 +7,66 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AlbumPicCell" customModule="o2gym" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AlbumPicCell" customModule="氧气健身" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="155" height="147"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="155" height="147"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NB6-AJ-o0r">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="155" height="147"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whc-ys-GF2">
+                        <rect key="frame" x="125" y="5" width="25" height="25"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="del" translatesAutoresizingMaskIntoConstraints="NO" id="3fs-Fc-nMz">
+                                <rect key="frame" x="6" y="6" width="13" height="13"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAy-yu-CNz">
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TAy-yu-CNz" secondAttribute="bottom" id="06y-TX-bUL"/>
+                            <constraint firstItem="3fs-Fc-nMz" firstAttribute="top" secondItem="Whc-ys-GF2" secondAttribute="top" constant="6" id="7jP-9c-zoO"/>
+                            <constraint firstAttribute="height" constant="25" id="908-YK-lut"/>
+                            <constraint firstItem="TAy-yu-CNz" firstAttribute="leading" secondItem="Whc-ys-GF2" secondAttribute="leading" id="B7n-cZ-NkP"/>
+                            <constraint firstAttribute="trailing" secondItem="3fs-Fc-nMz" secondAttribute="trailing" constant="6" id="F9Z-Vw-N5y"/>
+                            <constraint firstAttribute="trailing" secondItem="TAy-yu-CNz" secondAttribute="trailing" id="JCi-cw-99H"/>
+                            <constraint firstAttribute="bottom" secondItem="3fs-Fc-nMz" secondAttribute="bottom" constant="6" id="Ok4-so-fKT"/>
+                            <constraint firstItem="TAy-yu-CNz" firstAttribute="top" secondItem="Whc-ys-GF2" secondAttribute="top" id="Qbv-on-jV0"/>
+                            <constraint firstAttribute="width" constant="25" id="ely-0h-hxS"/>
+                            <constraint firstItem="3fs-Fc-nMz" firstAttribute="leading" secondItem="Whc-ys-GF2" secondAttribute="leading" constant="6" id="uSg-IO-F4d"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="NB6-AJ-o0r" secondAttribute="bottom" id="0rM-PN-fRv"/>
+                <constraint firstAttribute="trailing" secondItem="Whc-ys-GF2" secondAttribute="trailing" constant="5" id="8Z9-cd-RFF"/>
                 <constraint firstItem="NB6-AJ-o0r" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9OQ-HB-ysa"/>
                 <constraint firstAttribute="trailing" secondItem="NB6-AJ-o0r" secondAttribute="trailing" id="DMf-zW-vZG"/>
+                <constraint firstItem="Whc-ys-GF2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Q9Y-4p-02B"/>
                 <constraint firstItem="NB6-AJ-o0r" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tMR-3o-DEv"/>
             </constraints>
+            <size key="customSize" width="155" height="147"/>
             <connections>
+                <outlet property="Del" destination="Whc-ys-GF2" id="yGu-d6-gPP"/>
+                <outlet property="DelBtn" destination="TAy-yu-CNz" id="EAf-u0-Zg3"/>
+                <outlet property="DelImg" destination="3fs-Fc-nMz" id="nwS-aI-Zqt"/>
                 <outlet property="Img" destination="NB6-AJ-o0r" id="kTu-U5-8CY"/>
             </connections>
+            <point key="canvasLocation" x="282.5" y="245.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="del" width="22" height="22"/>
+    </resources>
 </document>

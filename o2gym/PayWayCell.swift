@@ -16,6 +16,7 @@ class PayWayCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .None
+        self.SelectedIcon.image = UIImage(named: "ok")?.add_tintedImageWithColor(O2Color.OkGreen, style: ADDImageTintStyleKeepingAlpha)
         // Initialization code
     }
 

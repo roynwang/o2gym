@@ -10,7 +10,7 @@ import UIKit
 
 class EvalHistoryTableController: UITableViewController, AddableProtocol, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
-    
+    var usrname:String! = Local.USER.name!
     var book:Book!
     var evalHistory:BodyEvalListByDate!
     
@@ -38,6 +38,12 @@ class EvalHistoryTableController: UITableViewController, AddableProtocol, DZNEmp
             NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 20)!,
             NSForegroundColorAttributeName : UIColor.lightGrayColor()]
         self.emptyStr = NSAttributedString(string:"...载入中...", attributes:attributes)
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
+    }
+    func refresh(){
+        self.viewWillAppear(false)
     }
     
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
@@ -46,18 +52,21 @@ class EvalHistoryTableController: UITableViewController, AddableProtocol, DZNEmp
     
     override func viewWillAppear(animated: Bool) {
         
-        var tmpname = Local.USER.name!
+        var tmpname = self.usrname
         if self.book != nil {
             tmpname = self.book.customer.name!
         }
         self.evalHistory = BodyEvalListByDate(name: tmpname, date: nil)
         self.evalHistory.load({ () -> Void in
+            
+            self.refreshControl?.endRefreshing()
+            
             self.tableView?.reloadData()
             
             let attributes = [
                 NSFontAttributeName : UIFont(name: "RTWS YueGothic Trial", size: 26)!,
                 NSForegroundColorAttributeName : UIColor.lightGrayColor()]
-            self.emptyStr = NSAttributedString(string:"没有历史数据", attributes:attributes)
+            self.emptyStr = NSAttributedString(string:"点击右上角添加数据", attributes:attributes)
             self.tableView.reloadEmptyDataSet()
             }, itemcallback: nil)
     }
@@ -109,7 +118,7 @@ class EvalHistoryTableController: UITableViewController, AddableProtocol, DZNEmp
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let c1 =  sb.instantiateViewControllerWithIdentifier("bodyeval") as! BodyEvalController
-        var tmpname = Local.USER.name!
+        var tmpname = self.usrname
         if self.book != nil {
             tmpname = self.book.customer.name!
         }
@@ -124,13 +133,15 @@ class EvalHistoryTableController: UITableViewController, AddableProtocol, DZNEmp
             c1.date = history.date.stringByReplacingOccurrencesOfString("-", withString: "")
             
         }
+        c1.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(c1, animated: true)
     }
 
     func addItem() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let c1 =  sb.instantiateViewControllerWithIdentifier("bodyeval") as! BodyEvalController
-        c1.usr = self.book == nil ? Local.USER.name! : self.book.customer.name
+        c1.usr = self.book == nil ? self.usrname : self.book.customer.name
+        c1.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(c1, animated: true)
     }
 

@@ -18,6 +18,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     
     public var usrname:String!
     public var album:Album!
+    public var enableDelete:Bool = false
     
     var minHeight:CGFloat!
     var picWidth:CGFloat!
@@ -45,11 +46,11 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    public convenience init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!, usrname:String) {
-        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.usrname = usrname
-        self.album = Album(name: self.usrname)
-    }
+    //    public convenience init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    //        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    ////        self.usrname = usrname
+    ////        self.album = Album(name: self.usrname)
+    //    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
         
         
         //let framewidth = CGRectGetWidth(self.collectionView!.frame)
-
+        
         
         //self.album = Album(name:self.usrname)
         self.collectionView?.backgroundColor = UIColor.whiteColor()
@@ -95,7 +96,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     }
     
     public func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
-        return -200
+        return -150
     }
     
     func segmentTitle()->String{
@@ -118,9 +119,9 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
                 NSForegroundColorAttributeName : UIColor.lightGrayColor()]
             self.emptyStr = NSAttributedString(string:"还没有照片", attributes:attributes)
             self.collectionView!.reloadEmptyDataSet()
-            print(self.album.count)
+            
             }, itemcallback:nil)
-    
+        
     }
     
     public override func didReceiveMemoryWarning() {
@@ -135,8 +136,8 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
         return CGSizeMake(self.picWidth, self.picWidth)
     }
     
-
-  
+    
+    
     /*
     // MARK: - Navigation
     
@@ -159,17 +160,16 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     
     public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        
+        var count  = 0
         //#warning Incomplete method implementation -- Return the number of items in the section
-        var count = self.album.count
-        if count == 0 {
-            return 0
+        if self.album != nil {
+            count = self.album.count
         }
         if self.isSelf {
             count += 1
         }
-        if count < 9 {
-            count  = 12
-        }
+
         return count
     }
     
@@ -184,6 +184,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("piccell", forIndexPath: indexPath) as! AlbumPicCell
+            cell.Del.hidden = !enableDelete
             var i = indexPath.row
             if self.isSelf {
                 i -= 1
@@ -194,12 +195,45 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
             } else {
                 print("add place holder")
             }
+            cell.tag = i
+            cell.DelBtn.addTarget(self, action: "delPic:", forControlEvents: .TouchUpInside)
+            
             return cell
         }
+    }
+    func delPic(btn:UIButton){
+        let alert = SIAlertView(title: "确认删除", andMessage: "删除后图片将不能恢复")
+        alert.addButtonWithTitle("删除", type: SIAlertViewButtonType.Default, handler: { (_) -> Void in
+            alert.dismissAnimated(true)
+            
+            var i = btn.tag
+            self.collectionView!.makeToastActivityWithMessage(message: "正在删除")
+            let pic = self.album.datalist[i] as! Pic
+            pic.delete({ (_) -> Void in
+                self.collectionView!.hideToastActivity()
+                self.collectionView!.makeToast(message: "已删除")
+                self.album.datalist.removeAtIndex(i)
+                if self.isSelf {
+                    i += 1
+                }
+                print(NSIndexPath(forRow: i, inSection: 0))
+                self.collectionView?.deleteItemsAtIndexPaths([NSIndexPath(forRow: i, inSection: 0)])
+
+                }, onfail: { (msg) -> Void in
+                    self.collectionView!.hideToastActivity()
+                    self.collectionView!.makeToast(message: "删除失败")
+            })
+        })
+        alert.addButtonWithTitle("取消", type: .Cancel) { (_) -> Void in
+            alert.dismissAnimated(true)
+
+        }
+        alert.show()
     }
     
     public override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if self.isSelf && indexPath.row == 0 {
+            
             let picker = FSMediaPicker()
             picker.editMode = FSEditModeNone
             picker.delegate = self
@@ -263,8 +297,8 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
         })
     }
     
-
-
+    
+    
     
     
     // MARK: UICollectionViewDelegate
@@ -323,7 +357,7 @@ extension AlbumViewController : FSMediaPickerDelegate {
         var ratio:CGFloat = 1
         let imgdata = UIImageJPEGRepresentation(image, 1)!
         if imgdata.length/1024 > 50 {
-            ratio = CGFloat(300)/CGFloat(imgdata.length/1024)
+            ratio = CGFloat(100)/CGFloat(imgdata.length/1024)
         }
         //Local.USER.avatar = "test"
         //let nsdata = NSData(
@@ -335,15 +369,7 @@ extension AlbumViewController : FSMediaPickerDelegate {
                 print("saved ... ...")
                 self.album.datalist.insert(Pic(url:img), atIndex: 0)
                 self.collectionView?.reloadData()
-            }, error_handler: nil)
-            
-        
-//            Local.USER.avatar = Host.ImgHost + filename
-//            Local.USER.update(nil, onfail: nil)
-//            
-//            //update local
-//            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! ProfileAvatarCell
-//            cell.Avatar.fitLoad(Local.USER.avatar!, placeholder: nil)
+                }, error_handler: nil)
         })
         
     }
