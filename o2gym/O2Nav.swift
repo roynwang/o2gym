@@ -89,6 +89,19 @@ public class O2Nav{
         O2Nav.pushViewController(cont)
         
     }
+    
+    class func showProtocol(){
+        let cont = UIViewController()
+        let web = UIWebView(frame: O2Nav.controller.view.frame)
+        
+        cont.view = web
+        cont.title = "服务条款和隐私政策"
+        let req = NSURLRequest(URL: NSURL(string: Host.ProtocolGet())!)
+        web.loadRequest(req)
+        cont.view.backgroundColor = O2Color.MainColor
+        O2Nav.pushViewController(cont)
+    }
+    
 //    class func showLogin(){
 //        let sb = UIStoryboard(name: "Main", bundle: nil)
 //        let cont =  sb.instantiateViewControllerWithIdentifier("login") as! FirstViewController

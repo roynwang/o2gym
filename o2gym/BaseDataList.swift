@@ -21,6 +21,7 @@ public class BaseDataList {
     public var prevurl:String? = nil
     public var delta:Int = 0
     public var isLoaded:Bool = false
+    public var hasChanged = false
 
     var needAuth:Bool{
         return false
@@ -98,7 +99,19 @@ public class BaseDataList {
         }
         self.loadMore(self.nexturl!, allcallback: allcallback, itemcallback: itemcallback, listkey: "results", insert: false)
     }
-    public func loadMore<T:BaseDataItem>(url:String, allcallback:(()->Void)?, itemcallback:((T)->Void)?, listkey:String?, insert:Bool){
+    
+    public func loadLate<T:BaseDataItem>(allcallback:(()->Void)?, itemcallback:((T)->Void)?){
+        if self.prevurl == nil {
+            self.delta = 0
+            if allcallback != nil {
+                allcallback!()
+            }
+            return
+        }
+        self.loadMore(self.prevurl!, allcallback: allcallback, itemcallback: itemcallback, listkey: "results", insert: true)
+    }
+    
+    public func loadMore<T:BaseDataItem>(url:String, allcallback:(()->Void)?, itemcallback:((T)->Void)?, listkey:String?, insert:Bool, isInit:Bool=false){
         if self.executing {return}
         self.executing = true
         self.delta = 0
@@ -122,24 +135,32 @@ public class BaseDataList {
                     results = dict.arrayValue
                 }else{
                     results = dict[listkey!].arrayValue
-                    self.nexturl = dict["next"].string
-                    self.prevurl = dict["previous"].string
+                    if isInit || insert {
+                        self.prevurl = dict["previous"].string
+                       
+                    }
+                    if isInit || !insert {
+                         self.nexturl = dict["next"].string
+                    }
+                    
                 }
-                if insert{
-                    Array(arrayLiteral: results?.reverse())
-                }
+//                if insert{
+//                    Array(arrayLiteral: results?.reverse())
+//                }
                 self.delta = results!.count
+                var i = 0
                 for item in results! {
                     let tmp = self.loaditem(item)!
                     if !insert{
                         self.datalist.append(tmp)
                     } else{
-                        self.datalist.insert(tmp, atIndex: 0)
+                        self.datalist.insert(tmp, atIndex: i)
                     }
                     //self.count += 1
                     if itemcallback != nil{
                         itemcallback!(tmp as! T)
                     }
+                    i+=1
                 }
                 if allcallback != nil{
                     allcallback!()
@@ -152,7 +173,7 @@ public class BaseDataList {
     public func load<T:BaseDataItem>(allcallback:(()->Void)?, itemcallback:((T)->Void)?){
         self.isLoaded = true
         self.datalist = []
-        self.loadMore(self.Url, allcallback: allcallback, itemcallback: itemcallback, listkey: self.listkey, insert: false)
+        self.loadMore(self.Url, allcallback: allcallback, itemcallback: itemcallback, listkey: self.listkey, insert: false, isInit:true)
     }
     
 //    public func requestPost(url: String, parameters:[String:String], onsuccess :(()->Void)?,onfail :((String)->Void)?){

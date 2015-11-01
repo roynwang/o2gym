@@ -22,13 +22,14 @@ class OrderDetailListController: UITableViewController {
         //self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine;
         self.tableView.backgroundColor = O2Color.BgGreyColor
         
+        
         self.tableView.registerNib(UINib(nibName: "BookedCourseCell", bundle: nil), forCellReuseIdentifier: "bookedcoursecell")
         
         self.tableView.registerNib(UINib(nibName: "OrderItemCell", bundle: nil), forCellReuseIdentifier: "orderitemcell")
         
         //self.view.makeToastActivity(position: HRToastPositionCenter, message: "载入中")
         self.order.loadRemote({ (_) -> Void in
-            self.order.channel = "wx"
+            self.order.channel = "alipay"
             self.product = Product(productid: self.order.product)
             self.product.loadRemote({ (_) -> Void in
                 //self.view.hideToastActivity()
@@ -82,7 +83,7 @@ class OrderDetailListController: UITableViewController {
         case 2:
             return self.order.booked.count
         case 3:
-            return 2
+            return 1
         case 4:
             return 1
             
@@ -143,7 +144,7 @@ class OrderDetailListController: UITableViewController {
             cell.borderColor = O2Color.BorderGrey
             //cell.SelectedIcon.hidden = true
             
-            if indexPath.row == 0 {
+            if indexPath.row == 1 {
         
                 cell.PayWayIcon.image = UIImage(named: "wechatpay")
                 cell.PayWayText.text = "微信支付"
@@ -158,11 +159,11 @@ class OrderDetailListController: UITableViewController {
                 }
 
             }
-            if indexPath.row == 1 {
+            if indexPath.row == 0 {
                 cell.PayWayIcon.image = UIImage(named: "alipay")
                 cell.PayWayText.text = "支付宝"
                 cell.bottomBorderWidth = 0.5
-                
+                cell.topBorderWidth = 0.5
                 if self.order.channel != nil && self.order.channel == "alipay" {
                     cell.SelectedIcon.hidden = false
                 } else {
@@ -208,10 +209,12 @@ class OrderDetailListController: UITableViewController {
                     self.view.hideToastActivity()
                     if self.order.status == "paid" {
                       
-                        self.navigationController?.popViewControllerAnimated(true)
                         if self.backtwice {
                             self.navigationController?.popViewControllerAnimated(false)
+                            
                         }
+                        self.navigationController?.popViewControllerAnimated(true)
+              
                         
                         Local.ORDERLIST?.load({ () -> Void in
                             O2Nav.controller.view.makeToast(message: "支付成功")
@@ -235,6 +238,7 @@ class OrderDetailListController: UITableViewController {
             
             }, onFail:{ ()->Void in
                 //self.view.makeToast(message: "支付失败")
+                self.view.hideToastActivity()
                 self.view.makeToast(message: "支付失败", duration: 3, position: HRToastPositionCenter)
         })
     }
@@ -274,29 +278,27 @@ class OrderDetailListController: UITableViewController {
             return ""
         }
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        if indexPath.section == 3 {
-          
-            let wx = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 0, inSection: 3)) as! PayWayCell
-            let ali = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 1, inSection: 3)) as! PayWayCell
-            
-            if indexPath.row == 0 {
-                wx.SelectedIcon.hidden = false
-                ali.SelectedIcon.hidden = true
-                self.order.channel = "wx"
-
-                
-            } else {
-                wx.SelectedIcon.hidden = true
-                ali.SelectedIcon.hidden = false
-                self.order.channel = "alipay"
-            }
-            self.tableView.reloadData()
-        }
-        
-
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//
+//        if indexPath.section == 3 {
+//          
+//            let wx = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 0, inSection: 3)) as! PayWayCell
+//            let ali = tableView.dequeueReusableCellWithIdentifier("payway", forIndexPath: NSIndexPath(forRow: 1, inSection: 3)) as! PayWayCell
+//            
+//            if indexPath.row == 0 {
+//                wx.SelectedIcon.hidden = false
+//                ali.SelectedIcon.hidden = true
+//                self.order.channel = "wx"
+//
+//                
+//            } else {
+//                wx.SelectedIcon.hidden = true
+//                ali.SelectedIcon.hidden = false
+//                self.order.channel = "alipay"
+//            }
+//            self.tableView.reloadData()
+//        }
+//    }
 
     /*
     // Override to support conditional editing of the table view.

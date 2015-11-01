@@ -38,6 +38,7 @@ class ProfileViewController: UITableViewController {
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.backgroundColor = O2Color.BgGreyColor
         
+//        self.navigationController?.toolbarHidden = true
         
         
         
@@ -78,7 +79,7 @@ class ProfileViewController: UITableViewController {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
 
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,6 +90,9 @@ class ProfileViewController: UITableViewController {
         }
         if section == 1 {
             return Local.USER.iscoach ? 6 : 2
+        }
+        if section == 2 {
+            return 2
         }
         return 0
     }
@@ -134,7 +138,10 @@ class ProfileViewController: UITableViewController {
             cell.OptionKey.text = "工作时间设置"
         case "myproduct":
             cell.OptionKey.text = "课程设置"
-            
+        case "aboutme":
+            cell.OptionKey.text = "关于我们"
+        case "privacy":
+            cell.OptionKey.text = "服务条款和隐私政策"
         default:
             return cell
         }
@@ -163,6 +170,16 @@ class ProfileViewController: UITableViewController {
                 return "error"
             }
         }
+        if indexPath.section == 2 {
+            switch indexPath.row{
+            case 0:
+                return "aboutme"
+            case 1:
+                return "privacy"
+            default:
+                return "error"
+            }
+        }
         return "error"
     }
     
@@ -170,28 +187,7 @@ class ProfileViewController: UITableViewController {
         return 20
     }
     
-//    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-//        header.contentView.borderColor = O2Color.BorderGrey
-//        
-//        if section == 0 {
-//            header.contentView.bottomBorderWidth = 0.5
-//            
-//        }
-//        if section == 1 {
-//            header.contentView.topBorderWidth = 0.5
-//            header.contentView.bottomBorderWidth = 0.5
-//        }
-//        if section == 2 {
-//            header.contentView.topBorderWidth = 0.5
-//            
-//        }
-//        if section == 3 {
-//            header.contentView.topBorderWidth = 0.5
-//            
-//        }
-//        header.contentView.backgroundColor = self.view.backgroundColor
-//    }
+
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -236,6 +232,15 @@ class ProfileViewController: UITableViewController {
             self.navigationController?.pushViewController(cont, animated: true)
         }
         
+        if indexPath.section == 2 && indexPath.row == 0{
+            let cont =  AboutController()
+            self.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(cont, animated: true)
+            
+        }
+        if indexPath.section == 2 && indexPath.row == 1{
+           O2Nav.showProtocol()
+        }
     }
 }
 

@@ -24,13 +24,29 @@ class TrainningItemCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func setUnits(action:WorkoutAction){
-        let units = action.units.componentsSeparatedByString("|")
+    func setUnits(unitStr:String){
+        let units = unitStr.componentsSeparatedByString("|")
+        
+        self.Weight.hidden = false
+        self.Weight.text = ""
+        self.Repeatttimes.hidden = false
+        self.Repeatttimes.text = ""
+        
         self.Weight.placeholder = units[0]
         if units.count > 1 {
             self.Repeatttimes.placeholder = units[1]
         }
+        if  units[0] == "" {
+            self.Weight.hidden = true
+        }
+        if units.count < 2 || units[1] == "" {
+            self.Repeatttimes.hidden = true
+        }
+
+    }
+    
+    func setUnits(withaction action:WorkoutAction){
+        self.setUnits(action.units)
     }
     func setEditable(editable:Bool){
         self.Repeatttimes.userInteractionEnabled = editable

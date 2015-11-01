@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="yh.OTF">
+            <string>RTWSYueGoTrial-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutController" customModule="氧气健身" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_light" translatesAutoresizingMaskIntoConstraints="NO" id="raz-Z7-KWt">
+                    <rect key="frame" x="250" y="190" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="ADP-e2-Mp2"/>
+                        <constraint firstAttribute="height" constant="100" id="WRi-yb-8zF"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Copyright   ©2015 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-d7-hUE">
+                    <rect key="frame" x="237" y="535" width="126.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京十分有科技有限公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv4-Je-67g">
+                    <rect key="frame" x="217" y="562" width="165" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="氧气健身" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoD-v0-MoA">
+                    <rect key="frame" x="252" y="315" width="96" height="24"/>
+                    <fontDescription key="fontDescription" name="RTWSYueGoTrial-Regular" family="RTWS YueGothic Trial" pointSize="24"/>
+                    <color key="textColor" red="0.27058823529999998" green="0.0" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cv4-Je-67g" firstAttribute="top" secondItem="g3Z-d7-hUE" secondAttribute="bottom" constant="35" id="0sB-Ro-I1q"/>
+                <constraint firstItem="raz-Z7-KWt" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-60" id="1GI-47-gWN"/>
+                <constraint firstItem="yoD-v0-MoA" firstAttribute="top" secondItem="raz-Z7-KWt" secondAttribute="bottom" constant="25" id="1Vr-Br-IdY"/>
+                <constraint firstItem="cv4-Je-67g" firstAttribute="top" secondItem="g3Z-d7-hUE" secondAttribute="bottom" constant="10" id="EQV-RZ-WNd"/>
+                <constraint firstItem="yoD-v0-MoA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L4d-Kp-8Wb"/>
+                <constraint firstItem="raz-Z7-KWt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OS3-21-5kY"/>
+                <constraint firstAttribute="trailing" secondItem="raz-Z7-KWt" secondAttribute="trailing" constant="100" id="P8K-Od-9G8"/>
+                <constraint firstItem="g3Z-d7-hUE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eSk-C7-Rda"/>
+                <constraint firstAttribute="bottom" secondItem="cv4-Je-67g" secondAttribute="bottom" constant="20" id="f2m-YZ-OD1"/>
+                <constraint firstItem="raz-Z7-KWt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="maf-cj-yio"/>
+                <constraint firstItem="cv4-Je-67g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vOL-w3-qyv"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="P8K-Od-9G8"/>
+                    <exclude reference="maf-cj-yio"/>
+                    <exclude reference="0sB-Ro-I1q"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="187" y="-20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo_light" width="250" height="250"/>
+    </resources>
+</document>

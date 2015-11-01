@@ -22,6 +22,26 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     
     
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+    }
+    
+    override init(style: UITableViewStyle) {
+        super.init(style: style)
+    }
+    
+//    convenience init(){
+//        self.init(style: UITableViewStyle.Grouped)
+//    }
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +50,9 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         self.tableView.registerNib(UINib(nibName: "TrainningHeader", bundle: nil), forCellReuseIdentifier: "trainheader")
         
         self.tableView.separatorStyle = .None
-        
+        self.tableView.backgroundColor = UIColor.whiteColor()
+        self.tableView.tableHeaderView = UIView(frame: CGRect.zero)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         
         if self.date == nil {
@@ -64,21 +86,9 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     }
     
     
-    
-    //    func trainListToActions(tl: TrainListByDate){
-    //        for item in tl.datalist {
-    //            let train = item as! Train
-    //            if nil == self.actions.indexForKey(train.action_name) {
-    //                self.actions[train.action_name] = [Train]()
-    //                self.actionkey.append(train.action_name)
-    //            }
-    //            self.actions[train.action_name]?.append(train)
-    //        }
-    //
-    //    }
     func groupTrainList(tl:TrainListByDate)->[[Train]] {
         var dict = [Int:[Train]]()
-        var maxGroup = 0
+        var maxGroup = -1
         for item in tl.datalist {
             let train = item as! Train
             if dict.keys.indexOf(train.action_order) == nil {
@@ -88,13 +98,16 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             maxGroup = maxGroup>train.action_order ? maxGroup : train.action_order
         }
         var ret:[[Train]] = []
+        if maxGroup == -1 {
+            return ret
+        }
         for i in 0...maxGroup {
             ret.append(dict[i]!)
         }
         return ret
     }
     
-    func save(){
+    func save(onSuccess:(()->Void)?,onFail:((NSError?)->Void)?){
         self.saveAllTrains()
         let forsave = TrainListByDate(name: self.name, date: NSDate().dateToString())
         if self.book != nil {
@@ -107,15 +120,8 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             }
         }
         print(forsave)
-        self.view.makeToastActivityWithMessage(message: "正在保存")
-        forsave.bulkCreate({ () -> Void in
-            self.view.hideToastActivity()
-            self.navigationController?.popViewControllerAnimated(true)
-            }, error_handler:  {
-                (_) in
-                self.view.hideToastActivity()
-                self.view.makeToast(message: "保存失败")
-        })
+        
+        forsave.bulkCreate(onSuccess, error_handler:  onFail)
     }
     
     override func didReceiveMemoryWarning() {
@@ -133,14 +139,7 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        //        if section >= self.actions.count {
-        //            return 1
-        //        }
-        //        if let arr = self.actions[self.actionkey[section]]{
-        //            return arr.count
-        //        }
+
         if self.groupedTrain == nil { return 1 }
         
         if section >= self.groupedTrain.count { return 1}
@@ -150,7 +149,7 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     }
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section + 1 == self.numberOfSectionsInTableView(self.tableView){
-            return nil
+            return UIView(frame: CGRect.zero)
         }
         let cell = TrainningHeader(frame: CGRectMake(0, 0, tableView.frame.width, 40))
         if section != self.numberOfSectionsInTableView(self.tableView) {
@@ -170,6 +169,7 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             let trainname = self.groupedTrain[section][0].action_name
             let train = Train()
             train.units = self.actionSet[trainname]!.units
+            train.action_name = trainname
             self.self.groupedTrain[section].append(train)
             self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.groupedTrain[section].count-1, inSection: section)], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
@@ -196,8 +196,12 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier("traincell", forIndexPath: indexPath) as! TrainningItemCell
+        
         //        let train = self.actions[self.actionkey[indexPath.section]]![indexPath.row]
         let train = self.groupedTrain[indexPath.section][indexPath.row]
+
+        cell.setUnits(train.units)
+
         if train.weight != nil {
             cell.Weight.text = train.weight
         }
@@ -206,14 +210,23 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         }
         cell.Weight.delegate = self
         cell.Repeatttimes.delegate = self
-        //        let addedcell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: self.actionkey.count, inSection: indexPath.section)) as! TrainningItemCell
+   
+        
+        //已有动作添加一组
         if train.units != nil {
-            cell.Weight.placeholder = train.units.componentsSeparatedByString("|")[0]
-            cell.Repeatttimes.placeholder = train.units.componentsSeparatedByString("|")[1]
+         
+            //获得动作名称
             
-        } else {
-            cell.setUnits(self.actionSet[self.groupedTrain[indexPath.section][0].action_name]!)
+            cell.setUnits(train.units)
+
+            
+        } else { //新添一个新动作
+        
+            cell.setUnits(withaction: self.actionSet[self.groupedTrain[indexPath.section][0].action_name]!)
+
         }
+   
+       
         cell.userInteractionEnabled = (self.date == nil)
         return cell
     }
@@ -249,6 +262,7 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
                     self.actionSet[action.name] = action
                     let train = Train()
                     train.action_name = action.name
+                    train.units = action.units
                     let newactionGroup:[Train] = [train]
                     if self.groupedTrain == nil {
                         self.groupedTrain = []

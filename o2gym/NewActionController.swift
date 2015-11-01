@@ -10,6 +10,8 @@ import UIKit
 
 class NewActionController: UITableViewController {
     
+    
+    let cateStartId:Int = 1
     var width:CGFloat!
     var action:WorkoutAction!
     var btns:[UIButton]!
@@ -31,13 +33,22 @@ class NewActionController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Plain, target: self, action: "save")
     }
     func save(){
+        
+    
+        self.view.endEditing(true)
         let cellname = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! NewActionTextOptionCell
-        let cellmuscle = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! NewActionTextOptionCell
-        let cellunit1 = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! NewActionTextOptionCell
-        let cellunit2 = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! NewActionTextOptionCell
+        let cellmuscle = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)) as! NewActionTextOptionCell
+        let cellunit1 = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)) as! NewActionTextOptionCell
+        let cellunit2 = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 4, inSection: 0)) as! NewActionTextOptionCell
         self.action.name = cellname.getValue()
         self.action.muscle = cellmuscle.getValue()
         self.action.units = cellunit1.getValue()! + "|" + cellunit2.getValue()!
+        
+       
+        if self.action.name == "" || self.action.units.characters.count<=1{
+            self.view.makeToast(message: "请填写名称以及至少一个单位")
+            return
+        }
         
         self.action.save({ (_) -> Void in
             print("save completed")
@@ -96,7 +107,7 @@ class NewActionController: UITableViewController {
 //                btn.set
                 btn.setBackgroundImage(UIImage(named: "hexagon"), forState: UIControlState.Normal)
                 btn.addTarget(self, action: "cateTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-                btn.tag = i
+                btn.tag = i + self.cateStartId
                 btn.setTitle(self.cateString[i], forState: UIControlState.Normal)
                 btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
                 cell.addSubview(btn)
@@ -104,7 +115,7 @@ class NewActionController: UITableViewController {
                 startx += 12
                 self.btns.append(btn)
             }
-            self.cateTapped(btns[self.action.categeory])
+            self.cateTapped(btns[self.action.categeory - self.cateStartId])
             return cell
             
         case 1:

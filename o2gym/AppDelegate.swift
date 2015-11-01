@@ -15,14 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+       
         if let font = UIFont(name: "RTWS YueGothic Trial", size: 18) {
             UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
-           
         }
+        
         if let font = UIFont(name: "RTWS YueGothic Trial", size: 15) {
-         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+            UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         }
+        
         UITabBar.appearance().translucent = false
         UITabBar.appearance().tintColor = O2Color.MainColor
         

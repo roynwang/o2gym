@@ -8,19 +8,22 @@
 
 import UIKit
 
-class BodyEvalController: UITableViewController {
+class BodyEvalController: UITableViewController, UITextFieldDelegate {
     var usr:String!
     var date:String!
+    var book:Book!
+    var isNew:Bool = false
     
-    var isNew:Bool = true
     
     var alloptions : BodyEvalList!
+    
+    var curTextField:UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if self.isNew {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
+//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
             self.date = NSDate().dateToString()
             self.alloptions = BodyEvalList()
         } else {
@@ -31,29 +34,30 @@ class BodyEvalController: UITableViewController {
             self.tableView.reloadData()
         }, itemcallback: nil)
         
+        let gr = UITapGestureRecognizer(target: self, action: "dismissKeyboard:")
+        gr.cancelsTouchesInView = false
+        self.tableView.addGestureRecognizer(gr)
+    }
+    func dismissKeyboard(gr: UITapGestureRecognizer){
+        self.view.endEditing(true)
     }
     
-    func save(){
+    func save(onSuccess:(()->Void)?,onFail:((NSError?)->Void)?){
         let forsave = BodyEvalListByDate(name: self.usr, date: self.date)
         for i in 0..<self.tableView(self.tableView, numberOfRowsInSection: 0) {
             let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! BodyEvalCell
             cell.evalData.value = cell.EvalItem.text
-            if cell.evalData.value != nil {
+            if cell.evalData.value != nil && cell.evalData.value != ""{
                 forsave.datalist.append(cell.evalData)
             }
 
         }
         if forsave.count != 0 {
-            self.view.makeToastActivityWithMessage(message: "正在保存")
-            forsave.bulkCreate({ () -> Void in
-                self.view.hideToastActivity()
-                print("bulk done")
-                self.navigationController?.popViewControllerAnimated(true)
-                }, error_handler: {
-                (_) in
-                self.view.hideToastActivity()
-                self.view.makeToast(message: "保存失败")
-                })
+            forsave.bulkCreate(onSuccess, error_handler: onFail)
+        } else {
+            if onSuccess != nil {
+                onSuccess!()
+            }
         }
     }
 
@@ -80,9 +84,37 @@ class BodyEvalController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("bodyevalitem", forIndexPath: indexPath) as! BodyEvalCell
 
+        
         cell.setCell(self.alloptions.datalist[indexPath.row] as! BodyEvalItem)
-      
+        cell.EvalItem.delegate = self
+        
+        if !self.isNew {
+            cell.EvalItem.userInteractionEnabled = false
+        }
+        
         return cell
+    }
+    
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.curTextField = textField
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.curTextField = nil
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if self.curTextField != nil{
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        if self.curTextField != nil{
+            textField.resignFirstResponder()
+        }
+        return true
     }
 
 

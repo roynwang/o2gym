@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerListController: UITableViewController {
+class CustomerListController: UITableViewController, AddableProtocol {
     
     
     var coachname:String!
@@ -26,28 +26,18 @@ class CustomerListController: UITableViewController {
         self.tableView.backgroundColor = UIColor.whiteColor()
         
         self.coachname = Local.USER.name!
-        self.customerlist = CustomerList(name: self.coachname)
+        
+        if Local.CUSTOMERS == nil {
+            Local.CUSTOMERS = CustomerList(name: self.coachname)
+        }
+        self.customerlist = Local.CUSTOMERS
         
         
-        self.dataSource = NSMutableArray()
-        self.rowDataSource = NSMutableArray()
-        self.titleDataSource = NSMutableArray()
+      
         
         
         
-        self.customerlist.load({ () -> Void in
-            //order it
-            
-            self.dataSource.addObjectsFromArray(self.customerlist.datalist as! [User])
-           // self.dataSource.sort
-            self.dataSource.sortContactTOTitleAndSectionRowWithKey_A_CE("name", callBack: { (result, titleArr, rowArr) -> Void in
-                self.rowDataSource.addObjectsFromArray(rowArr)
-                self.titleDataSource.addObjectsFromArray(titleArr)
-            })
-            
-            self.tableView.reloadData()
-            }, itemcallback: nil)
-        
+        self.reloadCustomers()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -55,12 +45,40 @@ class CustomerListController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.registerNib(UINib(nibName: "CustomerItemCell", bundle: nil), forCellReuseIdentifier: "customer")
     }
+    
+    func reloadCustomers(){
+        self.dataSource = NSMutableArray()
+        self.rowDataSource = NSMutableArray()
+        self.titleDataSource = NSMutableArray()
+        self.customerlist.load({ () -> Void in
+            //order it
+            self.dataSource.addObjectsFromArray(self.customerlist.datalist as! [User])
+            // self.dataSource.sort
+            self.dataSource.sortContactTOTitleAndSectionRowWithKey_A_CE("displayname", callBack: { (result, titleArr, rowArr) -> Void in
+                self.rowDataSource.addObjectsFromArray(rowArr)
+                self.titleDataSource.addObjectsFromArray(titleArr)
+            })
+            
+            self.tableView.reloadData()
+            }, itemcallback: nil)
+
+    }
 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if self.customerlist != nil && self.customerlist.hasChanged {
+          self.reloadCustomers()
+        }
+    }
+    override func viewDidAppear(animated: Bool) {
+        O2Nav.setController(self)
+    }
+
 
     // MARK: - Table view data source
 
@@ -106,12 +124,28 @@ class CustomerListController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let usr = self.rowDataSource[indexPath.section][indexPath.row] as! User
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cont =  sb.instantiateViewControllerWithIdentifier("train") as! TrainViewController
-        cont.usrname = usr.name
-        cont.addable = false
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let cont =  sb.instantiateViewControllerWithIdentifier("train") as! TrainViewController
+//        cont.usrname = usr.name
+//        cont.addable = false
+//        cont.hidesBottomBarWhenPushed = true
+//        O2Nav.pushViewController(cont)
+        
+        
+        let cont = CustomerDetailController()
+        cont.customer = usr
+        cont.coach = Local.USER
         cont.hidesBottomBarWhenPushed = true
         O2Nav.pushViewController(cont)
+        
+    }
+    
+    func addItem() {
+        //add user here
+        let cont = ManualOrderController()
+        cont.hidesBottomBarWhenPushed = true
+        cont.coach = Local.USER
+        self.navigationController?.pushViewController(cont, animated: true)
         
     }
 

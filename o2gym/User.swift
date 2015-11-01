@@ -70,6 +70,7 @@ public class User : BaseDataItem{
     }
     public override func buildParam()->[String:String]{
         let param:[String:String] = [
+            "name":self.name!,
             "displayname": self.displayname,
             "avatar" : self.avatar!,
             "sex" : (self.sex! ? 1 : 0).toString() ,
@@ -140,4 +141,6 @@ public class User : BaseDataItem{
         print(self.gym_id.toString())
         self.requestPost(Host.UserGym(self.name!), parameters: ["gym": self.gym_id.toString()], onsuccess: onsuccess, onfail: onfail)
     }
+    
+
 }

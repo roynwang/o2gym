@@ -24,6 +24,7 @@ class BookedCourseCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.StatusImg.image = UIImage(named: "ok")?.add_tintedImageWithColor(O2Color.OkGreen, style: ADDImageTintStyleKeepingAlpha)
         // Initialization code
     }
 

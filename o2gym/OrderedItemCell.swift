@@ -33,10 +33,10 @@ class OrderItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadOrder(order:OrderItem){
+    func loadOrder(order:OrderItem, showaction:Bool = false){
         self.order = order
         self.Status.text = order.status
-        self.CreatedTime.text = order.created
+        self.CreatedTime.text = Helper.localizeTime(order.created)
         self.Customer.text = order.customer.displayname
         self.Coach.text = order.coach.displayname
         self.BillId.text = order.billid
@@ -66,6 +66,9 @@ class OrderItemCell: UITableViewCell {
         if order.status == "inprogress" {
             self.Status.text = "进行中"
             self.actiontype = nil
+        }
+        if showaction {
+            return
         }
         if self.actiontype == nil || Local.USER.iscoach{
             self.ActionBtn.hidden = true

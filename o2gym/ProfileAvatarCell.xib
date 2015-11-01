@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -46,13 +46,13 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaB-V4-Aqq">
-                        <rect key="frame" x="100" y="77" width="48" height="26"/>
+                        <rect key="frame" x="100" y="67" width="48" height="26"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="6pA-wm-Add"/>
                             <constraint firstAttribute="width" constant="26" id="AWo-8b-gCw"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="设置头像">
+                        <state key="normal" title="编辑头像">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -66,7 +66,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adW-Fj-XAU">
-                        <rect key="frame" x="99" y="52" width="49" height="24"/>
+                        <rect key="frame" x="99" y="42" width="49" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -85,11 +85,11 @@
                     <constraint firstItem="DCV-Qb-fEI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="B2p-aB-Set"/>
                     <constraint firstItem="ryu-PH-Sjh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="GrD-vp-PRj"/>
                     <constraint firstItem="ryu-PH-Sjh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KRA-dq-Zql"/>
-                    <constraint firstAttribute="centerY" secondItem="JaB-V4-Aqq" secondAttribute="centerY" constant="-26" id="gK2-Fg-iSW"/>
+                    <constraint firstAttribute="centerY" secondItem="JaB-V4-Aqq" secondAttribute="centerY" constant="-16" id="gK2-Fg-iSW"/>
                     <constraint firstItem="JaB-V4-Aqq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="92" id="hTS-bc-0jG"/>
                     <constraint firstItem="adW-Fj-XAU" firstAttribute="leading" secondItem="JaB-V4-Aqq" secondAttribute="trailing" constant="15" id="hZ9-EM-MJ0"/>
                     <constraint firstItem="adW-Fj-XAU" firstAttribute="leading" secondItem="DCV-Qb-fEI" secondAttribute="trailing" constant="15" id="j5n-md-Y9g"/>
-                    <constraint firstAttribute="centerY" secondItem="adW-Fj-XAU" secondAttribute="centerY" id="l6L-4P-uLp"/>
+                    <constraint firstAttribute="centerY" secondItem="adW-Fj-XAU" secondAttribute="centerY" constant="10" id="l6L-4P-uLp"/>
                     <constraint firstAttribute="centerY" secondItem="adW-Fj-XAU" secondAttribute="centerY" id="n5V-64-KTE"/>
                     <constraint firstAttribute="centerY" secondItem="DCV-Qb-fEI" secondAttribute="centerY" id="nWD-wT-rT5"/>
                     <constraint firstAttribute="centerX" secondItem="DCV-Qb-fEI" secondAttribute="centerX" constant="-15" id="wbu-UR-sNU"/>
@@ -99,6 +99,7 @@
                     <mask key="constraints">
                         <exclude reference="wbu-UR-sNU"/>
                         <exclude reference="hZ9-EM-MJ0"/>
+                        <exclude reference="n5V-64-KTE"/>
                         <exclude reference="zN8-MQ-poO"/>
                     </mask>
                 </variation>

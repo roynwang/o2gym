@@ -53,6 +53,11 @@ class NearByGymController: UITableViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        if manager.location == nil {
+            self.refreshControl?.endRefreshing()
+            self.view.makeToast(message: "无法定位，请检查设置或者稍后再试")
+            return
+        }
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.gymNearBy.setLoc("\(locValue.longitude)", latitude: "\(locValue.latitude)")
         self.gymNearBy.load({ () -> Void in
@@ -90,8 +95,10 @@ class NearByGymController: UITableViewController, CLLocationManagerDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("nearbygym", forIndexPath: indexPath) as! NearByGymCell
 
-        let gym = self.gymNearBy.datalist[indexPath.row] as! Gym
-        cell.setGym(gym)
+        if self.gymNearBy != nil && (indexPath.row < self.gymNearBy.count ){
+            let gym = self.gymNearBy.datalist[indexPath.row] as! Gym
+            cell.setGym(gym)
+        }
         // Configure the cell...
 
         return cell

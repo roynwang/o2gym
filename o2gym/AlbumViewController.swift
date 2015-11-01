@@ -29,6 +29,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     //var allpics:[UIImageView] = []
     
     var emptyStr:NSAttributedString!
+    var parent:UIViewController!
     
     
     public func setUser(name:String){

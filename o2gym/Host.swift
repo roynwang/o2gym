@@ -12,8 +12,8 @@ class Host {
     //static let ip : String = "http://45.33.58.236:8000/api"
 //    static let ip : String = "http://127.0.0.1:8000/api"
 //    static let ip : String = "http://172.20.10.2:8000/api"
-    static let ip : String = "http://192.168.1.116:8000/api"
-//    static let ip : String = "http://123.57.245.221/api"
+//    static let ip : String = "http://192.168.1.118:8000/api"
+    static let ip : String = "http://123.57.245.221/api"
     static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
     
     class func JwtAuth()->String{
@@ -184,8 +184,11 @@ class Host {
         return url
     }
     
-    class func OrderListGet(user:String)->String{
-        let url : String = "\(self.ip)/\(user)/o/"
+    class func OrderListGet(user:String, coach:String?=nil)->String{
+        var url : String = "\(self.ip)/\(user)/o/"
+        if coach != nil {
+            url += "?coach=\(coach!)"
+        }
         return url
     }
     class func ProductGet(id:Int)->String {
@@ -233,6 +236,13 @@ class Host {
         return "\(self.ip)/\(name)/t/"
     }
     
+    class func TrainListDateGet(name:String, date:String?)->String{
+        if date != nil {
+            return "\(self.ip)/\(name)/t/?month=\(date!)"
+        }
+        return "\(self.ip)/\(name)/t/"
+    }
+    
     class func VcodeLogin(phoneNum:String, vcode:String)->String{
          return "\(self.ip)/sms/\(phoneNum)/?vcode=\(vcode)"
     }
@@ -263,6 +273,14 @@ class Host {
     }
     class func WorkoutCategoryActions(id:Int, name:String) -> String {
         return "\(self.ip)/\(name)/workout/\(id.toString())/"
+    }
+    
+    class func ManualOrderCreate(coach:String)->String {
+        return "\(self.ip)/\(coach)/manualorder/"
+    }
+    
+    class func ProtocolGet()->String{
+        return "\(self.ip)/protocol/"
     }
     
 //    class func WorkoutActionCreate(cate:Int, by:String){

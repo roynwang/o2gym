@@ -88,6 +88,7 @@ class WorkingTimeConfigViewController: UIViewController {
         
         let b = UIBarButtonItem(title: "保存", style: UIBarButtonItemStyle.Done, target: self, action: "save")
         
+        self.navigationController?.navigationBar.translucent = false
         
         self.navigationItem.rightBarButtonItem = b
         

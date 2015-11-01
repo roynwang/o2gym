@@ -32,11 +32,14 @@ class BookedCourseComplexCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func workTapped(sender: AnyObject) {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let cont =  sb.instantiateViewControllerWithIdentifier("train") as! TrainViewController
-        //            cont.usr = self.book.customer.name
-        //            cont.isNew = true
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let cont =  sb.instantiateViewControllerWithIdentifier("train") as! TrainViewController
+  
+        let cont = NewTrainningController()
+        cont.usrname = self.book.customer.name
         cont.book = self.book
+        cont.isNew = true
+
         cont.hidesBottomBarWhenPushed = true
         O2Nav.pushViewController(cont)
         
@@ -102,21 +105,43 @@ class BookedCourseComplexCell: UITableViewCell {
         if book.done && book.rate != nil {
             return
         }
-        //if is coach
-        if Local.USER.iscoach {
-            if dateobj.isLessThanDate(currentDateTime) && !book.done {
-                self.Work.hidden = false
-            }
-        } else {
-            if book.rate == nil && book.done{
-                self.Review.hidden = false
-                
-            } else {
-            //if dateobj.isGreaterThanDate(currentDateTime) {
-                self.ModifyTime.hidden = false
-            //}
-            }
+        
+        //未上课的 可以改期
+        if !book.done {
+            self.ModifyTime.hidden = false
         }
+        //当天的 + 教练 + 未完成 可以上课
+        if Local.USER.iscoach &&
+            dateobj.isLessThanDate(currentDateTime) &&
+            !book.done {
+                self.Work.hidden = false
+        }
+        // 已完成 ＋ 未评价 ＋ 用户 可以评价
+        if !Local.USER.iscoach &&
+            book.done &&
+            book.rate == nil {
+                self.Review.hidden = false
+        }
+        
+        
+        
+        //if is coach
+//        if Local.USER.iscoach {
+//            if dateobj.isLessThanDate(currentDateTime) && !book.done {
+//                self.Work.hidden = false
+//            } else if dateobj.isGreaterThanDate(currentDateTime) {
+//                self.ModifyTime.hidden = false
+//            }
+//        } else {
+//            if book.rate == nil && book.done{
+//                self.Review.hidden = false
+//                
+//            } else {
+//            //if dateobj.isGreaterThanDate(currentDateTime) {
+//                self.ModifyTime.hidden = false
+//            //}
+//            }
+//        }
         
     }
     

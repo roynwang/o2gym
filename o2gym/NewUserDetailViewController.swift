@@ -32,9 +32,12 @@ class NewUserDetailViewController: RYProfileViewController {
         self.album = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
         self.album.rydelegate = self
         self.album.usrname = self.usrname
+        self.album.parent = self
         
         self.mycourse = MyGoodsViewController(nibName: "MyPostViewController", bundle: nil, usrname:self.usrname)
         self.mycourse.rydelegate = self
+        self.mycourse.parent = self
+        
 
         self.viewControllerSet = [album,mycourse]
         self.header = self.initHeaderView()
@@ -49,13 +52,14 @@ class NewUserDetailViewController: RYProfileViewController {
         
         // Do any additional setup after loading the view.
         
-        if self.usr.name == Local.USER.name {
+        if Local.HASLOGIN && self.usr.name == Local.USER.name {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: UIBarButtonItemStyle.Plain, target: self, action: "showSetting")
         }
     }
     
     func showSetting(){
         let cont = ProfileViewController(style: UITableViewStyle.Grouped)
+        cont.hidesBottomBarWhenPushed = true
         O2Nav.pushViewController(cont)
     }
     
@@ -75,8 +79,7 @@ class NewUserDetailViewController: RYProfileViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-
-
+        O2Nav.setController(self)
     }
     
     func initHeaderView()->UserDetailHeaderView {

@@ -16,7 +16,7 @@ class RYProfileViewController: UIViewController{
     
     var containerScroll:UIScrollView!
     var headerHeight:CGFloat = 220
-    var segmentHeight:CGFloat = 50
+    var segmentHeight:CGFloat = 40
     var navHeaderHeight:CGFloat!
     
     private var currentIndex:Int = 0
@@ -32,8 +32,8 @@ class RYProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.headerHeight = self.headerView.frame.height
-        self.segmentHeight = self.segmentControlView.frame.height
+//        self.headerHeight = self.headerView.frame.height
+//        self.segmentHeight = self.segmentControlView.frame.height
         self.navHeaderHeight = self.navigationController!.navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height
         
         
@@ -82,6 +82,7 @@ class RYProfileViewController: UIViewController{
     }
     func switchView(toIndex:Int){
         let to:UIScrollViewDelegate = self.viewControllerSet[toIndex]
+        
         var nextView:UIScrollView!
         if let control = to as? UITableViewController {
             nextView = (to as! UITableViewController).tableView

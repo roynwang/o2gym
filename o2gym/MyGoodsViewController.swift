@@ -15,6 +15,8 @@ class MyGoodsViewController: UITableViewController {
     var myGoods:ProductList!
     var comments : UserCommentList!
     
+    var parent: UIViewController!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
@@ -84,9 +86,9 @@ class MyGoodsViewController: UITableViewController {
         } else {
             return self.comments == nil ? 0 : self.comments.count
         }
-
-        
     }
+    
+  
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -124,7 +126,10 @@ class MyGoodsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
-            if !Local.USER.iscoach {
+            if !Local.HASLOGIN {
+                Helper.showLogin()
+
+            } else if Local.HASLOGIN && !Local.USER.iscoach {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 let cont =  sb.instantiateViewControllerWithIdentifier("book") as! BookViewController
                 cont.product = self.myGoods.datalist[indexPath.row] as! Product

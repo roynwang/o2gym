@@ -28,6 +28,7 @@ class GymLoginViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool){
+        O2Nav.setController(self)
         if Local.HASLOGIN {
             self.showContentView()
         } else {

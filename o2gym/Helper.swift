@@ -234,4 +234,32 @@ public class Helper{
         UIGraphicsEndImageContext()
         return snapshotImage
     }
+    
+    class func showLogin(){
+        let cont = UIViewController()
+        O2Nav.resetNav()
+        cont.title = "登录"
+        let offset = UIApplication.sharedApplication().statusBarFrame.height + (O2Nav.nav?.frame.height)!
+        let width = UIApplication.sharedApplication().statusBarFrame.width
+        let lv = LoginView(frame: CGRectMake(0,offset,width, 400))
+        cont.view.addSubview(lv)
+        cont.view.backgroundColor = UIColor.whiteColor()
+        lv.loginSuccessAction = {
+            O2Nav.controller.navigationController?.popViewControllerAnimated(true)
+        }
+        O2Nav.pushViewController(cont)
+
+    }
+    
+    class func localizeTime(timestr:String)->String{
+
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        formatter.timeZone = NSTimeZone(name: "UTC")
+        let date = formatter.dateFromString(timestr)
+        let outputformatter = NSDateFormatter()
+        outputformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let ret = outputformatter.stringFromDate(date!)
+        return ret
+    }
 }

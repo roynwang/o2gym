@@ -16,6 +16,8 @@ public class Local{
     static var _token:String? = ""
     static var _hasLogin:Bool = false
     
+   
+    
     
     static var AuthHeaders:[String:String] {
         if Local.TOKEN != "" {
@@ -92,6 +94,7 @@ public class Local{
         .responseJSON { (_, resp, result) -> Void in
             switch (result){
             case .Success(let data):
+                self._hasLogin = true
                 let js = JSON(data)
                 if js["token"].string != nil {
                     self._token = js["token"].stringValue
@@ -108,7 +111,7 @@ public class Local{
                     if onsuccess != nil {
                         onsuccess!()
                     }
-                    self._hasLogin = true
+                   
                 } else {
                     self._hasLogin = false
                 }
@@ -141,6 +144,9 @@ public class Local{
     
     public static var ORDERLIST: OrderList? = nil
     
+    public static var CUSTOMERS : CustomerList? = nil
+    
+    public static var SCHEDULE : WeekBookList? = nil
 
     public static var TimeMap = ["09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00"]
 

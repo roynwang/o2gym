@@ -13,6 +13,7 @@ class TextOnlyCell: UITableViewCell {
     @IBOutlet weak var FullText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = O2Color.BgGreyColor
         // Initialization code
     }
 

@@ -50,4 +50,6 @@
 #import "NYXImagesKit.h"
 #import "KIZImageScrollView.h"
 #import "ImagePlayerView.h"
+#import "JTCalendar.h"
+#import "PinYin4Objc.h"
 #endif

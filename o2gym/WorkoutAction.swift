@@ -15,6 +15,7 @@ public class WorkoutAction : BaseDataItem {
     public var workouttype:String!
     public var units:String!
     public var categeory:Int!
+    public var by:String!
     
     public convenience init(dict:JSON){
         self.init()
@@ -28,6 +29,7 @@ public class WorkoutAction : BaseDataItem {
         self.workouttype = dict["workouttype"].string
         self.units = dict["units"].string
         self.categeory = dict["categeory"].int
+        self.by = dict["by"].string
     }
     
     public override var UrlCreate:String {
@@ -43,7 +45,7 @@ public class WorkoutAction : BaseDataItem {
             "workouttype":"",
             "units":self.units,
             "categeory":self.categeory.toString(),
-            "by":Local.USER.id!.toString()
+            "by":Local.USER.name!
         ]
     }
 }

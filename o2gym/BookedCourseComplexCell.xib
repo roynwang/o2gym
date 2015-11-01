@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -68,7 +68,7 @@
                         </variation>
                     </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reb-f6-eS7">
-                        <rect key="frame" x="417" y="54.5" width="48" height="24"/>
+                        <rect key="frame" x="363" y="54.5" width="48" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="YN3-Qo-J9s"/>
                         </constraints>
@@ -278,7 +278,7 @@
                     <constraint firstItem="PND-xB-e3P" firstAttribute="leading" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="10" id="smw-RC-7jY"/>
                     <constraint firstAttribute="centerY" secondItem="reb-f6-eS7" secondAttribute="centerY" constant="-8" id="v4A-Sv-PLK"/>
                     <constraint firstAttribute="centerY" secondItem="fYe-q0-Gmb" secondAttribute="centerY" constant="14" id="vAs-fE-nJv"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="2" id="zCH-ED-cA1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="reb-f6-eS7" secondAttribute="trailing" constant="56" id="zCH-ED-cA1"/>
                     <constraint firstItem="Ir7-CS-Jph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zU5-eX-WXa"/>
                 </constraints>
                 <variation key="default">

@@ -9,12 +9,16 @@
 import UIKit
 
 class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegate {
-
+    
     var book:Book!
     
     var circleSeg:HMSegmentedControl!
     
+    var addBtn:UIBarButtonItem!
+    
     override func viewDidAppear(animated: Bool) {
+        self.view.backgroundColor = O2Color.BgGreyColor
+
         
     }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -24,8 +28,6 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
-        
-        
         self.navigationController?.navigationBar.backgroundColor = O2Color.MainColor
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         
@@ -33,7 +35,7 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
     }
     
     override func viewDidLoad() {
-          super.viewDidLoad()
+        super.viewDidLoad()
         let s = ScheduleViewController()
         if  Local.USER.iscoach {
             
@@ -41,24 +43,26 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
             self.circleSeg = HMSegmentedControl(sectionTitles: ["课表","客户"])
             self.viewControllers = [s,c]
             circleSeg.selectionIndicatorHeight = 1
-        } else {
-            let c2 = TrainHistoryController()
-            c2.book = self.book
             
-            self.circleSeg = HMSegmentedControl(sectionTitles: ["课表","训练"])
-            self.viewControllers = [s,c2]
+                       //        self.navigationItem.rightBarButtonItem = addBtn
+            
+        } else {
+            let c2 = TrainCalendarController()
+            self.circleSeg = HMSegmentedControl(sectionTitles: ["训练","课表"])
+            self.viewControllers = [c2,s]
             circleSeg.selectionIndicatorHeight = 1
-            let addBtn = UIBarButtonItem(image: UIImage(named: "add_circle"), style: UIBarButtonItemStyle.Done, target: self, action: "newItem")
-            self.navigationItem.rightBarButtonItem = addBtn
         }
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         let baritem = self.navigationController?.tabBarItem!
         baritem!.selectedImage = UIImage(named: "muscle_active")
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
+        
+        addBtn = UIBarButtonItem(image: UIImage(named: "add_circle"), style: UIBarButtonItemStyle.Done, target: self, action: "newItem")
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem = self.addBtn
         
         let width:CGFloat = 150
-       
+        
         
         let startx:CGFloat = self.navigationController!.navigationBar.frame.width/2 - width/2
         
@@ -77,6 +81,12 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         circleSeg.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
         circleSeg.indexChangeBlock = {
             index in
+            //            if index == 1 {
+            //                self.navigationItem.rightBarButtonItem = self.addBtn
+            //            } else {
+            //                self.navigationItem.rightBarButtonItem = nil
+            //
+            //            }
             self.setSelectedIndex(index, animated: true)
             
             
@@ -85,8 +95,9 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
         
         
         self.delegate = self
-
-    
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,9 +112,19 @@ class GymNowController: MGSwipeTabBarController , MGSwipeTabBarControllerDelegat
     }
     
     func newItem(){
-        let ap = self.viewControllers[self.selectedIndex] as! AddableProtocol
-        ap.addItem()
+        if Local.USER.iscoach {
+            let cont = ManualOrderController()
+            cont.hidesBottomBarWhenPushed = true
+            cont.coach = Local.USER
+            self.navigationController?.pushViewController(cont, animated: true)
+        } else {
+            let cont = NewTrainningController()
+            cont.hidesBottomBarWhenPushed = true
+            cont.usrname = Local.USER.name!
+            cont.isNew = true
+            self.navigationController?.pushViewController(cont, animated: true)
+        }
     }
-
-
+    
+    
 }

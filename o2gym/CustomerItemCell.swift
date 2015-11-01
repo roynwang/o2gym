@@ -15,6 +15,7 @@ class CustomerItemCell: UITableViewCell {
     var usr:User!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .None
         // Initialization code
     }
 
@@ -29,7 +30,7 @@ class CustomerItemCell: UITableViewCell {
     
     func setContent(user:User){
         self.usr = user
-        self.Avatar.fitLoad(user.avatar!, placeholder: UIImage(named: "avatar"))
+//        self.Avatar.fitLoad(user.avatar!, placeholder: UIImage(named: "avatar"))
         self.Name.text = user.displayname
     }
     

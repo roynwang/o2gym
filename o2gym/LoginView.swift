@@ -13,11 +13,11 @@ import Alamofire
     
     var view: UIView!
     
+    @IBOutlet weak var HrHeight: NSLayoutConstraint!
     @IBOutlet weak var LoginWithPhoneBtn: UIButton!
     @IBOutlet weak var SendSms: JKCountDownButton!
     @IBOutlet weak var Vcode: UITextField!
     @IBOutlet weak var PhoneNum: UITextField!
-    @IBOutlet weak var PhoneLoginView: UIView!
     var loginSuccessAction:(()->Void)!
     
     @IBOutlet weak var LoginBtn: UIButton!
@@ -55,6 +55,7 @@ import Alamofire
         
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         self.determineLoginMethod()
+        self.HrHeight.constant = 0.5
         addSubview(view)
     }
     
@@ -88,28 +89,31 @@ import Alamofire
     
     @IBAction func loginWithVcode() {
         if self.PhoneNum.text?.characters.count != 11 || self.Vcode.text?.characters.count !=  6{
-            self.view.makeToast(message: "请输入正确的手机号和验证码")
+            self.view.makeToast(message: "请输入正确的手机号和验证码", duration: 2, position: HRToastPositionCenter)
             return
         }
+        //self.endEditing(true)
+        self.textFieldShouldEndEditing(self.PhoneNum)
+        self.textFieldShouldEndEditing(self.Vcode)
         Local.loginWithVcode(self.PhoneNum.text!, vcode: self.Vcode.text!, onsuccess: { (_) -> Void in
             if self.loginSuccessAction != nil {
                 self.loginSuccessAction!()
             }
             }, onfail: { (str) -> Void in
-                self.view.makeToast(message: str)
+                self.view.makeToast(message: "登录失败，请检查验证码或手机号码", duration: 2, position: HRToastPositionCenter)
         })
     }
     
     @IBAction func sendVcode(sender: AnyObject) {
         if self.PhoneNum.text?.characters.count != 11 {
-            self.view.makeToast(message: "请输入正确的手机号")
+            self.view.makeToast(message: "请输入正确的手机号", duration: 2, position: HRToastPositionCenter)
             return
         }
 
         self.SendSms.startWithSecond(90)
-        self.SendSms.setTitle("已发送", forState: UIControlState.Normal)
+        self.SendSms.setTitle("验证码已发送", forState: UIControlState.Normal)
         self.SendSms.didChange { (btn, second) -> String! in
-            return "\(second)秒"
+            return "\(second)秒后重发"
         }
         self.SendSms.userInteractionEnabled = false
         self.SendSms.alpha = 0.5
@@ -128,6 +132,10 @@ import Alamofire
         }
     }
     
+    @IBAction func showProtocol(sender: AnyObject) {
+        O2Nav.showProtocol()
+    }
+
     
     @IBAction func loginWithWeChat() {
         print("xxxxx")
@@ -140,13 +148,6 @@ import Alamofire
     
     @IBAction func phoneEditing(sender: UITextField) {
         
-//        if sender.text != nil && sender.text!.characters.count == 11 {
-//            self.SendSms.enabled = true
-//            self.LoginBtn.enabled = true
-//        } else {
-//            self.SendSms.enabled = false
-//            self.LoginBtn.enabled = false
-//        }
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {

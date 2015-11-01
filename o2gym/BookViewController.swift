@@ -246,7 +246,6 @@ class BookViewController: UIViewController {
             })
             }
             
-            
         } else {
             if self.product != nil {
                 self.budget = self.product.amount
@@ -352,8 +351,8 @@ class BookViewController: UIViewController {
             })
         } else {
             self.saveAllBook(sender)
-            self.view.makeToast(message: "预约已提交",duration:2, position:HRToastPositionCenter)
-            let delay = 2.0 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            self.view.makeToast(message: "预约已提交",duration:1, position:HRToastPositionCenter)
+            let delay = 1.0 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), {
                 self.navigationController?.popViewControllerAnimated(true)
             })
@@ -398,8 +397,7 @@ class BookViewController: UIViewController {
     
     
     func submitBook(date:String,hour:Int, rowIndex:Int, sender:UIButton){
-        let book = Book(date: date, hour: hour, coach: self.coach, customer: Local.USER, orderid: self.order.id)
-        
+        let book = Book(date: date, hour: hour, coach: self.coach, customer: self.order.customer, orderid: self.order.id)
         
         
         let cell = self.BookedTable.cellForRowAtIndexPath(NSIndexPath(forRow: rowIndex, inSection: 0)) as! BookedCourseCell

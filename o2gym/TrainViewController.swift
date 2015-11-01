@@ -91,10 +91,7 @@ class TrainViewController: MGSwipeTabBarController , MGSwipeTabBarControllerDele
 
         let c1 = EvalHistoryTableController()
         
-        
-        let c2 = TrainHistoryController()
-        
-        
+        let c2 = TrainCalendarController()
         
         
         if self.usrname != nil {

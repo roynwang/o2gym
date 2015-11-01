@@ -104,7 +104,9 @@ public class OrderItem : BaseDataItem{
         .responseString(encoding: NSUTF8StringEncoding) {
             (_, resp, data) -> Void
             in
-            if resp?.statusCode == 201 {
+            print(resp?.statusCode)
+            if resp != nil && resp!.statusCode == 201 {
+                print(data.value)
                 Pingpp.createPayment(data.value, appURLScheme: "o2gym", withCompletion: {
                     (result, error) -> Void
                     in

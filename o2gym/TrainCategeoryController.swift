@@ -96,6 +96,7 @@ class TrainCategeoryController : UIViewController, UITableViewDataSource, UITabl
         let cate = self.categeoryList.datalist[indexPath.row] as! WorkoutCategory
         cell.Action.text = cate.name
         cell.Icon.image = UIImage(named: "hexagon")
+        cell.tag =  cate.id
         return cell
     }
 
@@ -110,11 +111,27 @@ class TrainCategeoryController : UIViewController, UITableViewDataSource, UITabl
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.actionList = WorkoutCategoryActions(name: Local.USER.name!, category: (self.categeoryList.datalist[indexPath.row] as! WorkoutCategory).id)
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TrainCategeoryCell
-        self.actionSelected = indexPath.row
+        self.actionSelected = cell.tag
         cell.Icon.image = UIImage(named: "hexagon")?.add_tintedImageWithColor(O2Color.LightMainColor, style: ADDImageTintStyleKeepingAlpha)
 
         
         self.actionList.load({ () -> Void in
+            //order by muscle
+            let dataset = self.actionList.datalist
+            let sorted = dataset.sort({ (item0, item1) -> Bool in
+                let action0 = item0 as! WorkoutAction
+                let action1 = item1 as! WorkoutAction
+                let formatter = HanyuPinyinOutputFormat()
+                formatter.toneType = ToneTypeWithoutTone
+                formatter.vCharType = VCharTypeWithV
+                formatter.caseType = CaseTypeLowercase
+                let p0 = PinyinHelper.toHanyuPinyinStringWithNSString(action0.muscle, withHanyuPinyinOutputFormat: formatter, withNSString: "")
+                let p1 = PinyinHelper.toHanyuPinyinStringWithNSString(action1.muscle, withHanyuPinyinOutputFormat: formatter, withNSString: "")
+                return p0.caseInsensitiveCompare(p1) == NSComparisonResult.OrderedDescending
+            })
+            self.actionList.datalist = sorted
+            
+            
             self.ActionDetail.reloadData()
             }, itemcallback: nil)
         
@@ -125,7 +142,6 @@ class TrainCategeoryController : UIViewController, UITableViewDataSource, UITabl
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TrainCategeoryCell
         cell.Icon.image = UIImage(named: "hexagon")
-
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

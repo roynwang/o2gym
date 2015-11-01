@@ -8,7 +8,7 @@ target 'o2gym' do
 #	pod 'DZNPhotoPickerController'
 	pod 'CZPicker'
 	pod 'HCSStarRatingView', '~> 1.4.2'
-#	pod 'Pingpp/Alipay', '~> 2.1.0'
+	pod 'Pingpp/Alipay', '~> 2.1.0'
 	pod 'Pingpp/Wx', '~> 2.1.0'
 #	pod "TextFieldEffects"
 #pod 'BMInputBox'
@@ -28,12 +28,15 @@ target 'o2gym' do
 #	pod 'ios-NumberRangeSelector'
 	pod 'PBJHexagon'
 	pod 'CCHexagonFlowLayout'
-	pod "LiquidFloatingActionButton", :git => 'https://github.com/yoavlt/LiquidFloatingActionButton.git', :branch => 'swift-2.0'
+#pod "LiquidFloatingActionButton", :git => 'https://github.com/yoavlt/LiquidFloatingActionButton.git', :branch => 'swift-2.0'
 #pod "BLContactsViewController"
 	pod 'YSMChineseSort','~>0.1.0'
 	pod 'NYXImagesKit'
 	pod 'ImagePlayerView'
 	pod 'KIZImagePlayer', :git =>'https://github.com/zziking/KIZImagePlayer'
+	pod 'JTCalendar', '~> 2.0'
+	pod 'CBStoreHouseRefreshControl'
+#	pod 'CalendarIOS7'
 end
 
 target 'o2gymTests' do

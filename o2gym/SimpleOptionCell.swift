@@ -16,6 +16,7 @@ class SimpleOptionCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.backgroundColor = O2Color.BgGreyColor
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

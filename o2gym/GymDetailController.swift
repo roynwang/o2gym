@@ -22,7 +22,9 @@ class GymDetailController: UITableViewController {
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.tableView.backgroundColor = UIColor.whiteColor()
+        self.tableView.backgroundColor = O2Color.BgGreyColor
+        self.tableView.bounces = false
+        
  
     }
 
