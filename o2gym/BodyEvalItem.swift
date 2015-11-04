@@ -14,6 +14,7 @@ public class BodyEvalItem : BaseDataItem{
     public var group:String!
     public var unit:String!
     public var date:String!
+    public var tag:Int!
     
     public convenience init(dict:JSON){
         self.init()

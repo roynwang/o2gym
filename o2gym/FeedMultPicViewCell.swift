@@ -130,16 +130,6 @@ class FeedMultPicViewCell: UITableViewCell {
             }
         }
         
-        
-        
-        
-        //let index:Int = find(self.imgs, sender.view as! UIImageView)!
-        
-//        let photosViewController = NYTPhotosViewController(photos: photos, initialPhoto: photos[index] as NYTPhoto)
-//        
-//        photosViewController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-//        O2Nav.controller.navigationController?.presentViewController(photosViewController, animated: true, completion: nil)
-        
     }
     
     func fillCard(ori:Weibo, isSelf:Bool = false, timeline:[Int]? = nil){
@@ -174,8 +164,6 @@ class FeedMultPicViewCell: UITableViewCell {
         }
         
         let weibo = ori.isfwd ? ori.fwdcontent! : ori
-        
-        
         
         
         self.ImgContainerHeight.constant = self.PicWidth

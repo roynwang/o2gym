@@ -52,4 +52,8 @@
 #import "ImagePlayerView.h"
 #import "JTCalendar.h"
 #import "PinYin4Objc.h"
+//#import "DXPopover.h"
+#import "CMPopTipView.h"
+#import "MCNumberLabel.h"
+#import "CTCheckbox.h"
 #endif

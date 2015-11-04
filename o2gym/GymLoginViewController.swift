@@ -15,13 +15,13 @@ class GymLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginView.loginSuccessAction = self.showContentView
+//        self.loginView.loginSuccessAction = self.showContentView
         
-        if Local.HASLOGIN {
+//        if Local.HASLOGIN {
             self.loginView.hidden = true
             
-        }
-        
+//        }
+        self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.
@@ -32,7 +32,8 @@ class GymLoginViewController: UIViewController {
         if Local.HASLOGIN {
             self.showContentView()
         } else {
-            self.loginView.determineLoginMethod()
+            let cont = LoginPwdController()
+            self.navigationController?.pushViewController(cont, animated: true)
         }
     }
     

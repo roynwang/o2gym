@@ -224,6 +224,7 @@ class BookViewController: UIViewController {
         if self.isSingleBook {
             self.budget = 1
             self.orderToBookedTime()
+            self.TimeCollectionView.userInteractionEnabled = false
             
             if self.product != nil {
                 
@@ -779,6 +780,7 @@ extension BookViewController : UITableViewDataSource{
             self.bookedTime.removeValueForKey(day)
             self.dayBookedTime = self.bookedTime[self.curDate.numDescription] ?? [Int]()
             self.BookedTable.reloadData()
+            self.TimeCollectionView.userInteractionEnabled = true
             self.TimeCollectionView.reloadData()
         }
         

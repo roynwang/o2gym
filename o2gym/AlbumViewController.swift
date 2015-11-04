@@ -26,6 +26,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     var executing:Bool = false
     var nomore:Bool = false
     var started:Bool = false
+    var enableAdd:Bool = true
     //var allpics:[UIImageView] = []
     
     var emptyStr:NSAttributedString!
@@ -54,10 +55,10 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     //    }
     
     public override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        self.isSelf = (Local.HASLOGIN && self.usrname == Local.USER.name)
-        
+        self.isSelf = self.enableAdd && (Local.HASLOGIN && self.usrname == Local.USER.name)
         
         //let framewidth = CGRectGetWidth(self.collectionView!.frame)
         
@@ -204,6 +205,10 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
     }
     func delPic(btn:UIButton){
         let alert = SIAlertView(title: "确认删除", andMessage: "删除后图片将不能恢复")
+        alert.addButtonWithTitle("取消", type: .Cancel) { (_) -> Void in
+            alert.dismissAnimated(true)
+            
+        }
         alert.addButtonWithTitle("删除", type: SIAlertViewButtonType.Default, handler: { (_) -> Void in
             alert.dismissAnimated(true)
             
@@ -225,10 +230,7 @@ public class AlbumViewController: UICollectionViewController, DZNEmptyDataSetSou
                     self.collectionView!.makeToast(message: "删除失败")
             })
         })
-        alert.addButtonWithTitle("取消", type: .Cancel) { (_) -> Void in
-            alert.dismissAnimated(true)
 
-        }
         alert.show()
     }
     
@@ -370,6 +372,7 @@ extension AlbumViewController : FSMediaPickerDelegate {
                 print("saved ... ...")
                 self.album.datalist.insert(Pic(url:img), atIndex: 0)
                 self.collectionView?.reloadData()
+                
                 }, error_handler: nil)
         })
         

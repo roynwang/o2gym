@@ -12,7 +12,7 @@ class Host {
     //static let ip : String = "http://45.33.58.236:8000/api"
 //    static let ip : String = "http://127.0.0.1:8000/api"
 //    static let ip : String = "http://172.20.10.2:8000/api"
-//    static let ip : String = "http://192.168.1.118:8000/api"
+//    static let ip : String = "http://192.168.1.106:8000/api"
     static let ip : String = "http://123.57.245.221/api"
     static let ImgHost: String = "http://7xiwfp.com1.z0.glb.clouddn.com/"
     
@@ -236,6 +236,10 @@ class Host {
         return "\(self.ip)/\(name)/t/"
     }
     
+    class func TrainGetWithSchedule(name:String, date:String,schedule:Int) -> String{
+        return "\(self.ip)/\(name)/t/\(date)/\(schedule.toString())/"
+    }
+    
     class func TrainListDateGet(name:String, date:String?)->String{
         if date != nil {
             return "\(self.ip)/\(name)/t/?month=\(date!)"
@@ -243,8 +247,11 @@ class Host {
         return "\(self.ip)/\(name)/t/"
     }
     
-    class func VcodeLogin(phoneNum:String, vcode:String)->String{
-         return "\(self.ip)/sms/\(phoneNum)/?vcode=\(vcode)"
+    class func VcodeLogin(phoneNum:String)->String{
+        return "\(self.ip)/sms/\(phoneNum)/"
+    }
+    class func PwdLogin()->String{
+         return "\(self.ip)/lg/"
     }
     class func VcodeSend()->String{
         return "\(self.ip)/sms/"
@@ -281,6 +288,9 @@ class Host {
     
     class func ProtocolGet()->String{
         return "\(self.ip)/protocol/"
+    }
+    class func IncomeGet(name:String)->String{
+        return "\(self.ip)/\(name)/income/"
     }
     
 //    class func WorkoutActionCreate(cate:Int, by:String){

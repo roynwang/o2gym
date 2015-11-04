@@ -35,8 +35,16 @@ target 'o2gym' do
 	pod 'ImagePlayerView'
 	pod 'KIZImagePlayer', :git =>'https://github.com/zziking/KIZImagePlayer'
 	pod 'JTCalendar', '~> 2.0'
-	pod 'CBStoreHouseRefreshControl'
+#	pod 'CBStoreHouseRefreshControl'
+#	pod 'ARSPopover', '~> 2.0'
+#	pod 'MLKMenuPopover'
 #	pod 'CalendarIOS7'
+#	pod "DXPopover"
+	pod "CMPopTipView"
+#	pod "FlickerNumber"
+	pod 'MCNumberLabel'
+	pod 'CTCheckbox'
+#	pod 'Regex'
 end
 
 target 'o2gymTests' do

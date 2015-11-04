@@ -16,9 +16,16 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     var actionSet:[String : WorkoutAction] = [String : WorkoutAction]()
     var curTextField:UITextField!
     
+    
     var groupedTrain:[[Train]]!
     
     var trainList:TrainListByDate!
+    
+    var trainId : Int = 1
+    
+    var trainListMap : [Int:Train] = [Int:Train]()
+    
+    var headerSet:[UIView?] = [UIView?](count:64, repeatedValue: nil)
     
     
     
@@ -73,8 +80,17 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        if self.book != nil {
+            self.trainList = TrainListByDate(name: self.name, date: self.date, schedule: self.book.id)
+        }
+        
+        
         if self.date != nil {
-            self.trainList = TrainListByDate(name: self.name, date: self.date)
+            if self.book != nil {
+                self.trainList = TrainListByDate(name: self.name, date: self.date, schedule: self.book.id)
+            } else {
+                self.trainList = TrainListByDate(name: self.name, date: self.date)
+            }
             self.trainList.load({ () -> Void in
                 //                self.trainListToActions(self.trainList)
                 self.groupedTrain = self.groupTrainList(self.trainList)
@@ -108,6 +124,15 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     }
     
     func save(onSuccess:(()->Void)?,onFail:((NSError?)->Void)?){
+        self.view.endEditing(true)
+        
+        if self.groupedTrain == nil{
+            if onSuccess != nil {
+                onSuccess!()
+            }
+            return
+        }
+        
         self.saveAllTrains()
         let forsave = TrainListByDate(name: self.name, date: NSDate().dateToString())
         if self.book != nil {
@@ -115,11 +140,19 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         }
         for trains in self.groupedTrain {
             for train in trains {
-                forsave.datalist.append(train)
-                print(train.repeattimes)
+                if (train.weight != nil && train.weight != "") || (train.repeattimes != nil && train.repeattimes != "") {
+                    forsave.datalist.append(train)
+                }
+//                print(train.repeattimes)
             }
         }
         print(forsave)
+        if forsave.count == 0 {
+            if onSuccess != nil {
+                onSuccess!()
+            }
+            return
+        }
         
         forsave.bulkCreate(onSuccess, error_handler:  onFail)
     }
@@ -159,10 +192,21 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             cell.AddBtn.hidden = true
             cell.DelBtn.hidden = true
         }
+        self.headerSet[section] = cell
         
         cell.doRemoveSection = {
-            self.groupedTrain.removeAtIndex(section)
-            self.tableView.deleteSections(NSIndexSet(index: section), withRowAnimation: UITableViewRowAnimation.Automatic)
+            //get section index
+            var index = 0
+            for i in 0..<self.headerSet.count{
+                if self.headerSet[i] == cell {
+                    index = i
+                    break
+                }
+            }
+            self.headerSet.removeAtIndex(index)
+            self.headerSet.append(nil)
+            self.groupedTrain.removeAtIndex(index)
+            self.tableView.deleteSections(NSIndexSet(index: index), withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
         cell.doAddRow = {
@@ -170,7 +214,12 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             let train = Train()
             train.units = self.actionSet[trainname]!.units
             train.action_name = trainname
-            self.self.groupedTrain[section].append(train)
+            
+            self.trainListMap[self.trainId] = train
+            train.tag = self.trainId
+            self.trainId += 1
+            
+            self.groupedTrain[section].append(train)
             self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.groupedTrain[section].count-1, inSection: section)], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         return cell
@@ -178,6 +227,8 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        print(indexPath)
         
         if self.groupedTrain == nil || indexPath.section == self.groupedTrain.count {
             let cell = tableView.dequeueReusableCellWithIdentifier("addnew", forIndexPath: indexPath) as! EvalHistoryTableCell
@@ -202,14 +253,21 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
 
         cell.setUnits(train.units)
 
-        if train.weight != nil {
+        cell.Weight.text = ""
+        cell.Repeatttimes.text = ""
+        if train.weight != nil && train.weight != "" {
             cell.Weight.text = train.weight
         }
-        if train.repeattimes != nil {
+        if train.repeattimes != nil && train.weight != "" {
             cell.Repeatttimes.text = train.repeattimes
         }
         cell.Weight.delegate = self
         cell.Repeatttimes.delegate = self
+        
+        if train.tag != nil {
+            cell.Weight.tag = -train.tag!
+            cell.Repeatttimes.tag = train.tag!
+        }
    
         
         //已有动作添加一组
@@ -227,6 +285,7 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
         }
    
        
+        
         cell.userInteractionEnabled = (self.date == nil)
         return cell
     }
@@ -263,6 +322,12 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
                     let train = Train()
                     train.action_name = action.name
                     train.units = action.units
+                    
+                    self.trainListMap[self.trainId] = train
+                    train.tag = self.trainId
+                    self.trainId += 1
+                    
+                    
                     let newactionGroup:[Train] = [train]
                     if self.groupedTrain == nil {
                         self.groupedTrain = []
@@ -282,15 +347,14 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
             let rowcount = self.tableView(self.tableView, numberOfRowsInSection: section)
             
             for row in  0..<rowcount{
-                let inputcell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: section)) as! TrainningItemCell
+
                 
                 let train:Train = self.groupedTrain[section][row]
-                train.repeattimes = inputcell.Repeatttimes.text
-                train.weight = inputcell.Weight.text
-                //                train.action_name = self.actionkey[section]
+
                 train.action_order = section
                 train.groupid = row
-                train.units = inputcell.Weight.placeholder! + "|" + inputcell.Repeatttimes.placeholder!
+                
+                print(train.units)
                 
             }
         }
@@ -308,9 +372,6 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            //
-            //            let trainname = self.actionkey[indexPath.section]
-            //            self.actions[trainname]?.removeAtIndex(indexPath.row)
             self.groupedTrain[indexPath.section].removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
@@ -371,21 +432,51 @@ class TrainningController: UITableViewController, UIAlertViewDelegate {
 extension TrainningController : UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         self.curTextField = textField
+        
     }
     func textFieldDidEndEditing(textField: UITextField) {
+        
+        if textField.tag > 0 {
+            let train = self.trainListMap[textField.tag]
+            train?.repeattimes = textField.text!
+        } else {
+            let train = self.trainListMap[-textField.tag]
+            train?.weight = textField.text!
+        }
+        
         self.curTextField = nil
+
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if self.curTextField != nil{
             textField.resignFirstResponder()
+            
+            if textField.tag > 0 {
+                let train = self.trainListMap[textField.tag]
+                train?.repeattimes = textField.text!
+            } else {
+                let train = self.trainListMap[-textField.tag]
+                train?.weight = textField.text!
+            }
+
         }
+        
+        
         return true
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if self.curTextField != nil{
             textField.resignFirstResponder()
+            if textField.tag > 0 {
+                let train = self.trainListMap[textField.tag]
+                train?.repeattimes = textField.text!
+            } else {
+                let train = self.trainListMap[-textField.tag]
+                train?.weight = textField.text!
+            }
+
         }
         return true
     }

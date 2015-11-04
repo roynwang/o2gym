@@ -18,6 +18,7 @@ public class Train : BaseDataItem{
     public var action_order:Int!
     public var date:String!
     public var units:String!
+    public var tag:Int!
 
     
     public convenience init(dict:JSON){
@@ -38,8 +39,8 @@ public class Train : BaseDataItem{
     }
     public override func buildParam() -> [String : String] {
         return [
-            "weight":self.weight,
-            "repeattimes": self.repeattimes,
+            "weight":self.weight ?? "",
+            "repeattimes": self.repeattimes ?? "",
             "groupid": self.groupid.toString(),
             "action_name": self.action_name,
             "action_order": self.action_order.toString(),

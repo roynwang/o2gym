@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewUserDetailViewController: RYProfileViewController {
+class NewUserDetailViewController: RYProfileViewController, CMPopTipViewDelegate {
     //var mypost:MyPostViewController!
     var album:AlbumViewController!
     var mycourse:MyGoodsViewController!
@@ -19,6 +19,8 @@ class NewUserDetailViewController: RYProfileViewController {
     static let imgfav = UIImage(named:"fav_bar")
     static let imgfav_active = UIImage(named: "fav_bar_active")
     var faved:Bool = false
+    
+    var reportView:CMPopTipView!
     
     var header:UserDetailHeaderView!
 
@@ -52,8 +54,30 @@ class NewUserDetailViewController: RYProfileViewController {
         
         // Do any additional setup after loading the view.
         
+        let addbtn = UIBarButtonItem(image: UIImage(named: "setting"), style: UIBarButtonItemStyle.Plain, target: self, action: "showSetting")
+        let morebtn = UIBarButtonItem(image: UIImage(named: "more")?.add_tintedImageWithColor(UIColor.whiteColor(), style: ADDImageTintStyleKeepingAlpha), style: UIBarButtonItemStyle.Plain, target: self, action: "showMore")
+        
+        let reportbtn = UIButton(frame: CGRectMake(0,0,60,20))
+        reportbtn.setTitle("举报", forState: UIControlState.Normal)
+        reportbtn.titleLabel?.text = "举报"
+        reportbtn.backgroundColor = UIColor.darkGrayColor()
+        reportbtn.titleLabel?.textColor = UIColor.whiteColor()
+        reportbtn.addTarget(self, action: "reportIllegal", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
+        reportView = CMPopTipView(customView: reportbtn)
+        reportView.backgroundColor = UIColor.darkGrayColor()
+        reportView.borderColor = UIColor.darkGrayColor()
+        reportView.has3DStyle = false
+        reportView.dismissTapAnywhere = true
+        reportView.hasGradientBackground = false
+        reportView.delegate = self
+        
         if Local.HASLOGIN && self.usr.name == Local.USER.name {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: UIBarButtonItemStyle.Plain, target: self, action: "showSetting")
+//            self.navigationItem.rightBarButtonItem =
+            self.navigationItem.rightBarButtonItems = [addbtn]
+        } else {
+            self.navigationItem.rightBarButtonItems = [morebtn]
         }
     }
     
@@ -61,6 +85,22 @@ class NewUserDetailViewController: RYProfileViewController {
         let cont = ProfileViewController(style: UITableViewStyle.Grouped)
         cont.hidesBottomBarWhenPushed = true
         O2Nav.pushViewController(cont)
+    }
+    func showMore(){
+        self.reportView.presentPointingAtBarButtonItem(self.navigationItem.rightBarButtonItems![0], animated: true)
+    }
+    func reportIllegal(){
+        self.reportView.dismissAnimated(true)
+        let alert = SIAlertView(title: "举报", andMessage: "确定该用户资料中有不当内容吗？")
+        alert.addButtonWithTitle("取消", type: .Cancel) { (_) -> Void in
+            alert.dismissAnimated(true)
+        }
+        alert.addButtonWithTitle("确定", type: SIAlertViewButtonType.Default, handler: { (_) -> Void in
+            alert.dismissAnimated(true)
+            self.view.makeToast(message: "已经提交了对该用户的举报")
+        })
+
+        alert.show()
     }
     
     
@@ -217,5 +257,10 @@ class NewUserDetailViewController: RYProfileViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func popTipViewWasDismissedByUser(popTipView: CMPopTipView!) {
+        print("xxx")
+    }
+
 
 }

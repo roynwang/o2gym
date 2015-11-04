@@ -73,12 +73,20 @@ class BookedCourseComplexCell: UITableViewCell {
         O2Nav.showUser(self.book.customer.name!)
     }
     
+    func showCustomerDetail(){
+        O2Nav.showCustomerDetail(self.book.customer)
+    }
+    
     func setByBook(book:Book?){
         self.book = book
         self.AvatarCoach.fitLoad(self.book.coach.avatar!, placeholder: UIImage(named: "avatar"))
         self.AvatarCustomer.fitLoad(self.book.customer.avatar!, placeholder: UIImage(named: "avatar"))
         self.Hour.text = Local.TimeMap[self.book.hour]
-        self.Day.text = self.book.coach.gym
+        if Local.USER.iscoach {
+            self.Day.text = self.book.customer.displayname
+        } else {
+            self.Day.text = self.book.coach.displayname
+        }
         
         self.AvatarCoach.userInteractionEnabled = true
         self.AvatarCustomer.userInteractionEnabled = true
@@ -88,8 +96,14 @@ class BookedCourseComplexCell: UITableViewCell {
         let customergr = UITapGestureRecognizer()
         customergr.addTarget(self, action: "showCustomer")
         
+        
+        let customerdetailgr = UITapGestureRecognizer()
+        customerdetailgr.addTarget(self, action: "showCustomerDetail")
+        
+        
         self.AvatarCoach.addGestureRecognizer(coachgr)
         self.AvatarCustomer.addGestureRecognizer(customergr)
+        self.Day.addGestureRecognizer(customerdetailgr)
         
         self.determineBtn(book!)
     }

@@ -74,20 +74,22 @@ class ScheduleViewController: UITableViewController {
         self.weekSchedule = Local.SCHEDULE
         self.executing = true
         
-        let endelay = 0.3 * Double(NSEC_PER_SEC)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(endelay)), dispatch_get_main_queue(), {
-            self.refreshControl?.endRefreshing()
-        })
+
 
         
         dispatch_async(dispatch_get_main_queue()){
             self.weekSchedule.load({ () -> Void in
-                self.processSchedule()
+              
    
+                let endelay = 0.6 * Double(NSEC_PER_SEC)
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(endelay)), dispatch_get_main_queue(), {
+                    self.refreshControl?.endRefreshing()
+                })
                
                 self.executing = false
-                let delay = 0.3 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                let delay = 0.8 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), {
+                    self.processSchedule()
                     self.tableView.reloadData()
                 })
               
@@ -197,6 +199,7 @@ class ScheduleViewController: UITableViewController {
         let cont = NewTrainningController()
         cont.book = book
         cont.usrname = cont.book.customer.name!
+        
         cont.date = book.date.stringByReplacingOccurrencesOfString("/", withString: "")
         self.navigationController?.pushViewController(cont, animated: true)
         

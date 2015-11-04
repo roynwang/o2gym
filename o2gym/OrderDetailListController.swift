@@ -207,10 +207,10 @@ class OrderDetailListController: UITableViewController {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), {
                 self.order.loadRemote({ (_) -> Void in
                     self.view.hideToastActivity()
-                    if self.order.status == "paid" {
-                      
+                    if self.order.status == "paid" || self.order.status == "inprogress" {
                         if self.backtwice {
-                            self.navigationController?.popViewControllerAnimated(false)
+                            let vcount = self.navigationController?.viewControllers.count
+                            self.navigationController?.viewControllers.removeAtIndex(vcount!-2)
                             
                         }
                         self.navigationController?.popViewControllerAnimated(true)

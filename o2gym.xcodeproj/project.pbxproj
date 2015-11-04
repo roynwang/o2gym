@@ -44,6 +44,8 @@
 		722C24811B9363C100164E34 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C24801B9363C100164E34 /* ProfileViewController.swift */; };
 		722C24B81B94943200164E34 /* PlainTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C24B61B94943200164E34 /* PlainTextCell.swift */; };
 		722C24B91B94943200164E34 /* PlainTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722C24B71B94943200164E34 /* PlainTextCell.xib */; };
+		722D3B4A1BE8CA5400A6EA42 /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D3B481BE8CA5400A6EA42 /* IncomeController.swift */; };
+		722D3B4B1BE8CA5400A6EA42 /* IncomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722D3B491BE8CA5400A6EA42 /* IncomeController.xib */; };
 		722E661C1BB26742005453E3 /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E661B1BB26742005453E3 /* OrderSummaryCell.swift */; };
 		722E661E1BB26760005453E3 /* ProductSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E661D1BB26760005453E3 /* ProductSummaryCell.swift */; };
 		722E66201BB26773005453E3 /* ProductDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E661F1BB26773005453E3 /* ProductDescriptionCell.swift */; };
@@ -131,6 +133,9 @@
 		7271FA0C1B9C339700C2A934 /* AddProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271FA0B1B9C339700C2A934 /* AddProductCell.swift */; };
 		7271FA0E1B9C33AE00C2A934 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271FA0D1B9C33AE00C2A934 /* AddProductViewController.swift */; };
 		72844F411BD498C200A7A95F /* TrainCategeoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72844F401BD498C200A7A95F /* TrainCategeoryController.swift */; };
+		728BC5B21BE8CEBC00E391E5 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BC5B11BE8CEBC00E391E5 /* Income.swift */; };
+		728BC5B51BE9220F00E391E5 /* LoginPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BC5B31BE9220F00E391E5 /* LoginPwdController.swift */; };
+		728BC5B61BE9220F00E391E5 /* LoginPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728BC5B41BE9220F00E391E5 /* LoginPwdController.xib */; };
 		728BD3A11B563F5300B3D3B0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A01B563F5300B3D3B0 /* Album.swift */; };
 		728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BD3A21B563F8400B3D3B0 /* Pic.swift */; };
 		7291D64E1B900CC700DE40C8 /* TimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291D64C1B900CC700DE40C8 /* TimeTableCell.swift */; };
@@ -185,6 +190,8 @@
 		72BDA1021B90516E00CCB29A /* UIView_Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BDA1011B90516E00CCB29A /* UIView_Border.swift */; };
 		72BDA1091B907E2300CCB29A /* BookedCourseTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BDA1071B907E2300CCB29A /* BookedCourseTitleCell.swift */; };
 		72BDA10A1B907E2300CCB29A /* BookedCourseTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72BDA1081B907E2300CCB29A /* BookedCourseTitleCell.xib */; };
+		72BE7F1B1BE5A91B0049D4E2 /* TrainningPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE7F191BE5A91B0049D4E2 /* TrainningPicCell.swift */; };
+		72BE7F1C1BE5A91B0049D4E2 /* TrainningPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72BE7F1A1BE5A91B0049D4E2 /* TrainningPicCell.xib */; };
 		72C0CE8B1B95D170006A4035 /* RestTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CE8A1B95D16F006A4035 /* RestTime.swift */; };
 		72C0CE8E1B95F06A006A4035 /* WorkingTimeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CE8C1B95F06A006A4035 /* WorkingTimeSectionHeader.swift */; };
 		72C0CE8F1B95F06A006A4035 /* WorkingTimeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C0CE8D1B95F06A006A4035 /* WorkingTimeSectionHeader.xib */; };
@@ -367,6 +374,8 @@
 		722C24B41B93765800164E34 /* o2gym-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "o2gym-Bridging-Header.h"; sourceTree = "<group>"; };
 		722C24B61B94943200164E34 /* PlainTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainTextCell.swift; sourceTree = "<group>"; };
 		722C24B71B94943200164E34 /* PlainTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlainTextCell.xib; sourceTree = "<group>"; };
+		722D3B481BE8CA5400A6EA42 /* IncomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeController.swift; sourceTree = "<group>"; };
+		722D3B491BE8CA5400A6EA42 /* IncomeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomeController.xib; sourceTree = "<group>"; };
 		722E661B1BB26742005453E3 /* OrderSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
 		722E661D1BB26760005453E3 /* ProductSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSummaryCell.swift; sourceTree = "<group>"; };
 		722E661F1BB26773005453E3 /* ProductDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDescriptionCell.swift; sourceTree = "<group>"; };
@@ -462,6 +471,9 @@
 		7271FA0B1B9C339700C2A934 /* AddProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductCell.swift; sourceTree = "<group>"; };
 		7271FA0D1B9C33AE00C2A934 /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		72844F401BD498C200A7A95F /* TrainCategeoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainCategeoryController.swift; sourceTree = "<group>"; };
+		728BC5B11BE8CEBC00E391E5 /* Income.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
+		728BC5B31BE9220F00E391E5 /* LoginPwdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPwdController.swift; sourceTree = "<group>"; };
+		728BC5B41BE9220F00E391E5 /* LoginPwdController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginPwdController.xib; sourceTree = "<group>"; };
 		728BD3A01B563F5300B3D3B0 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		728BD3A21B563F8400B3D3B0 /* Pic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pic.swift; sourceTree = "<group>"; };
 		7291D64C1B900CC700DE40C8 /* TimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableCell.swift; sourceTree = "<group>"; };
@@ -522,6 +534,8 @@
 		72BDA1011B90516E00CCB29A /* UIView_Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Border.swift; sourceTree = "<group>"; };
 		72BDA1071B907E2300CCB29A /* BookedCourseTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookedCourseTitleCell.swift; sourceTree = "<group>"; };
 		72BDA1081B907E2300CCB29A /* BookedCourseTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookedCourseTitleCell.xib; sourceTree = "<group>"; };
+		72BE7F191BE5A91B0049D4E2 /* TrainningPicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainningPicCell.swift; sourceTree = "<group>"; };
+		72BE7F1A1BE5A91B0049D4E2 /* TrainningPicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainningPicCell.xib; sourceTree = "<group>"; };
 		72C0CE8A1B95D16F006A4035 /* RestTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestTime.swift; sourceTree = "<group>"; };
 		72C0CE8C1B95F06A006A4035 /* WorkingTimeSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingTimeSectionHeader.swift; sourceTree = "<group>"; };
 		72C0CE8D1B95F06A006A4035 /* WorkingTimeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkingTimeSectionHeader.xib; sourceTree = "<group>"; };
@@ -850,6 +864,7 @@
 				72A06B7C1BD4A0EC008940D9 /* WorkoutAction.swift */,
 				72A06B821BD4A36A008940D9 /* WorkoutCategory.swift */,
 				724E76201BDE1AE000C63BFD /* ManualOrder.swift */,
+				728BC5B11BE8CEBC00E391E5 /* Income.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1042,6 +1057,8 @@
 				72A00CA71BAA65B9007B2922 /* LoginView.xib */,
 				72A00CA91BAA7E9E007B2922 /* LoginView.swift */,
 				7291E1271BAB22D4001DFBE2 /* LoginDelegate.swift */,
+				728BC5B31BE9220F00E391E5 /* LoginPwdController.swift */,
+				728BC5B41BE9220F00E391E5 /* LoginPwdController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -1156,6 +1173,8 @@
 				72C86CC91BCC10B300F68501 /* BasicConfigCell.xib */,
 				72C200191BDE7A1500CE778F /* AboutController.swift */,
 				72C2001A1BDE7A1500CE778F /* AboutController.xib */,
+				722D3B481BE8CA5400A6EA42 /* IncomeController.swift */,
+				722D3B491BE8CA5400A6EA42 /* IncomeController.xib */,
 			);
 			name = MyProfile;
 			sourceTree = "<group>";
@@ -1241,6 +1260,8 @@
 			isa = PBXGroup;
 			children = (
 				72A7A91F1BA6E160009266D3 /* TrainningController.swift */,
+				72BE7F191BE5A91B0049D4E2 /* TrainningPicCell.swift */,
+				72BE7F1A1BE5A91B0049D4E2 /* TrainningPicCell.xib */,
 				72A7A9211BA6E17B009266D3 /* TrainningItemCell.swift */,
 				72A7A9221BA6E17B009266D3 /* TrainningItemCell.xib */,
 				72C7134B1BD9E6CB00898A51 /* TrainningHeader.xib */,
@@ -1464,6 +1485,7 @@
 				72CAFFEB1B5F7D950093DC30 /* FeedFwdHeaderView.xib in Resources */,
 				724652A11B525821004E69C1 /* RecommendCoachCell.xib in Resources */,
 				72CF4A0B1BA5B68E00211BFA /* Info.plist in Resources */,
+				728BC5B61BE9220F00E391E5 /* LoginPwdController.xib in Resources */,
 				725249ED1BDB321600FDB338 /* BottomButtonView.xib in Resources */,
 				722C23BB1B92DA9B00164E34 /* BookedCourseComplexCell.xib in Resources */,
 				72C713621BDA10E700898A51 /* NewActionRadioOptionCell.xib in Resources */,
@@ -1488,6 +1510,7 @@
 				7246529D1B52580A004E69C1 /* RecommendGymCell.xib in Resources */,
 				723C132F1B988C7A007123A1 /* OrderItemCell.xib in Resources */,
 				72C2001C1BDE7A1500CE778F /* AboutController.xib in Resources */,
+				722D3B4B1BE8CA5400A6EA42 /* IncomeController.xib in Resources */,
 				72C713521BDA0D9A00898A51 /* NewActionCell.xib in Resources */,
 				72C86CCB1BCC10B300F68501 /* BasicConfigCell.xib in Resources */,
 				72C86CDA1BCC292C00F68501 /* UserInputModalHeaderCell.xib in Resources */,
@@ -1497,6 +1520,7 @@
 				72A00CA81BAA65B9007B2922 /* LoginView.xib in Resources */,
 				724EB4FE1B47BECC00729F8F /* Images.xcassets in Resources */,
 				7291D6531B9031BD00DE40C8 /* BookedCourseCell.xib in Resources */,
+				72BE7F1C1BE5A91B0049D4E2 /* TrainningPicCell.xib in Resources */,
 				72420BC11B67E89F00462032 /* AlbumPicCell.xib in Resources */,
 				72C86CB61BC50D6E00F68501 /* UserCommentCell.xib in Resources */,
 				724652971B5230EE004E69C1 /* RecommendArticleCell.xib in Resources */,
@@ -1592,6 +1616,7 @@
 				72148C6D1B57852A00A063FF /* QNResponseInfo.m in Sources */,
 				725249E31BDA961300FDB338 /* NewGymDetailController.swift in Sources */,
 				72E5660F1BA5DC0000949DF4 /* BodyEvalListByDate.swift in Sources */,
+				722D3B4A1BE8CA5400A6EA42 /* IncomeController.swift in Sources */,
 				723E82911B49756B00861D6D /* Gym.swift in Sources */,
 				7291E1281BAB22D4001DFBE2 /* LoginDelegate.swift in Sources */,
 				722C23BA1B92DA9B00164E34 /* BookedCourseComplexCell.swift in Sources */,
@@ -1670,6 +1695,7 @@
 				729703D81B6BCB8100DB9DB6 /* JTSImageInfo.m in Sources */,
 				72CF4A0C1BA5B68E00211BFA /* IsaoTextField.swift in Sources */,
 				723E82901B49756B00861D6D /* Course.swift in Sources */,
+				728BC5B21BE8CEBC00E391E5 /* Income.swift in Sources */,
 				723E829E1B4AC3D600861D6D /* Local.swift in Sources */,
 				72C34EDF1BAFDFC000E68122 /* OrderDetailListController.swift in Sources */,
 				72A06B7D1BD4A0EC008940D9 /* WorkoutAction.swift in Sources */,
@@ -1694,6 +1720,7 @@
 				7271FA081B9C203900C2A934 /* MyProductViewController.swift in Sources */,
 				728BD3A31B563F8400B3D3B0 /* Pic.swift in Sources */,
 				729E18421B5E3853000B14EE /* FeedHeaderView.swift in Sources */,
+				728BC5B51BE9220F00E391E5 /* LoginPwdController.swift in Sources */,
 				723E82981B4A951900861D6D /* Feed.swift in Sources */,
 				72C2001B1BDE7A1500CE778F /* AboutController.swift in Sources */,
 				722C24B81B94943200164E34 /* PlainTextCell.swift in Sources */,
@@ -1754,6 +1781,7 @@
 				72BDA1091B907E2300CCB29A /* BookedCourseTitleCell.swift in Sources */,
 				723C13291B96F3AB007123A1 /* WorkingHourConfigCell.swift in Sources */,
 				72D039C71B91A969005E73EA /* Book.swift in Sources */,
+				72BE7F1B1BE5A91B0049D4E2 /* TrainningPicCell.swift in Sources */,
 				72E1AB631B8DE66600B60AF9 /* CVDate.swift in Sources */,
 				72E1AB541B8DE66600B60AF9 /* CVCalendarMenuView.swift in Sources */,
 				72D039C91B91AA66005E73EA /* DayBookList.swift in Sources */,
@@ -1932,7 +1960,20 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/Pingpp/lib/Channels/Alipay";
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib/Channels/Alipay\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib/Channels/Wx\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib/Channels/Wx\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/WeChat/WeChatAPI\"",
+				);
 				New_Setting = "";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.royn.o2gym;
 				PRODUCT_NAME = "氧气健身";
 				PROVISIONING_PROFILE = "";
@@ -1954,6 +1995,18 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/Pingpp/lib/Channels/Alipay";
 				INFOPLIST_FILE = o2gym/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib/Channels/Alipay\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib/Channels/Wx\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Pingpp/lib/Channels/Wx\"",
+					"$(inherited)",
+					"\"$(PODS_ROOT)/WeChat/WeChatAPI\"",
+				);
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.royn.o2gym;
 				PRODUCT_NAME = "氧气健身";
@@ -1968,7 +2021,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1979,7 +2032,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.royn.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/o2gym.app/o2gym";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/氧气健身.app/氧气健身";
 			};
 			name = Debug;
 		};
@@ -1988,14 +2041,14 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = o2gymTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.royn.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/o2gym.app/o2gym";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/氧气健身.app/氧气健身";
 			};
 			name = Release;
 		};

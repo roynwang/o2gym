@@ -18,6 +18,11 @@ class BodyEvalController: UITableViewController, UITextFieldDelegate {
     var alloptions : BodyEvalList!
     
     var curTextField:UITextField!
+    
+    
+    var evalId : Int = 1
+    
+    var evalListMap : [Int: BodyEvalItem] = [Int:BodyEvalItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +48,22 @@ class BodyEvalController: UITableViewController, UITextFieldDelegate {
     }
     
     func save(onSuccess:(()->Void)?,onFail:((NSError?)->Void)?){
+        self.view.endEditing(true)
         let forsave = BodyEvalListByDate(name: self.usr, date: self.date)
-        for i in 0..<self.tableView(self.tableView, numberOfRowsInSection: 0) {
-            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! BodyEvalCell
-            cell.evalData.value = cell.EvalItem.text
-            if cell.evalData.value != nil && cell.evalData.value != ""{
-                forsave.datalist.append(cell.evalData)
+//        for i in 0..<self.tableView(self.tableView, numberOfRowsInSection: 0) {
+//            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! BodyEvalCell
+//            cell.evalData.value = cell.EvalItem.text
+//            if cell.evalData.value != nil && cell.evalData.value != ""{
+//                forsave.datalist.append(cell.evalData)
+//            }
+//        }
+        
+        for (_, be) in self.evalListMap {
+            if be.value != nil && be.value != "" {
+                forsave.datalist.append(be)
             }
-
         }
+        
         if forsave.count != 0 {
             forsave.bulkCreate(onSuccess, error_handler: onFail)
         } else {
@@ -85,8 +97,14 @@ class BodyEvalController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("bodyevalitem", forIndexPath: indexPath) as! BodyEvalCell
 
         
-        cell.setCell(self.alloptions.datalist[indexPath.row] as! BodyEvalItem)
+        let eval = self.alloptions.datalist[indexPath.row] as! BodyEvalItem
+        eval.tag = self.evalId
+        self.evalId += 1
+        self.evalListMap[eval.tag] = eval
+        
+        cell.setCell(eval)
         cell.EvalItem.delegate = self
+        cell.tag = eval.tag
         
         if !self.isNew {
             cell.EvalItem.userInteractionEnabled = false
@@ -100,11 +118,14 @@ class BodyEvalController: UITableViewController, UITextFieldDelegate {
         self.curTextField = textField
     }
     func textFieldDidEndEditing(textField: UITextField) {
+        self.evalListMap[textField.tag]?.value = textField.text
         self.curTextField = nil
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
         if self.curTextField != nil{
+            self.evalListMap[textField.tag]?.value = textField.text
             textField.resignFirstResponder()
         }
         return true
@@ -112,6 +133,7 @@ class BodyEvalController: UITableViewController, UITextFieldDelegate {
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if self.curTextField != nil{
+            self.evalListMap[textField.tag]?.value = textField.text
             textField.resignFirstResponder()
         }
         return true

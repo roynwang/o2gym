@@ -89,7 +89,7 @@ class ProfileViewController: UITableViewController {
             return 1
         }
         if section == 1 {
-            return Local.USER.iscoach ? 6 : 2
+            return Local.USER.iscoach ? 7 : 3
         }
         if section == 2 {
             return 2
@@ -142,6 +142,8 @@ class ProfileViewController: UITableViewController {
             cell.OptionKey.text = "关于我们"
         case "privacy":
             cell.OptionKey.text = "服务条款和隐私政策"
+        case "income":
+            cell.OptionKey.text = "收入统计"
         default:
             return cell
         }
@@ -166,6 +168,8 @@ class ProfileViewController: UITableViewController {
                 return "workinghour"
             case 5:
                 return "myproduct"
+            case 6:
+                return "income"
             default:
                 return "error"
             }
@@ -210,6 +214,7 @@ class ProfileViewController: UITableViewController {
             cont.setUser(Local.USER.name!)
             cont.title = "相册"
             cont.enableDelete = true
+            cont.enableAdd = false
             O2Nav.pushViewController(cont)
         }
         if indexPath.section == 1 && indexPath.row == 1 {
@@ -231,6 +236,12 @@ class ProfileViewController: UITableViewController {
             let cont =  sb.instantiateViewControllerWithIdentifier("myproduct") as! MyProductViewController
             self.navigationController?.pushViewController(cont, animated: true)
         }
+        if indexPath.section == 1 && indexPath.row == 6 && Local.USER.iscoach {
+            
+            let cont =  IncomeController()
+            self.navigationController?.pushViewController(cont, animated: true)
+        }
+        
         
         if indexPath.section == 2 && indexPath.row == 0{
             let cont =  AboutController()

@@ -24,6 +24,8 @@ class NewTrainningController: MGSwipeTabBarController , MGSwipeTabBarControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         //        super.viewDidLoad()
         
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
@@ -78,22 +80,38 @@ class NewTrainningController: MGSwipeTabBarController , MGSwipeTabBarControllerD
         
         self.viewControllers = [c1,c2]
         self.delegate = self
+
         
     }
     
     func save(){
-        self.view.makeToastActivityWithMessage(message: "正在保存")
-        c1.save({ () -> Void in
-            self.c2.save({ () -> Void in
-                self.navigationController?.popViewControllerAnimated(true)
-                }, onFail: { (_) -> Void in
-                    self.view.hideToastActivity()
-                    self.view.makeToast(message: "保存体测数据失败")
-            })
-            }) { (_) -> Void in
-                self.view.hideToastActivity()
-                self.view.makeToast(message: "保存训练数据失败")
+
+        self.view.endEditing(true)
+        let alert = SIAlertView(title: "训练完成", andMessage: "确定完成吗？完成后数据将不能修改")
+        alert.addButtonWithTitle("取消", type: .Cancel) { (_) -> Void in
+            alert.dismissAnimated(true)
         }
+        
+        alert.addButtonWithTitle("确认", type: SIAlertViewButtonType.Default, handler: { (_) -> Void in
+            alert.dismissAnimated(true)
+            
+            self.view.makeToastActivityWithMessage(message: "正在保存")
+            self.c1.save({ () -> Void in
+                self.c2.save({ () -> Void in
+                    self.navigationController?.popViewControllerAnimated(true)
+                    }, onFail: { (_) -> Void in
+                        self.view.hideToastActivity()
+                        self.view.makeToast(message: "保存体测数据失败")
+                })
+                }) { (_) -> Void in
+                    self.view.hideToastActivity()
+                    self.view.makeToast(message: "保存训练数据失败")
+            }
+        })
+       
+        alert.show()
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,6 +119,10 @@ class NewTrainningController: MGSwipeTabBarController , MGSwipeTabBarControllerD
         // Dispose of any resources that can be recreated.
     }
     
+    func swipeTabBarController(swipeTabBarController: MGSwipeTabBarController!, didScrollToIndex toIndex: Int, fromIndex: Int) {
+        self.circleSeg.setSelectedSegmentIndex(UInt(toIndex), animated: true)
+        (self.viewControllers[toIndex] as! UIViewController).viewWillAppear(true)
+    }
     
     /*
     // MARK: - Navigation

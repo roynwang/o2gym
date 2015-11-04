@@ -29,10 +29,9 @@ public class Local{
     public static var paySuccess:(()->Void)?
     public static var payFail:(()->Void)?
     
-    
-    public class func loginWithVcode(phoneNum:String, vcode:String, onsuccess :((User)->Void)?,onfail :((String)->Void)?){
+    public class func loginWithPwd(phoneNum:String, password:String, onsuccess :((User)->Void)?,onfail :((String)->Void)?){
         let defaults = NSUserDefaults.standardUserDefaults()
-        request(.GET, Host.VcodeLogin(phoneNum, vcode: vcode))
+        request(.POST, Host.PwdLogin(), parameters:["username":phoneNum, "password": password])
             .responseJSON { (req, resp, data) -> Void in
                 if data.error != nil {
                     if onfail != nil {
@@ -41,6 +40,46 @@ public class Local{
                     return
                 }
                 if resp?.statusCode == 200{
+                    Local._hasLogin = true
+                    let dict = JSON(data.value!)
+                    self._token = dict["token"].stringValue
+                    print("==================")
+                    print(self._token)
+                    print("==================")
+                    defaults.setValue(self._token, forKey: "o2gym_token")
+                    defaults.setValue(phoneNum, forKey: "o2gym_name")
+                    self._usr = User(name: phoneNum)
+                    self._timelne = Timeline(name: phoneNum)
+                    self.USER.loadRemote(onsuccess, onfail: onfail)
+                    
+                    
+                    //refresh token after 4 seconds
+                    let delay = 4.0 * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), {
+                        Local.auth(nil)
+                    })
+                } else {
+                    
+                    if onfail != nil {
+                        onfail!("请检查密码和手机号码")
+                    }
+                }
+        }
+    }
+    
+    
+    public class func loginWithVcode(phoneNum:String, vcode:String, pwd:String, onsuccess :((User)->Void)?,onfail :((String)->Void)?){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        request(.POST, Host.VcodeLogin(phoneNum), parameters:["vcode": vcode, "password": pwd])
+            .responseJSON { (req, resp, data) -> Void in
+                if data.error != nil {
+                    if onfail != nil {
+                        onfail!("一个神奇的错误")
+                    }
+                    return
+                }
+                if resp?.statusCode == 200{
+                
                     let dict = JSON(data.value!)
                     self._token = dict["token"].stringValue
                     print("==================")

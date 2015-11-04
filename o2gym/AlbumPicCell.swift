@@ -23,12 +23,13 @@ class AlbumPicCell: UICollectionViewCell {
     @IBAction func delCallback(sender: AnyObject) {
         //show dialog
         let alert = SIAlertView(title: "确认删除", andMessage: "确定删除吗？删除后图片将不能恢复")
-        alert.addButtonWithTitle("删除", type: SIAlertViewButtonType.Default, handler: { (_) -> Void in
-            alert.dismissAnimated(true)
-        })
+        
         alert.addButtonWithTitle("取消", type: .Cancel) { (_) -> Void in
             alert.dismissAnimated(true)
         }
+        alert.addButtonWithTitle("删除", type: SIAlertViewButtonType.Default, handler: { (_) -> Void in
+            alert.dismissAnimated(true)
+        })
         alert.show()
     }
 

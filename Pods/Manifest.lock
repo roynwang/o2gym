@@ -21,8 +21,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Alamofire (2.0.0)
-  - CBStoreHouseRefreshControl (1.0)
   - CCHexagonFlowLayout (1.0.2)
+  - CMPopTipView (2.2.0)
+  - CTCheckbox (0.0.4)
   - CZPicker (0.3.6)
   - DZNEmptyDataSet (1.7.1)
   - FSMediaPicker (0.0.2)
@@ -32,6 +33,7 @@ PODS:
   - JTCalendar (2.1.4)
   - KIZImagePlayer (0.0.2)
   - KNSemiModalViewController (0.3)
+  - MCNumberLabel (0.1.1)
   - MKInputBoxView (0.9.3)
   - NHLinearShadow (1.0.1)
   - NYXImagesKit (2.3)
@@ -57,8 +59,9 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Alamofire (~> 2.0.0)
-  - CBStoreHouseRefreshControl
   - CCHexagonFlowLayout
+  - CMPopTipView
+  - CTCheckbox
   - CZPicker
   - DZNEmptyDataSet
   - FSMediaPicker
@@ -67,6 +70,7 @@ DEPENDENCIES:
   - ImagePlayerView
   - JTCalendar (~> 2.0)
   - KIZImagePlayer (from `https://github.com/zziking/KIZImagePlayer`)
+  - MCNumberLabel
   - MKInputBoxView
   - NHLinearShadow (~> 1.0.1)
   - NYXImagesKit
@@ -93,8 +97,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
-  CBStoreHouseRefreshControl: a814bd725e74ff4c1e8dd96eb02358199b0da04f
   CCHexagonFlowLayout: b500d18bfb2381d6b02d2a69686831a3186b62e7
+  CMPopTipView: a0a88404b9f46a5cfc16ce54bdb1b9bf9acb9aff
+  CTCheckbox: 51ca73c98cddb96a665e20660e3f2b7a741645bd
   CZPicker: bf966778ebd3af6c291b4a4190d08a0e2c5c6974
   DZNEmptyDataSet: 2a398066c2bf5848f7f693fb50954b5064debd12
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
@@ -104,6 +109,7 @@ SPEC CHECKSUMS:
   JTCalendar: 9b1352c7ec41cc26b19c189d6608ba48060a53d9
   KIZImagePlayer: c79ec0c37f23a7f76f4a6154f7e006d401c1702b
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
+  MCNumberLabel: bb9fad79d19ddcaf6e9be1ce5d7fbf73421aa1d4
   MKInputBoxView: 022c89a4815fbcf2fcdea95f967fdba2c4f5fb73
   NHLinearShadow: 78fbadda3c09585e0f0bdf7772b2cea37e873804
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb

@@ -12,10 +12,12 @@ public class TrainListByDate:BaseDataList{
     var name:String!
     var date:String!
     var courseid:Int!
+    var schedule:Int!
     
-    public init(name:String, date:String?){
+    public init(name:String, date:String?, schedule:Int?=nil){
         self.name = name
         self.date = date
+        self.schedule = schedule
     }
     
     override func loaditem(dict: JSON) -> BaseDataItem {
@@ -23,6 +25,10 @@ public class TrainListByDate:BaseDataList{
     }
     override var Url:String{
         //return Host.AlbumGet(self.usrname).
+        if self.schedule != nil {
+            return Host.TrainGetWithSchedule(self.name, date:self.date, schedule: self.schedule)
+        
+        }
         return Host.TrainGet(self.name, date: self.date)
     }
     override var listkey:String?{

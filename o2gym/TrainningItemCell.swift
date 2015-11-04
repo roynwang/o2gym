@@ -8,14 +8,21 @@
 
 import UIKit
 
+
 class TrainningItemCell: UITableViewCell {
+    
+
+    
 
     @IBOutlet weak var Repeatttimes: KaedeTextField!
     @IBOutlet weak var Weight: KaedeTextField!
+    
+    var train:Train!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.selectionStyle = .None
+ 
 
     }
 
@@ -27,10 +34,11 @@ class TrainningItemCell: UITableViewCell {
     func setUnits(unitStr:String){
         let units = unitStr.componentsSeparatedByString("|")
         
+        self.Repeatttimes.placeholder = ""
+        self.Weight.placeholder = ""
         self.Weight.hidden = false
-        self.Weight.text = ""
         self.Repeatttimes.hidden = false
-        self.Repeatttimes.text = ""
+
         
         self.Weight.placeholder = units[0]
         if units.count > 1 {
@@ -48,6 +56,20 @@ class TrainningItemCell: UITableViewCell {
     func setUnits(withaction action:WorkoutAction){
         self.setUnits(action.units)
     }
+    
+    func loadTrain(curTrain:Train){
+        self.train = curTrain
+        self.setUnits(train.units)
+        
+        if train.weight != nil {
+            self.Weight.text = train.weight
+        }
+        if train.repeattimes != nil {
+            self.Repeatttimes.text = train.repeattimes
+        }
+
+    }
+    
     func setEditable(editable:Bool){
         self.Repeatttimes.userInteractionEnabled = editable
     }

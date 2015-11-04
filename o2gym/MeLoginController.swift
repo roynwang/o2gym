@@ -15,10 +15,12 @@ class MeLoginController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.loginView.loginSuccessAction = self.showContentView
         
-        if Local.HASLOGIN {
+//        if Local.HASLOGIN {
             self.loginView.hidden = true
             
-        }
+//        }
+        
+        self.navigationController?.navigationItem.hidesBackButton = true
         
         self.navigationController?.navigationBar.barTintColor = O2Color.MainColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -30,7 +32,8 @@ class MeLoginController: UIViewController, UITextFieldDelegate {
         if Local.HASLOGIN {
             self.showContentView()
         } else {
-            self.loginView.determineLoginMethod()
+            let cont = LoginPwdController()
+            self.navigationController?.pushViewController(cont, animated: true)
         }
     }
     
@@ -49,6 +52,8 @@ class MeLoginController: UIViewController, UITextFieldDelegate {
 //        self.navigationController?.pushViewController(cont, animated: false)
 //        O2Nav.showUser(Local.USER.name!)
         O2Nav.showUser(Local.USER.name!, hideback: true)
+        
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){

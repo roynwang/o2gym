@@ -90,6 +90,17 @@ public class O2Nav{
         
     }
     
+    class func showCustomerDetail(customer:User){
+        if !Local.USER.iscoach {
+            return
+        }
+        let cont = CustomerDetailController()
+        cont.customer = customer
+        cont.coach = Local.USER
+        cont.hidesBottomBarWhenPushed = true
+        O2Nav.pushViewController(cont)
+    }
+    
     class func showProtocol(){
         let cont = UIViewController()
         let web = UIWebView(frame: O2Nav.controller.view.frame)
@@ -98,9 +109,16 @@ public class O2Nav{
         cont.title = "服务条款和隐私政策"
         let req = NSURLRequest(URL: NSURL(string: Host.ProtocolGet())!)
         web.loadRequest(req)
-        cont.view.backgroundColor = O2Color.MainColor
+        cont.view.backgroundColor = O2Color.BgGreyColor
         O2Nav.pushViewController(cont)
     }
+    
+    class func showAbout(){
+        let cont =  AboutController()
+        cont.view.backgroundColor = UIColor.blackColor()
+        cont.Name.text = "xxxxx"
+        O2Nav.pushViewController(cont)
+     }
     
 //    class func showLogin(){
 //        let sb = UIStoryboard(name: "Main", bundle: nil)

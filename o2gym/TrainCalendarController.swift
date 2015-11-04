@@ -39,22 +39,27 @@ class TrainCalendarController: UIViewController {
         if self.book != nil {
             self.name = self.book.customer.name!
         }
-        self.CalenderMenu.contentRatio = 1.5
         
+        
+        self.trainHistory = TrainListByMonth(name: self.name, date: nil)
+        self.trainHistory.load({ () -> Void in
+            self.calendarMgr.reload()
+            }, itemcallback: nil)
+
+//        self.view.bringSubviewToFront(self.CalenderMenu)
 
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.trainHistory = TrainListByMonth(name: self.name, date: nil)
-        self.trainHistory.load({ () -> Void in
-            self.calendarMgr.reload()
-            }, itemcallback: nil)
         
+        //to avoid nil exception on iphone5
+//        self.CalenderMenu.contentRatio = 1.5
     }
     
     /*
@@ -95,6 +100,17 @@ extension TrainCalendarController:JTCalendarDelegate {
             day.circleView.hidden = true
             day.textLabel.textColor = UIColor.darkTextColor()
         }
+        
+        if !self.calendarMgr.dateHelper.date(self.CalendarDays.date, isTheSameMonthThan:day.date){
+            day.textLabel.textColor = UIColor.lightGrayColor()
+        }
+        
+//        if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
+//            dayView.circleView.hidden = YES;
+//            dayView.dotView.backgroundColor = [UIColor redColor];
+//            dayView.textLabel.textColor = [UIColor lightGrayColor];
+//        }
+
     }
     func calendarDidLoadNextPage(calendar: JTCalendarManager!) {
         let nexturl:NSString = self.trainHistory.nexturl!
